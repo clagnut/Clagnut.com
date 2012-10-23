@@ -1,0 +1,50 @@
+WELLCOME LIBRARY - CASE STUDY (Interim case study before the site goes live. Focusses on the pattern portfolio)
+
+
+As part of a five-year digitisation strategy, Wellcome approached Clearleft to design the new Wellcome Library website. The site had to be capable of carrying significant amounts of content (including new digitised archive material) whilst being fully responsive on all browsing devices. 
+
+During the 6 month project, we were asked to lead the Research, User Experience Design, Visual Design and Front End Development portion of the project. Back end development was undertaken by Digirati (http://www.digirati.co.uk), with whom we maintained close support throughout the build, ensuring our design systems were seamlessly integrated.
+
+During the initial research and UX phase Clearleft conducted extensive research with both stakeholders and real users. A new IA was developed, tested and iterated upon. A comprehensive set of wireframes was also developed.
+
+The design of the Wellcome library was approached in a modular way, which has several benefits for large content heavy websites. Modular designs are made up of a clear, consistent design language that users can quickly understand and recognise throughout the site. In addition to this, a modular site is more flexible when a site needs to adapt or grow in the future.
+
+Rather than handing over fully compiled pages or lengthy documentation, Clearleft provided a pattern portfolio to back end development team (Digirati). The pattern portfolio comprises of a collection of code fragments presented in a single page, along with a series of examples which pull together these fragments into pages. These code fragments, called patterns, can be placed in any combination to create any page of the website. This in turn creates a more flexible website where individual parts can be reorganised and reused without breaking.
+
+By taking this approach, everyone involved is afforded greater flexibility . For Clearleft, the modular nature of the pattern portfolio enables us to make changes to specific components without affecting the rest of the site. For the developers, it means they can take the individual modules and reproduce them within a CMS, ready for use by editorial teams. For those involved in the editorial process, it means they can reliably use any combination of components.
+
+We've found that this design approach benefits the vast majority of projects we embark upon. For the Wellcome Library project, it's been particularly appreciated and has confirmed the benefits of such a system to us. 
+
+"I like the Pattern Portfolio so much that I'd want to insist that anyone delivering front-end assets to me does so with this or something very similar."
+Tom Crane, Digirati
+
+
+
+
+
+
+
+WELLCOME LIBRARY - CASE STUDY  (for when the site goes live. Focussing on responsiveness and the overall project process)
+
+
+As part of a five-year digitisation strategy, Wellcome approached Clearleft to design the new Wellcome Library website. The site had to be capable of carrying significant amounts of content (including new digitised archive material) whilst being fully responsive on all browsing devices. 
+
+For a 6 month period, we were asked to lead the Research, User Experience Design, Visual Design and Front End Development portion of the project. Back end development was undertaken by Digirati, with whom we maintained close support throughout the build, ensuring our design systems were seamlessly integrated.
+
+During the initial research and UX phase Clearleft conducted extensive research with both stakeholders and real users. A new IA was developed, tested and iterated upon. Because of the size of the website, and the long duration of the project, we created a comprehensive set of wireframes that detailed the UX thinking and could be used as a reference point at later stages in the project (particularly useful during the back-end implementation).
+
+For the visual design we developed a clear, consistent, modular design language that would support the vast amounts of Library content. This was all based strictly on their existing brand guidelines for their Collection. This was developed into a pattern portfolio that was supplied to the development team. The pattern portfolio replaces the need for any lengthy documentation and instead provides the master reference point for all components of the design. 
+
+"I like the Pattern Portfolio so much that I'd want to insist that anyone delivering front-end assets to me does so with this or something very similar."
+Tom Crane, Digirati
+
+With the base design in place we tackled the extremely complex search system that current users found difficult to use. This consists of several different archive and database systems running across different technology platforms. Unfortunately we were unable to change the technology in use for search but we still managed to create a much simpler and more seamless search experience for users. 
+
+Ensuring the designs would work responsively was kept at the forefront of our minds throughout the ux and visual design stages with numerous sketches, mock-ups and interactive prototypes before we found the best way to present the content. It was essential that all content was available on all devices so we worked hard to ensure that our designs could respond seamlessly to cater for this. In particular dealing with the 5 levels of navigation on a small screen device was a challenging part of designing the experience and required considerable attention. At first we had designed a drop down menu for small screens, but with testing we discovered that the menu became too unwieldy with all the available options, so instead we devised a slicker off-canvas navigation menu system that feels more intuitive and ensures that the content flow is not interrupted. 
+
+Alongside the main site, we worked with the development partners to design a new bespoke Digital Asset Player which enables users to explore and experience the details of the library's precious archive material. We also helped to design an interactive timeline that enables users to engage with the library's content in a more contextual way. 
+
+The resulting site is a huge step forward for Wellcome Library, not only in providing a platform for their newly digitised archive material, but also in creating a site that is fully responsive and futureproof - a first for any of the Wellcome Trust sites. 
+
+(maybe get a quote from Vicki Porter or Jenn about how well the website has been received both internally and externally).
+
