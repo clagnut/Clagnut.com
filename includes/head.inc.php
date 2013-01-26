@@ -1,52 +1,60 @@
+<?php
+
+// Turn on PHP Error Reporting
+ini_set("display_errors","2");
+ERROR_REPORTING(E_ALL);
+?>
+
 <!DOCTYPE html>
 <html lang="en-gb">
 
 <head>
-<meta charset="utf-8"/>
-<meta name="author" content="Clearleft Ltd"/>
-<meta name="robots" content="index, follow"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="author" content="Richard Rutter"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<!--fonts-->
-<noscript>
-    <link rel="stylesheet" href="http://f.fontdeck.com/s/css/d7mCROFS04sEUQMyfsH4cjrpvcQ/<?php echo $_SERVER['SERVER_NAME'];?>/17222.css" type="text/css" media="all and (min-device-width:40em)"/>
-</noscript>
+    <!--fonts-->
+    <?php /*
+    <script>
+        var html = document.getElementsByTagName('html')[0];
+        html.className = 'js wf-loading';
+        if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1")) {
+            html.className += ' svg';
+        }
+        setTimeout(function() {
+            html.className = html.className.replace(' wf-loading', '');
+        }, 3000)
+        WebFontConfig = { fontdeck: { id: 21451 } };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+    */ ?>
 
-<script>
-    document.getElementsByTagName('html')[0].className += ' wf-loading';
-    (function() {
-        WebFontConfig = { fontdeck: { id: 17222 } }
-        var wf = document.createElement('script');
-        wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'
-        wf.async = 'true';
-        var s = document.getElementsByTagName('head')[0];
-        s.appendChild(wf);
-    })();
-</script>
+    <!--css-->
+	<link rel="stylesheet" href="/css/all.css" type="text/css" />
 
-<!--js-->
-<script>
-    document.getElementsByTagName('html')[0].className += ' js';
-</script>
-<!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+    <!-- ie html5 and respond shims -->
+    <!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="/css/ie.css" />
+        <script src="/js/ie.js"></script>
+    <![endif]-->
 
-<!--css-->
-<link rel="stylesheet" href="/css/reset.css" type="text/css" />
-<link rel="stylesheet" href="/css/fonts.css" type="text/css" />
-<link rel="stylesheet" href="/css/layout.css" type="text/css" />
-<link rel="stylesheet" href="/css/classes.css" type="text/css" />
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" href="/css/ie.css" />
-<![endif]-->
+    <!--rss-->
+    <link rel="alternate" type="application/rss+xml" title="RSS with summaries" href="http://feeds.feedburner.com/ClagnutSummaries">
+	<link rel="alternate" type="application/rss+xml" title="RSS with full posts" href="http://feeds.feedburner.com/Clagnut">
 
-<!--rss-->
-<link rel="alternate" href="http://feeds.feedburner.com/clearleftnews" type="application/atom+xml" title="Clearleft News Feed"/>
 
-<!--icons-->
-<link rel="shortcut icon" href="/_assets/favicon.ico" type="image/x-icon"/>
-<link rel="apple-touch-icon-precomposed" href="/_assets/apple-touch-icon-precomposed.png" type="image/png"/>
+    <!--icons-->
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" type="image/png"/>
 
-<title><?php echo $title ?></title>
+    <title><?php echo strip_tags($title) ?></title>
 </head>
+
+

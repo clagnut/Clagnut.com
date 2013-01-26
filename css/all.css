@@ -1,0 +1,346 @@
+/* @group Reset */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, 
+p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, 
+a, em, strong, small, s, cite, q, dfn, abbr, time, code, var, samp, kbd, sub, sup, i, b, mark, span, br, 
+ins, del, 
+img, iframe, embed, object, video, audio, canvas, map, area, 
+table, caption, colgroup, tbody, thead, tfoot, tr, td, th, 
+form, fieldset, legend, label, input, button, select, textarea, 
+details, summary, command, menu {
+    font-size: 100%;
+    text-decoration: none;
+    vertical-align: baseline;
+    background: transparent;
+    margin: 0;
+    outline: 0;
+    border: 0 none;
+    padding: 0;
+}
+input, textarea, select, button, optgroup {
+    font-family: inherit;
+    font-size: 1em;
+    line-height: inherit;
+}
+:focus {
+    outline: 0;
+}
+
+ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table { /* tables may still need 'cellspacing="0"' in the markup */
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+a {
+    color:#17b;
+   -webkit-tap-highlight-color:#dcecf9;
+    text-decoration:none;
+    }
+    :focus {
+        outline:1px solid rgba(51,102,204,0.4);
+    }
+    a:hover,
+    a:active {
+        color:#39e;
+        text-decoration:underline;
+        background-color:none;
+        outline:none;
+    }
+    a:link,
+    a:visited,
+    a:hover, 
+    a:link img,
+    a:visited img,
+    a:hover img,
+    a:active img {
+       -webkit-transition:all 0.3s ease;
+       -moz-transition:all 0.3s ease;
+       -o-transition:all 0.3s ease;
+        transition:all 0.3s ease;
+    }
+    a:active {
+        color:#b41;
+       -webkit-transition:none;
+       -moz-transition:none;
+       -o-transition:none;
+        transition:none;
+    }
+    a:hover img, a:active img {
+		box-shadow: 0 0 6px rgba(0,0,0,0.5);	
+	}
+*/
+
+
+ol {	/* ordered lists usually DO require (numbered) bullets */
+	list-style-type: decimal;
+	margin-left: 2em;
+}
+
+ul ul, ol ol, ol ul, ul ol {
+	margin-bottom: 0;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+
+ins {
+	text-decoration: underline;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr[title] {
+	border-bottom: none;
+}
+
+blockquote p {
+	margin-bottom: 0.5em;
+}
+
+/* @end */
+
+/* @group Fade in fonts */
+/*
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading h4,
+.wf-loading h5,
+.wf-loading p {
+	opacity: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p  {
+	opacity: 1;
+}
+
+h1, h2, h3, h4, h5, p, .leader {
+       -webkit-transition:all 0.2s ease;
+       -moz-transition:all 0.2s ease;
+       -o-transition:all 0.2s ease;
+        transition:all 0.2s ease;
+}
+*/
+/* @end */
+
+
+/* @group Fallback fonts */
+
+/* Force fallback font to show first
+
+.wf-loading body  {
+	font-family: 'Droid Serif', Georgia, serif;
+}
+
+.wf-loading b,
+.wf-loading strong,
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading aside h3,
+.wf-loading .group h3 {
+	font-family: Cambria, 'Droid Serif', Georgia, serif;
+}
+
+.wf-loading i,
+.wf-loading em,
+.wf-loading blockquote p,
+.wf-loading aside blockquote p {
+	font-family: 'Droid Serif', Georgia, serif;
+}
+
+.wf-loading h3,
+.wf-loading h4,
+.wf-loading figcaption strong {
+    font-family: Calibri, 'Droid Sans', 'Trebuchet MS', Arial, sans-serif;
+}
+
+.wf-loading h5,
+.wf-loading .section-is #nav-is,
+.wf-loading .section-does #nav-does,
+.wf-loading .section-made #nav-made,
+.wf-loading .section-contact #nav-contact {
+    font-family: Calibri, 'Droid Sans', 'Trebuchet MS', Arial, sans-serif;
+}
+
+.wf-loading header,
+.wf-loading #main nav,
+.wf-loading .leader,
+.wf-loading footer ul,
+.wf-loading figcaption,
+.wf-loading .byline {
+	font-family: Calibri, 'Droid Sans', 'Trebuchet MS', Arial, sans-serif;
+}
+
+.wf-loading aside,
+.wf-loading .group,
+.wf-loading footer {
+	font-family: Calibri, 'Droid Sans', 'Trebuchet MS', Arial, sans-serif;
+}
+
+.wf-loading .vevent .meta,
+.wf-loading .thing cite,
+.wf-loading footer em,
+.wf-loading .group i,
+.wf-loading .group cite,
+.wf-loading .published {
+	font-family: Calibri, 'Droid Sans', 'Trebuchet MS', Arial, sans-serif;
+}
+
+.wf-loading figcaption cite {
+	font-family: Calibri, 'Droid Sans', 'Trebuchet MS', Arial, sans-serif;
+}
+ */
+/* @end */
+
+/* @group Webfonts */
+
+body  {
+	font-family: Ingeborg, Georgia, serif;
+    background: #e9e2d0;
+    color: rgba(0,0,0,0.9);
+    padding: 2em 0;
+}
+
+h1 {
+    font-family: "Ingeborg-Heavy", Georgia, serif;
+    font-weight: 800;
+}
+
+strong, b, .meta .published {
+	font-family: Ingeborg, Georgia, serif;
+	font-weight: bold;
+}
+
+em, cite, i {
+	font-family: Ingeborg, Georgia, serif;
+	font-style: italic;
+}
+
+.meta .categories, .meta .comments {
+    font-family: Candara;
+}
+
+pre, code, kbd, tt, samp, tt {
+	font-family: monospace;
+}
+
+/* @end */
+
+/* @group OpenType features
+ */
+
+.c2sc { /* Smallcaps from caps */
+	-moz-font-feature-settings:"c2sc=1";
+	-moz-font-feature-settings:"c2sc" 1;
+	-ms-font-feature-settings:"c2sc" 1;
+	-o-font-feature-settings:"c2sc" 1;
+	-webkit-font-feature-settings:"c2sc" 1;
+	font-feature-settings:"c2sc" 1; 
+}
+
+
+
+/* @end */
+
+html {
+	font-size: 18px;
+	line-height: 1.5em; /* 27px baseline grid */
+}
+
+#main {
+    overflow: hidden;
+    position: relative;
+}
+
+#main, header, footer {
+    clear: both;
+    /*    max-width: 1024px; */
+    width:1024px;
+    margin: 0 auto;
+    padding: 0 3%;
+}
+
+h2, h3, h4, h5, p, ul, ol {
+    width: 58%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+    padding: 0.04166666666667em 0.5% 0.125em 0.5%;
+    border-top: 1px solid #fff;
+    border-bottom: 6px solid #fff;
+    font-size: 72px;
+    font-size: 4rem;
+    line-height: 1.083em;
+    color: #4d1e1e;
+}
+
+p+p {
+    text-indent: 1.5em;
+}
+
+.meta p+p {
+    text-indent: 0;
+}
+
+section {
+    margin-top: 1.5em;
+}
+
+.pilcrow {
+    font-size: 150%;
+    float: left;
+    width: 1em;
+}
+
+/* @group Asides */
+
+.meta, aside.left {
+	width: 18.5%;
+	padding-left: 0.5%;
+	float: left;
+}
+
+aside p, aside ul, .meta p {
+	margin-left: 0;
+	margin-right: 0;
+	width: auto;
+}
+
+.meta {
+    color: rgba(0,0,0,0.45);   
+}
+
+.meta .categories, .meta .comments {
+    font-size:14px;
+	font-size: 0.77777777777778rem;
+}
+
+/* @end */
+
+
+
