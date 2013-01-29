@@ -15,7 +15,6 @@ ERROR_REPORTING(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!--fonts-->
-    <?php /*
     <script>
         var html = document.getElementsByTagName('html')[0];
         html.className = 'js wf-loading';
@@ -25,7 +24,7 @@ ERROR_REPORTING(E_ALL);
         setTimeout(function() {
             html.className = html.className.replace(' wf-loading', '');
         }, 3000)
-        WebFontConfig = { fontdeck: { id: 21451 } };
+        WebFontConfig = { fontdeck: { id: 17222 } };
         (function() {
             var wf = document.createElement('script');
             wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
@@ -34,7 +33,6 @@ ERROR_REPORTING(E_ALL);
             s.parentNode.insertBefore(wf, s);
         })();
     </script>
-    */ ?>
 
     <!--css-->
 	<link rel="stylesheet" href="/css/all.css" type="text/css" />
