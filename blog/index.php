@@ -10,6 +10,7 @@ include($dr . "head.inc.php");
 
 <div id="main">
 
+<article>
 <h1><?php echo $title ?></h1>
 
 <div class="meta">
@@ -21,6 +22,13 @@ include($dr . "head.inc.php");
 		<section>
 		<p><span class="pilcrow">¶ </span>I’ve just come back from a week with Her Indoors in the West Country; a few days in Devon and a few more in Cornwall (<a href="http://www.flickr.com/photos/clagnut/sets/421788/" title="my Flickr photoset">there are photos</a> – it’s a beautiful part of the world). While there I bought five books, all of which were <a href="http://www.penguin.co.uk/">Penguin</a> paperbacks.</p>
 
+<?php /*
+<section class="figures inline">
+<figure><img src="/i/made/channel4_news-1.png" alt="Screenshot of talent page" />
+<figcaption>Channel 4 News Home Page</figcaption></figure>
+</section>
+*/ ?>
+
 	<p>Penguin are currently celebrating their <a href="http://www.happybirthdaypenguin.com/" title="Happy Birthday Penguin minisite">seventieth birthday</a> by publishing a special series of seventy short paperbacks priced at a measly £1.50 each. The <a href="http://www.happybirthdaypenguin.com/" title="Happy Birthday Penguin minisite">spectrum of authors</a>
  is astonishing, ranging from contemporary novelists such as Zadie Smith
  and Hunter S. Thompson, through non-fiction like Eric Schlosser and
@@ -28,9 +36,9 @@ Simon Schama and classic authors including Roald Dahl, George Orwell and
  <abbr>PG</abbr> Wodehouse, to extracts from key publications in
 Penguin’s history, such as Homer’s Odyssey and the trial over Lady
 Chatterley’s Lover. To top it, each book boasts a bespoke cover – the <a href="http://www.penguin.co.uk/nf/Book/BookDisplay/0,,0_0140912711,00.html">box set</a> was extremely tempting. In the end though I rather randomly bought four of the series: <a href="http://www.penguin.co.uk/nf/Book/BookDisplay/0,,0_0141022515,00.html" title="Penguin: Otherwise Pandemonium">Nick Hornby</a>, <a href="http://www.penguin.co.uk/nf/Book/BookDisplay/0,,0_0141022744,00.html" title="Penguin: Design Faults in the Volvo 760 Turbo">Will Self</a>, <a href="http://www.penguin.co.uk/nf/Book/BookDisplay/0,,0_0141022302,00.html" title="Penguin: The Great Wall of China">Franz Kafka</a> and <a href="http://www.penguin.co.uk/nf/Book/BookDisplay/0,,0_0141022175,00.html" title="Penguin: My Side of the Matter">Truman Capote</a>.</p>
-<?php /*
-	<p class="imgholder inline"><img src="Seventy%20Penguins%20%7C%20Clagnut%20%C2%A7%20Typography_files/penguinbydesign.jpg" alt="Cover of Penguin by Design"></p>
-*/ ?>
+
+	<p class="imgholder outset"><img src="http://clagnut.com/images/penguinbydesign.jpg" alt="Cover of Penguin by Design"></p>
+
 	<p>The fifth book I bought was <a href="http://www.amazon.co.uk/exec/obidos/ASIN/0713998393/jalfrezi-21/" title="More info on Amazon">Penguin by Design – a Cover Story</a> by Phil Baines. Penguin books have a rather illustrious heritage, with legendary typographer <a href="http://en.wikipedia.org/wiki/Jan_Tschichold" title="Wikipedia - Jan Tschichold">Jan Tschichold</a> responsible for the iconic orange spines, three-pane covers with <a href="http://www.identifont.com/show?MB" title="Identifont">Gill Sans</a>, and of course serious attention to detail in the typesetting.</p>
 
 	<p>Phil Baines takes us through the seventy years of history in the
@@ -58,6 +66,21 @@ Christie at this same cottage and had his vision of the cheap quality
 paperback. Christie was one of the first authors to be published by
 Penguin.</p>		</section>
 
+<section class="figures full">
+<ul>
+<li><a href="http://flickr.com/photos/clagnut/17802430/"><img src="http://static.flickr.com/13/17802430_07bf40b809_m.jpg" alt="Crabbing" title="Crabbing" /></a></li>
+<li><a href="http://flickr.com/photos/clagnut/17802456/"><img src="http://static.flickr.com/12/17802456_243c93fafd_m.jpg" alt="River Dart, Dittisham" title="River Dart, Dittisham" /></a></li>
+<li><a href="http://flickr.com/photos/clagnut/17802565/"><img src="http://static.flickr.com/14/17802565_8131ffe7ad_m.jpg" alt="Passenger ferry" title="Passenger ferry" /></a></li>
+<li><a href="http://flickr.com/photos/clagnut/17801254/"><img src="http://static.flickr.com/13/17801254_a34c8aaad5_m.jpg" alt="Herring gull" title="Herring gull" /></a></li>
+</ul>
+</section>
+
+
+<footer>
+
+</footer>
+
+</article>
 
 </div> <!-- /#main -->
 

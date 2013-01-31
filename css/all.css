@@ -46,7 +46,7 @@ table { /* tables may still need 'cellspacing="0"' in the markup */
 
 
 a {
-    color:rgba(0,0,0,0.6);
+    color: rgb(158,102,20);
    -webkit-tap-highlight-color:#dcecf9;
     text-decoration:none;
     }
@@ -55,7 +55,7 @@ a {
     }
     a:hover,
     a:active {
-    color:rgba(0,0,0,0.7);
+	    color: rgba(158,102,20,0.8);
         text-decoration:underline;
         background-color:none;
         outline:none;
@@ -217,27 +217,32 @@ h1, h2, h3, h4, h5, p, .leader {
 /* @group Webfonts */
 
 body  {
-	font-family: "Ingeborg Regular", Ingeborg, Georgia, serif;
+	font-family: "Ingeborg Regular", Ingeborg, "Ingeborg-Regular", Georgia, serif;
+	font-size-adjust: 0.457;
 }
 
 h1 {
     font-family: "Ingeborg Heavy Italic", "Ingeborg Heavy", "Ingeborg-HeavyItalic", Georgia, serif;
     font-weight: 800;
     font-style: italic;
+    font-size-adjust: 0.465;
 }
 
 strong, b, .meta .published {
-	font-family: "Ingeborg Bold", Ingeborg, Georgia, serif;
+	font-family: "Ingeborg Bold", Ingeborg, "Ingeborg-Bold", Georgia, serif;
 	font-weight: bold;
+	font-size-adjust: 0.457;
 }
 
 em, cite, i {
-	font-family: "Ingeborg Italic", Ingeborg, Georgia, serif;
+	font-family: "Ingeborg Italic", Ingeborg, "Ingeborg-Italic", Georgia, serif;
 	font-style: italic;
+	font-size-adjust: 0.453;
 }
 
 .meta .categories, .meta .comments {
-    font-family: Candara, sans-serif;
+    font-family: Candara, "Source Sans Pro", "Droid Sans", "Open Sans", "PT Sans", "Trebuchet MS", sans-serif;
+    font-size-adjust: 0.465;
 }
 
 pre, code, kbd, tt, samp, tt {
@@ -268,9 +273,13 @@ html {
 }
 
 body  {
-    background: #ddd;
-    color: rgba(0,0,0,0.9);
+    background: #f5f0e3;
+    color: #231f20;
     padding: 2em 0;
+}
+
+img {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 #main {
@@ -281,22 +290,37 @@ body  {
 #main, header, footer {
     clear: both;
     margin: 0 auto;
-    /* padding: 0 17.08% 0 10.56%; */
     padding: 0 10.568% 0 6.52%;
+}
+
+section {
+	-moz-font-feature-settings:"onum" 1, "kern" 1, "liga" 1;
+	-moz-font-feature-settings:"onum=1, kern=1, liga=1";
+	-ms-font-feature-settings:"onum" 1, "kern" 1, "liga" 1;
+	-o-font-feature-settings:"onum" 1, "kern" 1, "liga" 1;
+	-webkit-font-feature-settings:"onum" 1, "kern" 1, "liga" 1;
+	font-feature-settings:"onum" 1, "kern" 1, "liga" 1; 
+}
+
+h1 {
+    margin-bottom: 0.5em;
+    padding: 0 0.5% 0.25em 1%;
+    border-bottom: 6px solid rgba(158,102,20,0.5);
+    font-size: 72px;
+    font-size: 4rem;
+    line-height: 1.083em;
+    color: #744a16;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
 h2, h3, h4, h5, p, ul, ol {
     margin: 0 0 0 38.2%;
 }
 
-h1 {
-    margin-bottom: 0.5em;
-    padding: 0.25em 0.5% 0.375em 0.5%;
-    border-bottom: 1px solid rgba(255,255,255,0.5);
-    font-size: 72px;
-    font-size: 4rem;
-    line-height: 1.083em;
-    color: #666;
+.pilcrow {
+    font-size: 150%;
+    float: left;
+    width: 1em;
 }
 
 p+p {
@@ -313,16 +337,21 @@ p+p {
 	text-align: center;
 }
 
-.pilcrow {
-    font-size: 150%;
-    float: left;
-    width: 1em;
-}
-
 /* @group Asides */
 
+p.outset {
+    margin: 0;
+    width: 38.2%;
+    float: left;
+    text-align: right;
+}
+
+p.outset img {
+    margin-right: 1.5em;
+}
+
 .meta, aside.left {
-	padding-left: 0.5%;
+	padding-left: 1%;
 	float: left;
 }
 
@@ -332,16 +361,42 @@ aside p, aside ul, .meta p {
 	width: auto;
 }
 
-.meta {
-    color: #666;   
+.meta .categories, .meta .comments {
+    font-size:16px;
+	font-size: 0.88888888888889rem;
 }
 
-.meta .categories, .meta .comments {
-    font-size:14px;
-	font-size: 0.77777777777778rem;
+.published {
+    color: #744a16;
+}
+
+.figures {
+    margin: 1.5em 0 0.75em 0;
+}
+
+.full ul {
+    margin-left: 0;
+    overflow: auto;
+}
+
+.figures.full li {
+    float: left;
+    padding: 0 1%;
+    width: 23%;
+    height: 9em;
+    overflow: hidden;
+}
+
+.figures.full li img {
+    width: 100%;
+    
 }
 
 /* @end */
 
-
+article footer {
+	clear: both;
+	margin-top: 3em;
+    border-bottom: 6px solid rgba(158,102,20,0.5);
+}
 
