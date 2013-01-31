@@ -48,6 +48,7 @@ nowadays, a sad loss introduced when Penguin’s type design department
 was disbanded in 2003.</p>
 
 	</section>
+	<p class="sectionbreak">§</p>
 <section>
 
 	<p>As an aside, a few days before I bought the books in Cornwall, Her Indoors and I visited <a href="http://www.nationaltrust.org.uk/main/w-vh/w-visits/w-findaplace/w-greenway.htm" title="The National Trust">Greenway</a>,

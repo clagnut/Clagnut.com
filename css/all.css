@@ -46,7 +46,7 @@ table { /* tables may still need 'cellspacing="0"' in the markup */
 
 
 a {
-    color:#503C5E;
+    color:rgba(0,0,0,0.6);
    -webkit-tap-highlight-color:#dcecf9;
     text-decoration:none;
     }
@@ -55,7 +55,7 @@ a {
     }
     a:hover,
     a:active {
-    color:rgba(0,0,0,0.6);
+    color:rgba(0,0,0,0.7);
         text-decoration:underline;
         background-color:none;
         outline:none;
@@ -221,8 +221,9 @@ body  {
 }
 
 h1 {
-    font-family: "Ingeborg Heavy", "Ingeborg-Heavy", Georgia, serif;
+    font-family: "Ingeborg Heavy Italic", "Ingeborg Heavy", "Ingeborg-HeavyItalic", Georgia, serif;
     font-weight: 800;
+    font-style: italic;
 }
 
 strong, b, .meta .published {
@@ -279,10 +280,9 @@ body  {
 
 #main, header, footer {
     clear: both;
-    /*    max-width: 1024px; */
-    width:1024px;
     margin: 0 auto;
-    padding: 0 3%;
+    /* padding: 0 17.08% 0 10.56%; */
+    padding: 0 10.568% 0 6.52%;
 }
 
 h2, h3, h4, h5, p, ul, ol {
@@ -307,8 +307,10 @@ p+p {
     text-indent: 0;
 }
 
-section {
-    margin-top: 1.5em;
+.sectionbreak {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+	text-align: center;
 }
 
 .pilcrow {
@@ -320,7 +322,6 @@ section {
 /* @group Asides */
 
 .meta, aside.left {
-	width: 18.5%;
 	padding-left: 0.5%;
 	float: left;
 }
