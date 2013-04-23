@@ -166,12 +166,6 @@ article p {
 
 @media only screen and (min-width: 38em) {
 
-body {
-	padding: 1.8rem 0;
-	font-size: 18px;
-	font-size: 1.8rem;
-}
-
 article section {
 	padding: 0 21%;
 }
@@ -195,7 +189,7 @@ h1 {
 @media only screen and (min-width: 66em) {
 
 html {
-	font-size: 11.11px;
+	font-size: 11.25px;
 }
 
 }
