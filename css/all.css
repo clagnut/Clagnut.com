@@ -55,8 +55,11 @@ a {
 }
 
 h1 {
-	color: rgb(26,58,26);
+	color: rgba(0,0,0,0.9);
 }
+
+/* highlight
+	color: #a94821; */
 
 /* @end */
 
@@ -70,10 +73,10 @@ body  {
 h1 {
     font-family: "Ingeborg-Heavy", "Ingeborg Heavy", "HoeflerText-Black", "Hoefler Text", Georgia, serif;
     font-weight: 800;
-    font-size-adjust: 0.465;
+    font-size-adjust: 0.455;
 }
 
-b, strong {
+h2, h3, h4, h5, h6, b, strong {
 	font-family: "Akagi Bold", "Akagi-Bold", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 	font-weight: bold;
 	font-size-adjust: 0.492;
@@ -85,47 +88,58 @@ i, em, cite {
 	font-size-adjust: 0.488;
 }
 pre, code, kbd, tt, samp, tt {
-	font-family: monospace;
+	font-family: consolas, monospace;
+	font-size-adjust: 0.488;
 }
 
 /* @end */
 
 html {
+	font-size: 10px;
 	font-size: 0.625em;
 }
 
 body {
 	font-size: 1.6em;
 	font-size: 1.6rem;
-	line-height: 1.5; /* 24px rhythm */
+	line-height: 1.5em; /* 24px rhythm */
 	margin: 0;
 	padding: 0;
 }
 
-article {
+article h1, article h2, article h3, article ul, article ol, article table, article blockquote, article p {
 	padding: 0 5%;
+}
+
+article h4 {
+	padding: 0 0.75em 0 5%;
 }
 
 .published {
 	font-size: 13px;
 	font-size: 1.3rem;
-	line-height: 1.333em;
+	line-height: 1.385em;
+	margin-top: 0.462em;
 }
 
 h1 {
-	line-height: 1.1667em;
+	line-height: 1.167em;
 	font-size: 24px;
 	font-size: 2.4rem;
 	margin-bottom: 0.667em;
+	margin-top: 0.167em;
 }
 
 h2 {
 	font-size: 18px;
-	font-size: 1.8rem;	
+	font-size: 1.8rem;
+	margin-top: 1.33333333333333em;
+	margin-bottom: 0.66666666666667em;
 }
 h3 {
 	font-size: 16px;
 	font-size: 1.6rem;
+	margin-top: 0.75em;
 }
 
 h4, h5, h6 {
@@ -140,6 +154,7 @@ article p {
 	-o-hyphens:auto;
 	-webkit-hyphens:auto;
 	hyphens:auto;
+	margin-bottom: 0.75em;
 }
 
 .meta {
