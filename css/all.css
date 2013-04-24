@@ -13,6 +13,7 @@ input, textarea, select, button, optgroup {
 }
 img {
 	max-width: 100%;
+	vertical-align: bottom;
 }
 [title] {
 	border: 0;
@@ -59,11 +60,11 @@ a {
 	text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, .meta a:hover, .meta a:focus {
 	background: rgba(255,255,255,0.5);
 }
 
-a:active {
+a:active, .meta a:active {
 	background: rgba(255,255,255,0.67);
 }
 
@@ -79,13 +80,19 @@ section::before {
 	color: #a94821;
 }
 
+.meta a {
+	background: none;
+	color: rgba(0,0,0,0.6);
+}
+
 /* @end */
 
 /* @group Webfonts */
 
 body  {
-	font-family: "Akagi Medium", "Akagi-Medium", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 	font-size-adjust: 0.488;
+	font-weight: 500;
 }
 
 section+section::before {
@@ -101,14 +108,15 @@ h1 {
     font-size-adjust: 0.455;
 }
 
-h2, h3, h4, h5, h6, b, strong, ins {
-	font-family: "Akagi Bold", "Akagi-Bold", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-	font-weight: bold;
+h2, h3, h4, h5, h6, b, strong, ins, .categories {
+	font-family: "Akagi-Bold", "Akagi Bold", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 700;
 	font-size-adjust: 0.492;
 }
 
-i, em, cite {
-	font-family: "Akagi Medium Italic", "Akagi-MediumItalic", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+i, em, cite, blockquote {
+	font-family: "Akagi-MediumItalic", "Akagi Medium Italic", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 500;
 	font-style: italic;
 	font-size-adjust: 0.488;
 }
@@ -133,7 +141,7 @@ body {
 }
 
 article h1, article h2, article h3, article ul, article ol, article table, article p {
-	padding: 0 5%;
+	margin: 0 5%;
 }
 
 article h4 {
@@ -186,12 +194,28 @@ article li {
 	margin-left: 1.5em;
 }
 
+blockquote {
+	margin: 0 0.75em 1.5em 0.75em;
+}
+
+blockquote p {
+	margin-bottom: 0;
+}
+
+blockquote p + p {
+	text-indent: 0.75em;
+}
+
 figure {
 	margin: 0 0 0.75em 0;
 	text-align: center;
+}
+
+figcaption {
 	font-size: 13px;
 	font-size: 1.3rem;
 	line-height: 1.385em;
+	margin-top: 0.385em;
 }
 
 figure.inline img {
@@ -200,6 +224,28 @@ figure.inline img {
 
 figcaption {
 	padding: 0 5%;
+}
+
+p.categories {
+	border-top: 0.25em solid #a94821;
+	margin: 2.25em 2.5% 0.75em 2.5%;
+	padding: 0.75em 2.5% 0 2.5%;
+}
+
+.tags li {
+	margin: 0;
+	display: inline;
+	font-size: 13px;
+	font-size: 1.3rem;
+	line-height: 1.385em;
+	padding-right: 0.6925em;
+	white-space: nowrap;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	-o-hyphens: none;
+	-webkit-hyphens: none;
+	hyphens: none;
+	
 }
 
 /* ---------------------------- Media queries ---------------------------- */

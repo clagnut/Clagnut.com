@@ -37,17 +37,6 @@ Ever’. It was another good year – remember this is compiled from music I
 <li><cite>Elevate</cite> by The People’s Revolutionary Choir from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000BCHJH4/jalfrezi-21/">Elevate</a></li>
 <li><cite>Such Great Heights</cite> by Iron &amp; Wine from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000GG4MXE/jalfrezi-21/">Such Great Heights</a></li>
 <li><cite>Pull The Curtains</cite> by Grandaddy from the <abbr><abbr>EP</abbr></abbr> <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000ARHNKI/jalfrezi-21/">Excerpts from the Diary of Todd Zilla</a></li>
-<li><cite>Woman</cite> by Wolfmother from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000G03RQ8/jalfrezi-21/">Woman</a></li>
-<li><cite>Upon This Tidal Wave Of Young Blood</cite> by Clap Your Hands Say Yeah from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000C5RSAS/jalfrezi-21/">Clap Your Hands Say Yeah</a></li>
-<li><cite>Mount Wroclai (Idle Days)</cite> by Beirut from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000IJ7MCC/jalfrezi-21/">Gulag Orkestar</a></li>
-<li><cite>Young Folks</cite> by Peter Bjorn &amp; John from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000FA58IE/jalfrezi-21/">Writer’s Block</a></li>
-<li><cite>Cheated Hearts</cite> by Yeah Yeah Yeahs from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000EHSK24/jalfrezi-21/">Show Your Bones</a></li>
-<li><cite>Rent a Wreck</cite> by Suburban Kids with Biblical Names from the <abbr><abbr>EP</abbr></abbr> <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B0002W18PM/jalfrezi-21/">#1</a></li>
-<li><cite>Only Waiting</cite> by The Aliens from the <abbr><abbr>EP</abbr></abbr> <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000F5GI0Q/jalfrezi-21/">Alienoid Starmonica</a></li>
-<li><cite>Ballad Of Bitter Honey</cite> by Eef Barzelay from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000E6G7JI/jalfrezi-21/">Bitter Honey</a></li>
-<li><cite>Black Swan</cite> by Thom Yorke from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000FPYNR6/jalfrezi-21/">The Eraser</a></li>
-<li><cite>Assassin</cite> by Muse from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000G09OEC/jalfrezi-21/">Black Holes &amp; Revelations</a></li>
-<li><cite>(Wading Through) The Waters Of My Time</cite> by Richard Hawley from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000AMSJQK/jalfrezi-21/">Coles Corner</a></li>
 </ol>
 	<p>These tracks just about squeeze on to a <abbr><abbr>CD</abbr></abbr>,
  so if you’d like a copy, put together your own compilation of the year 
@@ -62,6 +51,8 @@ and send it to me – you’ll get a copy of the above in return. <a href="http:
 <h2>This is a heading level 2</h2>
 
 <p>Phil Baines takes us through the seventy years of history in the design of Penguin paperback covers, a constantly evolving part of Britain’s culture and design history. </p>
+
+<blockquote><p>Phil Baines takes us through the seventy years of history in the design of Penguin paperback covers, a constantly evolving part of Britain’s culture and design history. </p><p>Phil Baines takes us through the seventy years of history in the design of Penguin paperback covers, a constantly evolving part of Britain’s culture and design history. </p></blockquote>
 
 <figure class='inline'><img src="/i/hack.jpg" alt="Cover of Penguin by Design" /><figcaption>The Hack Farm team all enjoying themselves doing something or other.</figcaption></figure>
 
@@ -101,6 +92,24 @@ postcodes are not recognised)</li>
 <footer>
 <div class="meta">
 	<p class="categories">§  <a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> </p>
+		<ul class="tags"><li><a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
+		<li><a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
+		<li><a href="http://clagnut.com/search/?q=book+design" rel="tag">book design</a></li>
+		<li><a href="http://clagnut.com/search/?q=cornwall" rel="tag">cornwall</a></li>
+		<li><a href="http://clagnut.com/search/?q=devon" rel="tag">devon</a></li>
+		<li><a href="http://clagnut.com/search/?q=isbntagged" rel="tag">isbntagged</a></li>
+		<li><a href="http://clagnut.com/search/?q=geotagged" rel="tag">geotagged</a></li>
+		<li><a href="http://clagnut.com/search/?q=Agatha+Christie" rel="tag">Agatha Christie</a></li>
+		<li><a href="http://clagnut.com/search/?q=Phil+Baines" rel="tag">Phil Baines</a></li>
+		<li><a href="http://clagnut.com/search/?q=Dittisham" rel="tag">Dittisham</a></li>
+		<li><a href="http://clagnut.com/search/?q=Brixham" rel="tag">Brixham</a></li></ul>	
+				<h4 id="machine_tags_toggle"><a href="#machine_tags" class="arrow">►</a> Machine tags</h4>
+		
+			<ul style="display: none;" class="machine tags" id="machine_tags">
+		<li><a href="http://clagnut.com/search?q=clagnut%3Apost%3D1484" rel="tag">clagnut:post=1484</a></li>
+	<li><a href="http://clagnut.com/search?q=geo%3Alat%3D50.382" rel="tag">geo:lat=50.382</a></li>
+	<li><a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
+			</ul>
 </div>
 
 </footer>
