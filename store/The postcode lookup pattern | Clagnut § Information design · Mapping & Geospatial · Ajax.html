@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>The postcode lookup pattern | Clagnut §  Information&nbsp;design  ·  Mapping&nbsp;&amp;&nbsp;Geospatial  ·  Ajax </title>
+<meta name="MSSmartTagsPreventParsing" content="true">
+
+<script src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/jquery.js" type="text/javascript"></script>
+<script src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/cookie.js" type="text/javascript"></script>
+<script src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/global.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/144.css" type="text/css"><link rel="stylesheet" href="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/screen.css" media="all" type="text/css">
+
+<link rel="top" title="Home page" href="http://clagnut.com/">
+<link rel="search" title="Search this site" href="http://clagnut.com/search/">
+<link rel="help" title="Accessiblity details" href="http://clagnut.com/accessibility/">
+<link rel="author" title="Contact the author, Richard Rutter" href="http://clagnut.com/contact/">
+<link rel="shortcut icon" href="http://clagnut.com/favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="RSS with summaries" href="http://feeds.feedburner.com/ClagnutSummaries">
+<link rel="alternate" type="application/rss+xml" title="RSS with full posts" href="http://feeds.feedburner.com/Clagnut">
+<link rel="alternate" type="application/rss+xml" title="Blogmarks RSS" href="http://feeds.feedburner.com/ClagnutBlogmarks">
+
+<meta name="description" content="As a way of enabling address input, the UK postcode look-up is fraught with danger and is rarely implemented well. As is often the case in UX design, everything is fine until an exception is reached.">
+<meta name="keywords" content="Information design,Mapping and Geospatial,UX,postcode,lookup,user flow,Ajax,flow diagram">
+
+</head>
+<body id="blog" class="hfeed">
+
+<div id="header">
+<div class="wrapper">
+
+	<div class="primary">
+	</div> <!-- /primary-->
+	
+	<div class="secondary">
+	</div> <!-- /secondary-->
+	
+	<div class="tertiary">
+	<form action="/search" method="get">
+	<div>
+	<input id="q" name="q" class="valueprompt" title="Search" value="Search" type="text">
+	<input value="Go" id="go" type="submit">
+	</div>
+	</form> 
+	</div> <!-- /tertiary-->
+	
+</div> <!-- /wrapper-->
+</div> <!-- /header-->
+
+<div id="masthead">
+<div class="wrapper">
+
+	<div class="primary">
+	<p>Published in Brighton, UK</p>
+	</div> <!-- /primary-->
+	
+	<div class="secondary">
+	</div> <!-- /secondary-->
+	
+	<div class="tertiary">
+	<h5><a href="http://clagnut.com/"><img src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/clagnut-logo.png" alt="Clagnut"></a></h5>
+	</div> <!-- /tertiary-->
+
+</div> <!-- /wrapper-->
+</div> <!-- /masthead-->
+<div id="content" class="wrapper">
+
+<div class="hentry">
+		<h1 class="entry-title">The postcode lookup pattern</h1>
+			<div class="primary">
+		
+		<div class="entry-content">	
+		<div class="segment">
+		<p><span class="para">¶ </span>The <abbr><abbr>UK</abbr></abbr> has a particularly precise postcode system, where a postcode such as <abbr><abbr>BN2</abbr></abbr> 1NA represents just 20 individual properties. The postcode database was created by the <a href="http://www.royalmail.com/">Royal Mail</a> and it is <a href="http://www.royalmail.com/portal/rm/jump2?catId=400084&amp;mediaId=400085&amp;keyname=PAFDATA">sold for use</a>
+ by anyone whose willing to stump up the cash (why we should pay for 
+something our taxes have created is a whole other argument). The upshot 
+is that many websites which require an address from users will provide 
+an ajax postcode look-up as part of the process.</p>
+
+	<p>However the postcode look-up is fraught with danger and is rarely implemented well. As is often the case in <abbr><abbr>UX</abbr></abbr> design, everything is fine until an exception is reached. I’ve created an <a href="http://clagnut.com/sandbox/postcodelookup.html">interactive wireframe</a>
+ to demonstrate a successful way to integrate a postcode look-up as part
+ of an address input scenario. This is the user flow diagram:</p>
+
+	<p class="imgholder"><img src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/postcodelookup.png" alt="Diagram exported from Omnigraffle"></p>
+
+	<p>User flow of ajax postcode look-up for address entry</p>
+
+	<p>The important bits are the arrows on the edges dealing with the 
+deviations away from the successful look-up through the middle. Commonly
+ implementations miss out at least one of these:</p>
+
+
+<ul>
+	<li>allowing users to skip the lookup altogether (maybe the user doesn’t know their postcode)</li>
+	<li>helpfully dealing with a failed lookup (edit the postcode or skip 
+the lookup – often databases are not kept up to date and so valid 
+postcodes are not recognised)</li>
+	<li>allow users to type a different postcode (their work address instead of their home address)</li>
+	<li>deal with addresses not present in the list returned</li>
+	<li>allow users to edit the address returned from the database</li>
+
+</ul>
+	<p>All this does raise the question: who does the postcode look-up 
+help? Probably not the person filling out their address. Regular web 
+users will be able to input their addresses more quickly by typing 
+directly than through use of a postcode lookup. This is particularly 
+true if they are using the form filling functionality available in all 
+modern browsers and many plug-ins. Postcode lookups may well get the 
+website cleaner data, but probably not by much. Either way, more 
+attention needs to be given to the postcode lookup experience and flow.</p>		</div>
+	
+		</div>  <!-- /.entry-content -->
+	
+	</div> <!-- /.primary -->
+	
+	<div class="secondary">
+	
+		<div class="meta">
+			<p class="published"><abbr title="2009-10-14T18:16:42+01:00">14 October 2009</abbr></p>
+			<p class="categories">§  <a href="http://clagnut.com/archive/information_design/" title="View all posts relating to Information&nbsp;design.">Information&nbsp;design</a>  ·  <a href="http://clagnut.com/archive/geospatial/" title="View all posts relating to Mapping&nbsp;&amp;&nbsp;Geospatial.">Mapping&nbsp;&amp;&nbsp;Geospatial</a>  ·  <a href="http://clagnut.com/archive/ajax/" title="View all posts relating to Ajax.">Ajax</a> </p>			<p class="comments"><a href="#comments">0 comments</a></p>
+		</div>
+		
+				
+		
+			</div> <!-- /secondary-->
+</div> <!-- /hentry-->
+	
+	<div class="tertiary">
+		<h3>Next</h3>
+	<ul class="next">
+	<li><a href="http://clagnut.com/blog/1745/">Something’s missing around here</a></li>
+	</ul>
+		
+		<h3>Previous</h3>
+	<ul class="prev">
+	<li><a href="http://clagnut.com/blog/1867/">Top Tunes 2006</a></li>
+	</ul>
+		
+	<h2>Related posts</h2>
+	<ul>
+				<li><a href="http://clagnut.com/blog/1771/">d.Construct schedule and podcast</a></li>
+					<li><a href="http://clagnut.com/blog/68/">Bent over a barrel</a></li>
+					<li><a href="http://clagnut.com/blog/74/">Girls, girls, girls</a></li>
+					<li><a href="http://clagnut.com/blog/188/">The user-centred aesthetic</a></li>
+					<li><a href="http://clagnut.com/blog/198/">Buy buy</a></li>
+					</ul>	
+	<h2>Keywords</h2>
+	<ul class="tags"><li><a href="http://clagnut.com/search/?q=Information+design" rel="tag">Information design</a></li><li><a href="http://clagnut.com/search/?q=Mapping+and+Geospatial" rel="tag">Mapping and Geospatial</a></li><li><a href="http://clagnut.com/search/?q=UX" rel="tag">UX</a></li><li><a href="http://clagnut.com/search/?q=postcode" rel="tag">postcode</a></li><li><a href="http://clagnut.com/search/?q=lookup" rel="tag">lookup</a></li><li><a href="http://clagnut.com/search/?q=user+flow" rel="tag">user flow</a></li><li><a href="http://clagnut.com/search/?q=Ajax" rel="tag">Ajax</a></li><li><a href="http://clagnut.com/search/?q=flow+diagram" rel="tag">flow diagram</a></li></ul>	
+			<h4 id="machine_tags_toggle"><a href="#machine_tags" class="arrow">►</a> Machine tags</h4>
+	
+		<ul style="display: none;" class="machine tags" id="machine_tags">
+	<li><a href="http://clagnut.com/search?q=clagnut%3Apost%3D2292" rel="tag">clagnut:post=2292</a></li>
+		</ul>
+		
+	</div> <!-- /tertiary-->
+
+</div> <!-- /content-->
+
+<div id="appendix" class="wrapper">
+	<div id="comments">
+	
+	<div class="primary">
+	<h2>Comments</h2>
+	<p>No comments yet. Be the first!</p>	</div> <!-- /primary -->
+	
+	<div class="secondary">
+	<h2 id="add-your-comment">Add your comment</h2>
+<p>Comments are now <strong>closed</strong> on this post. If you have more to say please <a href="http://clagnut.com/contact/">contact me</a> directly.</p>	</div> <!-- /secondary-->
+	
+	</div> <!-- /#comments -->
+	
+	<div class="tertiary">
+	<h2>Outside interest</h2>
+	
+		
+	<h3>Top Referrers</h3>
+	<ul class="referrers"><li>4&nbsp;·&nbsp;<a href="http://jpstacey.info/blog/2010/03/31/postcode-lookup-must-not-suck" rel="nofollow">jpstacey.info/blog</a></li>
+<li>1&nbsp;·&nbsp;<a href="http://delicious.com/search?p=postcode" rel="nofollow">delicious.com/search?p=postcode</a></li>
+</ul>	</div> <!-- /tertiary-->
+
+</div> <!-- /appendix-->
+
+<div id="footer">
+<div class="wrapper">
+
+	<div class="primary vcard">
+	<h4>About the author</h4>
+	<p class="imgholder"><a href="http://clagnut.com/about/"><img src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/rich.jpg" alt="Richard" class="photo"></a></p>
+	<address class="adr note"><a href="http://clagnut.com/about/" class="url fn" rel="me">Richard Rutter</a> is <a href="http://clearleft.com/is/richardrutter/" rel="me" class="title">Production Director</a> at <a href="http://clearleft.com/" class="url org">Clearleft</a>, a website user-experience consultancy based in <span class="locality">Brighton</span>, <span class="country-name">UK</span>. Here he writes about his passion for web typography, UX design, Brighton, music and occasionally mountain biking.</address>
+
+	</div> <!-- /primary-->
+	
+	<div class="secondary">
+	<div class="contents">
+		<h4>Contents</h4>
+		<ul>
+		<li><a href="http://clagnut.com/archive/">Blog archive</a></li>
+		<li><a href="http://clagnut.com/blogmarks/">Blogmarks</a></li>
+		<li><a href="http://clagnut.com/sandbox/">Sandbox</a></li>
+		<li><a href="http://clagnut.com/about/" rel="me">About</a></li>
+		<li><a href="http://clagnut.com/music/">Music</a></li>
+		<li><a href="http://clagnut.com/photos/">Photos</a></li>
+<!--		<li><a href="/food/meal.php">Food blog</a></li>-->
+		</ul>
+	</div>
+	<div class="feeds">
+		<h4>Feeds <img src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/rss12.png" alt="RSS 2.0" title="RSS 2.0"></h4>
+		<ul>
+		<li><a href="http://feeds.feedburner.com/Clagnut">Complete posts</a></li>
+		<li><a href="http://feeds.feedburner.com/ClagnutSummaries">Summaries only</a></li>
+		<li><a href="http://feeds.feedburner.com/ClagnutBlogmarks">Blogmarks</a></li>
+		<li><a href="http://huffduffer.com/clagnut/rss" rel="me">clagTunes</a></li>
+<!--		<li><a href="http://feeds.feedburner.com/ClagnutFood">Food blog</a></li>-->
+		</ul>
+	</div>
+	</div> <!-- /secondary-->
+	
+	<div class="tertiary">
+	<h4>Copyright</h4>
+	<p>© Richard Rutter 2002–10</p>
+	<p class="proud"><img src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/proud.png" alt="Union Jack underpants" title="A proud member of the Britpack"></p>
+	<p class="priv-prefs"><a href="http://clagnut.com/privacy/">Privacy</a> · <a href="http://clagnut.com/preferences/">Preferences</a></p>
+	</div> <!-- /tertiary-->
+
+</div> <!-- /wrapper-->
+</div> <!-- /footer-->
+
+<script src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/clagnut" type="text/javascript"></script>
+<script src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/a.js" type="text/javascript"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="The%20postcode%20lookup%20pattern%20%7C%20Clagnut%20%C2%A7%20Information%C2%A0design%20%C2%B7%20Mapping%C2%A0&amp;%C2%A0Geospatial%20%C2%B7%20Ajax_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-132181-8");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+</body></html>

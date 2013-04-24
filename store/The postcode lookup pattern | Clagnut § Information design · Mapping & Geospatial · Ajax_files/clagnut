@@ -1,0 +1,88 @@
+(function() {
+	var userAgent = navigator.userAgent.toLowerCase();
+	var browser = {
+		safari: /webkit/.test(userAgent),
+		opera: /opera/.test(userAgent),
+		msie: /msie/.test(userAgent) && !/opera/.test(userAgent),
+		mozilla: /mozilla/.test(userAgent) && !/(compatible|webkit)/.test(userAgent)
+	};
+	var platform = {
+		win: /win/i.test(navigator.platform),
+		mac: /mac/i.test(navigator.platform),
+		linux: /linux/i.test(navigator.platform)
+	}
+	function addLoadEvent(func) {
+		var oldonload = window.onload;
+		if (typeof window.onload != 'function') {
+			window.onload = func;
+		} else {
+			window.onload = function() {
+				if (oldonload) {
+					oldonload();
+				}
+				func();
+			}
+		}
+	}
+	addLoadEvent(function() {
+		function getDimension(name) {
+			// name = 'Height' or 'Width';
+			// Opera reports document.body.client[Width/Height] 
+			// properly in both quirks and standards
+			if (browser.opera) {
+				return document.body[ "client" + name ];
+			}
+			// Safari reports inner[Width/Height] just fine 
+			// (Mozilla and Opera include scroll bar widths)
+			if (browser.safari) {
+				return window[ "inner" + name ];
+			}
+			// Everyone else use document.documentElement or document.body 
+			//depending on Quirks vs Standards mode
+			if (document.compatMode == "CSS1Compat") {
+				return document.documentElement[ "client" + name ];
+			} else {
+				return document.body[ "client" + name ];
+			}
+		}
+		
+		function getBrowser() {
+			var result;
+			for (var key in browser) {
+				if (browser.hasOwnProperty(key) && browser[key]) {
+					result = key;
+					break;
+				}
+			}
+			for (var key in platform) {
+				if (result && platform.hasOwnProperty(key) && platform[key]) {
+					result += '-' + key;
+					break;
+				}
+			}
+			return result || 'unknown';
+		}
+		
+		// Record browser, height and width
+		var bits = [
+			'browser=' + getBrowser(),
+			'width=' + getDimension('Width'),
+			'height=' + getDimension('Height'),
+			'account=clagnut'
+
+		];
+		var qs = bits.join('&');
+		
+		// Before we record it, does the user have a cookie that tells us 
+		// that we've recorded this information already?
+		var cookiebits = document.cookie.split(';');
+		for (var i = 0, j = cookiebits.length; i < j; i++) {
+		    var bit = cookiebits[i].replace(/\s+/g, '');
+		    if (/^liquidfold=/.exec(bit) && bit.replace('liquidfold=', '') == escape(qs)) {
+		        return;
+		    }
+		}
+		(new Image).src = 'http://liquidfold.net/record?' + qs;
+		document.cookie = 'liquidfold=' + escape(qs) + '; path=/';
+	});
+})();

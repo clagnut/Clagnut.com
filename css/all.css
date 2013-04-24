@@ -17,6 +17,12 @@ img {
 [title] {
 	border: 0;
 }
+ins {
+	text-decoration: underline;
+}
+del {
+	text-decoration: line-through;
+}
 
 /* @end */
 /* @group OpenType features */
@@ -31,14 +37,13 @@ img {
 }
 
 section {
-	-moz-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0;
+	-moz-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 1;
 	-moz-font-feature-settings:"onum=1, pnum1, kern=1, liga=1, calt=1";
 	-ms-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1;
 	-o-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1;
 	-webkit-font-feature-settings:"onum" 1, "pnum" 1 ,"kern" 1, "liga" 1;
 	font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1; 
 }
-
 /* @end */
 
 /* @group Color */
@@ -54,12 +59,25 @@ a {
 	text-decoration: none;
 }
 
+a:hover, a:focus {
+	background: rgba(255,255,255,0.5);
+}
+
+a:active {
+	background: rgba(255,255,255,0.67);
+}
+
 h1 {
 	color: rgba(0,0,0,0.9);
 }
 
-/* highlight
-	color: #a94821; */
+figure {
+	color: rgba(0,0,0,0.6);
+}
+
+section::before {
+	color: #a94821;
+}
 
 /* @end */
 
@@ -70,13 +88,20 @@ body  {
 	font-size-adjust: 0.488;
 }
 
+section+section::before {
+	content: "§";
+	text-align: center;
+	display: block;
+	margin-bottom: 0.75em;
+}
+
 h1 {
     font-family: "Ingeborg-Heavy", "Ingeborg Heavy", "HoeflerText-Black", "Hoefler Text", Georgia, serif;
     font-weight: 800;
     font-size-adjust: 0.455;
 }
 
-h2, h3, h4, h5, h6, b, strong {
+h2, h3, h4, h5, h6, b, strong, ins {
 	font-family: "Akagi Bold", "Akagi-Bold", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 	font-weight: bold;
 	font-size-adjust: 0.492;
@@ -107,7 +132,7 @@ body {
 	padding: 0;
 }
 
-article h1, article h2, article h3, article ul, article ol, article table, article blockquote, article p {
+article h1, article h2, article h3, article ul, article ol, article table, article p {
 	padding: 0 5%;
 }
 
@@ -133,7 +158,7 @@ h1 {
 h2 {
 	font-size: 18px;
 	font-size: 1.8rem;
-	margin-top: 1.33333333333333em;
+	margin-top: 0.66666666666667em;
 	margin-bottom: 0.66666666666667em;
 }
 h3 {
@@ -148,7 +173,7 @@ h4, h5, h6 {
 	float: left;
 }
 
-article p {
+article p, article ul, ol, table {
 	-moz-hyphens:auto;
 	-ms-hyphens:auto;
 	-o-hyphens:auto;
@@ -157,8 +182,24 @@ article p {
 	margin-bottom: 0.75em;
 }
 
-.meta {
-	display: none;
+article li {
+	margin-left: 1.5em;
+}
+
+figure {
+	margin: 0 0 0.75em 0;
+	text-align: center;
+	font-size: 13px;
+	font-size: 1.3rem;
+	line-height: 1.385em;
+}
+
+figure.inline img {
+	/* white box shadow */
+}
+
+figcaption {
+	padding: 0 5%;
 }
 
 /* ---------------------------- Media queries ---------------------------- */

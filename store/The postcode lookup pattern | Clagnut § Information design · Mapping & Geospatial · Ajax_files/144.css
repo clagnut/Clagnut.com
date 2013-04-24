@@ -1,0 +1,50 @@
+
+@font-face {
+    font-family: 'FS Albert Web Bold';
+    src: url('http://f.fontdeck.com/f/1/WU9KTEFHMEYAASP3EO/8jD6AnL+Ei7mYHA6f1YBtVpQLFQ5pKp6RpnvP.eot');
+    src: url('http://f.fontdeck.com/f/1/WU9KTEFHMEYAASP3EO/8jD6AnL+Ei7mYHA6f1YBtVpQLFQ5pKp6RpnvP.eot?') format('embedded-opentype'),
+    url('http://f.fontdeck.com/f/1/WU9KTEFHMEYAASP3EO/8jD6AnL+Ei7mYHA6f1YBtVpQLFQ5pKp6RpnvP.woff') format('woff'),
+    url('http://f.fontdeck.com/f/1/WU9KTEFHMEYAASP3EO/8jD6AnL+Ei7mYHA6f1YBtVpQLFQ5pKp6RpnvP.ttf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FS Albert Web Bold Italic';
+    src: url('http://f.fontdeck.com/f/1/TE1Qd1JIYV8AAZArsRjN8hSKZoSmRk8sranGK6f2N3jF8X8lzjmy9hSd.eot');
+    src: url('http://f.fontdeck.com/f/1/TE1Qd1JIYV8AAZArsRjN8hSKZoSmRk8sranGK6f2N3jF8X8lzjmy9hSd.eot?') format('embedded-opentype'),
+    url('http://f.fontdeck.com/f/1/TE1Qd1JIYV8AAZArsRjN8hSKZoSmRk8sranGK6f2N3jF8X8lzjmy9hSd.woff') format('woff'),
+    url('http://f.fontdeck.com/f/1/TE1Qd1JIYV8AAZArsRjN8hSKZoSmRk8sranGK6f2N3jF8X8lzjmy9hSd.ttf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FS Albert Web Italic';
+    src: url('http://f.fontdeck.com/f/1/RklVTU4tUkoAATlcx/X/OVjTXTGf3fJ0nJZdjZygZLZu+/8UWcLeO1dm.eot');
+    src: url('http://f.fontdeck.com/f/1/RklVTU4tUkoAATlcx/X/OVjTXTGf3fJ0nJZdjZygZLZu+/8UWcLeO1dm.eot?') format('embedded-opentype'),
+    url('http://f.fontdeck.com/f/1/RklVTU4tUkoAATlcx/X/OVjTXTGf3fJ0nJZdjZygZLZu+/8UWcLeO1dm.woff') format('woff'),
+    url('http://f.fontdeck.com/f/1/RklVTU4tUkoAATlcx/X/OVjTXTGf3fJ0nJZdjZygZLZu+/8UWcLeO1dm.ttf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FS Albert Web Regular';
+    src: url('http://f.fontdeck.com/f/1/Y1hoRmJkQm8AAfwJ51mq8rH8Ral4z6s96Vqrz3f3+Swp5Anp8E4PFMyB.eot');
+    src: url('http://f.fontdeck.com/f/1/Y1hoRmJkQm8AAfwJ51mq8rH8Ral4z6s96Vqrz3f3+Swp5Anp8E4PFMyB.eot?') format('embedded-opentype'),
+    url('http://f.fontdeck.com/f/1/Y1hoRmJkQm8AAfwJ51mq8rH8Ral4z6s96Vqrz3f3+Swp5Anp8E4PFMyB.woff') format('woff'),
+    url('http://f.fontdeck.com/f/1/Y1hoRmJkQm8AAfwJ51mq8rH8Ral4z6s96Vqrz3f3+Swp5Anp8E4PFMyB.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FS Clerkenwell Web Bold';
+    src: url('http://f.fontdeck.com/f/1/Mk9xWk9LSEoAAXAXcghU6WSwIDcjbL/QG8wyXx44dLNK5H3uJYdWa4UD.eot');
+    src: url('http://f.fontdeck.com/f/1/Mk9xWk9LSEoAAXAXcghU6WSwIDcjbL/QG8wyXx44dLNK5H3uJYdWa4UD.eot?') format('embedded-opentype'),
+    url('http://f.fontdeck.com/f/1/Mk9xWk9LSEoAAXAXcghU6WSwIDcjbL/QG8wyXx44dLNK5H3uJYdWa4UD.woff') format('woff'),
+    url('http://f.fontdeck.com/f/1/Mk9xWk9LSEoAAXAXcghU6WSwIDcjbL/QG8wyXx44dLNK5H3uJYdWa4UD.ttf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
