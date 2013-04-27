@@ -32,11 +32,6 @@ Ever’. It was another good year – remember this is compiled from music I
 <li><cite>Home Altars Of Mexiko</cite> by Art Brut from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000AZ6NI8/jalfrezi-21/">Good Weekend</a></li>
 <li><cite>Dirty Barry Stole The Bluebird</cite> by The Fratellis from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000H80KM8/jalfrezi-21/">Chelsea Dagger</a></li>
 <li><cite>Pile of Gold</cite> by The Blow from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000I2IYJE/jalfrezi-21/">Paper Television</a></li>
-<li><cite>Karma Police</cite> by Easy Star All*stars from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000GUJZ5K/jalfrezi-21/">Radiodread</a></li>
-<li><cite>Cold &amp; Wet</cite> by Bonnie ‘Prince’ Billy from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000FS9LM0/jalfrezi-21/">The Letting Go</a></li>
-<li><cite>Elevate</cite> by The People’s Revolutionary Choir from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000BCHJH4/jalfrezi-21/">Elevate</a></li>
-<li><cite>Such Great Heights</cite> by Iron &amp; Wine from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000GG4MXE/jalfrezi-21/">Such Great Heights</a></li>
-<li><cite>Pull The Curtains</cite> by Grandaddy from the <abbr><abbr>EP</abbr></abbr> <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000ARHNKI/jalfrezi-21/">Excerpts from the Diary of Todd Zilla</a></li>
 </ol>
 	<p>These tracks just about squeeze on to a <abbr><abbr>CD</abbr></abbr>,
  so if you’d like a copy, put together your own compilation of the year 
@@ -90,8 +85,21 @@ postcodes are not recognised)</li>
 
 
 <footer>
+<div id="flickrPhotos">
+	<ul class="thumbs">
+	<li><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/17802430_07bf40b809_s.jpg" alt="Crabbing" title="Crabbing"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17802456/"><img src="/i/flickr/17802456_243c93fafd_s.jpg" alt="River Dart, Dittisham" title="River Dart, Dittisham"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/17802565_8131ffe7ad_s.jpg" alt="Passenger ferry" title="Passenger ferry"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/17801254_a34c8aaad5_s.jpg" alt="Herring gull" title="Herring gull"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/17800540_d88c4930e6_s.jpg" alt="70 Pocket Penguins" title="70 Pocket Penguins"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17800512/"><img src="/i/flickr/17800512_26269f67ec_s.jpg" alt="Fore Street, St Ives" title="Fore Street, St Ives"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17800962/"><img src="/i/flickr/17800962_21bd86016d_s.jpg" alt="St Mawes" title="St Mawes"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17800279/"><img src="/i/flickr/17800279_044c53382d_s.jpg" alt="Tate St Ives" title="Tate St Ives"></a></li>
+	<li><a href="http://flickr.com/photos/clagnut/17800983/"><img src="/i/flickr/17800983_1381965a87_s.jpg" alt="Fal estuary under thunderous skies" title="Fal estuary under thunderous skies"></a></li>
+	</ul>
+</div>
 <div class="meta">
-	<p class="categories">§  <a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> </p>
+	<p class="categories"><span class="sect">§</span> <a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
 		<ul class="tags"><li><a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
 		<li><a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
 		<li><a href="http://clagnut.com/search/?q=book+design" rel="tag">book design</a></li>
@@ -103,13 +111,16 @@ postcodes are not recognised)</li>
 		<li><a href="http://clagnut.com/search/?q=Phil+Baines" rel="tag">Phil Baines</a></li>
 		<li><a href="http://clagnut.com/search/?q=Dittisham" rel="tag">Dittisham</a></li>
 		<li><a href="http://clagnut.com/search/?q=Brixham" rel="tag">Brixham</a></li></ul>	
-				<h4 id="machine_tags_toggle"><a href="#machine_tags" class="arrow">►</a> Machine tags</h4>
+				
+				<div id="machine_tags">
+				<h6><a href="#machine_tags" class="arrow">►</a> Machine tags</h6>
 		
-			<ul style="display: none;" class="machine tags" id="machine_tags">
+			<ul class="tags">
 		<li><a href="http://clagnut.com/search?q=clagnut%3Apost%3D1484" rel="tag">clagnut:post=1484</a></li>
 	<li><a href="http://clagnut.com/search?q=geo%3Alat%3D50.382" rel="tag">geo:lat=50.382</a></li>
 	<li><a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
 			</ul>
+			</div>
 </div>
 
 </footer>
