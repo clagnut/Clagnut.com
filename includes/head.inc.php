@@ -35,6 +35,9 @@ ERROR_REPORTING(E_ALL);
 
     <!--css-->
 	<link rel="stylesheet" href="/css/all.css" type="text/css" />
+	<link rel="stylesheet" href="/css/flexslider.css" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="/js/jquery.flexslider-min.js"></script>
 
     <!-- ie html5 and respond shims -->
     <!--[if lt IE 9]>

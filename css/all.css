@@ -246,18 +246,13 @@ footer {
 #flickrPhotos {
 }
 
-.thumbs {
+.slides {
 	margin-left: 0;
 	margin-right: 0;
-	overflow: hidden;
-	height: 75px;
-	white-space: nowrap;
 }
 
-.thumbs li {
-	margin: 0 4px 0 0;
-	display: inline;
-	list-style-type: none;
+.slides li {
+	margin: 0 8px 0 0;
 }
 
 /* @group Meta */

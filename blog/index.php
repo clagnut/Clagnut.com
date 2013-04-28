@@ -85,8 +85,8 @@ postcodes are not recognised)</li>
 
 
 <footer>
-<div id="flickrPhotos">
-	<ul class="thumbs">
+<div id="flickrPhotos" class="flexslider">
+	<ul class="slides">
 	<li><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/17802430_07bf40b809_s.jpg" alt="Crabbing" title="Crabbing"></a></li>
 	<li><a href="http://flickr.com/photos/clagnut/17802456/"><img src="/i/flickr/17802456_243c93fafd_s.jpg" alt="River Dart, Dittisham" title="River Dart, Dittisham"></a></li>
 	<li><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/17802565_8131ffe7ad_s.jpg" alt="Passenger ferry" title="Passenger ferry"></a></li>
@@ -100,6 +100,7 @@ postcodes are not recognised)</li>
 </div>
 <div class="meta">
 	<p class="categories"><span class="sect">§</span> <a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
+		<h6>#</h6>
 		<ul class="tags"><li><a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
 		<li><a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
 		<li><a href="http://clagnut.com/search/?q=book+design" rel="tag">book design</a></li>
