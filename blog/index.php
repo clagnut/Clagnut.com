@@ -85,18 +85,18 @@ postcodes are not recognised)</li>
 
 
 <footer>
-<div id="flickrPhotos" class="flexslider">
-	<ul class="slides">
-	<li><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/17802430_07bf40b809_s.jpg" alt="Crabbing" title="Crabbing"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17802456/"><img src="/i/flickr/17802456_243c93fafd_s.jpg" alt="River Dart, Dittisham" title="River Dart, Dittisham"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/17802565_8131ffe7ad_s.jpg" alt="Passenger ferry" title="Passenger ferry"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/17801254_a34c8aaad5_s.jpg" alt="Herring gull" title="Herring gull"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/17800540_d88c4930e6_s.jpg" alt="70 Pocket Penguins" title="70 Pocket Penguins"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17800512/"><img src="/i/flickr/17800512_26269f67ec_s.jpg" alt="Fore Street, St Ives" title="Fore Street, St Ives"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17800962/"><img src="/i/flickr/17800962_21bd86016d_s.jpg" alt="St Mawes" title="St Mawes"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17800279/"><img src="/i/flickr/17800279_044c53382d_s.jpg" alt="Tate St Ives" title="Tate St Ives"></a></li>
-	<li><a href="http://flickr.com/photos/clagnut/17800983/"><img src="/i/flickr/17800983_1381965a87_s.jpg" alt="Fal estuary under thunderous skies" title="Fal estuary under thunderous skies"></a></li>
-	</ul>
+<div class="gallery">
+	<div class="gallery-photos">
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/17802430_07bf40b809_s.jpg" alt="Crabbing" title="Crabbing"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802456/"><img src="/i/flickr/17802456_243c93fafd_s.jpg" alt="River Dart, Dittisham" title="River Dart, Dittisham"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/17802565_8131ffe7ad_s.jpg" alt="Passenger ferry" title="Passenger ferry"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/17801254_a34c8aaad5_s.jpg" alt="Herring gull" title="Herring gull"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/17800540_d88c4930e6_s.jpg" alt="70 Pocket Penguins" title="70 Pocket Penguins"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800512/"><img src="/i/flickr/17800512_26269f67ec_s.jpg" alt="Fore Street, St Ives" title="Fore Street, St Ives"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800962/"><img src="/i/flickr/17800962_21bd86016d_s.jpg" alt="St Mawes" title="St Mawes"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800279/"><img src="/i/flickr/17800279_044c53382d_s.jpg" alt="Tate St Ives" title="Tate St Ives"></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800983/"><img src="/i/flickr/17800983_1381965a87_s.jpg" alt="Fal estuary under thunderous skies" title="Fal estuary under thunderous skies"></a></figure>
+	</div>
 </div>
 <div class="meta">
 	<p class="categories"><span class="sect">§</span> <a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
