@@ -244,6 +244,7 @@ footer {
 }
 
 #flickrPhotos {
+	margin-bottom: 1.5em;
 }
 
 .slides {
@@ -252,7 +253,7 @@ footer {
 }
 
 .slides li {
-	margin: 0 8px 0 0;
+	margin: 0 4px 0 0;
 }
 
 /* @group Meta */
