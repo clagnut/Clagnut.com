@@ -243,18 +243,61 @@ footer {
 	padding-top: 0.75em;
 }
 
-#flickrPhotos {
+#flickrGallery {
 	margin-bottom: 1.5em;
+	position: relative;
+	overflow: hidden;
+	height: 120px;
 }
 
-.slides {
+.gallery-photos {
+	width: 1144px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-moz-transition: all .5s ease;
+}
+
+.gallery-photos figure.photo {
+	margin: 0 0 0 8px;
+	width: 120px;
+	float: left;
+}
+
+.gallery-photos figure.photo:first-of-type {
 	margin-left: 0;
-	margin-right: 0;
 }
 
-.slides li {
-	margin: 0 4px 0 0;
+.gallery a.nav {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	display: block;
+	background: url(/i/bg_direction_nav.png) no-repeat 0 center;
+	opacity:1;
+	-moz-transition: all .3s ease;
+	opacity:0;
 }
+
+.gallery a.nav.prev {
+	margin: -15px 0 0 0;
+	left: 1px;
+}
+
+.gallery a.nav.next {
+	right: 1px;
+	margin: -15px 0 0;
+	background-position: -30px center;
+}
+
+.gallery:hover a.nav.prev {opacity: 0.8}
+.gallery:hover a.nav.next {opacity: 0.8}
+.gallery:hover a.nav.prev:hover {opacity: 1; left: 0;
+}
+.gallery:hover a.nav.next:hover {opacity: 1; rigth: 0;
+}
+
 
 /* @group Meta */
 
