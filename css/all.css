@@ -294,7 +294,7 @@ footer {
 .gallery:hover a.nav.next {opacity: 0.8}
 .gallery:hover a.nav.prev:hover {opacity: 1; left: 0;
 }
-.gallery:hover a.nav.next:hover {opacity: 1; rigth: 0;
+.gallery:hover a.nav.next:hover {opacity: 1; right: 0;
 }
 
 

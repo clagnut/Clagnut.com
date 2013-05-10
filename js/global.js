@@ -32,7 +32,7 @@ function slide(dir) {
 	var viewWidth = $(".gallery").innerWidth();
 	var galPos = gal.position();
 	if (dir=="next") {
-		var newgalPos = galPos.left - figWidth;
+		var newgalPos = galPos.left - figWidthMar;
 		if (newgalPos-viewWidth <= (-1 * galWidth)) {
 			newgalPos = viewWidth-galWidth;
 			$('a.nav.next').hide();
@@ -41,7 +41,7 @@ function slide(dir) {
 		}
 	}
 	if (dir=="prev") {
-		var newgalPos = galPos.left + figWidth;
+		var newgalPos = galPos.left + figWidthMar;
 		if (newgalPos >= 0) {
 			newgalPos = 0;
 			$('a.nav.prev').hide();
