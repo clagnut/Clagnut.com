@@ -102,8 +102,10 @@ postcodes are not recognised)</li>
 </div>
 <div class="meta">
 	<p class="categories"><span class="sect">§</span> <a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
+	<div class="tags">
 		<h6>#</h6>
-		<ul class="tags"><li><a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
+		<ul>
+		<li><a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
 		<li><a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
 		<li><a href="http://clagnut.com/search/?q=book+design" rel="tag">book design</a></li>
 		<li><a href="http://clagnut.com/search/?q=cornwall" rel="tag">cornwall</a></li>
@@ -113,17 +115,19 @@ postcodes are not recognised)</li>
 		<li><a href="http://clagnut.com/search/?q=Agatha+Christie" rel="tag">Agatha Christie</a></li>
 		<li><a href="http://clagnut.com/search/?q=Phil+Baines" rel="tag">Phil Baines</a></li>
 		<li><a href="http://clagnut.com/search/?q=Dittisham" rel="tag">Dittisham</a></li>
-		<li><a href="http://clagnut.com/search/?q=Brixham" rel="tag">Brixham</a></li></ul>	
-				
-				<div id="machine_tags">
-				<h6><a href="#machine_tags" class="arrow">►</a> Machine tags</h6>
+		<li><a href="http://clagnut.com/search/?q=Brixham" rel="tag">Brixham</a></li>
+		</ul>	
+			
+	<div id="machine_tags">
+		<h6><a href="#machine_tags" class="arrow">►</a> Machine tags</h6>
 		
-			<ul class="tags">
+		<ul>
 		<li><a href="http://clagnut.com/search?q=clagnut%3Apost%3D1484" rel="tag">clagnut:post=1484</a></li>
-	<li><a href="http://clagnut.com/search?q=geo%3Alat%3D50.382" rel="tag">geo:lat=50.382</a></li>
-	<li><a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
-			</ul>
-			</div>
+		<li><a href="http://clagnut.com/search?q=geo%3Alat%3D50.382" rel="tag">geo:lat=50.382</a></li>
+		<li><a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
+		</ul>
+	</div>
+	</div>
 </div>
 
 </footer>

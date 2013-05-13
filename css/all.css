@@ -147,7 +147,7 @@ body {
 	padding: 0;
 }
 
-article h1, article h2, article h3, article ul, article ol, article table, article p, article hr {
+article h1, article h2, article h3, article h4, article h5, article h6, article ul, article ol, article table, article p, article hr {
 	margin-left: 5%;
 	margin-right: 5%;
 }
@@ -306,14 +306,14 @@ p.categories {
 	position: relative;
 }
 
-.sect {
+.sect, .tags h6 {
 	position: absolute;
 	left: 0;
 }
 
-ul.tags {
-	background: url(../i/tag.png) no-repeat left 0.333em;
-	padding-left: 1.167em;
+.tags {
+	padding-left: 1.125em;
+		position: relative;
 }
 
 .tags li {
