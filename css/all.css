@@ -1,14 +1,18 @@
 /* @group Reset */
 
-h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, div,
-table, caption, colgroup, tbody, thead, tfoot, tr, td, th, form, fieldset, legend, label, input, button, select, textarea {
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address,
+p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div,
+a, em, strong, small, s, cite, q, dfn, abbr, time, code, var, samp, kbd, sub, sup, i, b, mark, span, br,
+ins, del,
+img, iframe, embed, object, video, audio, canvas, map, area,
+table, caption, colgroup, tbody, thead, tfoot, tr, td, th,
+form, fieldset, legend, label, input, button, select, textarea, optgroup
+details, summary, command, menu {
+    font-size: 100%;
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-}
-input, textarea, select, button, optgroup {
-    font-family: inherit;
-    font-size: 1em;
+    font-family: inherit;    
     line-height: inherit;
 }
 img {
@@ -24,7 +28,6 @@ ins {
 del {
 	text-decoration: line-through;
 }
-
 hr {
 	border:0;
 }
@@ -44,17 +47,17 @@ hr {
 section {
 	-moz-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 1;
 	-moz-font-feature-settings:"onum=1, pnum1, kern=1, liga=1, calt=1";
-	-ms-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1;
-	-o-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1;
-	-webkit-font-feature-settings:"onum" 1, "pnum" 1 ,"kern" 1, "liga" 1;
-	font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1; 
+	-ms-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 1;
+	-o-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 1;
+	-webkit-font-feature-settings:"onum" 1, "pnum" 1 ,"kern" 1, "liga" 1, "calt" 1;
+	font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 1; 
 }
 /* @end */
 
 /* @group Color */
 
 body {
-	background: rgb(159,210,205);
+	background: hsl(173, 36%, 72%);
 	color: rgba(0,0,0,0.8);
 }
 
@@ -74,19 +77,22 @@ a:active, .meta a:active {
 
 h1 {
 	color: rgba(0,0,0,0.9);
-	border-bottom: 0.083333333em solid rgba(0,0,0,0.15);
 }
 
 figure {
 	color: rgba(0,0,0,0.6);
 }
 
-section::before {
-	color: #a94821;
+header.global {
+	border-bottom: 2px solid rgba(0,0,0,0.15);
 }
 
 .meta a {
 	background: none;
+}
+
+.published {
+	border-bottom: 2px solid rgba(0,0,0,0.15);
 }
 
 p.categories {
@@ -97,7 +103,7 @@ p.categories {
 /* @group Webfonts */
 
 body  {
-	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-size-adjust: 0.488;
 	font-weight: 500;
 }
@@ -109,20 +115,20 @@ section+section::before {
 	margin-bottom: 0.75em;
 }
 
-h1 {
+h1 { /* also .published on wider screens */
     font-family: "Ingeborg-Heavy", "Ingeborg Heavy", "HoeflerText-Black", "Hoefler Text", Georgia, serif;
     font-weight: 800;
     font-size-adjust: 0.455;
 }
 
 h2, h3, h4, h5, h6, b, strong, ins, .categories {
-	font-family: "Akagi-Bold", "Akagi Bold", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-family: "Akagi-Bold", "Akagi Bold", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-weight: 700;
 	font-size-adjust: 0.492;
 }
 
 i, em, cite, blockquote {
-	font-family: "Akagi-MediumItalic", "Akagi Medium Italic", "Akagi", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-family: "Akagi-MediumItalic", "Akagi Medium Italic", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-weight: 500;
 	font-style: italic;
 	font-size-adjust: 0.488;
@@ -132,65 +138,82 @@ pre, code, kbd, tt, samp, tt {
 	font-size-adjust: 0.488;
 }
 
-/* @end */
-
-html {
-	font-size: 10px;
-	font-size: 0.625em;
+@media only screen and (min-width: 42.222em) {
+	.published {
+	    font-family: "Ingeborg", "Hoefler Text", Georgia, serif;
+	    font-weight: 700;
+	    font-size-adjust: 0.455;		
+	}
 }
 
+/* @end */
+
+/* @group Basics */
+
 body {
-	font-size: 1.6em;
-	font-size: 1.6rem;
+	/* base maths on default font size of 16px */
 	line-height: 1.5em; /* 24px rhythm */
 	margin: 0;
 	padding: 0;
 }
 
-article h1, article h2, article h3, article h4, article h5, article h6, article ul, article ol, article table, article p, article hr {
+header.global {
+	padding-bottom:0.75em;
+}
+
+header.global, article section, h1, .published, .meta {
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
-article h4, article h5 {
-	padding: 0 0.75em 0 5%;
+article header {
+	text-align: center;
+	padding-top: 0.5em;
+	margin-bottom: 1.5em;
+}
+
+figure.leader {
+	max-width: 38em;
+	margin: 0 auto 0.75em auto;
 }
 
 .published {
 	font-size: 13px;
-	font-size: 1.3rem;
-	line-height: 1.385em;
-	margin-top: 0.462em;
+	font-size: 0.8125rem;
+	line-height: 1.846153846em;
+	margin-top: 1.230769231em;
 }
 
 h1 {
-	line-height: 1.167em;
-	font-size: 24px;
-	font-size: 2.4rem;
-	padding-bottom: 0.667em;
-	margin-bottom: 0.667em;
-	margin-top: 0.167em;
+	font-size: 28px;
+	font-size: 1.75rem;
+	line-height: 1em;
 }
 
 h2 {
 	font-size: 18px;
-	font-size: 1.8rem;
+	font-size: 1.125rem;
 	margin-top: 0.66666666666667em;
 	margin-bottom: 0.66666666666667em;
 }
 h3 {
 	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 1rem;
 	margin-top: 0.75em;
+}
+
+h4, h5 {
+	padding: 0 0.75em 0 0;
 }
 
 h4, h5, h6 {
 	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 1rem;
 	float: left;
+	white-space: nowrap;
 }
 
-article p, article ul, article ol, article table {
+section p, section ul, section ol, section table {
 	-moz-hyphens:auto;
 	-ms-hyphens:auto;
 	-o-hyphens:auto;
@@ -199,16 +222,16 @@ article p, article ul, article ol, article table {
 	margin-bottom: 0.75em;
 }
 
-article ul, article ol {
+section ul, section ol {
 	margin-top: 0.75em;
 }
 
-article li {
+section li {
 	margin-left: 1.5em;
 }
 
 blockquote {
-	margin: 0 0.75em 1.5em 0.75em;
+	margin: 0.75em;
 }
 
 blockquote p {
@@ -226,7 +249,7 @@ figure {
 
 figcaption {
 	font-size: 13px;
-	font-size: 1.3rem;
+	font-size: 0.8125rem;
 	line-height: 1.385em;
 	margin-top: 0.385em;
 }
@@ -239,9 +262,106 @@ figcaption {
 	padding: 0 5%;
 }
 
+table {
+	width: 100%;
+}
+
+@media only screen and (min-width: 42.222em) {
+
+header.global {
+	border-bottom-width: 6px;
+}
+
+article {	
+	margin: 0 5%;
+}
+
+article header {
+	padding-bottom: 1.5em;
+}
+
+article section, h1, .published, .meta {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+article section {
+	max-width: 38em;
+}
+
+section p {
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	-o-hyphens: none;
+	-webkit-hyphens: none;
+	hyphens: none;
+}
+
+h1 {
+	font-size: 64px;
+	font-size: 4rem;
+}
+h2 {
+	font-size: 21px;
+	font-size: 1.3125rem;
+	margin-top: 1.142857143em;
+	margin-bottom: 0.571428571em;
+}
+h3 {
+	font-size: 18px;
+	font-size: 1.125rem;
+	margin-top: 0.666666667em;
+}
+
+blockquote {
+	margin: 0.75em 1.5em;
+}
+
+blockquote p + p {
+	text-indent: 1.5em;
+}
+
+figure.leader {
+	margin-bottom: 1em;
+}
+
+.published {
+	font-size: 21px;
+	font-size: 1.3125rem;
+	line-height: 1.142857143em;
+	margin-top: 1.142857143em;
+	padding-bottom:1.142857143em;
+	border-bottom-width: 6px;
+}
+
+}
+
+
+
+@media only screen and (min-width: 68.889em) {
+
+article {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 62em;
+	position:relative;
+}
+
+figure.inline {
+	position: absolute;
+	left: 0;
+}
+
+}
+
+
+/* @end */
+
 footer {
 	padding-top: 0.75em;
 }
+
+/* @group Gallery */
 
 #flickrGallery {
 	margin-bottom: 1.5em;
@@ -297,6 +417,7 @@ footer {
 .gallery:hover a.nav.next:hover {opacity: 1; right: 0;
 }
 
+/* @end */
 
 /* @group Meta */
 
@@ -320,7 +441,7 @@ p.categories {
 	margin: 0;
 	display: inline;
 	font-size: 13px;
-	font-size: 1.3rem;
+	font-size: 0.8125rem;
 	line-height: 1.385em;
 	padding-right: 0.6925em;
 	white-space: nowrap;
@@ -339,36 +460,3 @@ p.categories, .tags li {
 }
 
 /* @end */
-
-/* ---------------------------- Media queries ---------------------------- */
-
-
-@media only screen and (min-width: 38em) {
-
-article section {
-	padding: 0 21%;
-}
-
-article p {
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	-o-hyphens: none;
-	-webkit-hyphens: none;
-	hyphens: none;
-}
-
-h1 {
-	font-size: 72px;
-	font-size: 7.2rem;
-}
-
-}
-
-
-@media only screen and (min-width: 66em) {
-
-html {
-	font-size: 11.25px;
-}
-
-}

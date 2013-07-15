@@ -1,7 +1,7 @@
 <?php
 $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
 $title = "Seventy Penguins";
-$title = "Typographic Style Applied to the Web";
+$title = "Typographic Style Applied to the&nbsp;Web";
 include($dr . "head.inc.php");
 ?>
 
@@ -11,11 +11,20 @@ include($dr . "head.inc.php");
 <div id="main">
 
 <article>
-<p class="published"><abbr title="2005-06-07T02:22:59+01:00">7 June 2005</abbr></p>
+
+<header>
+
+<figure class="leader"><img src="/i/leader.jpg"></figure>
 
 <h1><?php echo $title ?></h1>
 
+<p class="published"><abbr title="2005-06-07T02:22:59+01:00">7th June 2005</abbr></p>
+
+</header>
+
 <section>
+
+<p><strong>I’ve just come back from a week with Her Indoors in the West Country;</strong> a few days in Devon and a few more in Cornwall (<a href="http://www.flickr.com/photos/clagnut/sets/421788/" title="my Flickr photoset">there are photos</a> – it’s a beautiful part of the world). While there I bought five books, all of which were <a href="http://www.penguin.co.uk/">Penguin</a> paperbacks.</p>
 
 <figure class="inline"><a href="http://www.flickr.com/photos/clagnut/356030308/"><img src="/i/bestsongs2006.jpg" alt="Artwork of The Best Songs I Bought In 2006 Ever, featuring the Gone-but-not-forgotten Hanbury Ballroom"></a></figure>
 
@@ -24,7 +33,7 @@ include($dr . "head.inc.php");
 Ever’. It was another good year – remember this is compiled from music I
  bought this year, but was not necessarily released this year.</p>
 
-	<h3>The Best Songs I Bought In 2006 Ever</h3>
+	<h2>The Best Songs I Bought In 2006 Ever</h2>
 
 	<ol>
 	<li><cite>Roscoe</cite> by Midlake from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000F3ALAG/jalfrezi-21/">Trials of Van Occupanther</a></li>
@@ -41,6 +50,8 @@ and send it to me – you’ll get a copy of the above in return. <a href="http:
 
 <p>I’ve just come back from a week with Her Indoors in the West Country; a few days in Devon and a few more in Cornwall (<a href="http://www.flickr.com/photos/clagnut/sets/421788/" title="my Flickr photoset">there are photos</a> – it’s a beautiful part of the world). While there I bought five books, all of which were <a href="http://www.penguin.co.uk/">Penguin</a> paperbacks.</p>
 
+<table><thead><tr><th rowspan="2">Browser</th><th colspan="5">Font Format</th></tr><tr><th>TrueType Mac</th><th>TrueType <abbr><abbr>PC</abbr></abbr></th><th>PostScript</th><th>OpenType PostScript</th><th>OpenType TrueType</th></tr></thead><tbody><tr><th>Camino&nbsp;1.2</th><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td></tr><tr><th>Safari 2</th><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td></tr><tr><th>Firefox 2</th><td class="yes">good</td><td class="partial">correct italic &amp; bold fonts displayed; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td><td class="no">not rendered</td><td class="partial">italic &amp; bold fonts synthesised; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td><td class="partial">italic &amp; bold fonts synthesised; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td></tr><tr><th>Opera 9</th><td class="yes">good</td><td class="partial">good, but italic font is synthetically obliqued</td><td class="no">not rendered</td><td class="partial">bold font not rendered; italic synthesised</td><td class="partial">bold font not rendered; italic synthesised</td></tr></tbody></table>
+
 <p>The fifth book I bought was <a href="http://www.amazon.co.uk/exec/obidos/ASIN/0713998393/jalfrezi-21/" title="More info on Amazon">Penguin by Design – a Cover Story</a> by Phil Baines. Penguin books have a rather illustrious heritage, with legendary typographer <a href="http://en.wikipedia.org/wiki/Jan_Tschichold" title="Wikipedia - Jan Tschichold">Jan Tschichold</a> responsible for the iconic orange spines, three-pane covers with <a href="http://www.identifont.com/show?MB" title="Identifont">Gill Sans</a>, and of course serious attention to detail in the typesetting.</p>
 
 <h2>This is a heading level 2</h2>
@@ -49,7 +60,9 @@ and send it to me – you’ll get a copy of the above in return. <a href="http:
 
 <blockquote><p>Phil Baines takes us through the seventy years of history in the design of Penguin paperback covers, a constantly evolving part of Britain’s culture and design history. </p><p>Phil Baines takes us through the seventy years of history in the design of Penguin paperback covers, a constantly evolving part of Britain’s culture and design history. </p></blockquote>
 
-<figure class='inline'><img src="/i/hack.jpg" alt="Cover of Penguin by Design" /><figcaption>The Hack Farm team all enjoying themselves doing something or other.</figcaption></figure>
+<p>I’ve just come back from a week with Her Indoors in the West Country; a few days in Devon and a few more in Cornwall (<a href="http://www.flickr.com/photos/clagnut/sets/421788/" title="my Flickr photoset">there are photos</a> – it’s a beautiful part of the world). While there I bought five books, all of which were <a href="http://www.penguin.co.uk/">Penguin</a> paperbacks.</p>
+
+<figure><img src="/i/hack.jpg" alt="Cover of Penguin by Design" /><figcaption>The Hack Farm team all enjoying themselves doing something or other.</figcaption></figure>
 
 <p>Phil Baines takes us through the seventy years of history in the design of Penguin paperback covers, a constantly evolving part of Britain’s culture and design history. <ins>The book</ins> is <del>lavishly</del> illustrated, with many full size covers, and goes into detail of individual titles. Fascinating too is the coverage of changing role of artists and designers throughout Penguin’s history.</p>
 
