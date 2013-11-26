@@ -1,0 +1,529 @@
+/* @group Reset */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address,
+p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div,
+a, em, strong, small, s, cite, q, dfn, abbr, time, code, var, samp, kbd, sub, sup, i, b, mark, span, br,
+ins, del,
+img, iframe, embed, object, video, audio, canvas, map, area,
+table, caption, colgroup, tbody, thead, tfoot, tr, td, th,
+form, fieldset, legend, label, input, button, select, textarea, optgroup
+details, summary, command, menu {
+    font-size: 100%;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;    
+    line-height: inherit;
+}
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+[title] {
+	border: 0;
+}
+ins {
+	text-decoration: underline;
+}
+del {
+	text-decoration: line-through;
+}
+hr {
+	border:0;
+}
+table {	border-collapse: collapse;	border-spacing: 0; }
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+
+/* @end */
+/* @group OpenType features */
+
+.c2sc { /* Smallcaps from caps */
+	-moz-font-feature-settings:"c2sc=1";
+	-moz-font-feature-settings:"c2sc" 1;
+	-ms-font-feature-settings:"c2sc" 1;
+	-o-font-feature-settings:"c2sc" 1;
+	-webkit-font-feature-settings:"c2sc" 1;
+	font-feature-settings:"c2sc" 1; 
+}
+
+body {
+	-moz-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0;
+	-moz-font-feature-settings:"onum=1, pnum1, kern=1, liga=1, calt=0";
+	-ms-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "cal"t 0;
+	-o-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0;
+	-webkit-font-feature-settings:"onum" 1, "pnum" 1 ,"kern" 1, "liga" 1, "calt" 0;
+	font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0; 
+}
+/* @end */
+
+/* @group Color */
+
+body {
+	background: hsl(173, 36%, 72%);
+	color: rgba(0,0,0,0.8);
+}
+
+a {
+	color: #a94821;
+	text-decoration: none;
+	-moz-transition:all 0.33s;
+}
+
+a:hover, a:focus, .meta a:hover, .meta a:focus {
+	background: rgba(255,255,255,0.33);
+}
+
+a:active, .meta a:active {
+	background: rgba(255,255,255,0.67);
+}
+
+h1 {
+	color: rgba(0,0,0,0.9);
+	text-shadow: rgba(255,255,255,0.5) 0 1px 0;
+}
+
+figure, caption {
+	color: rgba(0,0,0,0.6);
+}
+
+header.global {
+	border-bottom: 2px solid rgba(0,0,0,0.15);
+}
+
+.meta a {
+	background: none;
+}
+
+.published {
+	border-bottom: 2px solid rgba(0,0,0,0.15);
+	text-shadow: rgba(255,255,255,0.2) 0 1px 0;
+}
+
+p.categories {
+	border-top: 2px solid rgba(0,0,0,0.15);
+}
+
+td, th {
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+table, thead {
+	border-bottom: 3px solid rgba(0,0,0,0.15);
+}
+
+/* @end */
+
+/* @group Webfonts */
+
+body  {
+	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", sans-serif;
+	font-size-adjust: 0.488;
+	font-weight: 500;
+}
+
+section+section::before {
+	content: "¶";
+	text-align: center;
+	display: block;
+	margin-bottom: 0.75em;
+}
+
+h1 { /* also .published on wider screens */
+    font-family: "Ingeborg-Heavy", "Ingeborg Heavy", "HoeflerText-Black", "Hoefler Text", Georgia, serif;
+    font-weight: 800;
+    font-size-adjust: 0.455;
+	-moz-font-feature-settings:"calt" 1;
+	-moz-font-feature-settings:"calt=1";
+	-ms-font-feature-settings:"calt" 1;
+	-o-font-feature-settings:"calt" 1;
+	-webkit-font-feature-settings:"calt" 1;
+	font-feature-settings:"calt" 1; 
+}
+
+h2, h3, h4, h5, h6, b, strong, ins, th, .categories {
+	font-family: "Akagi-Bold", "Akagi Bold", "Akagi", Calibri, "Segoe UI", sans-serif;
+	font-weight: 700;
+	font-size-adjust: 0.492;
+}
+
+i, em, cite, blockquote {
+	font-family: "Akagi-MediumItalic", "Akagi Medium Italic", "Akagi", Calibri, "Segoe UI", sans-serif;
+	font-weight: 500;
+	font-style: italic;
+	font-size-adjust: 0.488;
+}
+pre, code, kbd, tt, samp, tt {
+	font-family: consolas, monospace;
+	font-size-adjust: 0.488;
+}
+
+@media only screen and (min-width: 42.222em) {
+	.published {
+	    font-family: "Ingeborg", "Hoefler Text", Georgia, serif;
+	    font-weight: 700;
+	    font-size-adjust: 0.455;
+	}
+}
+
+/* @end */
+
+/* @group Basics */
+
+body {
+	/* base maths on default font size of 16px */
+	line-height: 1.5em; /* 24px rhythm */
+	margin: 0;
+	padding: 0;
+}
+
+header.global {
+	padding-bottom:0.75em;
+}
+
+header.global, article section, h1, .published, .meta {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+article header {
+	text-align: center;
+	padding-top: 0.5em;
+	margin-bottom: 1.5em;
+}
+
+figure.leader {
+	max-width: 38em;
+	margin: 0 auto 0.75em auto;
+}
+
+.published {
+	font-size: 13px;
+	font-size: 0.8125rem;
+	line-height: 1.846153846em;
+	margin-top: 1.230769231em;
+}
+
+h1 {
+	font-size: 28px;
+	font-size: 1.75rem;
+	line-height: 1em;
+}
+
+h2 {
+	font-size: 18px;
+	font-size: 1.125rem;
+	margin-top: 0.66666666666667em;
+	margin-bottom: 0.66666666666667em;
+}
+h3 {
+	font-size: 16px;
+	font-size: 1rem;
+	margin-top: 0.75em;
+}
+
+h4, h5, h6 {
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+section p, section ul, section ol, section table {
+	-moz-hyphens:auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens:auto;
+	margin-bottom: 0.75em;
+}
+
+section ul, section ol {
+	margin-top: 0.75em;
+}
+
+section li {
+	margin-left: 1.5em;
+}
+
+blockquote {
+	margin: 0.75em;
+}
+
+blockquote p {
+	margin-bottom: 0;
+}
+
+blockquote p + p {
+	text-indent: 0.75em;
+}
+
+figure {
+	margin: 0 0 0.75em 0;
+	text-align: center;
+}
+
+figcaption, caption {
+	font-size: 13px;
+	font-size: 0.8125rem;
+	line-height: 1.385em;
+	margin-top: 0.385em;
+}
+
+figure img {
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25)
+}
+
+figcaption, caption {
+	padding: 0 5%;
+}
+
+section table {
+	margin: 1.5em auto;
+	line-height: 1.3125em;
+}
+
+th {
+	text-align: left;
+}
+
+th[colspan] {
+	text-align: center;
+}
+
+th, td {
+	padding: 0.5em 0.5em 0.375em 0.5em;
+	vertical-align: top;
+}
+
+thead th {
+	vertical-align: bottom;
+}
+
+@media only screen and (min-width: 42.222em) {
+
+header.global {
+	border-bottom-width: 6px;
+}
+
+article {	
+	margin: 0 5%;
+}
+
+article header {
+	padding-bottom: 1.5em;
+}
+
+article section, h1, .published, .meta, article h2, article h3, article h4, article h5, article h6, article p, article blockquote, article ul, article ol {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.meta, article section h4, article section h5, article section h6, article section p, article section blockquote, article section ul, article section ol {
+	max-width: 38em;
+}
+
+section p {
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	-o-hyphens: none;
+	-webkit-hyphens: none;
+	hyphens: none;
+}
+
+h1 {
+	font-size: 64px;
+	font-size: 4rem;
+}
+h2 {
+	font-size: 21px;
+	font-size: 1.3125rem;
+	margin-top: 1.142857143em;
+	margin-bottom: 0.571428571em;
+	max-width: 28.952380952em;}
+h3 {
+	font-size: 18px;
+	font-size: 1.125rem;
+	margin-top: 0.666666667em;
+	max-width: 33.777777778em;
+}
+
+blockquote {
+	margin: 0.75em 1.5em;
+}
+
+blockquote p + p {
+	text-indent: 1.5em;
+}
+
+figure.leader {
+	margin-bottom: 1em;
+}
+
+.published {
+	font-size: 21px;
+	font-size: 1.3125rem;
+	line-height: 1.142857143em;
+	margin-top: 1.142857143em;
+	padding-bottom: 1.142857143em;
+	border-bottom-width: 6px;
+}
+
+}
+
+
+
+@media only screen and (min-width: 68.889em) {
+
+article, header.global {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 62em;
+	position:relative;
+}
+
+figure.inline {
+	position: absolute;
+	left: 0;
+}
+
+}
+
+
+/* @end */
+
+footer {
+	padding-top: 0.75em;
+}
+
+/* @group Gallery */
+
+#flickrGallery {
+	margin-bottom: 1.5em;
+	position: relative;
+	overflow: hidden;
+	height: 120px;
+}
+
+.gallery-photos {
+	position: absolute;
+	top: 0;
+	left: 0;
+	-moz-transition: all .5s ease;
+}
+
+.gallery-photos figure.photo {
+	margin: 0 0 0 8px;
+	width: 120px;
+	float: left;
+}
+
+.gallery-photos figure.photo:first-of-type {
+	margin-left: 0;
+}
+
+.gallery a.nav {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	display: block;
+	background: url(/i/bg_direction_nav.png) no-repeat 0 center;
+	opacity:1;
+	-moz-transition: all .3s ease;
+	opacity:0;
+}
+
+.gallery a.nav.prev {
+	margin: -15px 0 0 0;
+	left: 1px;
+}
+
+.gallery a.nav.next {
+	right: 1px;
+	margin: -15px 0 0;
+	background-position: -30px center;
+}
+
+.gallery:hover a.nav.prev {opacity: 0.8}
+.gallery:hover a.nav.next {opacity: 0.8}
+.gallery:hover a.nav.prev:hover {opacity: 1; left: 0;
+}
+.gallery:hover a.nav.next:hover {opacity: 1; right: 0;
+}
+
+
+@media only screen and (min-width: 42.222em) {
+	#flickrGallery {
+		margin-bottom: 1.5em;
+		position: relative;
+		overflow: auto;
+		height: auto;
+		margin-left: auto;
+		margin-right:auto;
+		max-width:38em;
+		padding-left: 0.75em;
+	}
+	
+	.gallery-photos {
+		position: static;
+		width:auto !important;
+	}	
+	
+	.gallery-photos figure.photo {
+		margin: 0 0.75em 0.75em 0.75em;
+	}
+	
+	.gallery-photos figure.photo:first-of-type {
+		margin-left: 0.75em;
+	}
+	
+	.gallery a.nav {
+		display: none;
+	}
+}
+
+/* @end */
+
+/* @group Meta */
+
+p.categories {
+	padding-top: 0.75em;
+	padding-left: 1.125em;
+	position: relative;
+}
+
+.sect, .tags h6 {
+	position: absolute;
+	left: 0;
+}
+
+.tags {
+	padding-left: 1.125em;
+		position: relative;
+}
+
+.tags li {
+	margin: 0;
+	display: inline;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	line-height: 1.385em;
+	padding-right: 0.6925em;
+	white-space: nowrap;
+}
+
+p.categories, .tags li {
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	-o-hyphens: none;
+	-webkit-hyphens: none;
+	hyphens: none;
+}
+
+#machine_tags {
+	display: none;
+}
+
+/* @end */

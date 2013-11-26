@@ -34,7 +34,7 @@ ERROR_REPORTING(E_ALL);
     */ ?>
 
     <!--css-->
-	<link rel="stylesheet" href="/css/all.css" type="text/css" />
+	<link rel="stylesheet" href="/css/all<?php echo $old ?>.css" type="text/css" />
     <!-- ie html5 and respond shims -->
     <!--[if lt IE 9]>
         <script src="/js/ie.js"></script>
