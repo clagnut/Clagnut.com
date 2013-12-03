@@ -133,8 +133,9 @@ body {
 }
 
 #main {
-	margin-left: 23.75%;
+	width: 91%;
 	padding: 1.5em 3%;
+	float: right;
 }
 
 article p {
@@ -148,8 +149,15 @@ h1 {
 	border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 
-@media only screen and (min-width: 42.222em) {
 
+
+@media only screen and (min-width: 62em) {
+
+	#main {
+		width: 70.25%;
+		min-width: 56em;
+	}
+	
 }
 
 /* @end */
