@@ -86,16 +86,16 @@ body  {
 }
 
 
-h1 { /* also .published on wider screens */
+h1, .published { /* also .published on wider screens */
     font-family: "Ingeborg-Heavy", "Ingeborg Heavy", "HoeflerText-Black", "Hoefler Text", Georgia, serif;
     font-weight: 800;
     font-size-adjust: 0.455;
-	-moz-font-feature-settings:"calt" 1;
-	-moz-font-feature-settings:"calt=1";
-	-ms-font-feature-settings:"calt" 1;
-	-o-font-feature-settings:"calt" 1;
-	-webkit-font-feature-settings:"calt" 1;
-	font-feature-settings:"calt" 1; 
+	-moz-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
+	-moz-font-feature-settings:		"calt=1, onum=0, lnum=1";
+	-ms-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
+	-o-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
+	-webkit-font-feature-settings:	"calt" 1, "onum" 0, "lnum" 1;
+	font-feature-settings:			"calt" 1, "onum" 0, "lnum" 1; 
 }
 
 h2, h3, h4, h5, h6, b, strong, ins, th, .categories {
@@ -129,7 +129,13 @@ body {
 }
 
 .published {
-	display: none;
+	color: rgba(0,0,0,0.8);
+	border-top: 2px solid rgba(0,0,0,0.33);
+	border-bottom: 2px solid rgba(0,0,0,0.33);
+	font-size: 1.5rem;
+	line-height:1.333em;
+	padding-bottom: 1.5em;
+	padding-left: 2px;
 }
 
 #main {
@@ -138,15 +144,26 @@ body {
 	float: right;
 }
 
+article header {
+	margin-bottom: 1.5em;
+}
+
+section {
+	padding-left: 2px;
+}
+
 article p {
 	padding-right:33.63%;
+}
+
+article p+p {
+	margin-top: 1em;
 }
 
 h1 {
 	font-size: 6rem;
 	line-height: 1em;
 	padding-bottom: .25em;
-	border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 
 
