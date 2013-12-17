@@ -21,7 +21,7 @@ include($dr . "header.inc.php");
 
 <div class="meta">
 <p class="published"><abbr title="2005-06-07T02:22:59+01:00">7th June 2005</abbr></p>
-<p class="categories">§ <a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
+<p class="categories">§&nbsp;<a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
 </div>
 </header>
 
@@ -37,7 +37,7 @@ include($dr . "header.inc.php");
 
 <div class="gallery">
 	<div class="gallery-photos">
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/1.jpg" alt="Crabbing"></a><figcaption>Crabbing</figcaption></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/1.jpg" alt="Crabbing"><figcaption>Crabbing</figcaption></a></figure>
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/3.jpg" alt="Passenger ferry"></a><figcaption>Passenger ferry pulling out</figcaption></figure>
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/4.jpg" alt="Herring gull"></a><figcaption>Herring gull</figcaption></figure>
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/5.jpg" alt="70 Pocket Penguins"></a><figcaption>70 Pocket Penguins</figcaption></figure>
@@ -75,6 +75,10 @@ include($dr . "header.inc.php");
 			</ul>
 		</div>
 	</div>
+</aside>
+
+<aside class="relatedposts">
+<ul>	
 </aside>
 
 </article>

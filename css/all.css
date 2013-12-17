@@ -81,6 +81,11 @@ a {
 	color: #dc423b;
 }
 
+a:hover, .gallery figure:hover {
+	color: #fff;
+	background: rgba(0,0,0,0.8);
+}
+
 aside.data {
 	color: #c8c3bb;
 	background: rgba(0,0,0,0.8);
@@ -92,6 +97,7 @@ aside.data a {
 
 aside.data a:hover {
 	color: #fff;
+	background: inherit;
 }
 
 .meta {
