@@ -180,13 +180,15 @@ body {
 }
 
 #main {
-	width: 91%;
-	padding: 1.5em 3%;
+	width: 94%;
+	padding: 1.5em 1.5%;
 	float: right;
 }
 
 article header {
 	margin-bottom: 1.5em;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 
 h1 {
@@ -220,7 +222,9 @@ aside h3, .meta {
 }
 
 section {
-	padding-left: 2px;
+	margin-left: 2px;
+	padding-left: 2%;
+	padding-left: 2%;
 }
 
 article p {
@@ -237,32 +241,33 @@ figcaption {
 }
 
 .gallery {
-	margin: 1.5em 0;
-	padding-top: 1em;
+	margin: 1.5em 2%;
+	padding-top: 0.5em;
+}
+
+.gallery-photos {
+	margin-left: -1%;
+	margin-right: -1%;
+	overflow: auto;
 }
 
 .gallery figure {
 	float: left;
-	width: 15%;
+	width: 14.66%;
 	padding-right: 1%;
 	padding-left: 1%;
+	padding-top: 0.5em;
 	margin-right: -1px; /* to counteract the border */
 	text-align: center;
-	margin-bottom: 1em;
-}
-
-.gallery figure:first-of-type {
-	padding-left: 0;
+	margin-bottom: 0.5em;
 }
 
 .gallery figure:nth-of-type(6n), .gallery figure:last-of-type {
 	border-right: 0;
-	padding-right: 0;
 }
 
 .gallery figure:nth-of-type(6n+1) {
 	clear: left;
-	padding-left: 0;
 }
 
 .gallery figure img {
@@ -272,7 +277,7 @@ figcaption {
 aside.data {
 	clear: left;
 	padding: 0.5em 0 0.5em 1em;
-	margin: 1.5em 0;
+	margin: 1.5em 2%;
 	border-radius: 0.125em;
 }
 
@@ -298,7 +303,7 @@ aside.data {
 @media only screen and (min-width: 62em) {
 
 	#main {
-		width: 70.25%;
+		width: 73.25%;
 		min-width: 56em;
 	}
 	

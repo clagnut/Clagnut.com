@@ -35,7 +35,7 @@ include($dr . "header.inc.php");
 
 </section>
 
-<div class="gallery">
+<aside class="gallery">
 	<div class="gallery-photos">
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/1.jpg" alt="Crabbing"><figcaption>Crabbing</figcaption></a></figure>
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/3.jpg" alt="Passenger ferry"></a><figcaption>Passenger ferry pulling out</figcaption></figure>
@@ -47,7 +47,7 @@ include($dr . "header.inc.php");
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800279/"><img src="/i/flickr/8.jpg" alt="Tate St Ives"></a><figcaption>Tate St Ives</figcaption></figure>
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800983/"><img src="/i/flickr/9.jpg" alt="Fal estuary under thunderous skies"></a><figcaption>Fal estuary</figcaption></figure>
 	</div>
-</div>
+</aside>
 
 
 <aside class="data">
