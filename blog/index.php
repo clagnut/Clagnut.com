@@ -13,14 +13,14 @@ include($dr . "header.inc.php");
 
 <div id="main">
 
-<article>
+<article class="post">
 
 <header>
 
 <h1><?php echo $title ?></h1>
 
 <div class="meta">
-<p class="published"><abbr title="2005-06-07T02:22:59+01:00">7th June 2005</abbr></p>
+<p class="published"><time datetime="2005-06-07T02:22:59+01:00">7th June 2005</time></p>
 <p class="categories">§&nbsp;<a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
 </div>
 </header>
@@ -36,7 +36,7 @@ include($dr . "header.inc.php");
 </section>
 
 <aside class="gallery">
-	<div class="gallery-photos">
+	<div class="aside-container">
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/1.jpg" alt="Crabbing"><figcaption>Crabbing</figcaption></a></figure>
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/3.jpg" alt="Passenger ferry"></a><figcaption>Passenger ferry pulling out</figcaption></figure>
 		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/4.jpg" alt="Herring gull"></a><figcaption>Herring gull</figcaption></figure>
@@ -78,7 +78,18 @@ include($dr . "header.inc.php");
 </aside>
 
 <aside class="relatedposts">
-<ul>	
+<div class="aside-container">
+<article>
+<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
+<h1>Underworld typography</h1>
+<p>§&nbsp;<a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
+</article>
+<article>
+<p><time datetime="2005-06-07T02:22:59+01:00">28 Novemember 2006</time></p>
+<h1>Professional body for web designers</h1>
+<p>§&nbsp;<a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
+</article>
+</div>
 </aside>
 
 </article>
