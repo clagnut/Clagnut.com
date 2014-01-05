@@ -1,4 +1,3 @@
 <footer class="global">
+<p>&copy; 2002&ndash;2014 Richard Rutter</p>
 </footer>
-<script src="/js/jquery-1.9.1.min.js"></script>
-<script src="/js/global.js"></script>

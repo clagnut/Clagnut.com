@@ -37,15 +37,11 @@ include($dr . "header.inc.php");
 
 <aside class="gallery">
 	<div class="aside-container">
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/1.jpg" alt="Crabbing"><figcaption>Crabbing</figcaption></a></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/3.jpg" alt="Passenger ferry"></a><figcaption>Passenger ferry pulling out</figcaption></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/4.jpg" alt="Herring gull"></a><figcaption>Herring gull</figcaption></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/5.jpg" alt="70 Pocket Penguins"></a><figcaption>70 Pocket Penguins</figcaption></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800512/"><img src="/i/flickr/6.jpg" alt="Fore Street, St Ives"></a><figcaption>Fore Street, St Ives</figcaption></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802456/"><img src="/i/flickr/2.jpg" alt="River Dart, Dittisham"></a><figcaption>River Dart, Dittisham</figcaption></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800962/"><img src="/i/flickr/7.jpg" alt="St Mawes"></a><figcaption>St Mawes</figcaption></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800279/"><img src="/i/flickr/8.jpg" alt="Tate St Ives"></a><figcaption>Tate St Ives</figcaption></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800983/"><img src="/i/flickr/9.jpg" alt="Fal estuary under thunderous skies"></a><figcaption>Fal estuary</figcaption></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/m/1.jpg" alt="Crabbing"><figcaption>Crabbing</figcaption></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/m/2.jpg" alt="Passenger ferry"><figcaption>Passenger ferry pulling out</figcaption></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/m/3.jpg" alt="Herring gull"><figcaption>Herring gull</figcaption></a></figure>
+		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/m/4.jpg" alt="70 Pocket Penguins"><figcaption>70 Pocket Penguins</figcaption></a></figure>
+		
 	</div>
 </aside>
 
@@ -90,7 +86,7 @@ include($dr . "header.inc.php");
 <article>
 <p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
 <h1><a href="#">The postcode lookup pattern</a></h1>
-<p><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a> · <a href="/archive/music/" title="View all posts relating to Ajax.">Ajax</a></p>
+<p><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a></p>
 </article>
 
 <article>
@@ -104,8 +100,8 @@ include($dr . "header.inc.php");
 
 </article>
 
-</div> <!-- /#main -->
+<?php include($dr . "footer.inc.php"); ?>
 
-<?php /* include($dr . "footer.inc.php"); */ ?>
+</div> <!-- /#main -->
 </body>
 </html>

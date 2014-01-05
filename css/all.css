@@ -64,12 +64,12 @@ body {
 /* @group Color */
 
 body {
-	background-color: #dc423b;
+	background: #dc423b;
 	color: #FFF;
 }
 
 #main {
-	background-color: #c8c3bb;
+	background: #c8c3bb;
 	color: #000;
 }
 
@@ -82,7 +82,7 @@ a {
 	color: #dc423b;
 }
 
-a:hover, .gallery figure:hover {
+a:hover, a:hover figcaption {
 	color: #fff;
 	background: rgba(0,0,0,0.8);
 }
@@ -107,16 +107,12 @@ aside.data a:hover {
 	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
 
-.gallery {
+footer {
 	border-top: 2px solid rgba(0,0,0,0.33);
 }
 
 .gallery figure, .relatedposts article {
 	border-right: 1px solid rgba(0,0,0,0.33);
-}
-
-.relatedposts {
-	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
 
 .relatedposts h2 {
@@ -208,6 +204,12 @@ article header {
 	padding-right: 2%;
 }
 
+footer.global {
+	margin: 0 2%;
+	padding: 6em 0 0 0;
+	
+}
+
 h1 {
 	font-size: 6rem;
 	line-height: 1em;
@@ -246,6 +248,7 @@ section {
 	margin-left: 2px;
 	padding-left: 2%;
 	padding-left: 2%;
+	padding-bottom: 1.5em;
 }
 
 article.post section p {
@@ -262,37 +265,7 @@ figcaption {
 }
 
 .aside-container {
-	margin-left: -1%;
-	margin-right: -1%;
 	overflow: auto;
-}
-
-.gallery {
-	margin: 1.5em 2% 0 2%;
-	padding-top: 0.8em;
-}
-
-.gallery figure {
-	float: left;
-	width: 14.66%;
-	padding-right: 1%;
-	padding-left: 1%;
-	padding-top: 0.2em;
-	margin-right: -1px; /* to counteract the border */
-	text-align: center;
-	margin-bottom: 0.8em;
-}
-
-.gallery figure:nth-of-type(6n), .gallery figure:last-of-type {
-	border-right: 0;
-}
-
-.gallery figure:nth-of-type(6n+1) {
-	clear: left;
-}
-
-.gallery figure img {
-	width: 100%;
 }
 
 aside.data {
@@ -305,11 +278,12 @@ aside.data {
 .tags h3 {
 	float: left;
 	line-height: 1;
-	margin-top: -0.083333333em;
+	font-size: 2.25rem;
 }
 
 .tags ul {
-	margin-left: 1.5em;
+	padding: 0.5em 0;
+	margin-left: 2.25em;
 }
 
 .tags li {
@@ -319,8 +293,37 @@ aside.data {
 	white-space: nowrap;
 }
 
+.gallery {
+	margin: 0 2%;
+}
+
+.gallery figure {
+	float: left;
+	width: 32%;
+	padding-right: 1%;
+	padding-left: 1%;
+	margin-right: -1px; /* to counteract the border */
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.gallery figure:nth-of-type(3n), .gallery figure:last-of-type {
+	border-right: 0;
+	padding-right: 0;
+	
+}
+
+.gallery figure:nth-of-type(3n+1), .gallery figure:last-of-type {
+	clear: left;
+	padding-left: 0;
+}
+
+.gallery figure img {
+	width: 100%;
+}
+
 .relatedposts {
-	margin: 3em 2% 1.5em 2%;
+	margin: 2em 2% 0 2%;
 	padding-top: 0;
 	padding-bottom: 1.1em;
 	text-align: center;
