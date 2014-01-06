@@ -100,8 +100,9 @@ include($dr . "header.inc.php");
 
 </article>
 
-<?php include($dr . "footer.inc.php"); ?>
 
 </div> <!-- /#main -->
+
+<?php include($dr . "footer.inc.php"); ?>
 </body>
 </html>

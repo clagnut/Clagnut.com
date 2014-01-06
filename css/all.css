@@ -77,7 +77,7 @@ body {
 	color: #FFF;
 }
 
-#main {
+#main, footer.global {
 	background: #c8c3bb;
 	color: #000;
 }
@@ -93,7 +93,7 @@ a {
 
 a:hover, a:hover figcaption {
 	color: #fff;
-	background: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.8);
 }
 
 aside.data {
@@ -116,8 +116,8 @@ aside.data a:hover {
 	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
 
-footer {
-	border-top: 2px solid rgba(0,0,0,0.33);
+.relatedposts {
+	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
 
 .gallery figure, .relatedposts article {
@@ -201,10 +201,16 @@ body {
 	padding: 0;
 }
 
-#main {
+#main, header.global, footer.global {
 	width: 94%;
-	padding: 1.5em 1.5%;
+	padding: 1.5em 1.5% 3em 1.5%;
 	float: right;
+	clear: right;
+}
+
+header.global {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 article header {
@@ -361,20 +367,40 @@ aside.data {
 }
 
 footer.global {
-	margin: 0 2%;
-	padding: 6em 0 0 0;
+	padding-bottom: 1.5em;
 	text-align: right;
-	font-size: .875rem;
+}
+
+footer p {
+	padding-left: 2%;
+	padding-right: 2%;
 }
 
 .copyright {
 	float: left;
 }
 
+.icon {
+	padding: 4px 0 4px 28px;
+	background-repeat: no-repeat;
+	background-position: left top;
+	margin-left: 1em;
+}
+
+/* Thank you paulrobertlloyd.com */
+
+.twitter {
+	background-image: url(/i/icon-twitter.png);
+}
+
+.feed {
+	background-image: url(/i/icon-feed.png);
+}
+
 
 @media only screen and (min-width: 62em) {
 
-	#main {
+	#main, footer.global {
 		width: 73.25%;
 		min-width: 56em;
 	}
