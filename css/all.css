@@ -86,7 +86,7 @@ h1, aside.data h3 {
 	color: #fff;
 }
 
-a {
+a, a figcaption, a img {
 	text-decoration: none;
 	color: #dc423b;
 	-moz-transition:	all 0.25s linear;
@@ -99,6 +99,11 @@ a {
 a:hover, a:hover figcaption {
 	color: #fff;
 	background-color: rgba(0,0,0,0.8);
+}
+
+footer.global a:hover img {
+	-moz-box-shadow: 0 0 2px rgb(68, 68, 68);
+	box-shadow: 0 0 2px rgb(68, 68, 68);
 }
 
 aside.data {
@@ -274,31 +279,6 @@ figcaption {
 	overflow: auto;
 }
 
-aside.data {
-	clear: left;
-	padding: 0.5em 0 0.5em 1em;
-	margin: 0 2%;
-	border-radius: 0.125em;
-}
-
-.tags h3 {
-	float: left;
-	line-height: 1;
-	font-size: 2.25rem;
-}
-
-.tags ul {
-	padding: 0.5em 0;
-	margin-left: 2.25em;
-}
-
-.tags li {
-	list-style: none;
-	display: inline;
-	margin-right: 1em;
-	white-space: nowrap;
-}
-
 .gallery {
 	margin: 0 2%;
 }
@@ -367,6 +347,31 @@ aside.data {
 }
 
 .relatedposts p a {
+	white-space: nowrap;
+}
+
+aside.data {
+	clear: left;
+	padding: 0.5em 0 0.5em 1em;
+	margin: 0 2%;
+	border-radius: 0.125em;
+}
+
+.tags h3 {
+	float: left;
+	position: relative;
+	top: 0.2em;
+}
+
+.tags ul {
+	padding: 0.5em 0;
+	margin-left: 2.25em;
+}
+
+.tags li {
+	list-style: none;
+	display: inline;
+	margin-right: 1em;
 	white-space: nowrap;
 }
 
