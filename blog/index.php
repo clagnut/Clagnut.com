@@ -45,6 +45,31 @@ include($dr . "header.inc.php");
 	</div>
 </aside>
 
+<aside class="relatedposts">
+<h2><span>Possibly Related</span></h2>
+<div class="aside-container">
+
+<article>
+<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
+<h1><a href="#">Underworld typography</a></h1>
+<p><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
+</article>
+
+<article>
+<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
+<h1><a href="#">The postcode lookup pattern</a></h1>
+<p><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a></p>
+</article>
+
+<article>
+<p><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
+<h1><a href="#">Professional body for web designers</a></h1>
+<p><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
+</article>
+
+</div>
+</aside>
+
 
 <aside class="data">
 	<div class="tags">
@@ -71,31 +96,6 @@ include($dr . "header.inc.php");
 			</ul>
 		</div>
 	</div>
-</aside>
-
-<aside class="relatedposts">
-<h2><span>Possibly Related</span></h2>
-<div class="aside-container">
-
-<article>
-<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-<h1><a href="#">Underworld typography</a></h1>
-<p><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
-</article>
-
-<article>
-<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-<h1><a href="#">The postcode lookup pattern</a></h1>
-<p><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a></p>
-</article>
-
-<article>
-<p><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
-<h1><a href="#">Professional body for web designers</a></h1>
-<p><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
-</article>
-
-</div>
 </aside>
 
 </article>

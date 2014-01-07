@@ -116,24 +116,16 @@ aside.data a:hover {
 	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
 
-.relatedposts {
-	border-bottom: 2px solid rgba(0,0,0,0.33);
-}
-
 .gallery figure, .relatedposts article {
 	border-right: 1px solid rgba(0,0,0,0.33);
 }
 
 .relatedposts h2 {
 	border-bottom: 2px solid rgba(0,0,0,0.33);	
-	margin-top: -0.9em;
 }
 
 .relatedposts h2 span {
-	position: relative;
-	top: 0.9em;
 	background-color: #c8c3bb;
-	padding: 0 0.5em;
 }
 
 /* @end */
@@ -332,7 +324,7 @@ aside.data {
 }
 
 .relatedposts {
-	margin: 2em 2% 0 2%;
+	margin: 1em 2% 0 2%;
 	padding-top: 0;
 	padding-bottom: 1.1em;
 	text-align: center;
@@ -341,6 +333,13 @@ aside.data {
 .relatedposts h2 {
 	text-transform: uppercase;
 	letter-spacing: .0625em;
+	margin-top: -0.9em;
+}
+
+.relatedposts h2 span {
+	position: relative;
+	top: 0.9em;
+	padding: 0 0.5em;
 }
 
 .relatedposts article {
