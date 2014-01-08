@@ -6,14 +6,18 @@ a, em, strong, small, s, cite, q, dfn, abbr, time, code, var, samp, kbd, sub, su
 ins, del,
 img, iframe, embed, object, video, audio, canvas, map, area,
 table, caption, colgroup, tbody, thead, tfoot, tr, td, th,
-form, fieldset, legend, label, input, button, select, textarea, optgroup
+form, fieldset, legend, label, input, button, select, textarea, optgroup,
 details, summary, command, menu {
     font-size: 100%;
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-    font-family: inherit;
 }
+
+fieldset, legend, label, input, button, select, textarea, optgroup {
+	font-family: inherit;
+}
+
 img {
 	max-width: 100%;
 	vertical-align: bottom;
@@ -35,7 +39,7 @@ table {	border-collapse: collapse;	border-spacing: 0; }
 
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+main, article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section { display: block; }
 
 /* @end */
@@ -77,13 +81,17 @@ body {
 	color: #FFF;
 }
 
-#main, footer.global {
+main, footer.global, header.global {
 	background: #c8c3bb;
 	color: #000;
 }
 
 h1, aside.data h3 {
 	color: #fff;
+}
+
+header.global h1 {
+	color: rgba(0,0,0,0.9);
 }
 
 a, a figcaption, a img {
@@ -98,7 +106,7 @@ a, a figcaption, a img {
 
 a:hover, a:hover figcaption {
 	color: #fff;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.66);
 }
 
 footer.global a:hover img {
@@ -108,7 +116,7 @@ footer.global a:hover img {
 
 aside.data {
 	color: #c8c3bb;
-	background: rgba(0,0,0,0.8);
+	background: rgba(0,0,0,0.66);
 }
 
 aside.data a {
@@ -121,7 +129,7 @@ aside.data a:hover {
 }
 
 .meta {
-	color: rgba(0,0,0,0.8);
+	color: rgba(0,0,0,0.9);
 	border-top: 2px solid rgba(0,0,0,0.33);
 	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
@@ -142,7 +150,7 @@ aside.data a:hover {
 
 /* @group Webfonts */
 
-body  {
+body, nav  {
 	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-size-adjust: 0.488;
 	font-weight: 500;
@@ -203,7 +211,7 @@ body {
 	padding: 0;
 }
 
-#main, header.global, footer.global {
+main, header.global, footer.global {
 	width: 94%;
 	padding: 1.5em 1.5% 3em 1.5%;
 	float: right;
@@ -213,6 +221,18 @@ body {
 header.global {
 	padding-top: 0;
 	padding-bottom: 0;
+	text-align: right;
+}
+
+header.global h1 {
+	font-size: 1.5rem;
+	line-height: 1.333em;
+	padding-left: 2%;
+	float: left;
+}
+
+main {
+	padding-top: 3em;
 }
 
 article header {
@@ -221,7 +241,21 @@ article header {
 	padding-right: 2%;
 }
 
-h1 {
+header nav {
+	float: right;
+	width: 31.63%;
+	text-align: right;
+}
+
+header nav a {
+	font-size: 2.5rem;
+	line-height: 0.8;
+	width: 0.8em;
+	display: inline-block;
+	text-align: center;
+}
+
+article h1 {
 	font-size: 6rem;
 	line-height: 1em;
 	padding-bottom: .25em;
@@ -360,7 +394,7 @@ aside.data {
 .tags h3 {
 	float: left;
 	position: relative;
-	top: 0.2em;
+	top: 0.1em;
 }
 
 .tags ul {
@@ -377,16 +411,22 @@ aside.data {
 
 footer.global {
 	padding-bottom: 1.5em;
-	text-align: right;
+	position: relative;
 }
 
 footer p {
-	padding-left: 2%;
-	padding-right: 2%;
+	text-align: right;
+	position: absolute;
+	right: 4%;
+}
+
+footer nav {
+	text-align: center;
 }
 
 .copyright {
-	float: left;
+	right: auto;
+	left: 4%;
 }
 
 .icon {
@@ -409,15 +449,11 @@ footer p {
 
 @media only screen and (min-width: 62em) {
 
-	#main, footer.global {
+	main, header.global, footer.global {
 		width: 73.25%;
 		min-width: 56em;
 	}
 	
-}
-
-#machine_tags {
-	display: none;
 }
 
 /* @end */

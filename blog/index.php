@@ -11,7 +11,7 @@ include($dr . "head.inc.php");
 include($dr . "header.inc.php");
 ?>
 
-<div id="main">
+<main>
 
 <article class="post">
 
@@ -22,6 +22,10 @@ include($dr . "header.inc.php");
 <div class="meta">
 <p class="published"><time datetime="2005-06-07T02:22:59+01:00">7th June 2005</time></p>
 <p class="categories">§&nbsp;<a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
+
+<nav>
+<a href="#" rel="prev" title="Previous">&lsaquo;</a><a href="#" rel="next" title="Next">&rsaquo;</a>
+</nav>
 </div>
 </header>
 
@@ -85,7 +89,7 @@ include($dr . "header.inc.php");
 		<li><a href="http://clagnut.com/search/?q=Agatha+Christie" rel="tag">Agatha Christie</a></li>
 		<li><a href="http://clagnut.com/search/?q=Phil+Baines" rel="tag">Phil Baines</a></li>
 		</ul>	
-			
+		<?php /*	
 		<div id="machine_tags">
 			<h4><a href="#machine_tags" class="arrow">►</a> Machine tags</h4>
 			
@@ -95,13 +99,14 @@ include($dr . "header.inc.php");
 			<li><a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
 			</ul>
 		</div>
+		*/ ?>
 	</div>
 </aside>
 
 </article>
 
 
-</div> <!-- /#main -->
+</main>
 
 <?php include($dr . "footer.inc.php"); ?>
 </body>
