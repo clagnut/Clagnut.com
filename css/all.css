@@ -81,7 +81,7 @@ body {
 	color: #FFF;
 }
 
-main, footer.global, header.global {
+main {
 	background: #c8c3bb;
 	color: #000;
 }
@@ -90,8 +90,27 @@ h1, aside.data h3 {
 	color: #fff;
 }
 
-header.global h1 {
-	color: rgba(0,0,0,0.9);
+header.global, footer.global {
+	color: #c8c3bb;
+	background: rgb(67, 65, 63);
+}
+
+header.global a, footer.global a {
+	color: rgba(255,255,255,0.9);
+}
+
+header.global a:hover, footer.global a:hover {
+background: none;
+	color: rgba(255,255,255,1);
+}
+
+header.global img, footer.global img {
+	border-radius: 0;
+	opacity: 0.9;
+}
+
+header.global a:hover img, footer.global a:hover img {
+	opacity: 1;
 }
 
 a, a figcaption, a img {
@@ -107,11 +126,6 @@ a, a figcaption, a img {
 a:hover, a:hover figcaption {
 	color: #fff;
 	background-color: rgba(0,0,0,0.66);
-}
-
-footer.global a:hover img {
-	-moz-box-shadow: 0 0 2px rgb(68, 68, 68);
-	box-shadow: 0 0 2px rgb(68, 68, 68);
 }
 
 aside.data {
@@ -211,23 +225,27 @@ body {
 	padding: 0;
 }
 
-main, header.global, footer.global {
-	width: 94%;
-	padding: 1.5em 1.5% 3em 1.5%;
+main {
+	width: 90.3225806%;
+	padding: 1.5em 1.5% 7.5em 1.5%;
 	float: right;
 	clear: right;
 }
 
-header.global {
-	padding-top: 0;
-	padding-bottom: 0;
+header.global, footer.global {
+	padding: 0 1.5%;
 	text-align: right;
+	clear: right;
+}
+
+.masthead {
+	padding: 0.5em 0;
+	overflow: auto;
 }
 
 header.global h1 {
 	font-size: 1.5rem;
 	line-height: 1.333em;
-	padding-left: 2%;
 	float: left;
 }
 
@@ -410,14 +428,15 @@ aside.data {
 }
 
 footer.global {
-	padding-bottom: 1.5em;
+	padding-top: 0.75em;
+	padding-bottom: 0.5em;
 	position: relative;
 }
 
 footer p {
 	text-align: right;
 	position: absolute;
-	right: 4%;
+	right: 1.5%;
 }
 
 footer nav {
@@ -426,7 +445,7 @@ footer nav {
 
 .copyright {
 	right: auto;
-	left: 4%;
+	left: 1.5%;
 }
 
 .icon {
@@ -435,8 +454,6 @@ footer nav {
 	background-position: left top;
 	margin-left: 1em;
 }
-
-/* Thank you paulrobertlloyd.com */
 
 .twitter {
 	background-image: url(/i/icon-twitter.png);
@@ -449,7 +466,7 @@ footer nav {
 
 @media only screen and (min-width: 62em) {
 
-	main, header.global, footer.global {
+	main {
 		width: 73.25%;
 		min-width: 56em;
 	}

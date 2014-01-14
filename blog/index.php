@@ -24,7 +24,7 @@ include($dr . "header.inc.php");
 <p class="categories">§&nbsp;<a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
 
 <nav>
-<a href="#" rel="prev" title="Previous">&lsaquo;</a><a href="#" rel="next" title="Next">&rsaquo;</a>
+<a href="#" rel="next" title="Newer">&lsaquo;</a><a href="#" rel="prev" title="Older">&rsaquo;</a>
 </nav>
 </div>
 </header>
