@@ -14,6 +14,11 @@ ERROR_REPORTING(E_ALL);
     <meta name="robots" content="index, follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+	<script>
+	    var html = document.getElementsByTagName('html')[0];
+	    html.className = 'js';
+	</script>
+	
     <?php /*
     <!--fonts-->
     <script>
@@ -32,6 +37,9 @@ ERROR_REPORTING(E_ALL);
         })();
     </script>
     */ ?>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/global.js"></script>
 
     <!--css-->
 	<link rel="stylesheet" href="/css/all<?php echo $old ?>.css" type="text/css" />

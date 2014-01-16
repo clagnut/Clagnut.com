@@ -39,68 +39,52 @@ include($dr . "header.inc.php");
 
 </section>
 
-<aside class="gallery">
-	<div class="aside-container">
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/m/1.jpg" alt="Crabbing"><figcaption>Crabbing</figcaption></a></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/m/2.jpg" alt="Passenger ferry"><figcaption>Passenger ferry pulling out</figcaption></a></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/m/3.jpg" alt="Herring gull"><figcaption>Herring gull</figcaption></a></figure>
-		<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/m/4.jpg" alt="70 Pocket Penguins"><figcaption>70 Pocket Penguins</figcaption></a></figure>
-		
-	</div>
-</aside>
-
-<aside class="relatedposts">
-<h2><span>Possibly Related</span></h2>
-<div class="aside-container">
-
-<article>
-<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-<h1><a href="#">Underworld typography</a></h1>
-<p><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
-</article>
-
-<article>
-<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-<h1><a href="#">The postcode lookup pattern</a></h1>
-<p><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a></p>
-</article>
-
-<article>
-<p><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
-<h1><a href="#">Professional body for web designers</a></h1>
-<p><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
-</article>
-
-</div>
+<aside class="gallery group">
+	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/m/1.jpg" alt="Crabbing"></a><figcaption>Crabbing</figcaption></figure>
+	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/m/2.jpg" alt="Passenger ferry"></a><figcaption>Passenger ferry pulling out</figcaption></figure>
+	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/m/3.jpg" alt="Herring gull"></a><figcaption>Herring gull</figcaption></figure>
+	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/m/4.jpg" alt="70 Pocket Penguins"></a><figcaption>70 Pocket Penguins</figcaption></figure>
 </aside>
 
 
-<aside class="data">
-	<div class="tags">
-		<h3>#</h3>
-		<ul>
-		<li><a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
-		<li><a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
-		<li><a href="http://clagnut.com/search/?q=book+design" rel="tag">book design</a></li>
-		<li><a href="http://clagnut.com/search/?q=cornwall" rel="tag">cornwall</a></li>
-		<li><a href="http://clagnut.com/search/?q=devon" rel="tag">devon</a></li>
-		<li><a href="http://clagnut.com/search/?q=isbntagged" rel="tag">isbntagged</a></li>
-		<li><a href="http://clagnut.com/search/?q=geotagged" rel="tag">geotagged</a></li>
-		<li><a href="http://clagnut.com/search/?q=Agatha+Christie" rel="tag">Agatha Christie</a></li>
-		<li><a href="http://clagnut.com/search/?q=Phil+Baines" rel="tag">Phil Baines</a></li>
-		</ul>	
-		<?php /*	
-		<div id="machine_tags">
-			<h4><a href="#machine_tags" class="arrow">►</a> Machine tags</h4>
-			
-			<ul>
-			<li><a href="http://clagnut.com/search?q=clagnut%3Apost%3D1484" rel="tag">clagnut:post=1484</a></li>
-			<li><a href="http://clagnut.com/search?q=geo%3Alat%3D50.382" rel="tag">geo:lat=50.382</a></li>
-			<li><a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
-			</ul>
-		</div>
-		*/ ?>
-	</div>
+<aside class="tags group">
+	<p class="comment"><a href="https://twitter.com/intent/tweet?text=Web Typography by @clagnut http://clagnut.com/blog/1234"><img src="/i/icon-twitter.png" alt=""> Comment via Twitter</a></p>
+	<ul>
+	<li>#<a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
+	<li>#<a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
+	<li>#<a href="http://clagnut.com/search/?q=book+design" rel="tag">book design</a></li>
+	<li>#<a href="http://clagnut.com/search/?q=devon" rel="tag">devon</a></li>
+	<li>#<a href="http://clagnut.com/search/?q=isbntagged" rel="tag">isbntagged</a></li>
+	<li>#<a href="http://clagnut.com/search/?q=geotagged" rel="tag">geotagged</a></li>
+	<li>#<a href="http://clagnut.com/search/?q=Agatha+Christie" rel="tag">Agatha Christie</a></li>
+	<li>#<a href="http://clagnut.com/search/?q=Phil+Baines" rel="tag">Phil Baines</a></li>
+	<li class="machine-tag">#<a href="http://clagnut.com/search?q=clagnut%3Apost%3D1484" rel="tag">clagnut:post=1484</a></li>
+	<li class="machine-tag">#<a href="http://clagnut.com/search?q=geo%3Alat%3D50.382" rel="tag">geo:lat=50.382</a></li>
+	<li class="machine-tag">#<a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
+	</ul>
+</aside>
+
+<aside class="relatedposts group">
+	<h2><span>Possibly Related</span></h2>
+	
+	<article>
+	<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
+	<h1><a href="#">Underworld typography</a></h1>
+	<p><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
+	</article>
+	
+	<article>
+	<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
+	<h1><a href="#">The postcode lookup pattern</a></h1>
+	<p><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a></p>
+	</article>
+	
+	<article>
+	<p><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
+	<h1><a href="#">Professional body for web designers</a></h1>
+	<p><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
+	</article>
+
 </aside>
 
 </article>

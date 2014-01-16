@@ -3,9 +3,14 @@
 <div class="masthead">
 <h1><a href="/">Clagnut</a></h1>
 
-<a href="#globalnav"><img src="/i/icon-menu.png" alt="Menu" /></a>
+<a href="#global" id="menutoggle"><img src="/i/icon-menu.png" alt="Menu" /></a>
 
-<nav class="header" id="globalnav"></nav>
+<nav id="global">
+<ul>
+<li><a href="#">About</a></li>
+<li><a href="#">Archive</a></li>
+<li><a href="#">Search</a></li>
+</nav>
 
 </div>
 
