@@ -51,7 +51,7 @@ footer, header, hgroup, menu, nav, section { display: block; }
 /* @end */
 /* @group OpenType features */
 
-.smcp, .relatedposts time { /* Smallcaps */
+.smcp, time { /* Smallcaps */
 	text-transform: lowercase;
 	-moz-font-feature-settings:"smcp" 1, "onum" 1;
 	-moz-font-feature-settings:"smcp=1, onum=1";
@@ -157,8 +157,12 @@ footer.global {
 	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
 
-.relatedposts article {
-	border-right: 1px solid rgba(0,0,0,0.33);
+.relatedposts article, .newestpost {
+	border-right: 1px solid #827e7a;
+}
+
+.favephoto {
+	border-left: 1px solid #827e7a;
 }
 
 aside h2 {
@@ -229,7 +233,7 @@ pre, code, kbd, tt, samp, tt {
 
 /* @end */
 
-/* @group Basics */
+/* @group Basics and Post page */
 
 body {
 	/* base maths on default font size of 16px */
@@ -240,10 +244,12 @@ body {
 
 main {
 	width: 90.3225806%;
-	padding: 1.5em 1.5% 7.5em 1.5%;
+	padding: 3em 1.5% 7.5em 1.5%;
 	float: right;
 	clear: right;
 }
+
+/* @group Global header and footer */
 
 header.global, footer.global {
 	padding: 0 1.5%;
@@ -294,9 +300,28 @@ nav#global.active {
 	opacity:1;
 }
 
-main {
-	padding-top: 3em;
+footer.global {
+	padding-top: 0.75em;
+	padding-bottom: 0.5em;
+	position: relative;
 }
+
+footer p {
+	text-align: right;
+	position: absolute;
+	right: 1.5%;
+}
+
+footer nav {
+	text-align: center;
+}
+
+.copyright {
+	right: auto;
+	left: 1.5%;
+}
+
+/* @end */
 
 article header {
 	margin-bottom: 1.5em;
@@ -318,7 +343,7 @@ article header nav a {
 	text-align: center;
 }
 
-article h1 {
+h1 {
 	font-size: 6rem;
 	line-height: 1em;
 	padding-bottom: .25em;
@@ -367,6 +392,10 @@ article p+p {
 	margin-top: 1em;
 }
 
+figure {
+	text-align: center;
+}
+
 figcaption {
 	line-height: 1.125em;
 	padding: .1875em 0;
@@ -399,7 +428,6 @@ aside h2 span {
 	width: 32%;
 	padding-right: 1%;
 	padding-left: 1%;
-	text-align: center;
 	margin-bottom: 1em;
 	position: relative;
 }
@@ -418,13 +446,14 @@ aside h2 span {
 	width: 100%;
 }
 
-.gallery figcaption {
+.gallery figcaption, .favephoto figcaption {
 	position: absolute;
 	bottom: 0;
 	right: 3.125%;
 	left: 3.125%;
-	background: rgba(0,0,0,0.25);
+	background: rgba(0,0,0,0.5);
 	color: #fff;
+	transition:	all 0.35s linear;
 }
 
 .gallery figure:nth-of-type(3n) figcaption, .gallery figure:last-of-type figcaption {
@@ -433,6 +462,10 @@ aside h2 span {
 
 .gallery figure:nth-of-type(3n+1) figcaption {
 	left: 0;
+}
+
+.gallery figure:hover figcaption, .favephoto figure:hover figcaption {
+	opacity: 0;
 }
 
 aside.tags {
@@ -489,31 +522,9 @@ aside.tags p.comment {
 	white-space: nowrap;
 }
 
-footer.global {
-	padding-top: 0.75em;
-	padding-bottom: 0.5em;
-	position: relative;
-}
-
-footer p {
-	text-align: right;
-	position: absolute;
-	right: 1.5%;
-}
-
-footer nav {
-	text-align: center;
-}
-
-.copyright {
-	right: auto;
-	left: 1.5%;
-}
-
-
 @media only screen and (min-width: 62em) {
 
-	main {
+	main.post {
 		width: 73.25%;
 		min-width: 56em;
 	}
@@ -522,4 +533,41 @@ footer nav {
 
 /* @end */
 
+/* @group Home page */
 
+article.newestpost {
+	width: 46%;
+	margin: 0 0 5em 2%;
+	padding-right: 2%;
+	float: left;
+}
+
+.newestpost p.date {
+	margin: 0;
+}
+
+.newestpost h1 {
+	font-size: 2.5rem;
+}
+
+.newestpost p {
+	font-size: 1.125rem;
+	margin: 1.5em 0;
+}
+
+.newestpost p.more {
+	margin:0;
+}
+
+article.favephoto {
+	margin: 0 2% 5em 50%;
+	position: relative;
+	padding-left: 2%;
+}
+
+.favephoto figcaption {
+	right: 0;
+	left: 4%;
+}
+
+/* @end */

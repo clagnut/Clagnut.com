@@ -11,7 +11,7 @@ include($dr . "head.inc.php");
 include($dr . "header.inc.php");
 ?>
 
-<main>
+<main class="post">
 
 <article class="post">
 

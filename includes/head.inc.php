@@ -52,7 +52,15 @@ ERROR_REPORTING(E_ALL);
     <link rel="alternate" type="application/rss+xml" title="RSS with summaries" href="http://feeds.feedburner.com/ClagnutSummaries">
 	<link rel="alternate" type="application/rss+xml" title="RSS with full posts" href="http://feeds.feedburner.com/Clagnut">
 
-    <title><?php echo strip_tags($title) ?></title>
+    <title><?php
+    echo strip_tags($title);
+    if($title != "") {
+    	echo " | Clagnut";
+    } else {
+    	echo "Clagnut by Richard Rutter";
+    }
+    ?>
+    </title>
 </head>
 
 
