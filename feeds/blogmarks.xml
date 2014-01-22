@@ -1,0 +1,179 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+			<channel>
+				<title>Clagnut blogmarks</title>
+				<link>http://clagnut.com/blogmarks/</link>
+				<atom:link href="http://clagnut.com/feeds/blogmarks.xml" rel="self" type="application/rss+xml" />
+				<description>So many sites, so little time. Blogmarks are a living collection of links I haven't managed to write about in the main blog.</description>
+				<language>en-gb</language>
+				<copyright>Copyright 2003-2012, Richard Rutter</copyright>
+				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
+				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
+				<image>
+					<url>http://clagnut.com/images/clagnut_rss.png</url>
+					<link>http://clagnut.com/blogmarks/</link>
+					<title>Clagnut blogmarks</title>
+					<width>88</width>
+					<height>31</height>
+				</image>
+		<item>
+			<pubDate>Wed, 21 Jun 2006 00:00:00 PST</pubDate>
+			<title>WCAG 2.0 Quick Reference</title>
+			<link>http://www.w3.org/WAI/WCAG20/quickref/</link>
+			<guid>http://www.w3.org/WAI/WCAG20/quickref/</guid>
+			<description><![CDATA[An interactive summary of all WCAG 2.0 requirements. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/accessiblility/">Accessibility</category>
+<category domain="http://del.icio.us/tag/Accessibility">Accessibility</category>
+<category domain="http://del.icio.us/tag/WCAG2.0">WCAG2.0</category>
+		</item>
+		<item>
+			<pubDate>Mon, 12 Jun 2006 00:00:00 PST</pubDate>
+			<title>Levels of knowledge</title>
+			<link>Jeremy pulls together CSS, HTML, Javascript and accessibility</link>
+			<guid>Jeremy pulls together CSS, HTML, Javascript and accessibility</guid>
+			<description><![CDATA[. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/standards/">Web standards</category>
+			<category domain="http://clagnut.com/blogmarks/industry/">New media industry</category>
+<category domain="http://del.icio.us/tag/Newmediaindustry">Newmediaindustry</category>
+<category domain="http://del.icio.us/tag/Webstandards">Webstandards</category>
+<category domain="http://del.icio.us/tag/knowledge">knowledge</category>
+		</item>
+		<item>
+			<pubDate>Thu, 08 Jun 2006 00:00:00 PST</pubDate>
+			<title>Using biological senses as design inspiration</title>
+			<link>http://interconnected.org/notes/2006/06/reboot8/senses/</link>
+			<guid>http://interconnected.org/notes/2006/06/reboot8/senses/</guid>
+			<description><![CDATA[Matt Webb&#8217;s presentation at reboot8. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/design_thinking/">Design thinking</category>
+<category domain="http://del.icio.us/tag/Designthinking">Designthinking</category>
+<category domain="http://del.icio.us/tag/MattWebb">MattWebb</category>
+<category domain="http://del.icio.us/tag/inspiration">inspiration</category>
+<category domain="http://del.icio.us/tag/reboot8">reboot8</category>
+		</item>
+		<item>
+			<pubDate>Thu, 08 Jun 2006 00:00:00 PST</pubDate>
+			<title>Hire this man</title>
+			<link>http://www.hackdiary.com/archives/000086.html</link>
+			<guid>http://www.hackdiary.com/archives/000086.html</guid>
+			<description><![CDATA[All bets are off on Matt ending up at Yahoo!.. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/industry/">New media industry</category>
+<category domain="http://del.icio.us/tag/NewMediaIndustry">NewMediaIndustry</category>
+<category domain="http://del.icio.us/tag/MattBiddulph">MattBiddulph</category>
+<category domain="http://del.icio.us/tag/hire">hire</category>
+<category domain="http://del.icio.us/tag/recruitment">recruitment</category>
+		</item>
+		<item>
+			<pubDate>Wed, 07 Jun 2006 00:00:00 PST</pubDate>
+			<title>Making Ajax Work with Screen Readers</title>
+			<link>http://juicystudio.com/article/making-ajax-work-with-screen-readers.php</link>
+			<guid>http://juicystudio.com/article/making-ajax-work-with-screen-readers.php</guid>
+			<description><![CDATA[Steve Faulkner and Gez Lemon explain how. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/accessiblility/">Accessibility</category>
+			<category domain="http://clagnut.com/blogmarks/scripting/">DOM | JavaScript</category>
+			<category domain="http://clagnut.com/blogmarks/ajax/">Ajax</category>
+<category domain="http://del.icio.us/tag/Ajax">Ajax</category>
+<category domain="http://del.icio.us/tag/DOM">DOM</category>
+<category domain="http://del.icio.us/tag/JavaScript">JavaScript</category>
+<category domain="http://del.icio.us/tag/screenreader">screenreader</category>
+<category domain="http://del.icio.us/tag/GezLemon">GezLemon</category>
+<category domain="http://del.icio.us/tag/SteveFaulkner">SteveFaulkner</category>
+<category domain="http://del.icio.us/tag/Accessibility">Accessibility</category>
+		</item>
+		<item>
+			<pubDate>Fri, 26 May 2006 00:00:00 PST</pubDate>
+			<title>Chax iChat enhancer</title>
+			<link>http://www.ksuther.com/chax/</link>
+			<guid>http://www.ksuther.com/chax/</guid>
+			<description><![CDATA[Includes tabbed chats. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/tools_software/">Tools &amp; software</category>
+			<category domain="http://clagnut.com/blogmarks/apple/">Apple</category>
+<category domain="http://del.icio.us/tag/Apple">Apple</category>
+<category domain="http://del.icio.us/tag/Toolsandsoftware">Toolsandsoftware</category>
+<category domain="http://del.icio.us/tag/Chax">Chax</category>
+<category domain="http://del.icio.us/tag/iChat">iChat</category>
+<category domain="http://del.icio.us/tag/OSX">OSX</category>
+<category domain="http://del.icio.us/tag/software">software</category>
+<category domain="http://del.icio.us/tag/IM">IM</category>
+		</item>
+		<item>
+			<pubDate>Thu, 18 May 2006 00:00:00 PST</pubDate>
+			<title>AJAX and Screenreaders: When Can it Work?</title>
+			<link>http://www.sitepoint.com/article/ajax-screenreaders-work</link>
+			<guid>http://www.sitepoint.com/article/ajax-screenreaders-work</guid>
+			<description><![CDATA[Original research and analysis from the man Brothercake. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/accessiblility/">Accessibility</category>
+			<category domain="http://clagnut.com/blogmarks/scripting/">DOM | JavaScript</category>
+			<category domain="http://clagnut.com/blogmarks/ajax/">Ajax</category>
+<category domain="http://del.icio.us/tag/Accessibility">Accessibility</category>
+<category domain="http://del.icio.us/tag/Ajax">Ajax</category>
+<category domain="http://del.icio.us/tag/DOM">DOM</category>
+<category domain="http://del.icio.us/tag/JavaScript">JavaScript</category>
+<category domain="http://del.icio.us/tag/Brothercake">Brothercake</category>
+<category domain="http://del.icio.us/tag/research">research</category>
+<category domain="http://del.icio.us/tag/screenreader">screenreader</category>
+		</item>
+		<item>
+			<pubDate>Thu, 18 May 2006 00:00:00 PST</pubDate>
+			<title>Bottle Cap Tripod</title>
+			<link>http://www.semsons.com/botcaptripfo.html</link>
+			<guid>http://www.semsons.com/botcaptripfo.html</guid>
+			<description><![CDATA[Magically turns a bottle into a camera tripod. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/photography/">Photography</category>
+<category domain="http://del.icio.us/tag/Photography">Photography</category>
+<category domain="http://del.icio.us/tag/tripod">tripod</category>
+<category domain="http://del.icio.us/tag/cool">cool</category>
+<category domain="http://del.icio.us/tag/fun">fun</category>
+		</item>
+		<item>
+			<pubDate>Thu, 18 May 2006 00:00:00 PST</pubDate>
+			<title>Five days / five heatmaps</title>
+			<link>http://www.etre.com/blog/2006/05/five_days_five_heatmaps/</link>
+			<guid>http://www.etre.com/blog/2006/05/five_days_five_heatmaps/</guid>
+			<description><![CDATA[Eye tracking study of 5 major UK ecommerce sites. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/information_design/">Information design</category>
+<category domain="http://del.icio.us/tag/Informationdesign">Informationdesign</category>
+<category domain="http://del.icio.us/tag/heatmap">heatmap</category>
+<category domain="http://del.icio.us/tag/eyeTracking">eyeTracking</category>
+<category domain="http://del.icio.us/tag/informationArchitecture">informationArchitecture</category>
+		</item>
+		<item>
+			<pubDate>Thu, 18 May 2006 00:00:00 PST</pubDate>
+			<title>Penguins in Perth</title>
+			<link>http://www.markboulton.co.uk/journal/comments/penguins_in_perth/</link>
+			<guid>http://www.markboulton.co.uk/journal/comments/penguins_in_perth/</guid>
+			<description><![CDATA[Mark found some old Penguin books. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/design_thinking/">Design thinking</category>
+			<category domain="http://clagnut.com/blogmarks/typography/">Typography</category>
+<category domain="http://del.icio.us/tag/Typography">Typography</category>
+<category domain="http://del.icio.us/tag/Designthinking">Designthinking</category>
+<category domain="http://del.icio.us/tag/Penguin">Penguin</category>
+<category domain="http://del.icio.us/tag/books">books</category>
+<category domain="http://del.icio.us/tag/bookdesign">bookdesign</category>
+<category domain="http://del.icio.us/tag/MarkBoulton">MarkBoulton</category>
+		</item>
+		<item>
+			<pubDate>Thu, 18 May 2006 00:00:00 PST</pubDate>
+			<title>Use advanced iPhoto 6 edit tools</title>
+			<link>http://www.macworld.com/weblogs/macosxhints/2006/05/ip6edit/index.php?lsrc=mwrss</link>
+			<guid>http://www.macworld.com/weblogs/macosxhints/2006/05/ip6edit/index.php?lsrc=mwrss</guid>
+			<description><![CDATA[Ctrl-capslock-9 gives you more. Why so hidden?. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/photography/">Photography</category>
+			<category domain="http://clagnut.com/blogmarks/tools_software/">Tools &amp; software</category>
+			<category domain="http://clagnut.com/blogmarks/apple/">Apple</category>
+<category domain="http://del.icio.us/tag/Apple">Apple</category>
+<category domain="http://del.icio.us/tag/Photography">Photography</category>
+<category domain="http://del.icio.us/tag/Toolsandsoftware">Toolsandsoftware</category>
+<category domain="http://del.icio.us/tag/iPhoto">iPhoto</category>
+<category domain="http://del.icio.us/tag/software">software</category>
+		</item>
+		<item>
+			<pubDate>Wed, 17 May 2006 00:00:00 PST</pubDate>
+			<title>Flickr goes gamma</title>
+			<link>http://blog.flickr.com/flickrblog/2006/05/alpha_beta_gamm.html</link>
+			<guid>http://blog.flickr.com/flickrblog/2006/05/alpha_beta_gamm.html</guid>
+			<description><![CDATA[But you&#8217;ve probably spotted that already. ]]></description>
+			<category domain="http://clagnut.com/blogmarks/flickr/">Flickr</category>
+<category domain="http://del.icio.us/tag/Flickr">Flickr</category>
+<category domain="http://del.icio.us/tag/gamma">gamma</category>
+		</item>
+	</channel>
+		</rss>

@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Clagnut CMS"
+AuthUserFile "/home/clagnutc/.htpasswds/public_html/cms/passwd"
+require valid-user

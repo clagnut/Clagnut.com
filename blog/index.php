@@ -31,11 +31,13 @@ include($dr . "header.inc.php");
 
 <section>
 
-<p>In Designing News, award-winning editorial and infographics designer Francesco Franchi conveys his vision for the future of the news and media industries. He evaluates the fundamental changes that are taking place in our digital age in terms of consumer expectations and the way media is being used. The book then outlines the challenges that result and proposes strategies for traditional publishing houses, broadcasting companies, journalists, and designers to address them.</p>
+<p><span class="opener">In Designing News</span>, award-winning editorial and infographics designer Francesco Franchi conveys his vision for the future of the news and media industries. He evaluates the fundamental changes that are taking place in our digital age in terms of consumer expectations and the way media is being used. The book then outlines the challenges that result and proposes strategies for traditional publishing houses, broadcasting companies, journalists, and designers to address them.</p>
 <p>A pleasing number of people have been clamouring for this: the track listing to my annual compilation, ‘The Best Songs I Bought In 2006 Ever’. It was another good year – remember this is compiled from music I bought this year, but was not necessarily released this year.</p>
 <p>These tracks just about squeeze on to a CD, so if you’d like a copy, put together your own compilation of the year and send it to me – you’ll get a copy of the above in return. Email me for details. Update: I stuck these in an iMix for your iTunes delectation.</p>
 <p>I’ve just come back from a week with Her Indoors in the West Country; a few days in Devon and a few more in Cornwall (there are photos – it’s a beautiful part of the world). While there I bought five books, all of which were Penguin paperbacks.</p>
-<p>A pleasing number of people have been clamouring for this: the track listing to my annual compilation, ‘The Best Songs I Bought In 2006 Ever’. It was another good year – remember this is compiled from music I bought this year, but was not necessarily released this year.</p>
+</section>
+<section>
+<p><span class="opener">A pleasing number</span> of people have been clamouring for this: the track listing to my annual compilation, ‘The Best Songs I Bought In 2006 Ever’. It was another good year – remember this is compiled from music I bought this year, but was not necessarily released this year.</p>
 
 </section>
 
@@ -48,7 +50,7 @@ include($dr . "header.inc.php");
 
 
 <aside class="tags group">
-	<p class="comment"><a href="https://twitter.com/intent/tweet?text=Web Typography by @clagnut http://clagnut.com/blog/1234"><img src="/i/icon-twitter.png" alt=""> Comment via Twitter</a></p>
+	<p class="comment"><a href="https://twitter.com/intent/tweet?text=Web Typography by @clagnut http://clagnut.com/blog/1234"><img src="/i/icon-twitter.png" alt="" class="icon"> Comment via Twitter</a></p>
 	<ul>
 	<li>#<a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
 	<li>#<a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
@@ -64,25 +66,25 @@ include($dr . "header.inc.php");
 	</ul>
 </aside>
 
-<aside class="relatedposts group">
+<aside class="cluster relatedposts group">
 	<h2><span>Possibly Related</span></h2>
 	
 	<article>
-	<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
+	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
 	<h1><a href="#">Underworld typography</a></h1>
-	<p><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
+	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
 	</article>
 	
 	<article>
-	<p><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
+	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
 	<h1><a href="#">The postcode lookup pattern</a></h1>
-	<p><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a></p>
+	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a> · <a href="/archive/music/" title="View all posts relating to Music.">Conferences</a></p>
 	</article>
 	
 	<article>
-	<p><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
+	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
 	<h1><a href="#">Professional body for web designers</a></h1>
-	<p><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
+	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
 	</article>
 
 </aside>

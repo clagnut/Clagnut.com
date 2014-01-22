@@ -1,0 +1,134 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+			<channel>
+				<title>Clagnut summaries</title>
+				<link>http://clagnut.com/</link>
+				<atom:link href="http://clagnut.com/feeds/summaries.xml" rel="self" type="application/rss+xml" />
+				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 10 posts in summary)</description>
+				<language>en-gb</language>
+				<copyright>Copyright 2003-2013, Richard Rutter</copyright>
+				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
+				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
+				<image>
+					<url>http://clagnut.com/images/clagnut_rss.png</url>
+					<link>http://clagnut.com/</link>
+					<title>Clagnut summaries</title>
+					<width>88</width>
+					<height>31</height>
+				</image>
+		<item>
+			<pubDate>Wed, 05 Dec 2012 20:37:10 PST</pubDate>
+			<title>UK Museums on the Web 2012</title>
+			<link>http://clagnut.com/blog/1868/</link>
+			<guid>http://clagnut.com/blog/1868/</guid>
+			<description><![CDATA[UK Museums on the Web is a one day conference organised by the Museums Computer Group. Representatives from museums and other organisations in the sector shared their experiences over the past year and beyond. These are my notes from the day. <a href='http://clagnut.com/blog/1868/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
+			<category domain="http://clagnut.com/archive/conferences/">Conferences</category>
+<category domain="http://technorati.com/tag/Conferences,">Conferences,</category>
+<category domain="http://technorati.com/tag/Information">Information</category>
+<category domain="http://technorati.com/tag/design,">design,</category>
+<category domain="http://technorati.com/tag/museums,">museums,</category>
+<category domain="http://technorati.com/tag/heritage">heritage</category>
+<category domain="http://technorati.com/tag/sector,">sector,</category>
+<category domain="http://technorati.com/tag/ukmw12">ukmw12</category>
+		</item>
+		<item>
+			<pubDate>Tue, 26 Jun 2012 09:40:58 PST</pubDate>
+			<title>Something&#8217;s missing around here</title>
+			<link>http://clagnut.com/blog/1745/</link>
+			<guid>http://clagnut.com/blog/1745/</guid>
+			<description><![CDATA[Clagnut went missing but now it&#8217;s partially back. <a href='http://clagnut.com/blog/1745/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
+<category domain="http://technorati.com/tag/Clagnut">Clagnut</category>
+<category domain="http://technorati.com/tag/news,">news,</category>
+<category domain="http://technorati.com/tag/Textdrive,">Textdrive,</category>
+<category domain="http://technorati.com/tag/fail,">fail,</category>
+<category domain="http://technorati.com/tag/hosting,">hosting,</category>
+<category domain="http://technorati.com/tag/Vidahost">Vidahost</category>
+		</item>
+		<item>
+			<pubDate>Sat, 13 Jan 2007 20:38:22 PST</pubDate>
+			<title>Top Tunes 2006</title>
+			<link>http://clagnut.com/blog/1867/</link>
+			<guid>http://clagnut.com/blog/1867/</guid>
+			<description><![CDATA[Here&#8217;s the track listing to my annual compilation, this year cleverly titled as &#8216;The Best Songs I Bought In 2006 Ever&#8217;. It was another good year. <a href='http://clagnut.com/blog/1867/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/music/">Music</category>
+<category domain="http://technorati.com/tag/Music,Top">Music,Top</category>
+<category domain="http://technorati.com/tag/Tunes,compilation">Tunes,compilation</category>
+		</item>
+		<item>
+			<pubDate>Wed, 10 Jan 2007 20:28:06 PST</pubDate>
+			<title>iPhone arrives</title>
+			<link>http://clagnut.com/blog/1861/</link>
+			<guid>http://clagnut.com/blog/1861/</guid>
+			<description><![CDATA[Like many other Apple-loving tech companies yesterday, Clearleft were huddled around MacRumours following its coverage of Steve Jobs&#8217;s keynote. And Gruff Rhys. <a href='http://clagnut.com/blog/1861/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/music/">Music</category>
+			<category domain="http://clagnut.com/archive/apple/">Apple</category>
+<category domain="http://technorati.com/tag/Apple,iPhone,Gruff">Apple,iPhone,Gruff</category>
+<category domain="http://technorati.com/tag/Rhys,Steve">Rhys,Steve</category>
+<category domain="http://technorati.com/tag/Jobs,keynote,Music">Jobs,keynote,Music</category>
+		</item>
+		<item>
+			<pubDate>Sat, 06 Jan 2007 19:56:28 PST</pubDate>
+			<title>2006 &#8211; Where did it go?</title>
+			<link>http://clagnut.com/blog/1859/</link>
+			<guid>http://clagnut.com/blog/1859/</guid>
+			<description><![CDATA[I&#8217;ve just being perusing the 2006 Review edition of Grafik magazine and came across some mini-interviews with graphic design luminaries. I thought they wrapped up the year nicely, so I&#8217;ve copied their questions here and provided my own answers. <a href='http://clagnut.com/blog/1859/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/personal/">Personal</category>
+<category domain="http://technorati.com/tag/Personal,New">Personal,New</category>
+<category domain="http://technorati.com/tag/Year's">Year's</category>
+<category domain="http://technorati.com/tag/Resolutions,Grafik">Resolutions,Grafik</category>
+		</item>
+		<item>
+			<pubDate>Thu, 14 Dec 2006 19:51:21 PST</pubDate>
+			<title>Problems with font rendering on Macs</title>
+			<link>http://clagnut.com/blog/1854/</link>
+			<guid>http://clagnut.com/blog/1854/</guid>
+			<description><![CDATA[Just recently Jeffrey Zeldman was bemoaning the sub-standard state of text rendering in Firefox on a Mac. And the sad truth is he only skimmed the surface; Firefox, Safari, Opera and Camino may render even the same font differently. <a href='http://clagnut.com/blog/1854/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/apple/">Apple</category>
+<category domain="http://technorati.com/tag/Apple,Browsers,Typography,fonts,typefaces,rendering,Camino,Opera,Firefox,Safari">Apple,Browsers,Typography,fonts,typefaces,rendering,Camino,Opera,Firefox,Safari</category>
+		</item>
+		<item>
+			<pubDate>Thu, 07 Dec 2006 19:47:16 PST</pubDate>
+			<title>Colour blind questionnaire</title>
+			<link>http://clagnut.com/blog/1848/</link>
+			<guid>http://clagnut.com/blog/1848/</guid>
+			<description><![CDATA[Call to colour blind readers to help out with PhD research and a point towards my contribution to 24 ways. <a href='http://clagnut.com/blog/1848/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/accessiblility/">Accessibility</category>
+<category domain="http://technorati.com/tag/Accessibility">Accessibility</category>
+		</item>
+		<item>
+			<pubDate>Thu, 09 Nov 2006 19:41:34 PST</pubDate>
+			<title>Support Joe Clark in his quest</title>
+			<link>http://clagnut.com/blog/1837/</link>
+			<guid>http://clagnut.com/blog/1837/</guid>
+			<description><![CDATA[Joe Clark needs your help in setting up an ambitious accessibility project. <a href='http://clagnut.com/blog/1837/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/accessiblility/">Accessibility</category>
+<category domain="http://technorati.com/tag/Accessibility,Joe">Accessibility,Joe</category>
+<category domain="http://technorati.com/tag/Clark,Open">Clark,Open</category>
+<category domain="http://technorati.com/tag/And">And</category>
+<category domain="http://technorati.com/tag/Closed">Closed</category>
+<category domain="http://technorati.com/tag/Project,micro-patronage,research,captioning,Audio">Project,micro-patronage,research,captioning,Audio</category>
+<category domain="http://technorati.com/tag/Description,subtitling,dubbing">Description,subtitling,dubbing</category>
+		</item>
+		<item>
+			<pubDate>Wed, 08 Nov 2006 19:37:21 PST</pubDate>
+			<title>I go to Ikea so you don&#8217;t have to</title>
+			<link>http://clagnut.com/blog/1836/</link>
+			<guid>http://clagnut.com/blog/1836/</guid>
+			<description><![CDATA[I think there is universal agreement that going to Ikea is both a tortuous and torturous experience, and testament to that is the very existence of a successful business created to circumvent that pain. <a href='http://clagnut.com/blog/1836/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/brighton/">Brighton</category>
+<category domain="http://technorati.com/tag/Brighton,Ikea,pain">Brighton,Ikea,pain</category>
+		</item>
+		<item>
+			<pubDate>Tue, 07 Nov 2006 16:56:26 PST</pubDate>
+			<title>Internationalisation test</title>
+			<link>http://clagnut.com/blog/1834/</link>
+			<guid>http://clagnut.com/blog/1834/</guid>
+			<description><![CDATA[Stuart has posted a reminder of a useful trick for confirm that your application properly handles international characters. <a href='http://clagnut.com/blog/1834/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/php_mysql/">PHP/MySQL</category>
+<category domain="http://technorati.com/tag/PHP/MySQL,internationalisation,i18n">PHP/MySQL,internationalisation,i18n</category>
+		</item>
+	</channel>
+		</rss>

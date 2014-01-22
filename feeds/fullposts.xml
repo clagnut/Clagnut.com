@@ -1,0 +1,213 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+			<channel>
+				<title>Clagnut</title>
+				<link>http://clagnut.com/</link>
+				<atom:link href="http://clagnut.com/feeds/fullposts.xml" rel="self" type="application/rss+xml" />
+				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)</description>
+				<language>en-gb</language>
+				<copyright>Copyright 2003-2013, Richard Rutter</copyright>
+				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
+				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
+				<image>
+					<url>http://clagnut.com/images/clagnut_rss.png</url>
+					<link>http://clagnut.com/</link>
+					<title>Clagnut</title>
+					<width>88</width>
+					<height>31</height>
+				</image>
+		<item>
+			<pubDate>Wed, 05 Dec 2012 20:37:10 PST</pubDate>
+			<title>UK Museums on the Web 2012</title>
+			<link>http://clagnut.com/blog/1868/</link>
+			<guid>http://clagnut.com/blog/1868/</guid>
+			<description><![CDATA[<p><a href="http://lanyrd.com/2012/ukmw12/" title="on Lanyrd"><abbr>UK</abbr> Museums on the Web</a> is a one day conference organised by the <a href="http://museumscomputergroup.org.uk">Museums Computer Group</a> and held in the lecture theatre of the <a href="http://www.wellcomecollectionconference.org/">Wellcome Collection</a>. Representatives from museums and other organisations in the sector shared their experiences over the past year and beyond. Tweets tagged #ukmw12 on the day are <a href="http://www.tweetarchivist.com/armchair_caver/7" title="#ukmw12">archived on TweetArchivist</a>. These are some scattered notes transcribed from scribbles in my notebook.</p>
+
+	<p>This year the conference was dubbed &#8216;Strategically Digital&#8217;. It was a fascinating, insightful day with some really engaging speakers. The format worked well, with three lots of three presentations on a theme followed by a brief panel discussion with Q&#38;A. Coincidentally this a format Clearleft will be employing at our forthcoming Responsive Day Out.</p>
+
+	<p><a href="http://twitter.com/armchair_caver"><strong>Paul Rowe</strong></a>, <abbr>CEO</abbr> of <a href="http://www.vernonsystems.com">Vernon Systems</a>, and with the strongest New Zealand accent I&#8217;ve ever heard, gave us a typically witty keynote. He encouraged everyone to share their content and make it available everywhere. <abbr>API</abbr>s, Commons media, and loose licenses to the fore.</p>
+
+	<p><strong>Andrew Lewis</strong>, Digital Content Delivery Manager (I like that this role exists) from the <a href="http://www.vam.ac.uk">Victoria &#38; Albert Museum</a> talked about the gradual transformation to becoming a digital first organisation. He described how that necessitated a brand new, top-down, governance structure to ensure consistency and longevity of technologies, and to avoid duplication of ideas across departments. Digital, he said, does not respect departmental boundaries.</p>
+
+	<p><a href="http://twitter.com/richbs"><strong>Rich Barrett-Small</strong></a>, lead web developer at the V&#38;A, followed up with his view &#8216;from a dark place&#8217;. He used the analogy that his team worked as an Agile barrel tumbling through the waterfall processes of an inherently un-agile organisation. He urged museums not to embark on any digital project longer than 3 months, or if it really needs to be longer than that, deliver something tangible after each three months.</p>
+
+	<p>In the audience, Stuart Dempster from <a href="http://www.jisc.ac.uk">Jisc</a> (which works on behalf of <abbr>UK</abbr> higher &#38; further education to champion the use of digital technologies and is responsible for <abbr>JANET</abbr>) made the point that part of digital strategy should be managing your organisation&#8217;s online reputation. At it simplest, that means &#8211; among other things &#8211; replying to tweets and answering comments on <a href="http://www.tripadvisor.com/Attraction_Review-g186338-d187677-Reviews-Tate_Modern-London_England.html">TripAdvisor</a>, and making changes in the real world if those comments highlight areas needing improvement. Stuart also mentioned that the <a href="http://www.hlf.org.uk">Heritage Lottery Fund</a> has finally agreed that digital output from a cultural institution is something it is <a href="http://www.hlf.org.uk/HowToApply/furtherresources/Pages/Newdigitalpolicyandrequirementsfordigitaloutputs.aspx">prepared to fund</a>.</p>
+
+	<p>Charlotte Holmes from the <a href="http://www.museumsassociation.org/">Museums Association</a>, which she said represents museums and their suppliers, talked about <abbr title="continuing professsional development"><abbr>CPD</abbr></abbr> with respect to digital. She said they require more mentors to help people achieve the professional qualifications they offer (<a href="http://www.museumsassociation.org/professional-development/associateship-of-the-museums-association"><abbr>AMA</abbr>s</a>). It seems to me that people outside of the sector itself, a <a href="http://clearleft.com/">digital design agency</a> for example, could be able to help in this regard, although some business development opportunities in return would probably be desirable. It was hard to tell if they was any desire for either.</p>
+
+	<p><a href="https://twitter.com/TomGrinsted">Tom Grinsted</a>, product manager of core mobile apps for the <a href="http://guardian.co.uk">Guardian</a> gave a brief but entertaining view of the rapidly changing face of digital audiences, or &#8220;How I learned that there&#8217;s no such thing as a digital consumer&#8221;. Which about sums it up. He showed that use of the Guardian iPad app peaks first thing in the morning, but not in the evening; whereas the website viewed on a tablet peaks in the evening but less so in the morning. The main takeaway being: when designing don&#8217;t partition people, partition actions; in other words there&#8217;s no such thing as a mobile user.</p>
+
+	<p><a href="https://twitter.com/NickPoole1">Nick Poole</a>, <abbr>CEO</abbr> of the <a href="http://www.collectionstrust.org.uk/">Collections Trust</a> presented some pithy truths about creating digital resources:</p>
+
+
+<ul>
+	<li>access &#8800; value</li>
+	<li>open access &#8800; lower sales</li>
+	<li>digital &#8800; audience</li>
+
+</ul>
+	<p>Nick talked about determining the return on investment of providing a digital resource, not so much in financial terms but in terms of a cultural return. That linked perfectly into the next talk. <a href="http://twitter.com/SimonTanner">Simon Tanner</a> from the <a href="http://www.kcl.ac.uk/artshums/depts/ddh/">Department of Digital Humanities</a> at King&#8217;s College London talked passionately about Curation &#38; Impact for the Digital Age, with the emphasis very much on impact, which is akin to the &#8216;return&#8217; described by Nick in the previous talk.</p>
+
+	<p>Simon defined impact as &#8220;the measurable outcomes arising from the existence of a digital resource that demonstrate a change in the life or life opportunities of the community for which the resource is intended.&#8221; Put simply, how does your digital presence affect people&#8217;s lives? Loads more details, including how to present a convincing evidence-based argument for digital resources are <a href="http://www.kdcs.kcl.ac.uk/innovation/impact.html">available for download</a> on the <abbr>KDCS</abbr> website.</p>
+
+	<p><a href="https://twitter.com/clairey_ross">Claire Ross</a> and <a href="https://twitter.com/shelfappeal">Jane Audas</a> talked about their experience trying to run digital R&#38;D with the <a href="http://www.iwm.org.uk">Imperial War Museums</a>. They came across similar difficulties to those highlighted by Rich Barrett-Small in trying to do Agile in a fundamentally non-agile environment. Long term outputs (5 years plus) with lots of stakeholders wanting to &#8216;sign off&#8217; does not map to a process of continuous iteration.</p>
+
+	<p>Part of their project was enabling museum visitors to write comments on the exhibits using a kiosk next to the exhibit itself. A battle won was allowing for &#8216;radical trust&#8217; and the realisation that post moderation works: visitors may write inane comments, but never offensive ones. Oh, and <abbr>QR</abbr> codes don&#8217;t work.</p>
+
+	<p>Mentioned in passing was the fascinating <a href="http://ww1.discovery.ac.uk/"><abbr>WW1</abbr> Discovery</a> project which aims to make resources about the Great War more discoverable, and find new and innovative ways to present this content for the benefit of education and research. Also cropping up was the <a href="http://www.google.com/culturalinstitute/#!home">Google Cultural Institute</a>, which I&#8217;ll admit I&#8217;d never come across, probably because while Google claims it is &#8220;building tools that make it simple to tell the stories of our diverse cultural heritage&#8221; it all looks very closed.</p>
+
+	<p>The afore-mentioned Stuart Dempster was up next and quoted <a href="https://twitter.com/gnat&#8217;s">Nat Torkington</a> excellent article <a href="http://nathan.torkington.com/blog/2011/11/23/libraries-where-it-all-went-wrong/">Libraries &#8211; Where It All Went Wrong</a>. The choice bit being:</p>
+
+	<blockquote><p>I look at the results of digitization projects, I find the shittiest websites on the planet.  It&#8217;s like a gallery spent all its money buying art and then just stuck the paintings in supermarket bags and leaned them against the wall.</p></blockquote>
+
+	<p>Finally came <a href="katybeale">Katy Beale</a> from <a href="http://wearecaper.com/">Caper</a> who talked about a few of their fun ventures, including <a href="http://culturehackday.org.uk">Culture Hackday</a> and the <a href="http://happenstanceproject.com/">Happenstance</a> project, the <a href="http://happenstanceproject.com/james-bridle/">James Bridle</a> and <a href="http://happenstanceproject.com/natalia-buckley/">Natalia Buckley</a> part of which happened in Clearleft&#8217;s building.</p>
+
+	<p>All in all it was a thoroughly interesting day, especially from one who is somewhat of an outsider, and I got to have some fascinating conversations in the break. I&#8217;m really looking forward to Clearleft working more with museums, galleries and others in this sector.</p>
+<p><a href='http://clagnut.com/blog/1868/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
+			<category domain="http://clagnut.com/archive/conferences/">Conferences</category>
+<category domain="http://technorati.com/tag/Conferences,">Conferences,</category>
+<category domain="http://technorati.com/tag/Information">Information</category>
+<category domain="http://technorati.com/tag/design,">design,</category>
+<category domain="http://technorati.com/tag/museums,">museums,</category>
+<category domain="http://technorati.com/tag/heritage">heritage</category>
+<category domain="http://technorati.com/tag/sector,">sector,</category>
+<category domain="http://technorati.com/tag/ukmw12">ukmw12</category>
+		</item>
+		<item>
+			<pubDate>Tue, 26 Jun 2012 09:40:58 PST</pubDate>
+			<title>Something&#8217;s missing around here</title>
+			<link>http://clagnut.com/blog/1745/</link>
+			<guid>http://clagnut.com/blog/1745/</guid>
+			<description><![CDATA[<p>You may have noticed that the most recent post on Clagnut (apart from this one) dates back almost exactly six years &#8211; to June 2006. That is due to a catastrophic database failure. I hope to rescue the missing 6 years over the coming weeks; there&#8217;s quite a lot in the <a href="http://wayback.archive.org/web/*/http://clagnut.com">WayBackMachine</a> so that might be a good start. The comments are in there too, which would be as much of a sad loss as the blog posts themselves.</p>
+
+	<p>So did I have a backup? Well obviously not, at least not a recent one. Files: yes. Database: no. So what happened to the database anyway? Good question, thanks for asking.</p>
+
+	<p>It all started back in 2004 when I stumped up $200 for lifetime hosting with <a href="http://web.archive.org/web/20051129024936/http://www.textdrive.com/" title="Going back in time">Textdrive</a> (I was a so-called <abbr>VC200</abbr>). <a href="http://joyent.com">Joyent</a> acquired Textdrive a few years later and honoured the lifetime hosting for <abbr>VC200</abbr> folk. Well since then we&#8217;ve been stuck on what seems to be a wretchedly slow server (the dreaded &#8216;One&#8217; shared server), but heh you pay peanuts&#8230;.</p>
+
+	<p>In fairness Joyent have tried pursuading me to move to one or other of their better services, but frankly they didn&#8217;t exactly offer much help with that beyond a long set of daunting technical instructions. And so eventually payback came. &#8216;One&#8217; finally gave up the ghost and disppeared off the face of the Earth. Along with the files and databases I run for all my sites, including <a href="http://clagnut.com/">Clagnut</a> and <a href="http://webtypography.net/">Web Typography</a>. After a few days Joyent managed to reinstate all the files and databases apart from the &#8216;clagnut&#8217; database. It was gone without trace. Still at least they apologised:</p>
+
+	<blockquote><p>I&#8217;m very sorry about this. Our operations team have not been able to restore the &#8216;clagnut&#8217; database.</p></blockquote>
+
+	<p>I&#8217;ve now moved Clagnut over to <a href="http://my.vidahost.com/aff.php?aff=1321" title="Yes it's an affiliate link but I'm happy to recommend them">Vidahost</a> who, so far, seem very helpful. And my site is much faster too.</p>
+
+	<h4>Update</h4>
+
+	<p>I&#8217;m gradually reinstating blog posts from the <a href="http://wayback.archive.org/web/*/http://clagnut.com/">Internet Archive</a>, so if you see some slightly odd and out-of-date things appearing, check the date on the post.</p>
+<p><a href='http://clagnut.com/blog/1745/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
+<category domain="http://technorati.com/tag/Clagnut">Clagnut</category>
+<category domain="http://technorati.com/tag/news,">news,</category>
+<category domain="http://technorati.com/tag/Textdrive,">Textdrive,</category>
+<category domain="http://technorati.com/tag/fail,">fail,</category>
+<category domain="http://technorati.com/tag/hosting,">hosting,</category>
+<category domain="http://technorati.com/tag/Vidahost">Vidahost</category>
+		</item>
+		<item>
+			<pubDate>Sat, 13 Jan 2007 20:38:22 PST</pubDate>
+			<title>Top Tunes 2006</title>
+			<link>http://clagnut.com/blog/1867/</link>
+			<guid>http://clagnut.com/blog/1867/</guid>
+			<description><![CDATA[<p class='imgholder inline'><a href="http://www.flickr.com/photos/clagnut/356030308/"><img src="http://clagnut.com/images/bestsongs2006.jpg" alt="Artwork of The Best Songs I Bought In 2006 Ever, featuring the Gone-but-not-forgotten Hanbury Ballroom" /></a></p>
+
+	<p>A pleasing number of people have been clamouring for this: the track listing to my annual compilation, &#8216;The Best Songs I Bought In 2006 Ever&#8217;. It was another good year &#8211; remember this is compiled from music I bought this year, but was not necessarily released this year.</p>
+
+	<h3>The Best Songs I Bought In 2006 Ever</h3>
+
+	<ol></p>
+	<p><li><cite>Roscoe</cite> by Midlake from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000F3ALAG/jalfrezi-21/">Trials of Van Occupanther</a></li>
+<li><cite>This Month, Day 10</cite> by <abbr><abbr>CSS</abbr></abbr> from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000MCHEEG/jalfrezi-21/">Cansei De Ser Sexy</a></li>
+<li><cite>Home Altars Of Mexiko</cite> by Art Brut from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000AZ6NI8/jalfrezi-21/">Good Weekend</a></li>
+<li><cite>Dirty Barry Stole The Bluebird</cite> by The Fratellis from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000H80KM8/jalfrezi-21/">Chelsea Dagger</a></li>
+<li><cite>Pile of Gold</cite> by The Blow from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000I2IYJE/jalfrezi-21/">Paper Television</a></li>
+<li><cite>Karma Police</cite> by Easy Star All*stars from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000GUJZ5K/jalfrezi-21/">Radiodread</a></li>
+<li><cite>Cold &amp; Wet</cite> by Bonnie &#8216;Prince&#8217; Billy from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000FS9LM0/jalfrezi-21/">The Letting Go</a></li>
+<li><cite>Elevate</cite> by The People&#8217;s Revolutionary Choir from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000BCHJH4/jalfrezi-21/">Elevate</a></li>
+<li><cite>Such Great Heights</cite> by Iron &amp; Wine from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000GG4MXE/jalfrezi-21/">Such Great Heights</a></li>
+<li><cite>Pull The Curtains</cite> by Grandaddy from the <abbr><abbr>EP</abbr></abbr> <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000ARHNKI/jalfrezi-21/">Excerpts from the Diary of Todd Zilla</a></li>
+<li><cite>Woman</cite> by Wolfmother from the single <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000G03RQ8/jalfrezi-21/">Woman</a></li>
+<li><cite>Upon This Tidal Wave Of Young Blood</cite> by Clap Your Hands Say Yeah from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000C5RSAS/jalfrezi-21/">Clap Your Hands Say Yeah</a></li>
+<li><cite>Mount Wroclai (Idle Days)</cite> by Beirut from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000IJ7MCC/jalfrezi-21/">Gulag Orkestar</a></li>
+<li><cite>Young Folks</cite> by Peter Bjorn &amp; John from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000FA58IE/jalfrezi-21/">Writer&#8217;s Block</a></li>
+<li><cite>Cheated Hearts</cite> by Yeah Yeah Yeahs from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000EHSK24/jalfrezi-21/">Show Your Bones</a></li>
+<li><cite>Rent a Wreck</cite> by Suburban Kids with Biblical Names from the <abbr><abbr>EP</abbr></abbr> <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B0002W18PM/jalfrezi-21/">#1</a></li>
+<li><cite>Only Waiting</cite> by The Aliens from the <abbr><abbr>EP</abbr></abbr> <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000F5GI0Q/jalfrezi-21/">Alienoid Starmonica</a></li>
+<li><cite>Ballad Of Bitter Honey</cite> by Eef Barzelay from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000E6G7JI/jalfrezi-21/">Bitter Honey</a></li>
+<li><cite>Black Swan</cite> by Thom Yorke from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000FPYNR6/jalfrezi-21/">The Eraser</a></li>
+<li><cite>Assassin</cite> by Muse from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000G09OEC/jalfrezi-21/">Black Holes &amp; Revelations</a></li>
+<li><cite>(Wading Through) The Waters Of My Time</cite> by Richard Hawley from the album <a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000AMSJQK/jalfrezi-21/">Coles Corner</a></li></p>
+
+	<p></ol>
+	<p>These tracks just about squeeze on to a <abbr><abbr>CD</abbr></abbr>, so if you&#8217;d like a copy, put together your own compilation of the year and send it to me &#8211; you&#8217;ll get a copy of the above in return. <a href="http://clagnut.com/contact/">Email me</a> for details. <strong>Update</strong>: I stuck these in <a href="http://clkuk.tradedoubler.com/click?p=23708&a=1330812&url=http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewIMix?id=212661948">an iMix</a> for your iTunes delectation.</p>
+<p><a href='http://clagnut.com/blog/1867/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/music/">Music</category>
+<category domain="http://technorati.com/tag/Music,Top">Music,Top</category>
+<category domain="http://technorati.com/tag/Tunes,compilation">Tunes,compilation</category>
+		</item>
+		<item>
+			<pubDate>Wed, 10 Jan 2007 20:28:06 PST</pubDate>
+			<title>iPhone arrives</title>
+			<link>http://clagnut.com/blog/1861/</link>
+			<guid>http://clagnut.com/blog/1861/</guid>
+			<description><![CDATA[<p>Like many other Apple-loving tech companies yesterday, <a href="http://clearleft.com/">Clearleft</a> were huddled around <a href="http://www.macrumorslive.com/">MacRumours</a> following its coverage of <a href="http://www.apple.com/quicktime/qtv/keynote/">Steve Jobs&#8217;s keynote</a>. And lo and behold we were presented with the <a href="http://www.apple.com/iphone/">iPhone</a>.</p>
+
+	<p>I don&#8217;t use that many features on my mobile: primarily I make calls, send texts and take photos. Occassionally I use it for browsing (football scores mostly) which until recently has been limited to <abbr><abbr>WAP</abbr></abbr>, although I now use a new &#8211; and increasingly ubiquitous &#8211; Sony Ericsson K800i, with Opera Mini. So what impressed me about the iPhone is that Apple has concentrated on precisely the features I use, with the <a href="http://www.apple.com/iphone/ipod/">addition of an iPod</a>, and not really bothered to include much else, although I should mention the welcome introduction of wifi.</p>
+
+	<p>Of course, Apple being Apple, they have concentrated on the interface big time. Based on the <a href="http://www.apple.com/iphone/phone/">movies</a> I can see myself actually enjoying using the phone, rather then the vague feeling of frustration I get from mobiles currently. The downside is that they will get grimly covered in fingerprints, and will have to be kept in bag to stop the screen getting scratched to pieces. Also it&#8217;s fairly big &#8211; half the thickness of my K800i, but significantly bigger otherwise which might be an issue as I normally carry my phone in my jeans.</p>
+
+	<p>Unfortunately Jobs didn&#8217;t really talk much about the camera. Beyond the resolution &#8211; a relatively modest 2 megapixels &#8211; we have little indication of how good it is. Also it seem video calls (possible on some networks in the <abbr><abbr>UK</abbr></abbr>) will not be possible as it requires a second camera on the screen-side of the phone.</p>
+
+	<p>As for the delivery date &#8211; probably June in the <abbr><abbr>US</abbr></abbr> and Christmas in Europe &#8211; that&#8217;s understandable and it&#8217;ll be interesting to see what deals Apple manages to make with network providers in the <abbr><abbr>UK</abbr></abbr>, especially as Cingular &#8211;  Apple&#8217;s <abbr><abbr>US</abbr></abbr> partners &#8211; don&#8217;t operate here. </p>
+
+	<p><ins><strong>Update</strong></ins>. Brighton&#8217;s own <a href="http://futureplatforms.com/">mobile guru</a>, Tom Hume, <a href="http://www.tomhume.org/2007/01/iphone_thoughts_3.html">notes his thoughts</a> on some of the practical aspects of the iPhone.</p>
+
+	<p>Apple have also introduced <a href="http://www.apple.com/appletv/">Apple <abbr><abbr>TV</abbr></abbr></a> which I just don&#8217;t get: &#163;199 just to play downloaded videos on your <abbr><abbr>TV</abbr></abbr>? If there was a recordable hard-drive in there I might be tempted, as I would if it included a digital <abbr><abbr>TV</abbr></abbr> decoder. </p>
+
+	</div>
+<div class='segment'>
+
+	<p class="imgholder inline"><a href="http://www.amazon.co.uk/exec/obidos/ASIN/B000K2VDR2/jalfrezi-21/"><img src="http://clagnut.com/images/candylion.jpg" alt=""></a></p>
+
+	<p>And talking of newly released goodness, the <a href="http://www.candylion.co.uk/" title="Candylion">new solo album</a> from <a href="http://www.gruffrhys.com/">Gruff Rhys</a>, hirsute singer with <a href="http://www.superfurry.com/">Super Furry Animals</a>, is as fabulous as you might expect. Filled with wonderful restraint, some really catchy tunes and plenty of Welsh, it&#8217;s a hit in the office.</p>
+<p><a href='http://clagnut.com/blog/1861/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/music/">Music</category>
+			<category domain="http://clagnut.com/archive/apple/">Apple</category>
+<category domain="http://technorati.com/tag/Apple,iPhone,Gruff">Apple,iPhone,Gruff</category>
+<category domain="http://technorati.com/tag/Rhys,Steve">Rhys,Steve</category>
+<category domain="http://technorati.com/tag/Jobs,keynote,Music">Jobs,keynote,Music</category>
+		</item>
+		<item>
+			<pubDate>Sat, 06 Jan 2007 19:56:28 PST</pubDate>
+			<title>2006 &#8211; Where did it go?</title>
+			<link>http://clagnut.com/blog/1859/</link>
+			<guid>http://clagnut.com/blog/1859/</guid>
+			<description><![CDATA[<p>I&#8217;ve just being perusing the 2006 Review edition of <a href="http://www.grafikmagazine.co.uk/">Grafik</a> magazine &#8211; my favourite designer-y publication &#8211; and came across some mini-interviews with graphic design luminaries. I thought they wrapped up the year nicely, so I&#8217;ve copied their questions here and provided my own answers.</p>
+
+	<h3>What&#8217;s the best thing that&#8217;s happened to you this year?</h3>
+
+	<p>From a work point of view so much good has happened: some great projects; new employees; but I suppose the defining best thing to happen was for the lease on our old office to be unexpectedly cut short, leading us to the place we&#8217;re in now which we absolutely love.</p>
+
+	<p>From a personal point of view, the best thing to happen was a fantastic week in Istanbul. I&#8217;m still raving about the place to anyone who&#8217;ll listen. It&#8217;s such a vibrant city, with a fascinating culture, wonderful people and more history than most countries &#8211; if you get the opportunity go!</p>
+
+	<h3>And the worst?</h3>
+
+	<p>I tend not to dwell on negative things, but the worst thing about this year has probably been working too hard (although I love my job) and becoming decidedly unfit.</p>
+
+	<h3>What&#8217;s your guilty pleasure?</h3>
+
+	<p>Too many lattes and mini panettones from <a href="http://www.caffenero.com/">Caff&#233; Nero</a>.</p>
+
+	<h3>And what&#8217;s your New Year&#8217;s Resolution?</h3>
+
+	<p>Be more organised more often and definitely get back out on the bike more.</p>
+
+	<h3>Over to you</h3>
+
+	<p>Ok that&#8217;s four questions, so in the spirit of these things I&#8217;ll pass them on to four lucky recipients:. <a href="http://andybudd.com/">Andy</a>, <a href="http://adactio.com/">Jeremy</a>, <a href="http://sidesh0w.com/">Ethan</a> and <a href="http://boxofchocolates.ca/">Derek</a> &#8211; if you can be arsed, what happened to your 2006?</p>
+<p><a href='http://clagnut.com/blog/1859/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/personal/">Personal</category>
+<category domain="http://technorati.com/tag/Personal,New">Personal,New</category>
+<category domain="http://technorati.com/tag/Year's">Year's</category>
+<category domain="http://technorati.com/tag/Resolutions,Grafik">Resolutions,Grafik</category>
+		</item>
+	</channel>
+		</rss>

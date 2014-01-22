@@ -1,0 +1,6 @@
+# RewriteEngine on
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^http://clagnut.com.*$     [NC]
+# RewriteCond %{HTTP_REFERER} !^http://www.clagnut.com.*$ [NC]
+# RewriteCond %{HTTP_REFERER} !^http://127\.0\.0\.1.*$ [NC]
+# ReWriteRule .*\.(gif|jpg|png)$      -       [N,F,L]

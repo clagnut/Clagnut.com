@@ -1,7 +1,0 @@
-/*
-Internet Explorer fixes
-*/
-
-form fieldset .container {
-	top: -0.692em; /* fudge to deal with IE fieldset margin/padding */
-}
