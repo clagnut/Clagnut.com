@@ -1,4 +1,5 @@
 ﻿<?php
+date_default_timezone_set("Europe/London");
 
 // clean up each tag in the array
 function trim_value(&$value) {
@@ -46,7 +47,8 @@ function makeMap($machinetagsAr) {
 function getpost($blog_id) {
 	global $dr, $dr2, $tagsAr, $clagnut_mtag;
 	// set cache file
-	$filename = $dr . "/cache/" . $blog_id . "-post.php";
+	$dr3 = str_replace("/includes/", "", $dr);	
+	$filename = $dr3 . "/cache/" . $blog_id . "-post.php";
 	$cachewait = 1.20; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait)) {
@@ -69,8 +71,8 @@ function getpost($blog_id) {
 			$enable_comments = $myblog["enable_comments"];
 			$title_raw = $myblog["title"];
 			$description_raw = $myblog["description"];
-			$mainimage_src = $myblog["mainimage_src"];
-			$mainimage_alt_raw = $myblog["mainimage_alt"];
+			#$mainimage_src = $myblog["mainimage_src"];
+			#$mainimage_alt_raw = $myblog["mainimage_alt"];
 			$maincontent_raw = $myblog["maincontent"];
 			$blogdate = $myblog["blogdate"];
 			$unixdate = $myblog["unixdate"];
@@ -84,8 +86,8 @@ function getpost($blog_id) {
 			$description = makeDescription($maincontent_raw,$description_raw);
 
 			$time_since_posted = time() - strtotime($blogdate);
-			$comments_open_duration = 28 * 24 * 3600;
-			$comments_expired = ($time_since_posted > $comments_open_duration)?true:false;
+			#$comments_open_duration = 28 * 24 * 3600;
+			#$comments_expired = ($time_since_posted > $comments_open_duration)?true:false;
 
 			// create array from comma-separated tags string in db
 			$tagsAr = explode(",",$tags);
@@ -143,6 +145,7 @@ function getpost($blog_id) {
 
 
 			// build main image HTML
+			/*
 
 			if($mainimage_src) {
 				$mainimage_alt = format($mainimage_alt_raw);
@@ -151,6 +154,7 @@ function getpost($blog_id) {
 			} else {
 				$mainimage = "";
 			}
+			*/
 
 			// get blog categories
 
@@ -225,12 +229,15 @@ function getpost($blog_id) {
 			$tagsforboolean = str_replace("> ",">",$tagsforboolean);
 			$tagsforboolean = ">" . addslashes($tagsforboolean);
 
-			$sql = "SELECT blog_id, title, description, maincontent, MATCH (title,description,tags,maincontent,subtext,sidebar) AGAINST ('$tagsforboolean' in boolean mode) AS score FROM blogs WHERE MATCH (title,description,tags,maincontent,subtext,sidebar) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' order by score desc LIMIT 5;";
+			//$sql = "SELECT blog_id, title, description, maincontent, MATCH (title,tags,maincontent) AGAINST ('$tagsforboolean' in boolean mode) AS score FROM blogs WHERE MATCH (title,tags,maincontent) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' order by score desc LIMIT 3;";
 			//echo $sql;
+	
 
-			//$sql = "SELECT blog_id, title, description, maincontent, MATCH (title,description,tags,maincontent,subtext,sidebar) AGAINST ('$searchterm') AS score FROM blogs WHERE MATCH (title,description,tags,maincontent,subtext,sidebar) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 5";
-			//echo $sql;
+			$sql = "SELECT blog_id, title, description, maincontent FROM blogs WHERE MATCH (title,tags,maincontent) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
+			#echo $sql;
+			
 			$result = mysql_query($sql);
+			
 			if ($myblog = mysql_fetch_array($result)) {
 				$related_posts = "<ul>
 				";
@@ -251,6 +258,7 @@ function getpost($blog_id) {
 
 
 			// Get referrers
+			/*
 
 			if (!preg_match ("/googlebot|slurp|msnbot/i", $_SERVER["HTTP_USER_AGENT"])) {
 				// pull referrers from database but don't show to main search engine robots)
@@ -286,8 +294,10 @@ function getpost($blog_id) {
 					$referrers = "<p>No referrers yet.</p>";
 				}
 			}
+			*/
 
 			// Get number of comments
+			/*
 
 			$sql = "select count(blogID) AS numcomments from comments where blogID=$blog_id";
 			$result = mysql_query($sql);
@@ -296,6 +306,7 @@ function getpost($blog_id) {
 			} else {
 				$numcomments = 0;
 			}
+			*/
 
 
 			// build cache
@@ -305,7 +316,6 @@ function getpost($blog_id) {
 			global $post_title, $post_headtitle, $post_mainimage, $post_maincontent, $post_description, $post_categories, $post_tags, $post_machinetags, $post_postdate, $post_isodate, $post_older, $post_oldertitle, $post_recent, $post_recenttitle, $post_related_posts, $post_enable_comments, $post_comments_expired, $post_numcomments, $post_referrers, $post_map;
 			$post_title['.$blog_id.'] = "' . addslashes($title) . '";
 			$post_headtitle['.$blog_id.'] = "' . addslashes($headtitle) . '";
-			$post_mainimage['.$blog_id.'] = "' . addslashes($mainimage) . '";
 			$post_maincontent['.$blog_id.'] = "' . addslashes($maincontent) . '";
 			$post_description['.$blog_id.'] = "' . addslashes($description) . '";
 			$post_categories['.$blog_id.'] = "' . addslashes($categories) . '";
@@ -313,15 +323,11 @@ function getpost($blog_id) {
 			$post_machinetags['.$blog_id.'] = array(' . $machinetagsarray . ');
 			$post_postdate['.$blog_id.'] = "' . addslashes($postdate) . '";
 			$post_isodate['.$blog_id.'] = "' . date("c", $unixdate) . '";
-			$post_enable_comments['.$blog_id.'] = "' . $enable_comments . '";
-			$post_comments_expired['.$blog_id.'] = "' . $comments_expired . '";
-			$post_numcomments['.$blog_id.'] = ' . $numcomments . ';
 			$post_older['.$blog_id.'] = "'. $older . '";
 			$post_oldertitle['.$blog_id.'] = "'. addslashes($oldertitle) . '";
 			$post_recent['.$blog_id.'] = "'. $recent . '";
 			$post_recenttitle['.$blog_id.'] = "'. addslashes($recenttitle) . '";
 			$post_related_posts['.$blog_id.'] = "'. addslashes($related_posts) . '";
-			$post_referrers['.$blog_id.'] = "'. addslashes($referrers) . '";
 			$post_map['.$blog_id.'] = "'. addslashes($map) . '";
 			?>';
 
@@ -349,9 +355,9 @@ function getpost($blog_id) {
 
 
 function getcomments($blog_id, $force=FALSE) {
-	global $dr, $dr2;
+	global $dr3, $dr2;
 	// set cache file
-	$filename = $dr . "/cache/" . $blog_id . "-comments.php";
+	$filename = $dr3 . "/cache/" . $blog_id . "-comments.php";
 	$cachewait = 60; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait) && $force==FALSE) {
@@ -478,9 +484,9 @@ function getcomments($blog_id, $force=FALSE) {
 }
 
 function gethomecontent() {
-	global $dr, $dr2;
+	global $dr3, $dr2;
 	// set cache file
-	$filename = $dr . "/cache/home-content.php";
+	$filename = $dr3 . "/cache/home-content.php";
 	$cachewait = 120; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait)) {

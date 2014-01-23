@@ -5,7 +5,7 @@
 				<atom:link href="http://clagnut.com/feeds/fullposts.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)</description>
 				<language>en-gb</language>
-				<copyright>Copyright 2003-2013, Richard Rutter</copyright>
+				<copyright>Copyright 2003-2014, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
@@ -103,6 +103,42 @@
 <category domain="http://technorati.com/tag/Vidahost">Vidahost</category>
 		</item>
 		<item>
+			<pubDate>Wed, 14 Oct 2009 18:16:42 PST</pubDate>
+			<title>The postcode lookup pattern</title>
+			<link>http://clagnut.com/blog/2292/</link>
+			<guid>http://clagnut.com/blog/2292/</guid>
+			<description><![CDATA[<p>The <abbr><abbr>UK</abbr></abbr> has a particularly precise postcode system, where a postcode such as <abbr><abbr>BN2</abbr></abbr> 1NA represents just 20 individual properties. The postcode database was created by the <a href="http://www.royalmail.com/">Royal Mail</a> and it is <a href="http://www.royalmail.com/portal/rm/jump2?catId=400084&#38;mediaId=400085&#38;keyname=PAFDATA">sold for use</a> by anyone whose willing to stump up the cash (why we should pay for something our taxes have created is a whole other argument). The upshot is that many websites which require an address from users will provide an ajax postcode look-up as part of the process.</p>
+
+	<p>However the postcode look-up is fraught with danger and is rarely implemented well. As is often the case in <abbr><abbr>UX</abbr></abbr> design, everything is fine until an exception is reached. I&#8217;ve created an <a href="http://clagnut.com/sandbox/postcodelookup.html">interactive wireframe</a> to demonstrate a successful way to integrate a postcode look-up as part of an address input scenario. This is the user flow diagram:</p>
+
+	<p class='imgholder'><img src="http://clagnut.com/images/postcodelookup.png" alt="Diagram exported from Omnigraffle" /></p>
+
+	<p>User flow of ajax postcode look-up for address entry</p>
+
+	<p>The important bits are the arrows on the edges dealing with the deviations away from the successful look-up through the middle. Commonly implementations miss out at least one of these:</p>
+
+
+<ul>
+	<li>allowing users to skip the lookup altogether (maybe the user doesn&#8217;t know their postcode)</li>
+	<li>helpfully dealing with a failed lookup (edit the postcode or skip the lookup &#8211; often databases are not kept up to date and so valid postcodes are not recognised)</li>
+	<li>allow users to type a different postcode (their work address instead of their home address)</li>
+	<li>deal with addresses not present in the list returned</li>
+	<li>allow users to edit the address returned from the database</li>
+
+</ul>
+	<p>All this does raise the question: who does the postcode look-up help? Probably not the person filling out their address. Regular web users will be able to input their addresses more quickly by typing directly than through use of a postcode lookup. This is particularly true if they are using the form filling functionality available in all modern browsers and many plug-ins. Postcode lookups may well get the website cleaner data, but probably not by much. Either way, more attention needs to be given to the postcode lookup experience and flow.</p>
+<p><a href='http://clagnut.com/blog/2292/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
+			<category domain="http://clagnut.com/archive/geospatial/">Mapping &amp; Geospatial</category>
+			<category domain="http://clagnut.com/archive/ajax/">Ajax</category>
+<category domain="http://technorati.com/tag/Information">Information</category>
+<category domain="http://technorati.com/tag/design,Mapping">design,Mapping</category>
+<category domain="http://technorati.com/tag/and">and</category>
+<category domain="http://technorati.com/tag/Geospatial,UX,postcode,lookup,user">Geospatial,UX,postcode,lookup,user</category>
+<category domain="http://technorati.com/tag/flow,Ajax,flow">flow,Ajax,flow</category>
+<category domain="http://technorati.com/tag/diagram">diagram</category>
+		</item>
+		<item>
 			<pubDate>Sat, 13 Jan 2007 20:38:22 PST</pubDate>
 			<title>Top Tunes 2006</title>
 			<link>http://clagnut.com/blog/1867/</link>
@@ -174,40 +210,6 @@
 <category domain="http://technorati.com/tag/Apple,iPhone,Gruff">Apple,iPhone,Gruff</category>
 <category domain="http://technorati.com/tag/Rhys,Steve">Rhys,Steve</category>
 <category domain="http://technorati.com/tag/Jobs,keynote,Music">Jobs,keynote,Music</category>
-		</item>
-		<item>
-			<pubDate>Sat, 06 Jan 2007 19:56:28 PST</pubDate>
-			<title>2006 &#8211; Where did it go?</title>
-			<link>http://clagnut.com/blog/1859/</link>
-			<guid>http://clagnut.com/blog/1859/</guid>
-			<description><![CDATA[<p>I&#8217;ve just being perusing the 2006 Review edition of <a href="http://www.grafikmagazine.co.uk/">Grafik</a> magazine &#8211; my favourite designer-y publication &#8211; and came across some mini-interviews with graphic design luminaries. I thought they wrapped up the year nicely, so I&#8217;ve copied their questions here and provided my own answers.</p>
-
-	<h3>What&#8217;s the best thing that&#8217;s happened to you this year?</h3>
-
-	<p>From a work point of view so much good has happened: some great projects; new employees; but I suppose the defining best thing to happen was for the lease on our old office to be unexpectedly cut short, leading us to the place we&#8217;re in now which we absolutely love.</p>
-
-	<p>From a personal point of view, the best thing to happen was a fantastic week in Istanbul. I&#8217;m still raving about the place to anyone who&#8217;ll listen. It&#8217;s such a vibrant city, with a fascinating culture, wonderful people and more history than most countries &#8211; if you get the opportunity go!</p>
-
-	<h3>And the worst?</h3>
-
-	<p>I tend not to dwell on negative things, but the worst thing about this year has probably been working too hard (although I love my job) and becoming decidedly unfit.</p>
-
-	<h3>What&#8217;s your guilty pleasure?</h3>
-
-	<p>Too many lattes and mini panettones from <a href="http://www.caffenero.com/">Caff&#233; Nero</a>.</p>
-
-	<h3>And what&#8217;s your New Year&#8217;s Resolution?</h3>
-
-	<p>Be more organised more often and definitely get back out on the bike more.</p>
-
-	<h3>Over to you</h3>
-
-	<p>Ok that&#8217;s four questions, so in the spirit of these things I&#8217;ll pass them on to four lucky recipients:. <a href="http://andybudd.com/">Andy</a>, <a href="http://adactio.com/">Jeremy</a>, <a href="http://sidesh0w.com/">Ethan</a> and <a href="http://boxofchocolates.ca/">Derek</a> &#8211; if you can be arsed, what happened to your 2006?</p>
-<p><a href='http://clagnut.com/blog/1859/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/personal/">Personal</category>
-<category domain="http://technorati.com/tag/Personal,New">Personal,New</category>
-<category domain="http://technorati.com/tag/Year's">Year's</category>
-<category domain="http://technorati.com/tag/Resolutions,Grafik">Resolutions,Grafik</category>
 		</item>
 	</channel>
 		</rss>

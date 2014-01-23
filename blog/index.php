@@ -1,5 +1,39 @@
 <?php
+// Turn on PHP Error Reporting
+ini_set("display_errors","2");
+ERROR_REPORTING(E_ALL);
+
 $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
+
+// get variables from query
+$id = (isset($_REQUEST["id"]))?$_REQUEST["id"]:"1484"; 
+
+if(!$id) {
+	Header("Location: /archive/");
+	// Header("Location: /blog/index.php?id=1484");
+}
+
+$blog_id = $id;
+
+include_once($dr . "path_to_db.inc.php");
+
+// add referrer
+# include($dr . "blacklisted.php");
+			
+// format post
+include_once($dr . "format.php");
+
+// get posts and comments
+include_once($dr . "getposts.inc.php");
+
+// get 3rd party data
+#include_once($dr . "thirdparties.inc.php");
+
+
+getpost($blog_id);
+
+######################
+
 $title = "Seventy Penguins";
 $title = "Typographic Style Applied to the&nbsp;Web";
 $old = "";

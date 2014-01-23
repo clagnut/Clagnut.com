@@ -5,7 +5,7 @@
 				<atom:link href="http://clagnut.com/feeds/summaries.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 10 posts in summary)</description>
 				<language>en-gb</language>
-				<copyright>Copyright 2003-2013, Richard Rutter</copyright>
+				<copyright>Copyright 2003-2014, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
@@ -20,7 +20,7 @@
 			<title>UK Museums on the Web 2012</title>
 			<link>http://clagnut.com/blog/1868/</link>
 			<guid>http://clagnut.com/blog/1868/</guid>
-			<description><![CDATA[UK Museums on the Web is a one day conference organised by the Museums Computer Group. Representatives from museums and other organisations in the sector shared their experiences over the past year and beyond. These are my notes from the day. <a href='http://clagnut.com/blog/1868/'>Read more</a>.]]></description>
+			<description><![CDATA[UK Museums on the Web is a one day conference organised by the Museums Computer Group. Representatives from museums and other organisations in the sector shared their experiences over the past year and beyond. These are my notes from the day today. <a href='http://clagnut.com/blog/1868/'>Read more</a>.]]></description>
 			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
 			<category domain="http://clagnut.com/archive/conferences/">Conferences</category>
 <category domain="http://technorati.com/tag/Conferences,">Conferences,</category>
@@ -44,6 +44,22 @@
 <category domain="http://technorati.com/tag/fail,">fail,</category>
 <category domain="http://technorati.com/tag/hosting,">hosting,</category>
 <category domain="http://technorati.com/tag/Vidahost">Vidahost</category>
+		</item>
+		<item>
+			<pubDate>Wed, 14 Oct 2009 18:16:42 PST</pubDate>
+			<title>The postcode lookup pattern</title>
+			<link>http://clagnut.com/blog/2292/</link>
+			<guid>http://clagnut.com/blog/2292/</guid>
+			<description><![CDATA[As a way of enabling address input, the UK postcode look-up is fraught with danger and is rarely implemented well. As is often the case in UX design, everything is fine until an exception is reached. <a href='http://clagnut.com/blog/2292/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
+			<category domain="http://clagnut.com/archive/geospatial/">Mapping &amp; Geospatial</category>
+			<category domain="http://clagnut.com/archive/ajax/">Ajax</category>
+<category domain="http://technorati.com/tag/Information">Information</category>
+<category domain="http://technorati.com/tag/design,Mapping">design,Mapping</category>
+<category domain="http://technorati.com/tag/and">and</category>
+<category domain="http://technorati.com/tag/Geospatial,UX,postcode,lookup,user">Geospatial,UX,postcode,lookup,user</category>
+<category domain="http://technorati.com/tag/flow,Ajax,flow">flow,Ajax,flow</category>
+<category domain="http://technorati.com/tag/diagram">diagram</category>
 		</item>
 		<item>
 			<pubDate>Sat, 13 Jan 2007 20:38:22 PST</pubDate>
@@ -120,15 +136,6 @@
 			<description><![CDATA[I think there is universal agreement that going to Ikea is both a tortuous and torturous experience, and testament to that is the very existence of a successful business created to circumvent that pain. <a href='http://clagnut.com/blog/1836/'>Read more</a>.]]></description>
 			<category domain="http://clagnut.com/archive/brighton/">Brighton</category>
 <category domain="http://technorati.com/tag/Brighton,Ikea,pain">Brighton,Ikea,pain</category>
-		</item>
-		<item>
-			<pubDate>Tue, 07 Nov 2006 16:56:26 PST</pubDate>
-			<title>Internationalisation test</title>
-			<link>http://clagnut.com/blog/1834/</link>
-			<guid>http://clagnut.com/blog/1834/</guid>
-			<description><![CDATA[Stuart has posted a reminder of a useful trick for confirm that your application properly handles international characters. <a href='http://clagnut.com/blog/1834/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/php_mysql/">PHP/MySQL</category>
-<category domain="http://technorati.com/tag/PHP/MySQL,internationalisation,i18n">PHP/MySQL,internationalisation,i18n</category>
 		</item>
 	</channel>
 		</rss>

@@ -6,7 +6,7 @@ if (get_magic_quotes_gpc()) {
   }
 }
 
-include($dr . "/includes/textile.php");
+include($dr . "textile.php");
 
 function preformat($text) {
 	if (preg_match("/^<p>/",$text)){

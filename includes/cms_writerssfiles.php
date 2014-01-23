@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Europe/London");
 
 # Common meta data shared between RSS feeds
 
