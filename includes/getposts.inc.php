@@ -63,7 +63,7 @@ function getpost($blog_id) {
 
 			// pull blog from database
 
-			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, enable_comments, title, description, mainimage_src, mainimage_alt, maincontent, tags, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE blog_id = $blog_id AND content_type='blog'";
+			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, enable_comments, title, description, mainimage_src, mainimage_alt, maincontent, tags, DATE_FORMAT(blogdate,'%D %M %Y') AS postdate FROM blogs WHERE blog_id = $blog_id AND content_type='blog'";
 			$result = mysql_query($sql);
 			$myblog = mysql_fetch_array($result);
 
@@ -158,43 +158,7 @@ function getpost($blog_id) {
 
 			// get blog categories
 
-			$categorysql = "SELECT filename, category, categorys.category_id FROM categorys, categorys_blogs WHERE blog_id = $blog_id AND categorys.category_id = categorys_blogs.category_id";
-			$categoryresult = mysql_query($categorysql);
-			$categorys = NULL;
-			if ($mycategory = mysql_fetch_array($categoryresult)) {
-				do {
-					$category_id = $mycategory["category_id"];
-					$category = htmlentities($mycategory["category"]);
-					$directory = $mycategory["filename"];
-					$categorys[$category_id] = $category;
-					$directorys[$category_id] = $directory;
-				}
-				while ($mycategory = mysql_fetch_array($categoryresult));
-			} else {
-				$categorys[0] = "Unfiled";
-			}
-
-			// build categories HTML
-
-			$numcats = count($categorys);
-			$catcounter = 0;
-			$category_list = "";
-			$categories = "<p class=\"categories\">§ ";
-			foreach($categorys AS $category_id => $category) {
-				$catcounter++;
-				if ($category_id != 0) {
-					$category = str_replace(" ", "&nbsp;", $category);
-					$category_list = $category_list.$category;
-					$categories .= " <a href=\"/archive/".$directorys[$category_id]."/\" title=\"View all posts relating to $category.\">$category</a> ";
-				} else {
-					$categories .= "&#8211; $category &#8211;"; # prints - unfiled -
-				}
-				if ($catcounter != $numcats) {
-					$category_list = $category_list.",";
-					$categories .= " &middot; ";
-				}
-			}
-			$categories .= "</p>";
+			$categories = get_blog_cats($blog_id);
 
 			// get next and previous
 
@@ -220,7 +184,7 @@ function getpost($blog_id) {
 			}
 
 			// get related posts
-
+			
 			# build the finished search term
 			$tagsforsearch = str_replace(array("geotagged", "booktagged") , "" , $tags);
 			$tagsforsearch = str_replace(array(",,", ", ,") , "" , $tagsforsearch);
@@ -233,25 +197,33 @@ function getpost($blog_id) {
 			//echo $sql;
 	
 
-			$sql = "SELECT blog_id, title, description, maincontent FROM blogs WHERE MATCH (title,tags,maincontent) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
+			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, title, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,tags,maincontent) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
 			#echo $sql;
 			
 			$result = mysql_query($sql);
 			
 			if ($myblog = mysql_fetch_array($result)) {
-				$related_posts = "<ul>
-				";
+				$related_posts = "";
 				do {
-					$rp_maincontent = $myblog["maincontent"];
-					//$rp_description = $myblog["description"];
-					//$rp_summary = makeDescription($rp_maincontent,$rp_description);
-					$rp_title = format($myblog["title"]);
-					$rp_title = str_replace(array("<p>","</p>"),array("",""),$rp_title);
+				
 					$rp_id = $myblog["blog_id"];
-					$related_posts .= "<li><a href=\"/blog/$rp_id/\">$rp_title</a></li>
-					";
+					$rp_postdate = $myblog["postdate"];
+					$rp_filename = $dr3 . "/cache/" . $rp_id . "-post.php";
+				
+					if (file_exists($rp_filename)) {
+						include($rp_filename);
+					} else {
+						$post_headtitle[$rp_id] = strip_tags($myblog["title"]);
+						$post_isodate[$rp_id] = $myblog["unixdate"];
+						$post_categories[$rp_id] = get_blog_cats($rp_id);
+					}
+					$related_posts .= "<article>
+					<p class='date'><time datetime='$post_isodate[$rp_id]'>$rp_postdate</time></p>
+					<h1><a href='/blog/$rp_id'>$post_headtitle[$rp_id]</a></h1>
+					<p class='categories'>$post_categories[$rp_id]</p>
+					</article>";
+					
 				} while ($myblog = mysql_fetch_array($result));
-				$related_posts .= "</ul>";
 			} else {
 				$related_posts = "<p>No related posts. Browse the <a href=\"/archive/\">Blog archive</a>.</p>";
 			}
@@ -351,9 +323,50 @@ function getpost($blog_id) {
 }
 
 
+function get_blog_cats($blog_id) {
+// get blog categories
+
+	$categorysql = "SELECT filename, category, categorys.category_id FROM categorys, categorys_blogs WHERE blog_id = $blog_id AND categorys.category_id = categorys_blogs.category_id";
+	$categoryresult = mysql_query($categorysql);
+	$categorys = NULL;
+	if ($mycategory = mysql_fetch_array($categoryresult)) {
+		do {
+			$category_id = $mycategory["category_id"];
+			$category = htmlentities($mycategory["category"]);
+			$directory = $mycategory["filename"];
+			$categorys[$category_id] = $category;
+			$directorys[$category_id] = $directory;
+		}
+		while ($mycategory = mysql_fetch_array($categoryresult));
+	} else {
+		$categorys[0] = "Unfiled";
+	}
+
+	// build categories HTML
+
+	$numcats = count($categorys);
+	$catcounter = 0;
+	$category_list = "";
+	$categories = "";
+	foreach($categorys AS $category_id => $category) {
+		$catcounter++;
+		if ($category_id != 0) {
+			$category = str_replace(" ", "&nbsp;", $category);
+			$category_list = $category_list.$category;
+			$categories .= " <a href=\"/archive/".$directorys[$category_id]."/\" title=\"View all posts relating to $category.\">$category</a> ";
+		} else {
+			$categories .= "&#8211; $category &#8211;"; # prints - unfiled -
+		}
+		if ($catcounter != $numcats) {
+			$category_list = $category_list.",";
+			$categories .= " &middot; ";
+		}
+	}
+	return $categories;
+}
 
 
-
+/*
 function getcomments($blog_id, $force=FALSE) {
 	global $dr3, $dr2;
 	// set cache file
@@ -482,12 +495,13 @@ function getcomments($blog_id, $force=FALSE) {
 		}
 	}
 }
+*/
 
 function gethomecontent() {
 	global $dr3, $dr2;
 	// set cache file
 	$filename = $dr3 . "/cache/home-content.php";
-	$cachewait = 120; // seconds
+	$cachewait = 1.20; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait)) {
 		include($filename);
@@ -500,6 +514,7 @@ function gethomecontent() {
 
 
 			// pull blogmarks from database
+			/*
 			$sql = "SELECT * FROM blogs WHERE content_type='blogmark' ORDER BY blogdate DESC, tstamp DESC LIMIT 11";
 			$result = mysql_query($sql);
 			if ($myblogmark = mysql_fetch_array($result)) {
@@ -521,10 +536,12 @@ function gethomecontent() {
 			} else {
 				$blogmarks = "<p>No blogmarks yet.</p>\n";
 			}
+			*/
 
 
 
 			// pull latest music from database
+			/*
 			$sql = "SELECT artists.artist, title, formats.format
 			FROM music, artists, formats
 			WHERE new =  '1'
@@ -541,6 +558,7 @@ function gethomecontent() {
 			} else {
 				$latestmusic = "<p>No recent purchases.</p>";
 			}
+			*/
 
 
 
@@ -558,6 +576,7 @@ function gethomecontent() {
 			}
 
 			// get post from one year ago
+			/*
 			$sql = "SELECT blog_id, title, description, maincontent, blogdate, ABS((UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(blogdate))/86400 - 365) AS daysincepost FROM blogs WHERE content_type='blog'  AND (TO_DAYS(NOW()) - TO_DAYS(blogdate)) BETWEEN 335 AND 395 ORDER BY daysincepost LIMIT 1";
 			$result = mysql_query($sql);
 			if ($myblog = mysql_fetch_array($result)) {
@@ -567,14 +586,15 @@ function gethomecontent() {
 			} else {
 				$blogpostids[] = 0;
 			}
+			*/
 
 			// build cache
 
 			$contents = '
 			<?php
 			global $blogmarks, $latestmusic, $blogpostids;
-			$blogmarks = "' . $blogmarks . '";
-			$latestmusic = "' . $latestmusic . '";';
+			#$blogmarks = "' . $blogmarks . '";
+			#$latestmusic = "' . $latestmusic . '";';
 
 			foreach ($blogpostids AS $key => $blogpostid) {
 				$contents .= '

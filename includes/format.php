@@ -85,8 +85,8 @@ function format($text) {
 	$replace = array (
 		"<p",
 		"</p>",
-		"</div>\n<div class='segment'>",
-		"</div>\n<div class='segment'>",
+		"</section>\n<section>",
+		"</section>\n<section>",
 		"<address",
 		"</address>",
 		"<form",
@@ -105,10 +105,10 @@ function format($text) {
 		"",
 		"<pre><code>",
 		"</code></pre>",
-		"<p class='imgholder'><a",
-		"<p class='imgholder inline'><a",
-		"<p class='imgholder inline'><img",
-		"<p class='imgholder'><img ",
+		"<figure><a",
+		"<figure class='inline'><a",
+		"<figure class='inline'><img",
+		"<figure><img ",
 		"<li><a class='inline'",
 		"<img ",
 		"<div",
@@ -137,6 +137,11 @@ function format($text) {
 		"<h2",
 		"</h2>");
 	$text = str_replace($search, $replace, $text);
+	
+	$search = array ("/<figure(.*?)<\/p>/is");
+	$replace = array ("<figure$1</figure>");
+	$text = preg_replace($search, $replace, $text);
+	
 	
 	$text = trim($text);
 	

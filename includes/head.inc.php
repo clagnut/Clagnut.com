@@ -1,14 +1,3 @@
-<?php
-
-// Turn on PHP Error Reporting
-ini_set("display_errors","2");
-ERROR_REPORTING(E_ALL);
-?>
-
-<!DOCTYPE html>
-<html lang="en-gb">
-
-<head>
     <meta charset="utf-8"/>
     <meta name="author" content="Richard Rutter"/>
     <meta name="robots" content="index, follow"/>
@@ -42,7 +31,7 @@ ERROR_REPORTING(E_ALL);
     <script src="/js/global.js"></script>
 
     <!--css-->
-	<link rel="stylesheet" href="/css/all<?php echo $old ?>.css" type="text/css" />
+	<link rel="stylesheet" href="/css/all.css" type="text/css" />
     <!-- ie html5 and respond shims -->
     <!--[if lt IE 9]>
         <script src="/js/ie.js"></script>
@@ -51,16 +40,3 @@ ERROR_REPORTING(E_ALL);
     <!--rss-->
     <link rel="alternate" type="application/rss+xml" title="RSS with summaries" href="http://feeds.feedburner.com/ClagnutSummaries">
 	<link rel="alternate" type="application/rss+xml" title="RSS with full posts" href="http://feeds.feedburner.com/Clagnut">
-
-    <title><?php
-    echo strip_tags($title);
-    if($title != "") {
-    	echo " | Clagnut";
-    } else {
-    	echo "Clagnut by Richard Rutter";
-    }
-    ?>
-    </title>
-</head>
-
-

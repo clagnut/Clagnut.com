@@ -8,7 +8,8 @@ function includeCache($service, $cachewait) {
 	}
 
 	// set cache file
-	$filename = $dr . "/cache/" . $blog_id . "-" . $service . ".php";
+	$dr3 = str_replace("/includes/", "", $dr);	
+	$filename = $dr3 . "/cache/" . $blog_id . "-" . $service . ".php";
 	
 	if (file_exists($filename) && ((time() - filectime($filename) < $cachewait))) {
 		// use the cached file
@@ -21,9 +22,6 @@ function includeCache($service, $cachewait) {
 		
 			// get new contents
 			switch ($service) {
-			case "technorati":
-				$contents = makeTechnorati();
-				break;
 			case "flickr":
 				$contents = makeFlickr();
 				break;
@@ -65,77 +63,6 @@ function includeCache($service, $cachewait) {
 }
 
 
-function getTechnorati() {
-	
-	$cachewait = 7200; // seconds
-	
-	includeCache("technorati", $cachewait);
-}
-
-
-function makeTechnorati() {
-	global $blog_id;
-	
-	$technoratiMarkup = "";
-				
-	$url = "http://api.technorati.com/cosmos?key=7c0d16c38a999886d76de2b30c138ed5&limit=10&format=rss&url=http://clagnut.com/blog/$blog_id/";
-	//echo "<p><a href='$url'>Technorati API call</a></p>";
-	$doc = new DOMDocument();
-	if (@$doc -> load($url)) {
-		
-		// build Technorati HTML
-		
-		if ($doc -> getElementsByTagName("error") -> item(0)) {
-			// Error code returned
-			echo "<!-- Error: ".$doc -> getElementsByTagName("error") -> item(0) -> nodeValue."-->\n";
-			$contents = false;
-		} else {
-			$items = $doc -> getElementsByTagName("item");
-			if ($items->length < 1) {
-				// No inbound links :-(					
-				$technoratiMarkup.= "<p>Nobody is blogging this page.</p>\n";
-			} else {
-				// we have linklove!
-				$technoratiMarkup.="<ul>";
-				foreach ($items as $key => $item) {
-					// put items into arrays
-					$title = $item -> getElementsByTagName("title") -> item(0) -> nodeValue;
-					$url = $item -> getElementsByTagName("guid") -> item(0) -> nodeValue;
-					$item_titles[$key] = $title;
-					$item_urls[$key] = $url;
-				}
-				
-				$item_urls = array_unique($item_urls);
-				
-				foreach ($item_urls as $key => $url) {
-					if(!preg_match('/^http/', $url)) {$url = "http://technorati.com" . $url;}
-										
-					$technoratiMarkup.= "<li><a href=\"";
-					$technoratiMarkup.= htmlspecialchars($url);
-					$technoratiMarkup.= "\">";
-					$technoratiMarkup.= htmlspecialchars($item_titles[$key]);
-					$technoratiMarkup.= "</a></li>\n";
-				}
-				$technoratiMarkup.="</ul>";
-			}
-			// build cache contents
-			$contents = '
-			<?php
-			global $technorati;
-			$technorati = "'. addslashes($technoratiMarkup) . '";
-			?>';
-		}
-		
-	} else {
-		$contents = false;
-	}
-	
-
-	return $contents;
-}
-
-
-
 
 function getFlickr() {
 	
@@ -158,7 +85,7 @@ function makeFlickr() {
 	
 	// $url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$clagnut_mtag&per_page=9";
 	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&per_page=9";
-	// echo "<p><a href='$url'>Flickr API call</a></p>";
+	echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
 

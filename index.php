@@ -1,9 +1,26 @@
 <?php
 $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
-$title = "";
-$old = "";
-include($dr . "head.inc.php");
+include_once($dr . "php_errors.inc.php");
 ?>
+
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+<?php include($dr . "head.inc.php"); ?>
+
+    <title>Clagnut by Richard Rutter</title>
+    
+	<meta name="description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, user experience design, Brighton, music and occasionally mountain biking. " />
+    
+    <link rel="openid.server" href="http://www.myopenid.com/server" />
+    <link rel="openid.delegate" href="http://clagnut.myopenid.com/" />
+    <link rel="openid2.provider" href="http://www.myopenid.com/server" />
+    <link rel="openid2.local_id" href="http://clagnut.myopenid.com/" />
+    <meta name="verify-v1" content="IJz7pHnlmNG5vpLqcQlYqEKpcrz4tPaMqM+w2eTM5XE=" />
+
+</head>
+
 
 <body>
 <?php 

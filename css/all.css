@@ -224,20 +224,20 @@ h1, .home header h2 {
 	font-feature-settings:			"calt" 1, "onum" 0, "lnum" 1; 
 }
 
-h2, h3, h4, h5, h6, b, strong, ins, th {
+h2, h3, h4, h5, h6, b, strong, ins, th, dt {
 	font-family: "Akagi-Bold", "Akagi Bold", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-weight: 700;
 	font-size-adjust: 0.492;
 }
 
-i, em, cite, q, blockquote, figcaption, caption {
+i, em, cite, q, var, blockquote, figcaption, caption {
 	font-family: "Akagi-MediumItalic", "Akagi Medium Italic", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-weight: 500;
 	font-style: italic;
 	font-size-adjust: 0.488;
 }
 
-pre, code, kbd, tt, samp, tt {
+pre, code, kbd, tt, samp {
 	font-family: consolas, monospace;
 	font-size-adjust: 0.488;
 }
@@ -339,6 +339,7 @@ footer nav {
 
 main.post {
 	padding-bottom: 1.5em;
+	position: relative;
 }
 
 article header {
@@ -368,7 +369,60 @@ h1 {
 }
 
 h2 {
-	margin-bottom: 1.333333333em;
+	font-size: 1.3125rem;
+	margin-top: 1.142857143em;
+	margin-bottom:.380952381em;
+}
+
+h3 {
+	font-size: 1.125rem;
+	margin-top: .888888889em;
+	margin-bottom: .444444444em;
+}
+
+h4, h5, h6 {
+	font-size: 1rem;
+	margin-top: 1em;
+	margin-left: 2px;
+}
+
+ol, ul {
+	margin: 1em 0 1em 1.5em;
+}
+
+table {
+	margin: 1em 0;
+}
+
+th {
+	background: rgba(0,0,0,0.075);
+}
+
+th, td {
+	border-bottom: 1px solid rgba(0,0,0,0.075);
+	padding: 0.25em 0.5em;
+	text-align: left;
+}
+
+thead th {
+	border-bottom: 1px solid #c8c3bb;
+}
+
+th[colspan] {
+	text-align: center;
+}
+
+caption {
+	margin-top: 0.5em;
+}
+
+blockquote {
+	margin: 1em 0;
+}
+
+article.post blockquote p+p {
+	margin-top: 0;
+	text-indent: 1.5em;
 }
 
 .meta {
@@ -396,10 +450,16 @@ h2 {
 }
 
 section {
-	padding-left: 2%;
-	padding-right: 2%;
 	padding-bottom: 1.5em;
 }
+
+article.post section+section::before {
+	content: "¶";
+	text-align: center;
+	display: block;
+	margin-bottom: 1.5em;
+}
+
 
 article table, .twitter p {
 	-moz-hyphens:auto;
@@ -409,8 +469,12 @@ article table, .twitter p {
 	hyphens:auto;
 }
 
+article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
+	padding-left: 2%;
+	padding-right:35.63%;
+}
+
 article.post section p {
-	padding-right:33.63%;
 	margin-left: 2px;
 }
 
@@ -418,7 +482,7 @@ article.post section p {
 	font-size: 1.0625em;
 }
 
-article p+p {
+article p+p, figure.inline+p {
 	margin-top: 1em;
 }
 
@@ -431,14 +495,28 @@ figcaption {
 	padding: .1875em 0;
 }
 
+figure.inline {
+	position: absolute;
+	right: 4%;
+	width: 29%;
+	text-align: left;
+}
+
+article.post figure {
+	margin: 1em 0;
+	display: inline-block;
+}
+
 aside {
 	margin: 1.5em 2%;
 }
 
 .cluster h2 {
+	font-size: 1rem;
 	text-transform: uppercase;
 	letter-spacing: .0625em;
 	margin-top: -0.9em;
+	margin-bottom: 1.333333333em;
 	text-align: center;
 }
 
@@ -513,8 +591,10 @@ aside.tags p.comment {
 	width: 31.33%;
 }
 
-.tags ul {
+article.post .tags ul {
 	padding-right: 33.63%;
+	margin: 0;
+	padding-left: 0;
 }
 
 .tags li {
@@ -597,7 +677,7 @@ p.date {
 /* @group Home page */
 
 .home header h1 {
-	margin: 0 2% 0.25em 2%;	
+	margin: 0 2% 0.125em 2%;	
 	padding-bottom: 1em;
 }
 

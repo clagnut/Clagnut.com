@@ -1,9 +1,6 @@
 <?php
-// Turn on PHP Error Reporting
-ini_set("display_errors","2");
-ERROR_REPORTING(E_ALL);
-
 $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
+include_once($dr . "php_errors.inc.php");
 
 // get variables from query
 $id = (isset($_REQUEST["id"]))?$_REQUEST["id"]:"1484"; 
@@ -27,18 +24,25 @@ include_once($dr . "format.php");
 include_once($dr . "getposts.inc.php");
 
 // get 3rd party data
-#include_once($dr . "thirdparties.inc.php");
+include_once($dr . "thirdparties.inc.php");
 
 
 getpost($blog_id);
 
-######################
-
-$title = "Seventy Penguins";
-$title = "Typographic Style Applied to the&nbsp;Web";
-$old = "";
-include($dr . "head.inc.php");
 ?>
+
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+<?php include($dr . "head.inc.php"); ?>
+
+    <title><?php echo $post_headtitle[$blog_id] . " | Clagnut"; ?></title>
+    
+    <meta name="description" content="<?php echo $post_description[$blog_id] ?>" />
+    <meta name="keywords" content="<?php echo implode(',', $post_tags[$blog_id]) ?>" />
+    
+</head>
 
 <body>
 <?php 
@@ -51,29 +55,37 @@ include($dr . "header.inc.php");
 
 <header>
 
-<h1><?php echo $title ?></h1>
+<h1><?php echo $post_title[$blog_id] ?></h1>
 
 <div class="meta">
-<p class="published"><time datetime="2005-06-07T02:22:59+01:00">7th June 2005</time></p>
-<p class="categories">§&nbsp;<a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a></p>
+<p class="published"><time datetime="<?php echo $post_isodate[$blog_id] ?>"><?php echo $post_postdate[$blog_id] ?></time></p>
+<p class="categories">§<?php echo $post_categories[$blog_id] ?></p>
 
 <nav>
-<a href="#" rel="next" title="Newer">&lsaquo;</a><a href="#" rel="prev" title="Older">&rsaquo;</a>
+<?php if ($post_recent[$blog_id]) { ?>
+<a href="/blog/<?php echo $post_recent[$blog_id] ?>/" rel="next" title="Newer: ‟<?php echo $post_recenttitle[$blog_id] ?>”">&lsaquo;</a><?php } ?><?php if ($post_older[$blog_id]) { ?>
+<a href="/blog/<?php echo $post_older[$blog_id] ?>/" rel="prev" title="Older: ‟<?php echo $post_oldertitle[$blog_id] ?>”">&rsaquo;</a>
+<?php } ?>
+
 </nav>
 </div>
 </header>
 
 <section>
-
-<p><span class="opener">In Designing News</span>, award-winning editorial and infographics designer Francesco Franchi conveys his vision for the future of the news and media industries. He evaluates the fundamental changes that are taking place in our digital age in terms of consumer expectations and the way media is being used. The book then outlines the challenges that result and proposes strategies for traditional publishing houses, broadcasting companies, journalists, and designers to address them.</p>
-<p>A pleasing number of people have been clamouring for this: the track listing to my annual compilation, ‘The Best Songs I Bought In 2006 Ever’. It was another good year – remember this is compiled from music I bought this year, but was not necessarily released this year.</p>
-<p>These tracks just about squeeze on to a CD, so if you’d like a copy, put together your own compilation of the year and send it to me – you’ll get a copy of the above in return. Email me for details. Update: I stuck these in an iMix for your iTunes delectation.</p>
-<p>I’ve just come back from a week with Her Indoors in the West Country; a few days in Devon and a few more in Cornwall (there are photos – it’s a beautiful part of the world). While there I bought five books, all of which were Penguin paperbacks.</p>
+<?php
+#$maincontent = preg_replace("/^<p>/", "<p><span class='para'>&para; </span>", $post_maincontent[$blog_id]);
+$maincontent = $post_maincontent[$blog_id];
+echo stripslashes($maincontent);
+?>
 </section>
-<section>
-<p><span class="opener">A pleasing number</span> of people have been clamouring for this: the track listing to my annual compilation, ‘The Best Songs I Bought In 2006 Ever’. It was another good year – remember this is compiled from music I bought this year, but was not necessarily released this year.</p>
 
-</section>
+<?php		
+getFlickr();
+if (isset($flickr)) {
+	echo $flickr;
+}
+?>
+
 
 <aside class="gallery group">
 	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/m/1.jpg" alt="Crabbing"></a><figcaption>Crabbing</figcaption></figure>
@@ -85,41 +97,28 @@ include($dr . "header.inc.php");
 
 <aside class="tags group">
 	<p class="comment"><a href="https://twitter.com/intent/tweet?text=Web Typography by @clagnut http://clagnut.com/blog/1234"><img src="/i/icon-twitter.png" alt="" class="icon"> Comment via Twitter</a></p>
+	
 	<ul>
-	<li>#<a href="http://clagnut.com/search/?q=Typography" rel="tag">Typography</a></li>
-	<li>#<a href="http://clagnut.com/search/?q=penguin" rel="tag">penguin</a></li>
-	<li>#<a href="http://clagnut.com/search/?q=book+design" rel="tag">book design</a></li>
-	<li>#<a href="http://clagnut.com/search/?q=devon" rel="tag">devon</a></li>
-	<li>#<a href="http://clagnut.com/search/?q=isbntagged" rel="tag">isbntagged</a></li>
-	<li>#<a href="http://clagnut.com/search/?q=geotagged" rel="tag">geotagged</a></li>
-	<li>#<a href="http://clagnut.com/search/?q=Agatha+Christie" rel="tag">Agatha Christie</a></li>
-	<li>#<a href="http://clagnut.com/search/?q=Phil+Baines" rel="tag">Phil Baines</a></li>
-	<li class="machine-tag">#<a href="http://clagnut.com/search?q=clagnut%3Apost%3D1484" rel="tag">clagnut:post=1484</a></li>
-	<li class="machine-tag">#<a href="http://clagnut.com/search?q=geo%3Alat%3D50.382" rel="tag">geo:lat=50.382</a></li>
-	<li class="machine-tag">#<a href="http://clagnut.com/search?q=geo%3Alon%3D-3.5879" rel="tag">geo:lon=-3.5879</a></li>
+	<?php
+	if (count($post_tags[$blog_id])>0) {
+		foreach($post_tags[$blog_id] AS $tag) {
+			echo "<li>#<a href='/search/?q=" . urlencode($tag) . "' rel='tag'>" . htmlentities($tag) . "</a></li>\n";
+		}
+	}
+	if (count($post_machinetags[$blog_id])>0) {
+		foreach($post_machinetags[$blog_id] AS $machinetag) {
+			echo "<li class='machine-tag'><a href='/search?q=" . urlencode($machinetag) . "' rel='tag'>" . htmlentities($machinetag) . "</a></li>\n";
+		}
+	}
+	?>
 	</ul>
+	
 </aside>
 
 <aside class="cluster relatedposts group">
 	<h2><span>Possibly Related</span></h2>
 	
-	<article>
-	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-	<h1><a href="#">Underworld typography</a></h1>
-	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
-	</article>
-	
-	<article>
-	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-	<h1><a href="#">The postcode lookup pattern</a></h1>
-	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a> · <a href="/archive/music/" title="View all posts relating to Music.">Conferences</a></p>
-	</article>
-	
-	<article>
-	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
-	<h1><a href="#">Professional body for web designers</a></h1>
-	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
-	</article>
+		<?php echo stripslashes($post_related_posts[$blog_id]) ?>
 
 </aside>
 
