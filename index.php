@@ -1,6 +1,21 @@
 <?php
 $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
 include_once($dr . "php_errors.inc.php");
+
+include_once($dr . "path_to_db.inc.php");
+			
+// format post
+include_once($dr . "format.php");
+
+// get posts and comments
+include_once($dr . "getposts.inc.php");
+
+// get 3rd party data
+include_once($dr . "thirdparties.inc.php");
+
+// get content for home page
+gethomecontent();
+
 ?>
 
 <!DOCTYPE html>
@@ -12,13 +27,14 @@ include_once($dr . "php_errors.inc.php");
     <title>Clagnut by Richard Rutter</title>
     
 	<meta name="description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, user experience design, Brighton, music and occasionally mountain biking. " />
+	<meta name="author" content="Richard Rutter" /> 
     
     <link rel="openid.server" href="http://www.myopenid.com/server" />
     <link rel="openid.delegate" href="http://clagnut.myopenid.com/" />
     <link rel="openid2.provider" href="http://www.myopenid.com/server" />
     <link rel="openid2.local_id" href="http://clagnut.myopenid.com/" />
     <meta name="verify-v1" content="IJz7pHnlmNG5vpLqcQlYqEKpcrz4tPaMqM+w2eTM5XE=" />
-
+    
 </head>
 
 
@@ -37,11 +53,12 @@ include($dr . "header.inc.php");
 </header>
 
 <article class="newestpost">
-<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-<h1><a href="#">The postcode lookup pattern</a></h1>
-<p>UK Museums on the Web is a one day conference organised by the Museums Computer Group. Representatives from museums and other organisations in the sector shared their experiences over the past year and beyond. These are my notes from the day today.</p>
+<?php getpost($blogpostids[0]); ?>
+<p class="date"><time datetime="<?php echo $post_isodate[$blogpostids[0]] ?>"><?php echo $post_postdate[$blogpostids[0]] ?></time></p>
+<h1><a href="/blog/<?php echo $blogpostids[0] ?>/" rel="bookmark"><?php echo $post_title[$blogpostids[0]] ?></a></h1>
+<p><?php echo stripslashes($post_description[$blogpostids[0]]) ?></p>
 
-<p class="more"><a href="#">Read on</a> &rarr;</p>
+<p class="more"><a href="/blog/<?php echo $blogpostids[0] ?>/">Read on</a> &rarr;</p>
 </article>
 
 

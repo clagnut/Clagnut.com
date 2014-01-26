@@ -82,26 +82,25 @@ function makeFlickr() {
 	$machinetags = $post_machinetags[$blog_id];
 	$clagnut_mtag = urlencode($machinetags[0]);
 	
-	
+	$per_page = 12;
 	// $url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$clagnut_mtag&per_page=9";
-	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&per_page=9";
-	echo "<p><a href='$url'>Flickr API call</a></p>";
+	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&$per_page=12";
+	#echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
 
 		// build Flickr HTML
 	
 		$totalphotos = $doc -> getElementsByTagName("photos") -> item(0) -> getAttribute("total");
-		$numphotos = ($totalphotos>9)?9:$totalphotos;
+		$numphotos = ($totalphotos>$per_page)?$per_page:$totalphotos;
 		if ($numphotos > 0) {
 			$photos = $doc -> getElementsByTagName("photo");
 			if ($photos) {
-				$flickrMarkup .= "<ul class=\"thumbs\" id=\"flickr\">\n";
 				foreach ($photos as $photo) {
 				
 					$flickr_id = $photo -> getAttribute("id");
 				
-					$flickrMarkup .= "<li><a href=\"http://flickr.com/photos/clagnut/";
+					$flickrMarkup .= "<figure class='photo'><a href=\"http://flickr.com/photos/clagnut/";
 					$flickrMarkup .= $photo -> getAttribute("id");
 					$flickrMarkup .= "/\"><img ";
 					$flickrMarkup .= "src=\"http://static.flickr.com/";
@@ -110,78 +109,16 @@ function makeFlickr() {
 					$flickrMarkup .= $flickr_id;
 					$flickrMarkup .= "_";
 					$flickrMarkup .= $photo -> getAttribute("secret");
-					$flickrMarkup .= "_s.jpg\" alt=\"";
+					$flickrMarkup .= "_n.jpg\" alt=\"";
 					$flickrMarkup .= $photo -> getAttribute("title");
-					$flickrMarkup .= "\" title=\"";
+					$flickrMarkup .= "\" /></a><figcaption>";
 					$flickrMarkup .= $photo -> getAttribute("title");
-					$flickrMarkup .= "\" /></a></li>\n";
-					
+					$flickrMarkup .= "</figcaption></figure>\n";					
 					$flickr_ids[] = $flickr_id;
 		
 				}
 			}
 		}		
-	}
-	
-	if ($numphotos == 9) {
-		$flickrMarkup .= "</ul>";
-	} else {
-	
-		$flickrtags = "";
-		foreach($post_tags[$blog_id] AS $tag) {
-			if ($tag != "geotagged" && $tag != "booktagged") {
-				$flickrtags = $flickrtags . "," . urlencode($tag);
-			}
-		}
-		
-		$photostofetch = 9 + $numphotos;
-			
-		$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$flickrtags&sort=relevance&per_page=$photostofetch";
-		//echo "<p><a href='$url'>Flickr API call</a></p>";
-		$doc = new DOMDocument();							
-		if (@$doc -> load($url)) {
-	
-			// build Flickr HTML
-		
-			$totalphotos = $doc -> getElementsByTagName("photos") -> item(0) -> getAttribute("total");
-			if ($totalphotos > 0) {			
-				if($numphotos == 0) {
-					$flickrMarkup .= "<ul class=\"thumbs\" id=\"flickr\">\n";
-				}
-				$photos = $doc -> getElementsByTagName("photo");
-				if ($photos) {
-					foreach ($photos as $photo) {
-						if ($numphotos < 9) {
-						
-							$flickr_id = $photo -> getAttribute("id");
-							
-							if(!in_array($flickr_id, $flickr_ids)) {
-								
-								$phototitle = $photo -> getAttribute("title");
-								
-								$flickrMarkup .= "<li><a href=\"http://flickr.com/photos/clagnut/";
-								$flickrMarkup .= $photo -> getAttribute("id");
-								$flickrMarkup .= "/\"><img ";
-								$flickrMarkup .= "src=\"http://static.flickr.com/";
-								$flickrMarkup .= $photo -> getAttribute("server");
-								$flickrMarkup .= "/";
-								$flickrMarkup .= $flickr_id;
-								$flickrMarkup .= "_";
-								$flickrMarkup .= $photo -> getAttribute("secret");
-								$flickrMarkup .= "_s.jpg\" alt=\"";
-								$flickrMarkup .= htmlentities($phototitle);
-								$flickrMarkup .= "\" title=\"";
-								$flickrMarkup .= htmlentities($phototitle);
-								$flickrMarkup .= "\" /></a></li>\n";
-																
-								$numphotos++;
-							}
-						}
-					}
-					$flickrMarkup .= "</ul>";
-				}
-			}		
-		}
 	}
 	
 	if ($flickrMarkup != "") {

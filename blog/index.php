@@ -3,7 +3,7 @@ $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENA
 include_once($dr . "php_errors.inc.php");
 
 // get variables from query
-$id = (isset($_REQUEST["id"]))?$_REQUEST["id"]:"1484"; 
+$id = (isset($_REQUEST["id"]))?$_REQUEST["id"]:false; 
 
 if(!$id) {
 	Header("Location: /archive/");
@@ -13,9 +13,6 @@ if(!$id) {
 $blog_id = $id;
 
 include_once($dr . "path_to_db.inc.php");
-
-// add referrer
-# include($dr . "blacklisted.php");
 			
 // format post
 include_once($dr . "format.php");
@@ -73,30 +70,40 @@ include($dr . "header.inc.php");
 
 <section>
 <?php
-#$maincontent = preg_replace("/^<p>/", "<p><span class='para'>&para; </span>", $post_maincontent[$blog_id]);
-$maincontent = $post_maincontent[$blog_id];
+$word = "[A-Za-z0-9_,.;:&#']+";
+$search = array(
+	"/^<p>($word) ($word) ($word)/i",
+	"/^<figure(.*)<\/figure>\s*<p>($word) ($word) ($word)/i",
+	"/<section>\s*<p>($word) ($word) ($word)/i",
+	"/<section>\s*<figure(.*)<\/figure>\s*<p>($word) ($word) ($word)/i"
+);
+$replace = array(
+	"<p><span class='opener'>$1 $2 $3</span>",
+	"<figure$1</figure> <p><span class='opener'>$2 $3 $4</span>",
+	"<section><p><span class='opener'>$1 $2 $3</span>",
+	"<section><figure$1</figure> <p><span class='opener'>$2 $3 $4</span>"
+);
+$maincontent = preg_replace($search, $replace, $post_maincontent[$blog_id]);
+#$maincontent = $post_maincontent[$blog_id];
 echo stripslashes($maincontent);
 ?>
 </section>
 
-<?php		
-getFlickr();
-if (isset($flickr)) {
-	echo $flickr;
-}
-?>
+
 
 
 <aside class="gallery group">
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/m/1.jpg" alt="Crabbing"></a><figcaption>Crabbing</figcaption></figure>
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/m/2.jpg" alt="Passenger ferry"></a><figcaption>Passenger ferry pulling out</figcaption></figure>
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/m/3.jpg" alt="Herring gull"></a><figcaption>Herring gull</figcaption></figure>
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/m/4.jpg" alt="70 Pocket Penguins"></a><figcaption>70 Pocket Penguins</figcaption></figure>
+	<?php		
+	getFlickr();
+	if (isset($flickr)) {
+		echo $flickr;
+	}
+	?>
 </aside>
 
 
 <aside class="tags group">
-	<p class="comment"><a href="https://twitter.com/intent/tweet?text=Web Typography by @clagnut http://clagnut.com/blog/1234"><img src="/i/icon-twitter.png" alt="" class="icon"> Comment via Twitter</a></p>
+	<p class="comment"><a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut http://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.png" alt="" class="icon"> Comment via Twitter</a></p>
 	
 	<ul>
 	<?php

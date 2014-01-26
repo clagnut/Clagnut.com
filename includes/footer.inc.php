@@ -6,3 +6,5 @@
 </p>
 <nav class="footer">Published in Brighton, UK &middot; <a href="#">Colophon</a></nav>
 </footer>
+
+<script src="/mint/?js" type="text/javascript"></script>

@@ -49,7 +49,7 @@ function getpost($blog_id) {
 	// set cache file
 	$dr3 = str_replace("/includes/", "", $dr);	
 	$filename = $dr3 . "/cache/" . $blog_id . "-post.php";
-	$cachewait = 1.20; // seconds
+	$cachewait = 30; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait)) {
 		include($filename);
@@ -89,8 +89,12 @@ function getpost($blog_id) {
 			#$comments_open_duration = 28 * 24 * 3600;
 			#$comments_expired = ($time_since_posted > $comments_open_duration)?true:false;
 
-			// create array from comma-separated tags string in db
-			$tagsAr = explode(",",$tags);
+			// create array from either comma-separated or space-separated tags string in db
+			if (strrpos($tags, ",") === false) {
+				$tagsAr = explode(" ",$tags);			
+			} else {
+				$tagsAr = explode(",",$tags);
+			}
 
 			array_walk($tagsAr, 'trim_value'); // trim each tag
 			$tagsAr = array_unique($tagsAr); // remove dupes
@@ -498,16 +502,17 @@ function getcomments($blog_id, $force=FALSE) {
 */
 
 function gethomecontent() {
-	global $dr3, $dr2;
+	global $dr, $dr2;
 	// set cache file
+	$dr3 = str_replace("/includes/", "", $dr);	
 	$filename = $dr3 . "/cache/home-content.php";
-	$cachewait = 1.20; // seconds
+	$cachewait = 30; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait)) {
 		include($filename);
 	} else {
 		// open file
-		$fh = @fopen($filename, "w");
+		$fh = fopen($filename, "w");
 
 		if($fh) {
 			include($dr2 . "/db_connect.php");
@@ -567,7 +572,7 @@ function gethomecontent() {
 			$blogpostids = Array();
 
 			// get latest posts
-			$sql = "SELECT blog_id FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 6";
+			$sql = "SELECT blog_id FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 5";
 			$result = mysql_query($sql);
 			if ($myblog = mysql_fetch_array($result)) {
 				do {
@@ -593,8 +598,7 @@ function gethomecontent() {
 			$contents = '
 			<?php
 			global $blogmarks, $latestmusic, $blogpostids;
-			#$blogmarks = "' . $blogmarks . '";
-			#$latestmusic = "' . $latestmusic . '";';
+			';
 
 			foreach ($blogpostids AS $key => $blogpostid) {
 				$contents .= '
