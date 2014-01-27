@@ -64,6 +64,11 @@ include($dr . "header.inc.php");
 
 <article class="favephoto">
 <figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/f/1.jpg" alt=""></a><figcaption>Sea flooding into Ohso Social</figcaption></figure>
+
+<?php
+getHomeFlickr();
+#echo stripslashes($homeflickr);
+?>
 </article>
 
 <br style="clear:both"/>
@@ -175,29 +180,22 @@ include($dr . "header.inc.php");
 <section class="cluster relatedposts latestposts">
 	<h2><span>Latest Posts</span></h2>
 	
-	<article>
-	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-	<h1><a href="#">The postcode lookup pattern</a></h1>
-	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Information design</a> · <a href="/archive/music/" title="View all posts relating to Music.">Mapping &amp; Geospatial</a></p>
-	</article>
+	<?php
 	
-	<article>
-	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-	<h1><a href="#">Underworld typography</a></h1>
-	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
-	</article>
+	foreach ($blogpostids AS $key => $blogpostid) {
+		if ($key > 0 && $key < count($blogpostids)) {
+			getpost($blogpostid);
+			echo "<article>\n";
+			echo "	<p class=\"date\">\n";
+			echo "		<time datetime=\"" . $post_isodate[$blogpostid] . " \">" . $post_postdate[$blogpostid] . " </time>\n";
+			echo "	</p>\n";
+			echo "	<h1><a href=\"/blog/" . $blogpostid . "/\" rel=\"bookmark\">" . $post_title[$blogpostid] . " </a></h1>\n";
+			echo "	<p class=\"categories\">" . $post_categories[$blogpostid] . " </p>\n";
+			echo "</article>\n";
+		}
+	}
+	?>
 	
-	<article>
-	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">28 November 2006</time></p>
-	<h1><a href="#">Professional body for web designers</a></h1>
-	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Web standards</a> · <a href="/archive/music/" title="View all posts relating to Music.">New media industry</a></p>
-	</article>
-	
-	<article>
-	<p class="date"><time datetime="2005-06-07T02:22:59+01:00">7 June 2005</time></p>
-	<h1><a href="#">Underworld typography</a></h1>
-	<p class="categories"><a href="/archive/typography/" title="View all posts relating to Typography.">Typography</a> · <a href="/archive/music/" title="View all posts relating to Music.">Music</a></p>
-	</article>
 
 </section>
 
