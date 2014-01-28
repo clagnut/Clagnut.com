@@ -504,8 +504,7 @@ figure.inline {
 }
 
 article.post figure {
-	margin: 1em 0;
-	display: inline-block;
+	margin: 0.5em 0;
 }
 
 section > figure:first-child {
@@ -543,42 +542,57 @@ aside {
 .gallery figure {
 	float: left;
 	width: 32%;
-	padding-right: 1%;
-	padding-left: 1%;
-	margin-bottom: 1em;
+	padding-right: .666666666%;
+	padding-left: .666666666%;
 	position: relative;
 }
 
-.gallery figure:nth-of-type(3n), .gallery figure:last-of-type {
-	padding-right: 0;
-	
+.gallery figure:before {
+	content: "";
+	display: block;
+	padding-top: 75%; 	/* initial ratio of 4:3*/
 }
 
-.gallery figure:nth-of-type(3n+1) {
-	clear: left;
-	padding-left: 0;
-}
 
-.gallery figure img {
-	width: 100%;
+.gallery figure a {
+	display: block;
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
 }
 
 .gallery figcaption, .favephoto figcaption {
 	position: absolute;
 	bottom: 0;
-	right: 3.125%;
-	left: 3.125%;
+	left: 0;
+	right: 0;
 	background: rgba(0,0,0,0.25);
 	color: #fff;
 	transition:	all 0.35s linear;
 }
 
-.gallery figure:nth-of-type(3n) figcaption, .gallery figure:last-of-type figcaption {
-	right: 0;
+.gallery figure:nth-of-type(3n+1) {
+	clear: left;
 }
 
-.gallery figure:nth-of-type(3n+1) figcaption {
-	left: 0;
+.gallery figure:nth-of-type(3n+1) a, .gallery figure:nth-of-type(3n+1) figcaption {
+	right: 2.666666667%;
+}
+
+.gallery figure:nth-of-type(3n+2) a, .gallery figure:nth-of-type(3n+2) figcaption {
+	right: 1.333333333%;
+	left: 1.333333333%;
+}
+
+.gallery figure:nth-of-type(3n+3) a, .gallery figure:nth-of-type(3n+3) figcaption {
+	left: 2.666666667%;
+}
+
+.gallery figure img {
+	width: 100%;
 }
 
 .gallery figure:hover figcaption, .favephoto figure:hover figcaption {
@@ -842,14 +856,13 @@ section.live .kennedy, section.live .thisismyjam {
 }
 
 .latestphotos figure:nth-of-type(2n) {
-	padding-left:2%;
+	left:2%;
 }
 
-.latestphotos figure:nth-of-type(2n) figcaption {
-	left: 4%;
+.gallery.latestphotos figure a {
+	left: 0;
 	right: 0;
 }
-
 
 
 /* @end */

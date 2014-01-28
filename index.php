@@ -63,11 +63,9 @@ include($dr . "header.inc.php");
 
 
 <article class="favephoto">
-<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/f/1.jpg" alt=""></a><figcaption>Sea flooding into Ohso Social</figcaption></figure>
-
 <?php
 getHomeFlickr();
-#echo stripslashes($homeflickr);
+echo stripslashes($homeflickr);
 ?>
 </article>
 
@@ -157,7 +155,7 @@ getHomeFlickr();
 	<time>Jan 17</time>
 	<p>At ten to nine on a drizzley<br/>
 	Friday morning in <i>Coffee@33</i>,<br/>
-	I was <strong>mulling over the end of my running, and a permanent switch back to cycling</strong><br/>
+	<strong>I was mulling over the end of my running, and a permanent switch back to cycling</strong><br/>
 	 while listening to Four Tet's <cite>Rounds</cite>.<br/>
 	 Meanwhile the news headline read <a href="http://www.bbc.co.uk/news/world-us-canada-25770317#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"><q>Obama to reveal curbs on NSA spying</q></a>.
 </p>
@@ -201,10 +199,13 @@ getHomeFlickr();
 
 <section class="gallery cluster latestphotos">
 	<h2><span><a href="http://flickr.com/photos/clagnut" rel="me"><img src="/i/icon-flickr" alt="Flickr" title="Flickr" class="icon" /></a> Latest Photos</span></h2>
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802430/"><img src="/i/flickr/m/1.jpg" alt="Crabbing"></a><figcaption>Crabbing</figcaption></figure>
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17802565/"><img src="/i/flickr/m/2.jpg" alt="Passenger ferry"></a><figcaption>Passenger ferry pulling out</figcaption></figure>
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17801254/"><img src="/i/flickr/m/3.jpg" alt="Herring gull"></a><figcaption>Herring gull</figcaption></figure>
-	<figure class="photo"><a href="http://flickr.com/photos/clagnut/17800540/"><img src="/i/flickr/m/4.jpg" alt="70 Pocket Penguins"></a><figcaption>70 Pocket Penguins</figcaption></figure>	
+	
+	<?php
+	getlatestFlickr();
+	if (isset($latestflickr)) {
+		echo stripslashes($latestflickr);
+	}
+	?>
 </section>
 
 </main>

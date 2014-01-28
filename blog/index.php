@@ -96,7 +96,7 @@ echo stripslashes($maincontent);
 	<?php		
 	getFlickr();
 	if (isset($flickr)) {
-		echo $flickr;
+		echo stripslashes($flickr);
 	}
 	?>
 </aside>

@@ -84,7 +84,7 @@ function makeFlickr() {
 	
 	$per_page = 12;
 	// $url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$clagnut_mtag&per_page=9";
-	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&$per_page=12";
+	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&$per_page=12&sort=interestingness-desc";
 	#echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
@@ -156,10 +156,9 @@ function makelatestFlickr() {
 		if ($numphotos > 0) {
 			$photos = $doc -> getElementsByTagName("photo");
 			if ($photos) {
-				$latestflickrMarkup .= "<ul class=\"thumbs\" id=\"flickr\">\n";
 				foreach ($photos as $photo) {
 				
-					$latestflickrMarkup .= "<li><a href=\"http://flickr.com/photos/clagnut/";
+					$latestflickrMarkup .= "<figure class=\"photo\"><a href=\"http://flickr.com/photos/clagnut/";
 					$latestflickrMarkup .= $photo -> getAttribute("id");
 					$latestflickrMarkup .= "/\"><img ";
 					$latestflickrMarkup .= "src=\"http://static.flickr.com/";
@@ -168,14 +167,10 @@ function makelatestFlickr() {
 					$latestflickrMarkup .= $photo -> getAttribute("id");
 					$latestflickrMarkup .= "_";
 					$latestflickrMarkup .= $photo -> getAttribute("secret");
-					$latestflickrMarkup .= "_s.jpg\" alt=\"";
+					$latestflickrMarkup .= "_m.jpg\" alt=\"Photo\" /></a><figcaption>";
 					$latestflickrMarkup .= htmlentities($photo -> getAttribute("title"));
-					$latestflickrMarkup .= "\" title=\"";
-					$latestflickrMarkup .= htmlentities($photo -> getAttribute("title"));
-					$latestflickrMarkup .= "\" /></a></li>\n";
-		
-				}
-				$latestflickrMarkup .= "</ul>";
+					$latestflickrMarkup .= "</figcaption></figure>\n";
+								}
 			}
 		}
 						
@@ -223,12 +218,11 @@ function makeHomeFlickr() {
 					$photosecret = $photo -> getAttribute("secret");
 					$phototitle = $photo -> getAttribute("title");
 					$phototitle = htmlentities(stripslashes($phototitle));
-					$homeFlickrMarkup .= "<h2><a href=\"http://flickr.com/photos/clagnut/" . $photoid . "/\">$phototitle</a></h2>\n";
-					$homeFlickrMarkup .= "<p><a href=\"http://flickr.com/photos/clagnut/" . $photoid . "/\"><img src=\"http://static.flickr.com/" . $photoserver . "/" . $photoid . "_" . $photosecret . ".jpg\" alt=\"View " . $phototitle . " on Flickr\" /></a>\n";
+					$homeFlickrMarkup .= "<figure class=\"photo\"><a href=\"http://flickr.com/photos/clagnut/$photoid/\"><img src=\"http://static.flickr.com/$photoserver/$photoid" . "_$photosecret" . "_z.jpg\" alt=\"Photo\"></a><figcaption>$phototitle</figcaption></figure>\n";					
 				}
 			}
 		}
-		
+		/*
 		$url = "http://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=a13e51b5034d53e70b00b1cb6856fece&photo_id=$photoid";
 		// echo "<p><a href='$url'>Flickr API call</a></p>";
 		$doc = new DOMDocument();							
@@ -243,8 +237,9 @@ function makeHomeFlickr() {
 			}
 		}
 		
+		$homeFlickrMarkup .= "</p>\n";
 		
-		$homeFlickrMarkup .= "</p>\n";		
+		*/
 							
 	
 		// build cache contents
