@@ -38,5 +38,5 @@
     <![endif]-->
 
     <!--rss-->
-    <link rel="alternate" type="application/rss+xml" title="RSS with summaries" href="http://feeds.feedburner.com/ClagnutSummaries">
-	<link rel="alternate" type="application/rss+xml" title="RSS with full posts" href="http://feeds.feedburner.com/Clagnut">
+    <link rel="alternate" type="application/rss+xml" title="RSS with summaries" href="/feeds/summaries.xml">
+	<link rel="alternate" type="application/rss+xml" title="RSS with full posts" href="/feeds/fullposts.xml">

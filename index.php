@@ -1,5 +1,7 @@
 <?php
 $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
+$dr3 = str_replace("/includes/", "", $dr);
+
 include_once($dr . "php_errors.inc.php");
 
 include_once($dr . "path_to_db.inc.php");
@@ -77,89 +79,47 @@ echo stripslashes($homeflickr);
 	<h2><span><a href="http://twitter.com/clagnut" rel="me"><img src="/i/icon-twitter.png" alt="Follow me on Twitter" title="@clagnut" class="icon" /></a> @clagnut</span></h2>
 		 
 		 
-	<article>
-	<time><a href="#">7h ago</a></time>
-	<p>“Mid Century Modern Nightmare” by Neon Neon is my new jam. Listen: http://t.thisismyjam.com/clagnut/_7lt3m6t …</p>
-	</article>
-	
-	<article>
-	<time><a href="#">8h ago</a></time>
-	<p>Wondering if @SimonKirbyMP has an opinion about why http://www.care-data.info/  means parts of our medical records are being sold off?</p>
-	</article>
-	
-	<article>
-	<time><a href="#">8h ago</a></time>
-	<p>For info about care.data and how to opt out (it's easy) see: http://care-data.info  everyone's right to #privacy</p>
-	</article>
-	
-	<article>
-	<time><a href="#">Jan 19</a></time>
-	<p>They're not just about the theme to The Bridge. http://t.thisismyjam.com/clagnut/_7llzxtx … (via @Wordridden)</p>
-	</article>
-	
-	<article>
-	<time><a href="#">Jan 17</a></time>
-	<p>Surprise surprise, it's muddy out there #mtb pic.twitter.com/zC1CTrbodW</p>
-	</article>
-	
-	<article>
-	<time><a href="#">Jan 17</a></time>
-	<p>Changing my Strava default sport from running to cycling http://www.strava.com/athletes/975083</p>
-	</article>
-	
-	<article>
-	<time><a href="#">Jan 17</a></time>
-	<p>Changing my Strava default sport from running to cycling #strava</p>
-	</article>
-	
-	<article>
-	<time><a href="#">8h ago</a></time>
-	<p>For info about care.data and how to opt out (it's easy) see: http://care-data.info  everyone's right to #privacy</p>
-	</article>
-	
-	<article>
-	<time><a href="#">Jan 19</a></time>
-	<p>They're not just about the theme to The Bridge. http://t.thisismyjam.com/clagnut/_7llzxtx … (via @Wordridden)</p>
-	</article>
+	<?php
+	getTwitter();
+	if (isset($twitter)) {
+		echo stripslashes($twitter);
+	} else {
+		echo "<article><p>No tweets available. Probably a fail whale scenario.</p></article>";
+	}
+	?>
+
 </section>
 
 <section class="cluster lastfm">
 	<h2><span><a href="http://www.last.fm/user/clagnut" rel="me"><img src="/i/icon-lastfm.png" alt="Last.fm" title="Last.fm" class="icon" /></a> Listening</span></h2>		 
-		 
-	<article>
-	<p><a href="http://www.last.fm/music/Courtney+Barnett/_/Avant+Gardener"><img src="/i/92461921.png" alt="The Double EP: A Sea of Split Peas" class="album_cover" /> Ticker-tape of the Unconscious</a> by <cite>Stereolab</cite></p>
-	</article>	 
-		 
-	<article>
-	<p><a href="http://www.last.fm/music/Courtney+Barnett/_/Avant+Gardener"><img src="/i/92461921.png" alt="The Double EP: A Sea of Split Peas" class="album_cover" /> Avant Gardener</a> by <cite>Courtney Barnett In The House</cite></p>
-	</article> 
-		 
-	<article>
-	<p><a href="http://www.last.fm/music/Courtney+Barnett/_/Avant+Gardener"><img src="/i/92461921.png" alt="The Double EP: A Sea of Split Peas" class="album_cover" /> Ticker-tape of the Unconscious</a> by <cite>Stereolab</cite></p>
-	</article>	 
-		 
-	<article>
-	<p><a href="http://www.last.fm/music/Courtney+Barnett/_/Avant+Gardener"><img src="/i/92461921.png" alt="The Double EP: A Sea of Split Peas" class="album_cover" /> Avant Gardener</a> by <cite>Courtney Barnett</cite></p>
-	</article>
-		 
-	<article>
-	<p><a href="http://www.last.fm/music/Courtney+Barnett/_/Avant+Gardener"><img src="/i/92461921.png" alt="The Double EP: A Sea of Split Peas" class="album_cover" /> Avant Gardener</a> by <cite>Courtney Barnett</cite></p>
-	</article>
+	
+	<?php
+	getLastfm();
+	if (isset($lastfm)) {
+		echo stripslashes($lastfm);
+	}
+	?>
 	
 </section>	
 
 <section class="cluster kennedy">
 	<h2><span><a href="http://kennedyapp.com"><img src="/i/icon-kennedy.png" alt="Kennedy App" title="Kennedy App" class="icon" /></a> A Moment</span></h2>		 
-		 
+		 	
+
 	<article>
-	<time>Jan 17</time>
-	<p>At ten to nine on a drizzley<br/>
-	Friday morning in <i>Coffee@33</i>,<br/>
-	<strong>I was mulling over the end of my running, and a permanent switch back to cycling</strong><br/>
-	 while listening to Four Tet's <cite>Rounds</cite>.<br/>
-	 Meanwhile the news headline read <a href="http://www.bbc.co.uk/news/world-us-canada-25770317#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"><q>Obama to reveal curbs on NSA spying</q></a>.
-</p>
-	</article>	
+		<?php		
+		# Get latest moment from Kennedy
+		include($dr3 . "/kennedy/moments.php");
+		
+		$moments = getMoments($dr3);
+		if(is_array($moments) && count($moments)>0) {
+			$moment = $moments[0];
+			echo formatMoment($moment);
+		} else {
+			echo "<p>No moments available.</p>";
+		}
+		?>
+	</article>
 	
 </section>	
 

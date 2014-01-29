@@ -1,9 +1,13 @@
 <?php
-$dr = $_SERVER["DOCUMENT_ROOT"];
-include_once($dr . "/includes/path_to_db.inc.php");
+$dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
+$dr3 = str_replace("/includes/", "", $dr);
+
+include_once($dr . "php_errors.inc.php");
+
+include_once($dr . "path_to_db.inc.php");
 include($dr2 . "/db_connect.php");
-include($dr . "/includes/format.php");
-include($dr . "/includes/cms_writerssfiles.php");
+include($dr . "/format.php");
+include($dr . "/cms_writerssfiles.php");
 
 // get variables from query
 $id = (isset($_REQUEST["id"]))?$_REQUEST["id"]:""; 
@@ -16,14 +20,14 @@ $del = (isset($_REQUEST["del"]))?$_REQUEST["del"]:"";
 <title>Edit Blogs</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
-include($dr . "/includes/cms_headlinks.inc");
+include($dr . "/cms_headlinks.inc");
 ?>
 </head>
 <body>
 <div class="options">
 <?php
-include($dr . "/includes/cms_options.inc");
-include($dr . "/includes/cms_blogs.inc")
+include($dr . "/cms_options.inc");
+include($dr . "/cms_blogs.inc")
 ?>
 </div>
 <div id="screen">

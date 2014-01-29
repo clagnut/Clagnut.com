@@ -1,14 +1,18 @@
 <?php
-$dr = $_SERVER["DOCUMENT_ROOT"];
-include_once($dr . "/includes/path_to_db.inc.php");
+$dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
+$dr3 = str_replace("/includes/", "", $dr);
+
+include_once($dr . "php_errors.inc.php");
+
+include_once($dr . "path_to_db.inc.php");
 include($dr2 . "/db_connect.php");
 
 // format function
-include($dr . "/includes/format.php");
+include($dr . "/format.php");
 // ping function
-include($dr . "/includes/pingblog.inc");
-include($dr . "/includes/sendtohost.php");
-include($dr . "/includes/cms_writerssfiles.php");
+include($dr . "/pingblog.inc");
+include($dr . "/sendtohost.php");
+include($dr . "/cms_writerssfiles.php");
 
 $message = "";
 $error = "";
@@ -188,7 +192,7 @@ $catsresult = mysql_query($sql);
 <title>Edit Blog</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
-include($dr . "/includes/cms_headlinks.inc");
+include($dr . "/cms_headlinks.inc");
 ?>
 <script type="text/javascript">
 function countchars() {
@@ -201,14 +205,14 @@ function countchars() {
 <body onload="countchars(); self.focus()">
 <div class="options">
 <?php
-include($dr . "/includes/cms_options.inc");
-include($dr . "/includes/cms_blogs.inc")
+include($dr . "/cms_options.inc");
+include($dr . "/cms_blogs.inc")
 ?>
 </div>
 <div id="screen">
 <h2>Edit blog</h2>
 
-<?php include($dr . "/includes/cms_textilehelp.inc"); ?>
+<?php include($dr . "/cms_textilehelp.inc"); ?>
 
 <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>" name="post">
 <input type="hidden" name="id" value="<?php echo $id ?>">

@@ -51,7 +51,7 @@ footer, header, hgroup, menu, nav, section { display: block; }
 /* @end */
 /* @group OpenType features */
 
-.smcp, .cluster time, .newestpost time, .opener { /* Smallcaps */
+.smcp, .cluster time, .newestpost time, .opener, .archive article time { /* Smallcaps */
 	text-transform: lowercase;
 	-moz-font-feature-settings:"smcp" 1, "onum" 1;
 	-moz-font-feature-settings:"smcp=1, onum=1";
@@ -163,17 +163,14 @@ footer.global {
 
 .relatedposts article {
 	border-right: 1px solid #85817d;
-}
-
-.relatedposts article {
 	border-left: 1px solid #85817d;
 }
 
-.newestpost, section.live, .twitter {
+.newestpost, section.live, .twitter, .relatedposts.archive {
 	border-right: 1px solid #e2e0dd;
 }
 
-.favephoto, .latestposts, .lastfm {
+.favephoto, .latestposts, .lastfm, .archive aside {
 	border-left: 1px solid #e2e0dd;
 }
 
@@ -193,7 +190,7 @@ border-top: 2px solid rgba(0,0,0,0.33);
 
 /* @group Webfonts */
 
-body, nav  {
+body, nav, .search form  {
 	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-size-adjust: 0.488;
 	font-weight: 500;
@@ -212,7 +209,7 @@ h1, .home header h2 {
     font-feature-settings:			"calt" 1, "onum" 0, "lnum" 1; 
 }
 
-.meta, .relatedposts h1 {
+.meta, .relatedposts h1, .archive aside h2 {
     font-family: "Ingeborg Bold", Ingeborg, "Hoefler Text", Georgia, serif;
     font-weight: bold;
 	font-size-adjust: 0.457;
@@ -303,6 +300,11 @@ header.global h1 {
 	padding: 0.5em 1.5em;
 	opacity: 0;
 	transition:opacity 0.5s;
+	z-index: 10;
+}
+
+.js nav#global ul {
+	margin: 0;
 }
 
 nav#global ul {
@@ -348,13 +350,13 @@ article header {
 	padding-right: 2%;
 }
 
-article header nav {
+main header nav {
 	float: right;
 	width: 31.63%;
 	text-align: right;
 }
 
-article header nav a {
+main header nav a {
 	font-size: 2.5rem;
 	line-height: 0.8;
 	width: 0.8em;
@@ -684,7 +686,7 @@ p.date {
 
 @media only screen and (min-width: 62em) {
 
-	main.post {
+	main.post, main.archive {
 		width: 73.25%;
 		min-width: 56em;
 	}
@@ -787,6 +789,11 @@ section.live .lastfm, section.live .kennedy, section.live .thisismyjam {
 .lastfm article {
 	padding-top: 0.65625em;
 	margin: 0.65625em 0;
+	min-height: 2.625em;
+}
+
+section.live .kennedy, section.live .thisismyjam {
+	margin-top: 1.5em;
 }
 
 a.jam-image {
@@ -797,10 +804,6 @@ a.jam-image {
 .jam-jamvatar {
 	height: auto;
 	margin-bottom: 0.65625em;
-}
-
-section.live .kennedy, section.live .thisismyjam {
-	margin-top: 2.625em;
 }
 
 .latestposts, .latestphotos {
@@ -866,3 +869,69 @@ section.live .kennedy, section.live .thisismyjam {
 
 
 /* @end */
+
+/* @group Archive */
+
+main.archive header  {
+	margin-bottom: 1.5em;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.relatedposts.archive {
+	text-align: left;
+	width: 62.37%;
+	padding: 0 2%;
+	float: left;
+}
+
+.relatedposts.archive article {
+	border: 0;
+	margin: 0 0 1.5em 0;
+	padding: 0;
+	width: auto;
+	float: none;
+}
+
+.relatedposts.archive h1 {
+	padding-bottom: 0;
+}
+
+.relatedposts.archive h1 a {
+	height: auto;
+	margin-bottom: 0.3333em;
+}
+
+.relatedposts.archive article p {
+	margin-left: 2px;
+}
+
+.archive aside {
+	clear: none;
+	padding-left: 2%;
+	margin-left: 66.37%;
+}
+
+.archive aside h2 {
+	font-size: 1.5rem;
+	margin: 0 0 1em 0;
+	padding-top: 0.5em;
+}
+
+.archive aside ul {
+	margin-left: 0;
+	list-style: none;
+}
+
+.search .meta {
+	padding-bottom: 0;
+}
+
+.search form {
+	font-size: 1rem;
+	margin: 0.5em 0;
+}
+
+
+/* @end */
+

@@ -38,6 +38,7 @@ getpost($blog_id);
     
     <meta name="description" content="<?php echo $post_description[$blog_id] ?>" />
     <meta name="keywords" content="<?php echo implode(',', $post_tags[$blog_id]) ?>" />
+    <meta name="author" content="Richard Rutter" /> 
     
 </head>
 

@@ -29,11 +29,11 @@ function compilemetadata($title, $link, $description, $atomfile) {
 # Write Blogmarks RSS feed 
 
 function writeblogmarkrss() {
-	global $dr;
+	global $dr, $dr3;
 	$error = "";
 	
 	// set file to write
-	$filename = $dr . "/feeds/blogmarks.xml";
+	$filename = $dr3 . "/feeds/blogmarks.xml";
 	
 	// open file
 	$fh = @fopen($filename, "w");
@@ -118,11 +118,11 @@ function writeblogmarkrss() {
 # Write full posts RSS feed
 
 function writefullrss() {
-	global $dr;
+	global $dr, $dr3;
 	$error = "";
 	
 	// set file to write
-	$filename = $dr . "/feeds/fullposts.xml";
+	$filename = $dr3 . "/feeds/fullposts.xml";
 	
 	// open file
 	$fh = @fopen($filename, "w");
@@ -197,11 +197,11 @@ function writefullrss() {
 # Write summarised posts feed
 
 function writesummariesrss() {
-	global $dr;
+	global $dr, $dr3;
 	$error = "";
 	
 	// set file to write
-	$filename = $dr . "/feeds/summaries.xml";
+	$filename = $dr3 . "/feeds/summaries.xml";
 	
 	// open file
 	$fh = @fopen($filename, "w");

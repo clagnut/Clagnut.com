@@ -7,9 +7,9 @@
 
 <nav id="global">
 <ul>
-<li><a href="#">About</a></li>
-<li><a href="#">Archive</a></li>
-<li><a href="#">Search</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/archive">Archive</a></li>
+<li><a href="/search">Search</a></li>
 </nav>
 
 </div>

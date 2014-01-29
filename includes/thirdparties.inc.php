@@ -37,6 +37,9 @@ function includeCache($service, $cachewait) {
 			case "lastfm":
 				$contents = makeLastfm();
 				break;
+			case "kennedy":
+				$contents = makeKennedy();
+				break;
 			}
 		
 			
@@ -259,57 +262,62 @@ function makeHomeFlickr() {
 
 function getTwitter() {
 	
-	$cachewait = 120; // seconds
+	$cachewait = 60; // seconds
 	
 	includeCache("twitter", $cachewait);
 }
 
 
 function makeTwitter() {
-
-	$url = "http://twitter.com/statuses/user_timeline/clagnut.xml";
-	// echo "<p><a href='$url'>Twitter API call</a></p>";
-	$doc = new DOMDocument();							
-	if (@$doc -> load($url)) {
+	global $dr;
+	include_once($dr . "TwitterAPIExchange.php");
+	
+	/** Set access tokens here - see: https://dev.twitter.com/apps/ **/
+	$settings = array(
+	    'oauth_access_token' => "11682-4ObPFna3VuoTc8TaD5vtPP2nhwXa5v6c4jMlp0NMcbxg",
+	    'oauth_access_token_secret' => "hGruumJGVAXs8LNPl5aOIOfqX4se5nc3S8jzsNVm4QeSy",
+	    'consumer_key' => "anNs8HIeSWhTu53PVfSw",
+	    'consumer_secret' => "72Ss4Ku4Vwqea1UdLWxqsw2LKhRKUoP514vLR5H49fg"
+	);
+	
+	/** Perform a GET request and echo the response **/
+	/** Note: Set the GET field BEFORE calling buildOauth(); **/
+	$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+	$getfield = '?screen_name=clagnut&count=30&exclude_replies=true&include_rts=true&trim_user=true';
+	$requestMethod = 'GET';
+	$twitter_request = new TwitterAPIExchange($settings);
+	$twitter_response = $twitter_request->setGetfield($getfield)
+	                           ->buildOauth($url, $requestMethod)
+	                           ->performRequest();
+	
+	$tweets = json_decode($twitter_response,true);	
+	
+	if (is_array($tweets)) {
 
 		// build Twitter HTML
 			
-		$twitterMarkup = "<ul>\n";
+		$twitterMarkup = "";
 
-		$statuses = $doc -> getElementsByTagName("status");
-		if ($statuses) {
-			foreach ($statuses as $key => $status) {
-				if ($key < 5) {
-					$status_id = $status -> getElementsByTagName("id") -> item(0) -> nodeValue;
-					$status_text = $status -> getElementsByTagName("text") -> item(0) -> nodeValue;
-					$status_created_at = $status -> getElementsByTagName("created_at") -> item(0) -> nodeValue;
-					
-					$status_created_at_Unix = strtotime($status_created_at);
-					$status_created_at_iso8601 = date("c", $status_created_at_Unix);
-					$status_created_at_relative = get_elapsedtime($status_created_at_Unix);
-					
-					$twitterMarkup .= "<li class=\"hentry\">\n";
-					$twitterMarkup .= "
-			<a href=\"http://twitter.com/clagnut/statuses/" . $status_id . "\" rel=\"bookmark\" class=\"published\"><abbr title=\"" . $status_created_at_iso8601 . "\">" . $status_created_at_relative . "</abbr></a>\n";
-					$status_text = htmlentities($status_text);
-					$find = array(
-						"`((http)+(s)?:(//)|(www\.))((\w|\.|\-|_)+)(/)?(\S+)?`i", # find URLs
-						"`(\s|^)@(\w*)\b`i" # find @names
-					);
-					$replace = array(
-						"<a href=\"http\\3://\\5\\6\\8\\9\">http\\3://\\5\\6\\8\\9</a>", # make URLs links 
-						"\\1@<a href=\"http://twitter.com/\\2\">\\2</a>" # make @names links 
-					);
-					$status_text = preg_replace($find , $replace, $status_text);
-					$twitterMarkup .= "
-			<p class=\"entry-title\">" . $status_text . "</p>\n";
-					$twitterMarkup .= "</li>\n";
-				}
+		foreach ($tweets as $key => $tweet) {
+			if ($key<9) {
+				$twitterMarkup .= "<article>\n";
+				$isotime = strtotime($tweet['created_at']);
+				$fuzzyTime = get_elapsedtime($isotime); 
+				$twitterMarkup .= "<time datetime=\"$isotime\"><a href=\"https://twitter.com/clagnut/status/". $tweet['id'] ."\">$fuzzyTime</a></time>\n";
+				$status_text = SmartyPants($tweet['text']);
+				$find = array(
+					"`((http)+(s)?:(//)|(www\.))((\w|\.|\-|_)+)(/)?(\S+)?`i", # find URLs
+					"`(\s|^)@(\w*)\b`i" # find @names
+				);
+				$replace = array(
+					"<a href=\"http\\3://\\5\\6\\8\\9\">\\5\\6\\8\\9</a>", # make URLs links 
+					"\\1@<a href=\"http://twitter.com/\\2\">\\2</a>" # make @names links 
+				);
+				$status_text = preg_replace($find , $replace, $status_text);
+				$twitterMarkup .= "<p>$status_text</p>";
+				$twitterMarkup .= "\n</article>\n";
 			}
 		}
-		
-		
-		$twitterMarkup .= "</ul>\n";
 			
 		// build cache contents
 		$contents = '
@@ -321,7 +329,7 @@ function makeTwitter() {
 	} else {
 		$contents = false;
 	}
-
+	
 	return $contents;
 }
 
@@ -335,33 +343,44 @@ function getLastfm() {
 
 
 function makeLastfm() {
+	
+	$lastfmMarkup = "";
 
-	$url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=clagnut&api_key=7fea57568921f8c8c3cf7ac6a951e560&limit=1";
-	// echo "<p><a href='$url'>Lastfm API call</a></p>";
+	$url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=clagnut&api_key=7fea57568921f8c8c3cf7ac6a951e560&limit=5";
+	#echo "<p><a href='$url'>Lastfm API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
 
 		// build Lastfm HTML
-			
-		$lastfmMarkup = "<p>";
 		
-		$track = $doc -> getElementsByTagName("track");
-		if ($track) {
-			$track_artist = $doc -> getElementsByTagName("artist") -> item(0) -> nodeValue;
-			$track_name = $doc -> getElementsByTagName("name") -> item(0) -> nodeValue;
-			$track_album = $doc -> getElementsByTagName("album") -> item(0) -> nodeValue;
-			$track_url = $doc -> getElementsByTagName("url") -> item(0) -> nodeValue;
-			$track_image = $doc -> getElementsByTagName("image") -> item(0) -> nodeValue;
-			
-			if ($track_image) {
-				$lastfmMarkup .= "<a href=\"$track_url\"><img src=\"$track_image\" alt=\"" . htmlentities($track_album) . "\" class=\"album_cover\" /></a>";
-			}
-			$lastfmMarkup .= "<cite>" . htmlentities($track_name) . "</cite> &middot; " . htmlentities($track_artist);
-		} else {		
-			$lastfmMarkup .= "AllÕs quiet right now";
-		}
+		$tracks = $doc -> getElementsByTagName("track");
+		if ($tracks) {
+			foreach ($tracks as $track) {
+				$track_artist = $track -> getElementsByTagName("artist") -> item(0) -> nodeValue;
+				$track_name = $track -> getElementsByTagName("name") -> item(0) -> nodeValue;
+				$track_album = $track -> getElementsByTagName("album") -> item(0) -> nodeValue;
+				$track_url = $track -> getElementsByTagName("url") -> item(0) -> nodeValue;
+				$track_image = $track -> getElementsByTagName("image") -> item(0) -> nodeValue;
 				
-		$lastfmMarkup .= "</p>\n";
+				
+				$lastfmMarkup .= "<article><p><a href=\"$track_url\">";
+				if ($track_image) {
+					$lastfmMarkup .= "<img src=\"$track_image\" alt=\"" . htmlentities($track_album) . "\" class=\"album_cover\" />";
+				}
+				$lastfmMarkup .= "<cite>" . htmlentities($track_name) . "</cite></a> by " . htmlentities($track_artist);
+				$lastfmMarkup .= "</p></article>\n";
+			}
+		} else {		
+			$lastfmMarkup = "<article><p>All's quiet right now.</p></article>\n";
+		}
+		
+		/*
+		<article>
+		<p><a href="http://www.last.fm/music/Courtney+Barnett/_/Avant+Gardener"><img src="/i/92461921.png" alt="The Double EP: A Sea of Split Peas" class="album_cover" /> Ticker-tape of the Unconscious</a> by <cite>Stereolab</cite></p>
+		</article>
+		*/		
+		
+		$lastfmMarkup = SmartyPants($lastfmMarkup);
 			
 		// build cache contents
 		$contents = '
@@ -376,5 +395,7 @@ function makeLastfm() {
 
 	return $contents;
 }
+
+
 
 ?>

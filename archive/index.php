@@ -1,8 +1,11 @@
 <?php
-$dr = $_SERVER["DOCUMENT_ROOT"];
-include_once($dr . "/includes/path_to_db.inc.php");
+date_default_timezone_set("Europe/London");
+$dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
+include_once($dr . "php_errors.inc.php");
+
+include_once($dr . "path_to_db.inc.php");
 include($dr2 . "/db_connect.php");
-	
+
 // get variables from query
 $themonth = (isset($_REQUEST["themonth"]))?$_REQUEST["themonth"]:FALSE; 
 $theyear = (isset($_REQUEST["theyear"]))?$_REQUEST["theyear"]:FALSE; 
@@ -10,7 +13,7 @@ $category_id = (isset($_REQUEST["category_id"]))?$_REQUEST["category_id"]:FALSE;
 $filename = (isset($_REQUEST["filename"]))?$_REQUEST["filename"]:FALSE;
 
 // format function
-include($dr . "/includes/format.php");
+include($dr . "format.php");
 
 // get category_id
 if ($filename) {
@@ -95,29 +98,73 @@ if ($myblog = mysql_fetch_array($result)) {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en-gb">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title><?php echo displayTitle($category, $monthtext, $theyear); ?> | Clagnut Archive</title>
-<?php
-include($dr . "/includes/headlinks.inc.php");
-include($dr . "/includes/rsslinks.inc");
-?>
-<meta name="description" content="Blog posts about <?php echo $category ?>" />
+<?php include($dr . "head.inc.php"); ?>
 
+    <title><?php echo displayTitle($category, $monthtext, $theyear); ?> | Clagnut Archive</title>
+    
+    <meta name="description" content="Blog posts about <?php echo $category ?>" />
+    <meta name="author" content="Richard Rutter" /> 
+    
 </head>
-<body id="archive">
 
-<?php include($dr . "/includes/masthead.inc.php"); ?>
+<body>
+<?php 
+include($dr . "header.inc.php");
+?>
 
-<div id="content" class="wrapper">
+<main class="archive">
 
-<div class="hfeed">
-	<h1><?php echo displayTitle($category, $monthtext, $theyear)?></h1>
-	<div class="primary">
+<header>
+
+<h1><?php echo displayTitle($category, $monthtext, $theyear)?></h1>
+
+<div class="meta">
+<nav>
+<?php
+
+// Do next/prev links
+	
+if ($category_filter) {
+	// next/prev category
+	foreach ($categorys AS $id => $cat) {	
+		if (isset($thiscat) AND !isset($nextcat)) {$nextcat=$id;}
+		if ($id == $category_id) {
+			$thiscat=$id;
+			if(isset($prev)) {$prevcat = $prev;}
+		}
+		$prev = $id;
+	}
+	if(!isset($prevcat)) {$prevcat = $id;}
+	if(!isset($nextcat)) {reset($categorys); $nextcat = key($categorys);}
+	printf("<a href='/archive/%s/' rel='next' title='%s'>&lsaquo;</a>\n",$filenames[$nextcat], $categorys[$nextcat]);
+	printf("<a href='/archive/%s/' rel='prev' title='%s'>&rsaquo;</a>\n",$filenames[$prevcat], $categorys[$prevcat]);
+} else {
+
+	// next/prev date
+	$nextdate = mktime(23,59,59,date("m",$thedate)+1,1,date("Y",$thedate));
+	$prevdate = mktime(23,59,59,date("m",$thedate),0,date("Y",$thedate));
+
+	if($nextdate < time()) {
+		printf("<a href='/archive/%s/%s/' title='%s'>&lsaquo;</a>\n", date("Y",$nextdate), 	date("m",$nextdate), date("F Y",$nextdate));
+	}
+
+	if($prevdate > $enddate) {
+		printf("<a href='/archive/%s/%s/' title='%s'>&rsaquo;</a>\n", date("Y",$prevdate), date("m",$prevdate), date("F Y",$prevdate));
+	} else {echo "&nbsp;";}
+}
+
+?>
+
+</nav>
+</div>
+</header>
+
+<section class="relatedposts archive">
+
 <?php		
 	if ($category_filter) {
 	// query for category filter
@@ -148,15 +195,13 @@ if ($myblog = mysql_fetch_array($result)) {
 if (isset($blogdate)) {
 # Print individual post title and descriptions
 	foreach($post_postdate AS $blogpostid => $date) {
-		echo "<div class=\"hentry\">\n";
-		echo "	<h2 class=\"entry-title\"><a href=\"/blog/" . $blogpostid . "/\" rel=\"bookmark\">" . $post_title[$blogpostid] . " </a></h2>\n";
-		echo "	<p class=\"meta\">\n";
-		echo "		<span class=\"published\"><abbr title=\"" . $post_isodate[$blogpostid] . " \">" . $post_postdate[$blogpostid] . " </abbr></span>\n";
+		echo "<article>\n";
+		echo "	<p class=\"date\">\n";
+		echo "		<time datetime=\"" . $post_isodate[$blogpostid] . " \">" . $post_postdate[$blogpostid] . " </time>\n";
 		echo "	</p>\n";
-		echo "	<div class=\"entry-summary\">\n";
-		echo "	<p>" . $post_description[$blogpostid] . " </p>\n";
-		echo "	</div>  <!-- /.entry-summary -->\n";
-		echo "</div> <!-- /hentry-->\n";
+		echo "	<h1><a href=\"/blog/" . $blogpostid . "/\" rel=\"bookmark\">" . $post_title[$blogpostid] . " </a></h1>\n";
+		echo "	<p class=\"summary\">" . $post_description[$blogpostid] . " </p>\n";
+		echo "</article>\n";
 	}
 } else {
 	if ($category_filter) {
@@ -165,46 +210,11 @@ if (isset($blogdate)) {
 		echo "<p>I didn&#8217;t post any blog entries during this month.</p>";
 	}
 }
-
-// Do next/prev links
-echo "<div class='nav'><p>\n";
-	
-if ($category_filter) {
-	// next/prev category
-	foreach ($categorys AS $id => $cat) {	
-		if (isset($thiscat) AND !isset($nextcat)) {$nextcat=$id;}
-		if ($id == $category_id) {
-			$thiscat=$id;
-			if(isset($prev)) {$prevcat = $prev;}
-		}
-		$prev = $id;
-	}
-	if(!isset($prevcat)) {$prevcat = $id;}
-	if(!isset($nextcat)) {reset($categorys); $nextcat = key($categorys);}
-	printf("<span class='paging next'><a href='/archive/%s/' rel='next'>%s</a> &rarr;</span>\n",$filenames[$nextcat], $categorys[$nextcat]);
-	printf("<span class='paging prev'>&larr; <a href='/archive/%s/' rel='prev'>%s</a></span>\n",$filenames[$prevcat], $categorys[$prevcat]);
-} else {
-
-	// next/prev date
-	$nextdate = mktime(23,59,59,date("m",$thedate)+1,1,date("Y",$thedate));
-	$prevdate = mktime(23,59,59,date("m",$thedate),0,date("Y",$thedate));
-
-	if($nextdate < time()) {
-		printf("<span class='paging next'><a href='/archive/%s/%s/'>%s</a> &rarr;</span>\n", date("Y",$nextdate), 	date("m",$nextdate), date("F Y",$nextdate));
-	}
-
-	if($prevdate > $enddate) {
-		printf("<span class='paging prev'>&larr; <a href='/archive/%s/%s/'>%s</a></span>\n", date("Y",$prevdate), date("m",$prevdate), date("F Y",$prevdate));
-	} else {echo "&nbsp;";}
-}
-echo "\n</p></div>\n";
 ?>
-	
-	</div> <!-- /.primary -->
-	
-</div> <!-- /hfeed-->
-	
-<div class="tertiary">	
+</section>
+
+
+<aside>
 <?php
 /*
 	<h2>Archive</h2>
@@ -214,7 +224,7 @@ echo "\n</p></div>\n";
 ?>
 
 	<h2>Categories</h2>
-	<ul class="tags">
+	<ul>
 <?php
 # list categories
 foreach ($categorys AS $id => $cat) {
@@ -226,11 +236,12 @@ foreach ($categorys AS $id => $cat) {
 }
 ?>
 </ul>
-</div> <!-- /tertiary-->
 
-</div> <!-- /content-->
+</aside>
 
-<?php include($dr . "/includes/footer.inc.php"); ?>
 
+</main>
+
+<?php include($dr . "footer.inc.php"); ?>
 </body>
 </html>
