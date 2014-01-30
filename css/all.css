@@ -501,7 +501,11 @@ article.post section p {
 	font-size: 1.0625em;
 }
 
-article p+p, figure.inline+p {
+article p+p {
+	text-indent: 1.5em;
+}
+
+figure.inline+p {
 	margin-top: 1em;
 }
 
@@ -627,16 +631,12 @@ aside.tags {
 	padding: 0.25em 0 1.5em 0;
 }
 
-aside.tags p.comment {
-	text-align: right;
-	float: right;
-	width: 31.33%;
-}
-
 article.post .tags ul {
-	padding-right: 33.63%;
+	float: left;
+	width: 66.37%;
 	margin: 0;
 	padding-left: 0;
+	padding-right: 0;
 }
 
 .tags li {
@@ -648,6 +648,12 @@ article.post .tags ul {
 
 .machine-tag {
 	font-size: 0.875rem;
+}
+
+aside.tags p.comment {
+	text-align: right;
+	margin-left: 66.37%;
+	
 }
 
 .relatedposts {
@@ -965,12 +971,27 @@ main.archive header  {
 		padding-right:2%;
 	}
 	
+	article.post section figure {
+		padding: 0;
+	}
+	
 	figure.inline {
 	    position: static;
 	    right: auto;
 	    text-align: center;
 	    width: auto;
 	}
+	
+	article.post .tags ul {
+		float: none;
+		width: auto;
+	}
+	
+	aside.tags p.comment {
+		text-align: left;
+		margin-left: 0;
+		margin-top: 1em;
+	}	
 	
 }
 
@@ -983,8 +1004,55 @@ main.archive header  {
 		clear: right;
 	}
 	
-	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
+	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article header {
 		padding-left: 1%;
-		padding-right:1%;
+		padding-right:2%;
 	}
+	
+	h1 {
+		font-size: 1.5rem;
+	}
+	
+	.meta {
+		font-size: .875rem;
+		margin-top: 1em;
+	}
+	
+	main header nav a {
+		font-size:  1.458333333rem;		
+	}
+	
+	.meta, main header nav a {	
+		font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", sans-serif;
+		font-size-adjust: 0.488;
+		font-weight: 500;
+	}
+	
+	header.global {
+		padding:0 2%;
+	}
+	
+	header.global h1 {
+		font-size: 1.25rem;
+	}
+	
+	.masthead {
+		padding-bottom: 0.25rem;
+		padding-top: .375rem;
+	}
+	
+	#menutoggle {
+		position: relative;
+		top: -2px;
+	}
+	
+	article p+p {
+		margin-top: 1em;
+		text-indent: 0;
+	}
+	
+	.js nav#global {
+		top: 2.625rem;
+	}
+	
 }

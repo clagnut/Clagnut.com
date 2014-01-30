@@ -103,9 +103,7 @@ echo stripslashes($maincontent);
 </aside>
 
 
-<aside class="tags group">
-	<p class="comment"><a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut http://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.png" alt="" class="icon"> Comment via Twitter</a></p>
-	
+<aside class="tags group">	
 	<ul>
 	<?php
 	if (count($post_tags[$blog_id])>0) {
@@ -120,6 +118,8 @@ echo stripslashes($maincontent);
 	}
 	?>
 	</ul>
+	
+	<p class="comment"><a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut http://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.png" alt="" class="icon"> Comment via Twitter</a></p>
 	
 </aside>
 
