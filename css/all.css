@@ -702,7 +702,7 @@ p.date {
 	text-align: center;
 	position: absolute;
 	bottom: 0;
-	width: 100%;
+	width: 97%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -975,7 +975,7 @@ main.archive header  {
 		padding: 0;
 	}
 	
-	figure.inline {
+	article.post figure.inline {
 	    position: static;
 	    right: auto;
 	    text-align: center;
