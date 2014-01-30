@@ -4,7 +4,7 @@ function curlMoments() {
 	global $dr3;
 	$filename = $dr3 . "/kennedy/kennedy.json";
 	
-	if (file_exists($filename) && ((time() - filectime($filename) > 600))) {
+	if (file_exists($filename) && ((time() - filectime($filename) > 900))) {
 		// if file on my server is older than 10 minutes then get the json file again
 	
 		# Copy file from Dropbox

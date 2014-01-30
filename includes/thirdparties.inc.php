@@ -195,7 +195,7 @@ function makelatestFlickr() {
 
 function getHomeFlickr() {
 	
-	$cachewait = 600; // seconds
+	$cachewait = 1000; // seconds
 	
 	includeCache("homeflickr", $cachewait);
 }
@@ -262,7 +262,7 @@ function makeHomeFlickr() {
 
 function getTwitter() {
 	
-	$cachewait = 60; // seconds
+	$cachewait = 300; // seconds
 	
 	includeCache("twitter", $cachewait);
 }
@@ -336,7 +336,7 @@ function makeTwitter() {
 
 function getLastfm() {
 	
-	$cachewait = 120; // seconds
+	$cachewait = 180; // seconds
 	
 	includeCache("lastfm", $cachewait);
 }
@@ -361,24 +361,16 @@ function makeLastfm() {
 				$track_album = $track -> getElementsByTagName("album") -> item(0) -> nodeValue;
 				$track_url = $track -> getElementsByTagName("url") -> item(0) -> nodeValue;
 				$track_image = $track -> getElementsByTagName("image") -> item(0) -> nodeValue;
-				
+				if (!$track_image) {$track_image = "/i/cd.png";}
 				
 				$lastfmMarkup .= "<article><p><a href=\"$track_url\">";
-				if ($track_image) {
-					$lastfmMarkup .= "<img src=\"$track_image\" alt=\"" . htmlentities($track_album) . "\" class=\"album_cover\" />";
-				}
+				$lastfmMarkup .= "<img src=\"$track_image\" alt=\"" . htmlentities($track_album) . "\" class=\"album_cover\" />";
 				$lastfmMarkup .= "<cite>" . htmlentities($track_name) . "</cite></a> by " . htmlentities($track_artist);
 				$lastfmMarkup .= "</p></article>\n";
 			}
 		} else {		
 			$lastfmMarkup = "<article><p>All's quiet right now.</p></article>\n";
-		}
-		
-		/*
-		<article>
-		<p><a href="http://www.last.fm/music/Courtney+Barnett/_/Avant+Gardener"><img src="/i/92461921.png" alt="The Double EP: A Sea of Split Peas" class="album_cover" /> Ticker-tape of the Unconscious</a> by <cite>Stereolab</cite></p>
-		</article>
-		*/		
+		}	
 		
 		$lastfmMarkup = SmartyPants($lastfmMarkup);
 			
