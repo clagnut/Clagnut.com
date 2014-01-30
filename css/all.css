@@ -326,6 +326,7 @@ footer p {
 	text-align: right;
 	position: absolute;
 	right: 1.5%;
+	top: 0.75em;
 }
 
 footer nav {
@@ -335,6 +336,21 @@ footer nav {
 .copyright {
 	right: auto;
 	left: 1.5%;
+}
+
+
+
+@media only screen and (max-width: 46em) {
+
+	footer nav {
+		text-align: left;
+	}
+	
+	.copyright {
+		position: static;
+		text-align: left;
+	}
+	
 }
 
 /* @end */
@@ -684,15 +700,6 @@ p.date {
 	white-space: nowrap;
 }
 
-@media only screen and (min-width: 62em) {
-
-	main.post, main.archive {
-		width: 73.25%;
-		min-width: 56em;
-	}
-	
-}
-
 /* @end */
 
 /* @group Home page */
@@ -935,3 +942,44 @@ main.archive header  {
 
 /* @end */
 
+
+
+@media only screen and (min-width: 62em) {
+
+	main.post, main.archive {
+		width: 73.25%;
+		min-width: 56em;
+	}
+	
+}
+
+@media only screen and (max-width: 40em) {
+
+	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
+		padding-left: 2%;
+		padding-right:2%;
+	}
+	
+	figure.inline {
+	    position: static;
+	    right: auto;
+	    text-align: center;
+	    width: auto;
+	}
+	
+}
+
+@media only screen and (max-width: 26em) {
+
+	main {
+		width: 97%;
+		padding: 1em 1% 2em 1%;
+		float: right;
+		clear: right;
+	}
+	
+	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
+		padding-left: 1%;
+		padding-right:1%;
+	}
+}

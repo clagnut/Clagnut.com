@@ -8,6 +8,7 @@ include($dr2 . "/db_connect.php");
 
 // get variables from query
 $q = (isset($_REQUEST["q"]))?$_REQUEST["q"]:""; 
+$q = addslashes($q);
 
 // format function
 include($dr . "format.php");

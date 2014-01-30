@@ -33,10 +33,10 @@ $submitAdd = (isset($_REQUEST["submitAdd"]))?$_REQUEST["submitAdd"]:"";
 $submitUpdate = (isset($_REQUEST["submitUpdate"]))?$_REQUEST["submitUpdate"]:"";
 $submitPreview = (isset($_REQUEST["submitPreview"]))?$_REQUEST["submitPreview"]:"";
 
-$title = trim($title);
-$description = trim($description);
-$maincontent = trim($maincontent);
-$tags = trim($tags);
+$title = addslashes(trim($title));
+$description = addslashes(trim($description));
+$maincontent = addslashes(trim($maincontent));
+$tags = addslashes(trim($tags));
 
 // add new post
 if ($submitAdd && !$submitPreview) {
