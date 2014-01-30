@@ -138,8 +138,8 @@ function format($text) {
 		"</h2>");
 	$text = str_replace($search, $replace, $text);
 	
-	$search = array ("/<figure(.*?)<\/p>/is", "/<p class='imgholder inline'>(.*?)<\/p>/is", "/<p class=\"imgholder inline\">(.*?)<\/p>/is", "/<p class='imgholder'>(.*?)<\/p>/is");
-	$replace = array ("<figure$1</figure>", "<figure class='inline'>$1</figure>", "<figure class='inline'>$1</figure>", "<figure>$1</figure>");
+	$search = array ("/<figure(.*?)<\/p>/is", "/<p class='imgholder inline'>(.*?)<\/p>/is", "/<p class=\"imgholder inline\">(.*?)<\/p>/is", "/<p class='imgholder'>(.*?)<\/p>/is", "/<figcaption><br \/>/is", "/<\/figure><\/figure>/is", "/<p><figure>/is");
+	$replace = array ("<figure$1</figure>", "<figure class='inline'>$1</figure>", "<figure class='inline'>$1</figure>", "<figure>$1</figure>", "<figcaption>", "</figure>", "<figure>");
 	$text = preg_replace($search, $replace, $text);
 	
 	

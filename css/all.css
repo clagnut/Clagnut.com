@@ -488,7 +488,7 @@ article table, .twitter p {
 	hyphens:auto;
 }
 
-article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
+article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article.post section figure {
 	padding-left: 2%;
 	padding-right:35.63%;
 }
@@ -514,15 +514,20 @@ figcaption {
 	padding: .1875em 0;
 }
 
-figure.inline {
+figure.fullbleed {
+	padding-right: 2%;
+}
+
+article.post figure.inline {
 	position: absolute;
 	right: 4%;
 	width: 29.5%;
 	text-align: left;
+	padding: 0;
 }
 
 article.post figure {
-	margin: 0.5em 0;
+	margin: 1em 0;
 }
 
 section > figure:first-child {

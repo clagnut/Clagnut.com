@@ -111,9 +111,8 @@
 
 	<p>However the postcode look-up is fraught with danger and is rarely implemented well. As is often the case in <abbr><abbr>UX</abbr></abbr> design, everything is fine until an exception is reached. I&#8217;ve created an <a href="http://clagnut.com/sandbox/postcodelookup.html">interactive wireframe</a> to demonstrate a successful way to integrate a postcode look-up as part of an address input scenario. This is the user flow diagram:</p>
 
-	<figure><img src="http://clagnut.com/images/postcodelookup.png" alt="Diagram exported from Omnigraffle" /></figure>
-
-	<p>User flow of ajax postcode look-up for address entry</p>
+	<figure><img src="http://clagnut.com/images/postcodelookup.png" alt="Diagram exported from Omnigraffle" /><figcaption>
+User flow of ajax postcode look-up for address entry</figcaption></figure>
 
 	<p>The important bits are the arrows on the edges dealing with the deviations away from the successful look-up through the middle. Commonly implementations miss out at least one of these:</p>
 
@@ -146,8 +145,6 @@
 			<description><![CDATA[<figure class='inline'><a href="http://www.flickr.com/photos/clagnut/356030308/"><img src="http://clagnut.com/images/bestsongs2006.jpg" alt="Artwork of The Best Songs I Bought In 2006 Ever, featuring the Gone-but-not-forgotten Hanbury Ballroom" /></a></figure>
 
 	<p>A pleasing number of people have been clamouring for this: the track listing to my annual compilation, &#8220;The Best Songs I Bought In 2006 Ever&#8221;. It was another good year &#8211; remember this is compiled from music I bought this year, but was not necessarily released this year.</p>
-
-	<p>Chelsea&#8217;s failure to win left them third in the table, three points behind the new leaders, Manchester City, whom they visit on Monday.</p>
 
 	<h3>The Best Songs I Bought In 2006 Ever</h3>
 
