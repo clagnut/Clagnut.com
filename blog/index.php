@@ -57,7 +57,7 @@ include($dr . "header.inc.php");
 
 <div class="meta">
 <p class="published"><time datetime="<?php echo $post_isodate[$blog_id] ?>"><?php echo $post_postdate[$blog_id] ?></time></p>
-<p class="categories">§<?php echo $post_categories[$blog_id] ?></p>
+<p class="categories">§&nbsp;<?php echo trim($post_categories[$blog_id]) ?></p>
 
 <nav>
 <?php if ($post_recent[$blog_id]) { ?>
