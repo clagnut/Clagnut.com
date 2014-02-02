@@ -380,7 +380,7 @@ main header nav a {
 }
 
 h1 {
-	font-size: 6rem;
+	font-size: 4rem;
 	line-height: 1em;
 	padding-bottom: .25em;
 }
@@ -444,8 +444,8 @@ article.post blockquote p+p {
 }
 
 .meta {
-	padding-bottom: 1.5em;
 	padding-left: 2px;
+	overflow: auto;
 }
 
 .published {
@@ -961,10 +961,24 @@ main.archive header  {
 		min-width: 56em;
 	}
 	
+	h1 {
+		font-size: 6rem;
+	}
+	
 }
 
 @media only screen and (max-width: 40em) {
 
+	h1 {
+		font-size: 3rem;
+		padding-bottom: .5em;
+		
+	}
+	
+	.meta {
+		font-size: 1.3125rem;
+	}
+	
 	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
 		padding-left: 2%;
 		padding-right:2%;
@@ -996,6 +1010,82 @@ main.archive header  {
 		font-size: 1.125rem;
 	}
 	
+	article.post .gallery figure {
+		margin-top: 0;
+	}
+	
+}
+
+
+@media only screen and (max-width: 31em) {
+
+	h1 {
+		font-size: 2rem;
+	}
+	
+	.meta {
+		font-size: 1.125rem;
+	}
+
+	.gallery figure {
+		width: 48.666666663%;
+	}
+	
+	.gallery figure:nth-of-type(3n+1) {
+		clear: none;
+	}
+	
+	.gallery figure:nth-of-type(2n+1) {
+		clear: left;
+	}
+	
+	.gallery figure:nth-of-type(3n+1) a, .gallery figure:nth-of-type(3n+1) figcaption {
+		right: 0;
+	}
+	
+	.gallery figure:nth-of-type(3n+2) a, .gallery figure:nth-of-type(3n+2) figcaption {
+		right: 0;
+		left: 0;
+	}
+	
+	.gallery figure:nth-of-type(3n+3) a, .gallery figure:nth-of-type(3n+3) figcaption {
+		left: 0;
+	}
+	
+	.gallery figure:nth-of-type(2n+1) a, .gallery figure:nth-of-type(2n+1) figcaption {
+		right: 2%;
+	}
+	
+	.gallery figure:nth-of-type(2n+2) a, .gallery figure:nth-of-type(2n+2) figcaption {
+		left: 2%;
+		right: 0;
+	}
+
+	.relatedposts article {
+		width: auto;
+		float: none;
+		text-align: left;
+		border-right: 0;
+		border-left: 0;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 1.5em;
+	}
+	
+	.relatedposts h1 {
+		padding-bottom: 0.380952381em;
+	}
+	
+	.relatedposts h1 a {
+		height: auto;
+	}
+	
+	.relatedposts p.categories {
+		text-align: left;
+		position: static;
+		width: auto;
+		max-height: none;
+	}
 }
 
 @media only screen and (max-width: 26em) {
@@ -1023,6 +1113,8 @@ main.archive header  {
 	.meta {
 		font-size: 1rem;
 		margin-top: 1em;
+		border-top-width: 1px;
+		border-bottom-width: 1px;
 	}
 	
 	.meta .published {
@@ -1032,11 +1124,11 @@ main.archive header  {
 	.meta .categories {
 		text-align: left;
 		float: left;
-		margin-right: 2.5em;
+		width: 85%;
 	}
 	
 	main header nav a {
-		font-size:  1.458333333rem;		
+		font-size:  1.75rem;		
 	}
 	
 	header.global {

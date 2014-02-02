@@ -103,7 +103,7 @@ function makeFlickr() {
 				
 					$flickr_id = $photo -> getAttribute("id");
 				
-					$flickrMarkup .= "<figure class='photo'><a href=\"http://flickr.com/photos/clagnut/";
+					$flickrMarkup .= "<figure class='photo'><a href=\"http://www.flickr.com/photos/clagnut/";
 					$flickrMarkup .= $photo -> getAttribute("id");
 					$flickrMarkup .= "/\"><img ";
 					$flickrMarkup .= "src=\"http://static.flickr.com/";
@@ -161,7 +161,7 @@ function makelatestFlickr() {
 			if ($photos) {
 				foreach ($photos as $photo) {
 				
-					$latestflickrMarkup .= "<figure class=\"photo\"><a href=\"http://flickr.com/photos/clagnut/";
+					$latestflickrMarkup .= "<figure class=\"photo\"><a href=\"http://www.flickr.com/photos/clagnut/";
 					$latestflickrMarkup .= $photo -> getAttribute("id");
 					$latestflickrMarkup .= "/\"><img ";
 					$latestflickrMarkup .= "src=\"http://static.flickr.com/";
@@ -221,7 +221,7 @@ function makeHomeFlickr() {
 					$photosecret = $photo -> getAttribute("secret");
 					$phototitle = $photo -> getAttribute("title");
 					$phototitle = htmlentities(stripslashes($phototitle));
-					$homeFlickrMarkup .= "<figure class=\"photo\"><a href=\"http://flickr.com/photos/clagnut/$photoid/\"><img src=\"http://static.flickr.com/$photoserver/$photoid" . "_$photosecret" . "_z.jpg\" alt=\"Photo\"></a><figcaption>$phototitle</figcaption></figure>\n";					
+					$homeFlickrMarkup .= "<figure class=\"photo\"><a href=\"http://www.flickr.com/photos/clagnut/$photoid/\"><img src=\"http://static.flickr.com/$photoserver/$photoid" . "_$photosecret" . "_z.jpg\" alt=\"Photo\"></a><figcaption>$phototitle</figcaption></figure>\n";					
 				}
 			}
 		}
