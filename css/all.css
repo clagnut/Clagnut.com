@@ -720,7 +720,7 @@ p.date {
 }
 
 .home header h2 {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	line-height: 1em;
 	margin: 0 2% 0.25em 2%;
 }
@@ -749,6 +749,7 @@ article.newestpost {
 
 .newestpost p.more {
 	margin:0;
+	text-indent: 0;
 }
 
 article.favephoto {
@@ -879,7 +880,7 @@ a.jam-image {
 	left:2%;
 }
 
-.gallery.latestphotos figure a {
+.gallery.latestphotos figure a, .gallery.latestphotos figure figcaption {
 	left: 0;
 	right: 0;
 }
@@ -965,14 +966,85 @@ main.archive header  {
 		font-size: 6rem;
 	}
 	
+	.home header h2 {
+		font-size: 2.5rem;
+	}
+	
+}
+
+
+@media only screen and (max-width: 53em) {
+	
+	.newestpost h1 {
+		font-size: 2rem;
+	}
+	
+	.newestpost p {
+		font-size: 1rem;
+	}
+
+	.latestposts h1 {
+		font-size: 1.125rem;
+	}
+}
+
+
+@media only screen and (max-width: 48em) {
+
+	section.live {
+	    float: none;
+	    margin: 0;
+	    padding: 0 2%;
+	    width: auto;
+	 }
+	 
+	 .latestposts, .latestphotos {
+	 	clear: left;
+	     margin-left: 0;
+	     margin-right: 0;
+	     padding-left: 2%;
+	     padding-right: 2%;
+	     padding-top: 0;
+	     width: auto;
+	     border-left: none;
+	 }
+	 
+ 	.latestposts h1 {
+ 		font-size: 1.5rem;
+ 	} 	
+ 	
 }
 
 @media only screen and (max-width: 40em) {
+
+	.twitter h2 {
+		margin-top: 0;
+	}
+
+
+	article.newestpost {
+	    float: none;
+	    margin: 0 0 3em 2%;
+	    padding-right: 2%;
+	    width: auto;
+	    border-right: 0;
+	}
+	
+	article.favephoto {
+	    margin-left: 0;
+	    padding-left: 2%;
+	    position: relative;
+	    border-left: 0;
+	}
 
 	h1 {
 		font-size: 3rem;
 		padding-bottom: .5em;
 		
+	}
+	
+	.home header h2 {
+		font-size: 1.75rem;
 	}
 	
 	.meta {
@@ -1014,6 +1086,20 @@ main.archive header  {
 		margin-top: 0;
 	}
 	
+	.relatedposts.archive {
+		text-align: left;
+		width: auto;
+		float: none;
+		border-right: 0;
+	}
+	
+	.archive aside {
+		border-top: 1px solid #e2e0dd;
+		margin-left: 1%;
+		padding-left: 1%;
+		border-left: 0;
+	}
+	
 }
 
 
@@ -1021,6 +1107,10 @@ main.archive header  {
 
 	h1 {
 		font-size: 2rem;
+	}
+	
+	.home header h2 {
+		font-size: 1.25rem;
 	}
 	
 	.meta {
@@ -1061,7 +1151,7 @@ main.archive header  {
 		right: 0;
 	}
 
-	.relatedposts article {
+	.relatedposts article, .latestposts article:nth-of-type(2n), .latestposts article:nth-of-type(2n) {
 		width: auto;
 		float: none;
 		text-align: left;
@@ -1070,6 +1160,20 @@ main.archive header  {
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: 1.5em;
+		padding-left: 0;
+	}
+	
+	.latestposts {
+		margin-top: 1.5em;
+	}
+	
+	.latestposts article {
+		margin-top: 0;
+		border-right: 0;
+	}
+	
+	.latestposts article:first-of-type, .latestposts article:nth-of-type(2n+1) {
+		border-right: 0;
 	}
 	
 	.relatedposts h1 {
@@ -1085,6 +1189,28 @@ main.archive header  {
 		position: static;
 		width: auto;
 		max-height: none;
+	}
+	
+	.cluster h2 {
+		padding-top: 0;
+	}
+	
+	section.live {
+		border-right: 0;
+	}
+	
+	section.live .twitter {
+	    float: none;
+	    padding-right: 2%;
+	    width: auto;
+	    border-right: 0;
+	}
+	
+	section.live .lastfm, section.live .kennedy, section.live .thisismyjam {
+	    margin-left: 0;
+	    padding-left: 0;
+	    width: auto;
+	    border-left: 0;
 	}
 }
 
@@ -1107,7 +1233,24 @@ main.archive header  {
 	}
 	
 	h1 {
-		font-size: 1.5rem;
+		font-size: 1.75rem;
+	}
+	
+	.newestpost h1 {
+		font-size: 1.25rem;
+		padding-bottom: 0;
+	}
+	
+	.home header h2 {
+		font-size: 1rem;
+	}
+	
+	
+	article.newestpost {
+		margin-bottom:1.5em;
+	}
+	article.favephoto {
+		margin-bottom: 0;
 	}
 	
 	.meta {

@@ -27,7 +27,7 @@ if(!isset($q)) {
 
 $error[1] = "Please enter some search text.";
 $error[2] = "No search specified. Use the form, Luke&#8230;";
-$error[3] = "Sorry, I couldn&#8217;t find any matches for <strong>$q</strong>. Please enter a search term more than three letters long.";
+$error[3] = "Sorry, I couldn’t find any matches for ‛<strong>$q</strong>’. Please enter a search term more than three letters long.";
 
 if (!isset($errorcode)) {
 	# fulltext search
@@ -139,7 +139,7 @@ if (!isset($errorcode) AND $num_results > 0) {
 	$plural1 = "are";
 	$plural2 = "ies";
 	if($num_results == 1) {$plural1 = "is"; $plural2 = "y";}
-	printf("<p>There %s <strong>%s</strong> entr%s matching <strong>%s</strong>:</p><br />\n\n", $plural1,$num_results,$plural2,$q);
+	printf("<p>There %s <strong>%s</strong> entr%s matching ‛<strong>%s</strong>’:</p><br />\n\n", $plural1,$num_results,$plural2,$q);
 
 	// Print search results
 	mysql_data_seek($fulltext_results,0);
@@ -170,7 +170,7 @@ if (!isset($errorcode) AND $num_results > 0) {
 	}
 }
 
-if (isset($errorcode)) {
+if (isset($errorcode) && $errorcode>1) {
 	# print error message
 	print "<p class='error'>$error[$errorcode]</p>";
 }
@@ -178,7 +178,7 @@ if (isset($errorcode)) {
 # print special message of no matches at all
 if (!isset($errorcode) AND $num_results < 1) {
 	$success = 0;
-	echo "<p class='error'>Sorry, I couldn&#8217;t find any matches for <strong>$q</strong>.</p>\n<p style='margin-top:1em'>Note that searching will not match words of three letters or fewer, so try spelling out acronyms. ";
+	echo "<p class='error'>Sorry, I couldn’t find any matches for ‛<strong>$q</strong>’.</p>\n<p style='margin-top:1em'>Note that searching will not match words of three letters or fewer, so try spelling out acronyms. ";
 	if (preg_match("/[a-zA-Z]or/",$q)) {
 		$q_uksp = preg_replace("/([a-zA-Z])or/","$1our",$q);
 		echo "You could also try British spellings as well: <a href='/search/?q=$q_uksp'>search for &#8216;$q_uksp&#8217;</a>. ";
@@ -191,12 +191,11 @@ if (!isset($errorcode) AND $num_results < 1) {
 </section>
 
 
-<aside>
 <?php
 // Print matching categories
 $category_count = (isset($category_score))?count($category_score):0;
 if (!isset($errorcode) OR $errorcode == 3 AND ($category_count > 0)) {
-	echo "<h2>Related Categories</h2>\n";
+	echo "<aside><h2>Related Categories</h2>\n";
 	if ($category_count > 0) {
 		echo "<ul>\n";
 		$i = 1;
@@ -207,10 +206,11 @@ if (!isset($errorcode) OR $errorcode == 3 AND ($category_count > 0)) {
 			}
 			$i++;
 		}
-		echo "</ul>\n";
+		echo "</ul>";
 	} else {
 		echo "<p>No related categories</p>";
 	}
+	echo "</aside>";
 }
 ?>
 
