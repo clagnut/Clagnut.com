@@ -8,7 +8,6 @@
 	    html.className = 'js';
 	</script>
 	
-    <?php /*
     <!--fonts-->
     <script>
         var html = document.getElementsByTagName('html')[0];
@@ -25,7 +24,6 @@
             s.parentNode.insertBefore(wf, s);
         })();
     </script>
-    */ ?>
     
     <script src="/js/jquery.js"></script>
     <script src="/js/global.js"></script>
