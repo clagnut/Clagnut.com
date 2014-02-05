@@ -51,6 +51,22 @@ footer, header, hgroup, menu, nav, section { display: block; }
 /* @end */
 /* @group OpenType features */
 
+body {
+	-moz-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0;
+	-ms-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "cal"t 0;
+	-o-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0;
+	-webkit-font-feature-settings:"onum" 1, "pnum" 1 ,"kern" 1, "liga" 1, "calt" 0;
+	font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0; 
+}
+
+h2, h3, footer.global, sup, sub {
+	-moz-font-feature-settings:"lnum" 1;
+	-ms-font-feature-settings:"lnum" 1;
+	-o-font-feature-settings:"lnum" 1;
+	-webkit-font-feature-settings:"lnum" 1;
+	font-feature-settings:"lnum" 1;
+}
+
 .smcp, .cluster time, .newestpost time, .opener, .archive article time { /* Smallcaps */
 	text-transform: lowercase;
 	-moz-font-feature-settings:"smcp" 1, "onum" 1;
@@ -60,20 +76,8 @@ footer, header, hgroup, menu, nav, section { display: block; }
 	font-feature-settings:"smcp" 1, "onum" 1;
 }
 
-body {
-	-moz-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0;
-	-ms-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "cal"t 0;
-	-o-font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0;
-	-webkit-font-feature-settings:"onum" 1, "pnum" 1 ,"kern" 1, "liga" 1, "calt" 0;
-	font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0; 
-}
-
-h2, h3, footer.global {
-	-moz-font-feature-settings:"lnum" 1;
-	-ms-font-feature-settings:"lnum" 1;
-	-o-font-feature-settings:"lnum" 1;
-	-webkit-font-feature-settings:"lnum" 1;
-	font-feature-settings:"lnum" 1;
+.opener, .smcp {
+	font-size: 1.0625em;
 }
 /* @end */
 
@@ -184,7 +188,11 @@ footer.global {
 }
 
 aside.tags {
-border-top: 2px solid rgba(0,0,0,0.33);
+	border-top: 2px solid rgba(0,0,0,0.33);
+}
+
+mark {
+	background-color: rgba(255, 249, 221, 0.51);
 }
 
 /* @end */
@@ -226,7 +234,7 @@ h2, h3, h4, h5, h6, b, strong, ins, th, dt {
 	font-size-adjust: 0.492;
 }
 
-i, em, cite, q, var, blockquote, figcaption, caption {
+i, em, cite, q, var, dfn, blockquote, figcaption, caption {
 	font-family: "Akagi-MediumItalic", "Akagi Medium Italic", "Akagi", Calibri, "Segoe UI", sans-serif;
 	font-weight: 500;
 	font-style: italic;
@@ -234,8 +242,9 @@ i, em, cite, q, var, blockquote, figcaption, caption {
 }
 
 pre, code, kbd, tt, samp {
-	font-family: consolas, monospace;
+	font-family: "Droid Sans Mono", "Andale Mono", consolas, monospace;
 	font-size-adjust: 0.488;
+	color: rgba(0,0,96,1);
 }
 
 @font-face {
@@ -421,6 +430,51 @@ ol, ul {
 	margin: 1em 0 1em 1.5em;
 }
 
+ul {
+	list-style-type:disc;
+}
+
+ol ol, ol ul, ul ul, ul ol {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+article.post section ul p, article.post section ol p, article.post section figure p {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+dt {
+	margin-top: 1em;
+}
+
+dt+dt {
+	margin-top: 0;
+}
+
+hr {
+	border-bottom: 2px solid rgba(0,0,0,0.33);
+	margin: 1.5em 0;	
+}
+
+pre {
+	margin: 1em 0;
+}
+
+sup, sub {
+	font-size: .8125em;
+	position: relative;
+	margin-right: 1px;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	top: 0.5em;
+}
+
 table {
 	margin: 1em 2%;
 }
@@ -503,17 +557,13 @@ article table, .twitter p {
 	hyphens:auto;
 }
 
-article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
+article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article.post pre, dl {
 	padding-left: 2%;
 	padding-right:35.63%;
 }
 
 article.post section p {
 	margin-left: 2px;
-}
-
-.opener {
-	font-size: 1.0625em;
 }
 
 article p+p {
@@ -1080,7 +1130,7 @@ main.archive header  {
 		font-size: 1.3125rem;
 	}
 	
-	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
+	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, dl {
 		padding-left: 2%;
 		padding-right:2%;
 	}
