@@ -1,0 +1,8 @@
+Options +FollowSymlinks
+# no hot-linking or direct downloading of fonts
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?clagnut\.com/ [NC]
+RewriteRule .* /errors/403.php [E=403,NC] 
+
+ErrorDocument 403  /errors/403.php
+ErrorDocument 404  /errors/404.php

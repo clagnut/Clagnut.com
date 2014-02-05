@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="http://f.fontdeck.com/s/css/Rh5E60lcEQyaRQWEOi+6azDcTag/clagnut.dev/14085.css" type="text/css" />
+<link rel="stylesheet" href="masthead.css" media="all" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<title>Heaven Devoid of Stars</title>
+</head>
+<body>
+
+<div id="poster">
+<blockquote>
+<h1>
+<span id="l3">T<span class="kern1">yp</span>e</span>
+</h1>
+
+<p id="p1">A world without type is heaven devoid of stars <span class="s">*</span> A single letter <span class="s">*</span> A lone <span class="amp">&amp;</span> distant sun</p>
+
+</blockquote>
+</div>
+
+
+<script>
+$(document).ready(function(){
+
+$('#fullsize').hide();
+$('a[href|="#fullsize"]').click(function(event){
+	$('#fullsize').addClass('show').fadeToggle(600);
+	event.preventDefault();
+});
+$('a[href|="#label"]').click(function(event){
+	$('#fullsize').fadeToggle(300, function(){$(this).removeClass('show')} );
+	event.preventDefault();
+});
+
+});
+
+</script>
+
+</body>
+</html>

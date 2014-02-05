@@ -1,0 +1,75 @@
+@import url("poster.css");
+
+html {
+    font-size: 10px; /* make rem calcs easier */
+}
+
+body {
+    background: rgb(35,31,32);
+    color: #fff;
+    margin:0;
+    padding: 0;
+}
+
+a {
+	color: #f3c498;
+	text-decoration: none;
+}
+
+abbr[title] {
+	border: 0;
+}
+
+#poster {
+	float: left;
+}
+
+#label {
+	padding-top: 42px;
+	padding-top: 4.2rem;
+	width: 360px;
+	width: 36rem;
+	float: left;
+	position: relative;
+}
+
+#label p {
+	font-family:"Tarocco Roman", Garamond, "Times New Roman", Times, serif;
+	font-weight:normal;
+	font-style:normal;
+	margin: 0;
+	font-size: 1.8px;
+	font-size: 1.8rem;
+	line-height: 1.166666666666667;
+}
+
+#label p.imgholder {
+	margin: 0.583333333333333em 0 0.583333333333333em 0.583333333333333em;
+}
+
+#label img {
+	width: 222px;
+	vertical-align: bottom;
+}
+
+#fullsize {
+	position: absolute;
+	top: 22px;
+	top: 2.2rem;
+	left: -22px;
+	left: -2.2rem;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+}
+
+#label #fullsize img {
+	width: 100%;
+}
+
+#fullsize.show {
+	width:585px;
+	width:58.5rem;
+	height: 836px;
+	height: 83.6rem;
+}

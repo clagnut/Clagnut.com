@@ -69,7 +69,7 @@ function includeCache($service, $cachewait) {
 
 function getFlickr() {
 	
-	$cachewait = 600; // seconds
+	$cachewait = 545; // seconds
 	
 	includeCache("flickr", $cachewait);
 }
@@ -140,7 +140,7 @@ function makeFlickr() {
 
 function getlatestFlickr() {
 	
-	$cachewait = 600; // seconds
+	$cachewait = 620; // seconds
 	
 	includeCache("latestflickr", $cachewait);
 }
@@ -195,7 +195,7 @@ function makelatestFlickr() {
 
 function getHomeFlickr() {
 	
-	$cachewait = 1000; // seconds
+	$cachewait = 1015; // seconds
 	
 	includeCache("homeflickr", $cachewait);
 }
@@ -262,7 +262,7 @@ function makeHomeFlickr() {
 
 function getTwitter() {
 	
-	$cachewait = 300; // seconds
+	$cachewait = 280; // seconds
 	
 	includeCache("twitter", $cachewait);
 }
@@ -336,7 +336,7 @@ function makeTwitter() {
 
 function getLastfm() {
 	
-	$cachewait = 180; // seconds
+	$cachewait = 185; // seconds
 	
 	includeCache("lastfm", $cachewait);
 }

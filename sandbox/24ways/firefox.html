@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Fontdeck font loader example</title>
+
+<script type="text/javascript">
+		WebFontConfig = {
+		  custom: { families: ['DIN 1451 Engschrift Standard', 'Franklin Gothic URW Book'],
+			urls: [ 'http://f.fontdeck.com/s/css/yBwXTHJXOPrPNsTrthSfE8YJJws/24ways.org/1748.css' ] }
+		};
+
+      (function() {
+        document.getElementsByTagName("html")[0].className += " wf-loading";
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+</script>
+<link rel="stylesheet" href="common.css" />
+<style type="text/css">
+.wf-din1451engschriftstandard-n4-loading h1 { 
+	font-family:'arial narrow', arial, sans-serif; 
+}
+
+.wf-franklingothicurwbook-n4-loading p { 
+	font-family:arial, sans-serif; 
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+<h1>Pangolins</h1>
+<p>A pangolin, also known as scaly anteater, is a mammal of the order Pholidota. There are eight species. Pangolins have large keratin scales covering their skin and are the only mammals with this adaptation.</p>
+
+<p>Pangolins are nocturnal animals, and use their well-developed sense of smell to find insects. The long-tailed pangolin is also active by day. Pangolins spend most of the daytime sleeping, curled up into a ball.</p>
+
+<small id="footer">
+<img src="pangolin.jpg" alt="A pangolin" id="pangolin" />
+Text lifted from Wikipedia, image licensed from iStockPhoto
+</small>
+
+</div>
+
+</body>
+</html>

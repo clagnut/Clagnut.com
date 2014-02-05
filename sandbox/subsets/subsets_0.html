@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>0: Subset test</title>
+<script>
+function supports(property) {
+    var div = document.createElement('div'),
+        vendors = ['Webkit', 'Moz', 'O', 'ms', 'Khtml'],
+        propertyName = property.toLowerCase();
+        len = vendors.length;
+    if (property in div.style) return true;
+    var property = property.replace(/^[a-z]/, function(val) {
+        return val.toUpperCase();
+    });
+    while(len--) {  
+       if ( vendors[len] + property in div.style ) return true;
+    }
+    return false;
+}
+document.documentElement.className += supports('fontFeatureSettings')? ' font-feature-settings' : '';
+</script>
+<style>
+@import url(core.css);
+</style>
+</head>
+<body>
+
+<div id="content">
+
+<p>In <span class="numbers">1958</span> the <abbr class="smallcaps">US</abbr> Government formed <abbr class="smallcaps">NASA</abbr> in response to a perceived threat from the <abbr class="smallcaps">USSR</abbr>’s Sputnik program. <abbr class="smallcaps">NASA</abbr> absorbed the <span class="numbers">46</span>-year-old <abbr class="smallcaps">NACA</abbr>, along with the <abbr class="smallcaps">JPL</abbr> and many of <abbr class="smallcaps">ARPA</abbr>’s early space programs.</p>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title>Browser Stickies (alpha)</title>
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+}
+
+BODY {
+	background:#fff;
+	color:#000;
+	font-family: "lucida grande", calibri, verdana, tahoma, sans-serif;
+	font-size:11px;
+}
+
+#dock {
+	padding:0.5em;
+}
+
+.dock-sticky {
+	width:3em;
+	height:3.5em;
+	text-align:center;
+	background:yellow;
+	color:#000;
+	cursor:move;
+}
+
+.notemode #dock-sticky {
+	position:relative;
+	border:1px solid #666;
+	display:block;
+}
+
+.textmode #dock-sticky {
+	display:none;
+}
+
+#drag-sticky {
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+FORM.notemode {
+	background:#FFFFA1;
+	color:#333;
+	border-top: 1px solid #FFFFD0;
+	border-left: 1px solid #FFFFD0;
+	border-right: 1px solid #FFC700;
+	border-bottom: 1px solid #FFC700;
+	width:15em;
+	height:18em;
+	padding: 0.25em;
+	position:absolute;
+}
+
+FORM.notemode:hover {
+	color:#000;
+	border-top: 1px solid #FFC700;
+	border-right: 1px solid #FFC700;
+	border-bottom: 1px solid #FFC700;
+	border-left: 1px solid #FFC700;
+}
+
+FORM.textmode {
+	margin:1em;
+}
+
+FORM.notemode .dragbar {
+	width:100%;
+	height:1em;
+	cursor:move;
+	text-align:left;
+	display:block;
+	margin: -0.25em 0 0 -0.25em;
+	padding: 0 0.25em 0 0;
+	background: #FFFFA1;
+	
+}
+FORM.notemode:hover .dragbar {
+	background: #FFE53E;
+}
+
+FORM.textmode .dragbar {
+	display:none;
+}
+
+FORM.notemode .resize {
+	height:1.5em;
+	cursor:se-resize;
+	text-align:left;
+	position:absolute;
+	bottom:0;
+	right:-1px;
+	font-size:9px;
+	display:block;
+	color: #FFFFA1;
+	background: none;
+}
+FORM.notemode:hover .resize {
+	background: url("images/corner.png") bottom right no-repeat;
+}
+
+FORM.textmode .resize {
+	display:none;
+}
+
+.dragbar SPAN {
+	/*padding:0.25em 0.25em 0.25em 0.5em;*/
+	padding: 0;
+	margin: 0;
+	width: 10px;
+	height: 10px;
+	display: block;
+	text-indent: 10px;
+	overflow: hidden;
+	background: url("images/close.png") 10px 10px no-repeat;
+}
+FORM.notemode:hover .dragbar SPAN {
+	background: url("images/close.png") 2px 1px no-repeat;
+}
+
+PRE, TEXTAREA {
+	font-size:1em;
+	font-family: "lucida grande", calibri, verdana, tahoma, sans-serif;
+	border:0;
+	background:inherit;
+	color:inherit;
+}
+
+.notemode TEXTAREA {
+	height:85%;
+	width:100%;
+	display:block;
+}
+
+.textmode TEXTAREA {
+	display:none;
+}
+
+.notemode PRE {
+	display:none;
+}
+
+.textmode PRE {
+	display:block;
+}
+
+#switch-to-text-mode, #switch-to-note-mode {
+	text-decoration:underline;
+	cursor:pointer;
+	margin-top:2em;
+}
+
+.textmode #switch-to-note-mode {
+	display:block;
+}
+
+.notemode #switch-to-note-mode {
+	display:none;
+}
+
+.textmode #switch-to-text-mode {
+	display:none;
+}
+
+.notemode #switch-to-text-mode {
+	display:block;
+}
+
+.textmode PRE {
+	display:block;
+}
+.stickymi {
+border: 1px solid #aaa;
+	width:15.6em;
+	height:18.6em;
+	position:absolute;
+}
+
+</style>
+<script type="text/javascript">//<![CDATA[
+
+//*****************************************************************************
+// Do not remove this notice.
+//
+// Copyright 2001 by Mike Hall.
+// See http://www.brainjar.com for terms of use.
+//*****************************************************************************
+
+// Determine browser and version.
+
+function Browser() {
+
+  var ua, s, i;
+
+  this.isIE    = false;
+  this.isNS    = false;
+  this.version = null;
+
+  ua = navigator.userAgent;
+
+  s = "MSIE";
+  if ((i = ua.indexOf(s)) >= 0) {
+    this.isIE = true;
+    this.version = parseFloat(ua.substr(i + s.length));
+    return;
+  }
+
+  s = "Netscape6/";
+  if ((i = ua.indexOf(s)) >= 0) {
+    this.isNS = true;
+    this.version = parseFloat(ua.substr(i + s.length));
+    return;
+  }
+
+  // Treat any other "Gecko" browser as NS 6.1.
+
+  s = "Gecko";
+  if ((i = ua.indexOf(s)) >= 0) {
+    this.isNS = true;
+    this.version = 6.1;
+    return;
+  }
+}
+
+var browser = new Browser();
+
+// Global object to hold drag information.
+
+var dragObj = new Object();
+dragObj.zIndex = 0;
+
+function dragStart(action, event, dragbar) {
+
+  var el;
+  var x, y;
+
+	// [RAR] If an action is specified write give it global scope
+	if (action) {
+		currentaction = action;
+	}
+
+  // If an element id was given, find it. Otherwise use the element being
+  // clicked on.
+
+  if (dragbar)
+    //drawgObj = dragbar.parentNode; // [RAR] Deal with drag bar more generically (original script used an id here)
+  	dragObj.elNode = dragbar.parentNode.parentNode;
+  else {
+    if (browser.isIE)
+      dragObj.elNode = window.event.srcElement;
+    if (browser.isNS)
+      dragObj.elNode = event.target;
+
+    // If this is a text node, use its parent element.
+
+    if (dragObj.elNode.nodeType == 3)
+      dragObj.elNode = dragObj.elNode.parentNode.parentNode;
+  }
+  
+  // [RAR] make object semi-transparent
+  dragObj.elNode.style.opacity = 0.6;
+
+  // Get cursor position with respect to the page.
+
+  if (browser.isIE) {
+    x = window.event.clientX + document.documentElement.scrollLeft
+      + document.body.scrollLeft;
+    y = window.event.clientY + document.documentElement.scrollTop
+      + document.body.scrollTop;
+  }
+  if (browser.isNS) {
+    x = event.clientX + window.scrollX;
+    y = event.clientY + window.scrollY;
+  }
+
+  // Save starting positions of cursor and element.
+
+  dragObj.cursorStartX = x;
+  dragObj.cursorStartY = y;
+  dragObj.elStartLeft  = parseInt(dragObj.elNode.style.left, 10);
+  dragObj.elStartTop   = parseInt(dragObj.elNode.style.top,  10);
+
+  if (isNaN(dragObj.elStartLeft)) dragObj.elStartLeft = 0;
+  if (isNaN(dragObj.elStartTop))  dragObj.elStartTop  = 0;
+
+  // Update element's z-index.
+
+  dragObj.elNode.style.zIndex = ++dragObj.zIndex;
+
+  // Capture mousemove and mouseup events on the page.
+
+  if (browser.isIE) {
+    document.attachEvent("onmousemove", dragGo);
+    document.attachEvent("onmouseup",   dragStop);
+    window.event.cancelBubble = true;
+    window.event.returnValue = false;
+  }
+  if (browser.isNS) {
+    document.addEventListener("mousemove", dragGo,   true);
+    document.addEventListener("mouseup",   dragStop, true);
+    event.preventDefault();
+  }
+}
+
+function dragGo(event) {
+
+  var x, y;
+
+  // Get cursor position with respect to the page.
+
+  if (browser.isIE) {
+    x = window.event.clientX + document.documentElement.scrollLeft
+      + document.body.scrollLeft;
+    y = window.event.clientY + document.documentElement.scrollTop
+      + document.body.scrollTop;
+  }
+  if (browser.isNS) {
+    x = event.clientX + window.scrollX;
+    y = event.clientY + window.scrollY;
+  }
+
+	if (currentaction == "move" || currentaction == "new") {
+		// Move drag element by the same amount the cursor has moved.
+		
+		// [RAR] write new coordinates to global
+		elLeft = (dragObj.elStartLeft + x - dragObj.cursorStartX);
+		elTop = (dragObj.elStartTop  + y - dragObj.cursorStartY);
+		
+		dragObj.elNode.style.left =  elLeft + "px";
+		dragObj.elNode.style.top  =  elTop + "px";
+		
+		if (browser.isIE) {
+			window.event.cancelBubble = true;
+			window.event.returnValue = false;
+		}
+		if (browser.isNS) {
+			event.preventDefault();
+		}
+	}
+	
+	// [RAR] resize note
+	if (currentaction == "resize") {
+		var cursorLeft, cursorTop, cTpx, cLpx;
+		cursorLeft = (dragObj.elStartLeft + x - dragObj.cursorStartX);
+		cursorTop = (dragObj.elStartTop  + y - dragObj.cursorStartY);
+		
+
+		currentTop = dragObj.elNode.style.top;
+		cTpx = currentTop.indexOf("px");
+		currentTop = currentTop.substring(0,cTpx);
+		
+
+		currentLeft = dragObj.elNode.style.left;
+		cLpx = currentLeft.indexOf("px");
+		currentLeft = currentLeft.substring(0,cLpx);
+		
+		elWidth = x - currentLeft;
+		elHeight = y - currentTop;
+		
+		dragObj.elNode.style.width = elWidth + 7 + "px";
+		dragObj.elNode.style.height = elHeight + 7 + "px";
+		
+		dragObj.elNode.firstChild.style.width = elWidth + "px";
+		dragObj.elNode.firstChild.style.height = elHeight + "px";
+	}
+}
+
+function dragStop(event) {
+
+  // Stop capturing mousemove and mouseup events.
+
+  if (browser.isIE) {
+    document.detachEvent("onmousemove", dragGo);
+    document.detachEvent("onmouseup",   dragStop);
+  }
+  if (browser.isNS) {
+    document.removeEventListener("mousemove", dragGo,   true);
+    document.removeEventListener("mouseup",   dragStop, true);
+  }
+  
+  // Everything above here written by Mike 'Brianjar' Hall (unless noted otherwise). Everything below written by Richard Rutter.
+  
+  // If new note action, then create new note
+  if (currentaction == "new") {
+
+	// create new div
+	var f=document.createElement('div');
+	f.setAttribute('class','stickymi');
+	
+	// create new form for note
+	var s=document.createElement('form');
+	s.setAttribute('action','#');
+	s.className = "notemode";
+	f.appendChild(s);
+  	
+  	// create new paragraph for dragbar
+  	var p = document.createElement("p");
+ 	p.setAttribute("onmousedown","dragStart('move', event, this)");	
+ 	p.setAttribute("class","dragbar");	
+ 	s.appendChild(p);
+ 	
+ 	 // create new delete button
+  	var a = document.createElement("span");
+ 	a.setAttribute("onclick","deleteNote(this)");
+ 	a.setAttribute("title","delete this note");
+ 	var atxt = document.createTextNode("x");
+ 	a.style.cursor = "pointer";
+	a.appendChild(atxt);
+ 	p.appendChild(a);
+ 	
+ 	// create textarea for note
+  	var t = document.createElement("textarea");
+ 	t.setAttribute("name","note");	
+ 	t.setAttribute("cols","10");	
+ 	t.setAttribute("rows","8");	
+ 	t.setAttribute("onfocus","bringToTop(this)");
+ 	t.setAttribute("onblur","updatePre(this)");
+ 	s.appendChild(t);
+  	
+  	// create new pre for note
+  	var pre = document.createElement("pre");
+ 	var pretxt = document.createTextNode("");
+	pre.appendChild(pretxt);
+ 	s.appendChild(pre);
+  	
+  	// create new paragraph for resize
+  	var p = document.createElement("p");
+ 	p.setAttribute("onmousedown","dragStart('resize', event, this)");	
+ 	p.setAttribute("class","resize");
+ 	var ptxt = document.createTextNode("//");
+	p.appendChild(ptxt);	
+ 	s.appendChild(p);
+ 	
+ 	
+	// position form
+	f.style.top = elTop + "px";  	
+	f.style.left = elLeft + "px";  
+  	
+  	// add new note to tree
+  	var notesdiv = document.getElementById('notes');
+  	var n = notesdiv.appendChild(f);
+  	t.focus();
+  	
+  	// move dock sticky back to dock
+  	var dragsticky = document.getElementById('drag-sticky');
+  	dragsticky.style.left = "0";
+  	dragsticky.style.top = "0";
+  }
+  
+  
+  // [RAR] make object semi-transparent
+  dragObj.elNode.style.opacity = 0.9999;  
+}
+
+function bringToTop(ta) {
+  // Update element's z-index.
+  ta.parentNode.style.zIndex = ++dragObj.zIndex;
+}
+
+function updatePre(ta) {
+	pre = ta.nextSibling;
+	pre.firstChild.nodeValue = ta.value;
+}
+
+function deleteNote(notetogo) {
+	var really = confirm("Are you sure you want to delete this note?")
+	if (really == true) {
+		var notes = document.getElementById("notes");
+		var d_p = notetogo.parentNode;
+		var d_note = d_p.parentNode.parentNode;
+		var throwaway_node = notes.removeChild(d_note);
+	}
+}
+
+function enterTextMode() {
+	// hide dock
+	var dock = document.getElementById('dock');
+	dock.className = "textmode";
+	
+	// hide all textareas and show all pres
+	f = document.getElementsByTagName('form');
+	nf = f.length;
+	for (var i=0; i < nf; i++) {
+		var note = f[i];
+		note.className = "textmode";
+	}
+}
+
+function exitTextMode() {
+	// show dock
+	var dock = document.getElementById('dock');
+	dock.className = "notemode";
+	
+	// show all textareas and hide all pres
+	f = document.getElementsByTagName('form');
+	nf = f.length;
+	for (var i=0; i < nf; i++) {
+		var note = f[i];
+		note.className = "notemode";
+	}
+	
+	// create element to force Safari to redraw (then remove it);
+	var p = document.createElement('p');
+  	var n = document.getElementById('notes');
+  	var c = n.appendChild(p);
+	var throwaway_node = n.removeChild(c);
+}
+
+
+
+//]]></script>
+</head>
+<body>
+<div id="dock" class="notemode">
+
+  <div id="dock-sticky" class="dock-sticky" title="drag to create new note"> 
+	<div id="drag-sticky" class="dock-sticky" onmousedown="dragStart('new', event)"> 
+	  + </div>
+  </div>
+
+<p id="switch-to-text-mode" onclick="enterTextMode()">show as text</p>
+<p id="switch-to-note-mode" onclick="exitTextMode()">show notes</p>
+
+</div>
+
+
+<div id="notes">
+<!-- new notes will be attached in here -->
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+body {
+	background: #fff;
+	color: #111;
+	text-rendering: optimizeLegibility;
+	margin: 0;
+	padding: 0;
+}
+
+a#back {
+	font-family: Georgia, serif;
+	font-size: 12px;
+	display: block;
+	color: #fff;
+	background: #999;
+	padding: 1px 5px;
+	text-decoration: none;
+	margin-bottom: 50px;
+}
+
+#wrapper {
+	width: 600px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-family:"DIN 1451 Engschrift Standard", "arial narrow", sans-serif;
+	font-size: 54px;
+	font-weight:normal;
+	padding-top: 0;
+	margin-bottom: 0.778em;
+	font-size-adjust: 0.479;
+	text-transform: uppercase;
+	line-height: 1em;
+}
+ 
+p { 
+	font-family:"Franklin Gothic URW Book", arial, sans-serif; 
+	font-size-adjust:0.5;
+	font-size: 18px;
+	line-height: 1.167em;
+	margin-bottom: 1.167em;
+}
+
+#footer {
+	font-family: Georgia, serif;
+	font-size: 11px;
+	text-align:right;
+	display: block;
+}
+
+#pangolin {
+	margin: 54px 0 0 0;
+	width: 600px;
+	height: 170px;
+	display: block;
+}
+

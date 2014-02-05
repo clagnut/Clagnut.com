@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Type testing</title>
+<style type="text/css">
+body {
+	font-family:"lucida grande", "lucida sans unicode", sans-serif;
+	margin:0;
+	padding:0;
+}
+ul {
+	margin:0;
+	padding:0;
+}
+li {
+	float:left;
+	padding:1em 5px;
+	margin:1em 5px;
+	list-style-type: none;
+	height:630px;
+	border:1px solid #ddd;
+}
+img {
+	padding:0.5em 0;
+}
+table {
+	clear:left;
+	font-size:75%;
+	border-collapse:collapse;
+	margin:1em 10px;
+}
+thead {
+	border-bottom:2px solid #000;
+}
+tbody {
+	border-bottom:1px solid #000;
+}
+thead th {
+	text-align:center;
+	vertical-align:bottom;
+}
+th, td {
+	text-align:left;
+	vertical-align:top;
+	padding:0.25em 0.5em;
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+td.yes {
+	background:green;
+	color:#fff;
+}
+td.no {
+	background:red;
+	color:#fff;
+}
+td.partial {
+	background:orange;
+	color:#000;
+}
+p {
+	margin:1em;
+}
+</style>
+</head>
+<body>
+
+<p>&larr; Back to <a href="/blog/1854/">Problems with font rendering on Macs</a> for comments and discussion.</p>
+
+<table>
+<thead>
+<tr><th rowspan="2">Browser</th><th colspan="5">Font Format</th></tr>
+<tr>
+	<th>TrueType Mac</th>
+	<th>TrueType PC</th>
+	<th>PostScript</th>
+	<th>OpenType PostScript</th>
+	<th>OpenType TrueType</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<th>Camino&nbsp;1.2</th>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+</tr>
+<tr>
+	<th>Safari 2</th>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+	<td class="yes">good</td>
+</tr>
+<tr>
+	<th>Firefox 2</th>
+	<td class="yes">good</td>
+	<td class="partial">correct italic &amp; bold fonts displayed; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td>
+	<td class="no">not rendered</td>
+	<td class="partial">italic &amp; bold fonts synthesised; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td>
+	<td class="partial">italic &amp; bold fonts synthesised; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td>
+</tr>
+<tr>
+	<th>Opera 9</th>
+	<td class="yes">good</td>
+	<td class="partial">good, but italic font is synthetically obliqued</td>
+	<td class="no">not rendered</td>
+	<td class="partial">bold font not rendered; italic synthesised</td>
+	<td class="partial">bold font not rendered; italic synthesised</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<ul>
+	<li>Camino 1.2<br /><img src="camino1-2.png" alt="Camino 1.2" /></li>
+	<li>Firefox 2<br /><img src="firefox2.png" alt="Firefox 2" /></li>
+	<li>Opera 9<br /><img src="opera9.png" alt="Opera 9" /></li>
+	<li>Safari 2<br /><img src="safari2.png" alt="Safari 2" /></li>
+</ul>
+
+<p>&larr; Back to <a href="/blog/1854/">Problems with font rendering on Macs</a> for comments and discussion.</p>
+
+
+</body>
+</html>

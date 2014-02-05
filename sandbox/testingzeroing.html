@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<title>Testing zeroed padding and amrgins in forms</title>
+<style type="text/css">
+* {
+  	 padding:0;
+  	 margin:0;
+}
+</style>
+</head>
+<body>
+
+<form>
+<p><button type="submit" id="go" name="go">Button</button></p>
+<fieldset>
+<legend accesskey="L">
+Testing
+</legend>
+A test
+</fieldset>
+<p><textarea id="textarea" rows="5" cols="15">
+Some text in here.
+</textarea></p>
+<p><select id="thing">
+<optgroup label="fruit">
+<option value="apple">apple</option>
+<option value="banana">banana</option>
+<option value="orange">orange</option>
+</optgroup>
+<option value="ham">ham</option>
+<option value="pork">pork</option>
+</select></p>
+<p><select id="thing" size="3">
+<optgroup label="fruit">
+<option value="apple">apple</option>
+<option value="banana">banana</option>
+<option value="orange">orange</option>
+</optgroup>
+<option value="ham">ham</option>
+<option value="pork">pork</option>
+</select></p>
+<p><input type="text" name="text" value="testing" /></p>
+<p><input type="checkbox" name="check1" value="1" /> check 1
+<input type="checkbox" name="check2" value="2" checked="checked" /> check 2
+<input type="checkbox" name="check3" value="3" /> check 2
+</p>
+<p><input type="radio" name="radio1" value="1" /> radio 1
+<input type="radio" name="radio2" value="2" checked="checked" /> radio 2
+<input type="radio" name="radio3" value="3" /> radio 2</p>
+<p><input type="file" name="file" value="file" /></p>
+<p><input type="submit" /></p>
+</form>
+</body>
+</html>

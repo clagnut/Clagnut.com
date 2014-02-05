@@ -4,7 +4,7 @@
 <a href="http://twitter.com/clagnut"><img src="/i/icon-twitter.png" alt="Follow me on Twitter" title="@clagnut" class="icon" /></a>
 <a href="/feeds/fullposts.xml"><img src="/i/icon-feed.png" alt="RSS Feed" title"RSS Feed" class="icon" /></a>
 </p>
-<nav class="footer">Published in Brighton, UK &middot; <a href="#">Colophon</a></nav>
+<nav class="footer">Published in Brighton, UK &middot; <a href="/colophon">Colophon</a></nav>
 </footer>
 
 <script src="/mint/?js" type="text/javascript"></script>

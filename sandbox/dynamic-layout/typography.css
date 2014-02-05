@@ -1,0 +1,46 @@
+BODY {
+	font-family: 'univers', 'frutiger', 'helvetica neue', helvetica, arial, sans-serif;
+	font-size: 62.5%;
+	background: #fff;
+	color: #010101;
+}
+
+.back {
+	margin: 0 2%;
+	font-size: 1.1em;
+	line-height:1.636em;
+}
+
+HTML>BODY {
+	font-size: 10px;
+}
+
+H1, H2 {
+	font-weight: normal;
+}
+
+H1 {
+	font-size: 3.6em;
+	line-height: 1em;
+	margin: 1em 0 0.5em 0;
+}
+
+H2 {
+	font-size:1.6em;	
+	line-height: 1.125em;
+	margin:1.125em 0; 
+}
+
+#section1 P {
+	font-size: 1.3em;
+	line-height: 1.3846em;
+}
+
+#section1 P + P {
+	text-indent:  1.3846em;
+}
+
+#section2 P, #section3 P, #section4 P {
+	font-size: 1.1em;
+	line-height: 1.636em;
+}

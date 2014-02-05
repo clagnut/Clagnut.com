@@ -1,0 +1,35 @@
+@font-face {
+	font-family: "Magneta Book";
+	src: url("magneta-md-full.otf");
+	font-weight: normal;
+}
+@font-face {
+	font-family: "Magneta Book Subset";
+	src: url("magneta-md-subset.ttf");
+	font-weight: normal;
+}
+
+body {
+    margin:0;
+    text-rendering: optimizeLegibility;
+}
+#content {
+    width:61.8%;
+    margin:0 auto;
+}
+p {
+	font-family: "Magneta Book", Georgia, serif;
+	font-size:32px;
+    line-height:1.2;
+}
+.numbers, .smallcaps {
+	text-transform: lowercase;
+	font-family: "Magneta Book Subset", "Magneta Book", Georgia, serif;
+}
+
+.font-feature-settings .numbers, .font-feature-settings .smallcaps {
+	font-family:inherit;
+	-moz-font-feature-settings:"smcp=1, onum=1";
+	-webkit-font-feature-settings:"smcp" 1, "onum" 1;
+	font-feature-settings:"smcp" 1, "onum" 1; 
+}

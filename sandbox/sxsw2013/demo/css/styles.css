@@ -1,0 +1,72 @@
+body {
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+p, table {
+	line-height:1.5;
+	margin: 0 0 0.75em 0;
+}
+
+table {
+	margin-bottom: 1.5em;
+}
+
+h1 {
+	font-size: 36px;
+	line-height: 1;
+	margin: 0 0 0.45833333333333em 0;
+}
+
+h2 {
+	font-size: 24px;
+	line-height: 1;
+	margin: 0 0 1.625em 0;
+}
+
+.intro p, h3 {
+	font-size: 18px;
+	line-height: 1.333;
+	margin: 0 0 1.14285714285714em 0;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+section.costs {
+	padding-top: 1.5em;
+}
+
+
+@media only screen and (min-width: 38em) {
+
+section {
+	padding-left: 21%;
+	padding-right: 21%;
+}
+
+h1 {
+	font-size: 68px;
+	margin: 0 0 0.54411764705882em 0;
+}
+
+h2 {
+	font-size: 42px;
+	margin: 0 0 1.5em 0;
+}
+
+.intro p, h3 {
+	font-size: 26px;
+	line-height: 1.231;
+	margin: 0 0 1.19230769230769em 0;
+}
+
+.intro strong {
+	font-weight: normal;
+}
+
+section.costs {
+	padding-top: 3em;
+}
+
+}

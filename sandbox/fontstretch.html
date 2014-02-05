@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Font stretch test</title>
+<link rel="stylesheet" href="/css/harmonise.css" media="all" type="text/css" />
+<style type="text/css">
+.test p {
+	font-size: 27px;
+	line-height:1.333;
+	font-family:"American Typewriter", sans-serif;
+	margin:0;
+}
+
+#one {
+	font-stretch:normal;
+}
+#two {
+	font-stretch:condensed;
+}
+
+#four {
+	font-family:"AmericanTypewriter-Condensed", "American Typewriter Condensed", "American Typewriter", sans-serif;
+	font-stretch:condensed;
+}
+
+strong {
+	font-weight:bold;
+}
+</style>
+</head>
+<body>
+<h1>Font-stretch test case</h1>
+<p>See <a href="/blog/2265/">accompanying blog post</a> for more details.</p>
+<hr />
+<div class="test">
+<h2>Using font-stretch</h2>
+<p id="one">normal  &middot; why pangolins dream of quiche</p>
+<p id="two">condensed &middot; why pangolins dream of quiche</p>
+</div>
+
+<div class="test">
+<h2>Using font-family</h2>
+<p id="three">normal  &middot; why pangolins dream of quiche</p>
+<p id="four">condensed &middot; why <strong>pangolins</strong> dream of quiche</p>
+</div>
+
+</body>
+</html>

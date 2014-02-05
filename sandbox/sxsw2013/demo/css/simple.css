@@ -1,0 +1,182 @@
+body {
+	font-family: "Shaker Regular", Corbel, Verdana, sans-serif;	
+	-moz-font-feature-settings: "onum" 1, "pnum" 1;
+	-ms-font-feature-settings: "onum" 1, "pnum" 1;
+	-o-font-feature-settings: "onum" 1, "pnum" 1;
+	-webkit-font-feature-settings: "onum" 1, "pnum" 1;
+	font-feature-settings: "onum" 1, "pnum" 1;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+}
+
+p {
+	line-height:1.5;
+	margin: 0 0 0.75em 0;
+}
+
+.description p, table {
+	-moz-hyphens:auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens:auto;
+}
+
+table {
+	margin-bottom: 1.5em;
+	border-collapse: collapse;
+	width: 100%;
+	-moz-font-feature-settings:"tnum" 1, "lnum" 1;
+	-ms-font-feature-settings:"tnum" 1, "lnum" 1;
+	-o-font-feature-settings:"tnum" 1, "lnum" 1;
+	-webkit-font-feature-settings:"tnum" 1, "lnum" 1;
+	font-feature-settings:"tnum" 1, "lnum" 1;
+}
+
+th, td {
+	text-align: left;
+	vertical-align:top;
+	line-height:1.1;
+	padding-top:0.4em;
+	padding-bottom:0.4em;
+}
+
+th {
+	font-family: "Shaker Bold", Corbel, Verdana, sans-serif;
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+}
+
+h1 {
+	font-size: 36px;
+	line-height: 1;
+	margin: 0.45833333333333em 0;
+}
+
+h2 {
+	font-size: 24px;
+	line-height: 1;
+	margin: 0 0 1.625em 0;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+.intro p, h3 {
+	font-size: 18px;
+	line-height: 1.333;
+	margin: 0 0 1.14285714285714em 0;
+}
+
+strong {
+	font-family: "Shaker Bold", Corbel, Verdana, sans-serif;
+	font-weight: bold;
+}
+
+
+section.costs {
+	padding-top: 1.5em;
+}
+
+.c2sc {
+	-moz-font-feature-settings:"c2sc" 1;
+	-ms-font-feature-settings:"c2sc" 1;
+	-o-font-feature-settings:"c2sc" 1;
+	-webkit-font-feature-settings:"c2sc" 1;
+	font-feature-settings:"c2sc" 1;
+}
+
+table .shrink { /* hide from narrow screens to fit in table */
+	display: none;
+}
+
+
+@media only screen and (min-width: 38em) {
+
+table .shrink {
+	display: inline; /* show for wider screens */
+}
+
+body {
+	padding: 0;
+	margin: 0;
+ 	font-size: 112.5%; /* bump up a bit cos Shaker is small */
+}
+
+section {
+	padding-left: 21%;
+	padding-right: 21%;
+}
+
+h1 {
+	font-size: 68px;
+	margin: 0.54411764705882em 0;
+}
+
+h2 {
+	font-size: 42px;
+	margin: 0 0 1.5em 0;
+}
+
+.intro p, h3 {
+	font-size: 26px;
+	line-height: 1.231;
+	margin: 0 0 1.19230769230769em 0;
+}
+
+.description p {
+	-moz-hyphens:none;
+	-ms-hyphens:none;
+	-o-hyphens:none;
+	-webkit-hyphens:none;
+	hyphens:none;
+}
+
+.intro strong {
+	font-family: "Shaker Regular", Corbel, Verdana, sans-serif;	
+	font-weight: normal;
+}
+
+section.costs {
+	padding-top: 3em;
+}
+
+table {
+	margin-left: -0.25em;
+	width: auto;
+}
+
+th, td {
+	padding: 0.25em;
+}
+
+th {
+	border-bottom: 1px solid #ccc;
+}
+
+th+th, td+td {
+	padding-left: 1.5em;
+}
+
+}
+
+
+@media only screen and (min-width: 66em) {
+
+.description {
+	-moz-column-count:2;
+	-ms-column-count:2;
+	-o-column-count:2;
+	-webkit-column-count:2;
+	column-count:2;
+	-moz-column-gap: 1.5em;
+	-ms-column-gap: 1.5em;
+	-o-column-gap: 1.5em;
+	-webkit-column-gap: 1.5em;
+	column-gap: 1.5em;
+}
+
+}

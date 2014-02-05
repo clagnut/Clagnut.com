@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Reader Bold';
+    src: url('geotica/Geotica_Three-webfont.eot');
+    src: url('geotica/Geotica_Three-webfont.eot?#iefix') format('embedded-opentype'),
+         url('geotica/Geotica_Three-webfont.woff') format('woff'),
+         url('geotica/Geotica_Three-webfont.ttf') format('truetype'),
+         url('geotica/Geotica_Three-webfont.svg#GeoticaThreeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
