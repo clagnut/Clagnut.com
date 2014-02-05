@@ -158,6 +158,10 @@ footer.global {
 	border-bottom: 2px solid rgba(0,0,0,0.33);
 }
 
+.meta.empty {
+	border-bottom: 0;
+}
+
 .relatedposts article {
 	border-right: 1px solid #85817d;
 	border-left: 1px solid #85817d;
@@ -260,7 +264,7 @@ body {
 
 main {
 	width: 90.3225806%;
-	padding: 3em 1.5% 4.5em 1.5%;
+	padding: 3em 1.465% 4.5em 1.465%;
 	float: right;
 	clear: right;
 }
@@ -268,7 +272,7 @@ main {
 /* @group Global header and footer */
 
 header.global, footer.global {
-	padding: 0 1.5%;
+	padding: 0 1.465%;
 	text-align: right;
 	clear: right;
 	position: relative;
@@ -418,7 +422,7 @@ ol, ul {
 }
 
 table {
-	margin: 1em 0;
+	margin: 1em 2%;
 }
 
 th {
@@ -439,8 +443,13 @@ th[colspan] {
 	text-align: center;
 }
 
+tbody {
+	border-bottom: 2px solid rgba(0,0,0,0.075);
+}
+
 caption {
-	margin-top: 0.5em;
+	caption-side: bottom; 
+	text-align: center;
 }
 
 blockquote {
@@ -494,7 +503,7 @@ article table, .twitter p {
 	hyphens:auto;
 }
 
-article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article.post section figure {
+article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6 {
 	padding-left: 2%;
 	padding-right:35.63%;
 }
@@ -515,17 +524,28 @@ figure.inline+p {
 	margin-top: 1em;
 }
 
-figure {
-	text-align: center;
+article.post section figure {
+	text-align: left;
+	padding-left: 2%;
+	padding-right: 2%;	
 }
 
-figcaption {
+figcaption, caption {
 	line-height: 1.125em;
-	padding: .1875em 0;
+	padding: .375em 0;
 }
 
-figure.fullbleed {
-	padding-right: 2%;
+article.post section figure.fullbleed, .fullbleed {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: -2%;
+	margin-right:-2%;
+}
+
+.fullbleed figcaption, .fullbleed caption {
+	padding-left: 4%;
+	padding-right: 4%;
+	text-align: left;
 }
 
 article.post figure.inline {
@@ -578,6 +598,7 @@ aside {
 	padding-right: .666666666%;
 	padding-left: .666666666%;
 	position: relative;
+	text-align: center;
 }
 
 .gallery figure:before {
@@ -605,6 +626,7 @@ aside {
 	background: rgba(0,0,0,0.25);
 	color: #fff;
 	transition:	all 0.35s linear;
+	text-align: center;
 }
 
 .gallery figure:nth-of-type(3n+1) {
@@ -1063,10 +1085,6 @@ main.archive header  {
 		padding-right:2%;
 	}
 	
-	article.post section figure {
-		padding: 0;
-	}
-	
 	article.post figure.inline {
 	    position: static;
 	    right: auto;
@@ -1124,6 +1142,16 @@ main.archive header  {
 		font-size: 1.125rem;
 	}
 
+	article.post section figure {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	table {
+		margin-left: 0;
+		margin-right:0;
+	}
+	
 	.gallery figure {
 		width: 48.666666663%;
 	}
