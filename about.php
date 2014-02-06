@@ -15,9 +15,10 @@ include_once($dr . "writing_header.inc.php");
 
 <h2>Richard Rutter</h2>
 
+<p><span class="opener">I am co-founder of <a href="http://clearleft.com/is/richard-rutter" rel="me">Clearleft</a> and <a href="http://fontdeck.com">Fontdeck</a></span>. I started designing websites way back in 1994. Since founding Clearleft with <a href="http://clearleft.com/is/andy-budd">Andy Budd</a> and <a href="http://clearleft.com/is/jeremy-keith">Jeremy Keith</a>, I’ve retained my role as a user experience designer, working with clients and their customers to translate their ideas into new and improved websites and applications.</p>
+
 <figure class='inline'><img src="/images/Richard-Rutter-600x900.jpg" alt="Photo of Richard Rutter by Jack Barnes" /><figcaption>Photo by Jack Barnes</figcaption></figure>
 
-<p><span class="opener">I am co-founder of <a href="http://clearleft.com/is/richard-rutter" rel="me">Clearleft</a> and <a href="http://fontdeck.com">Fontdeck</a></span>. I started designing websites way back in 1994. Since founding Clearleft with <a href="http://clearleft.com/is/andy-budd">Andy Budd</a> and <a href="http://clearleft.com/is/jeremy-keith">Jeremy Keith</a>, I’ve retained my role as a user experience designer, working with clients and their customers to translate their ideas into new and improved websites and applications.</p>
 <p>I began my career designing the <abbr>UX</abbr> of web sites for Barclaycard, as well as numerous dot com start ups. I moved on to become the user experience lead at Multimap, Europe’s most popular mapping site, which was acquired by Microsoft.</p>
 <p>At Clearleft my work includes redesigning the Riverford Organics web site, creating a new e-commerce presence for Pearson Education, improving student help for the Open University, designing a radical new location-based search for Gumtree and streamlining Amnesty International’s operations. I am currently redesigning a video-on-demand service for a major broadcaster.</p>
 <p>I was named as one of <cite>Wired <abbr>UK</abbr></cite>’s top 100 digital power brokers.</p>
