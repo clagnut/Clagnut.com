@@ -12,6 +12,7 @@ details, summary, command, menu {
     vertical-align: baseline;
     margin: 0;
     padding: 0;
+    text-rendering: optimizeLegibility;
 }
 
 fieldset, legend, label, input, button, select, textarea, optgroup {
@@ -114,6 +115,7 @@ a:hover img {
 main {
 	background: #c8c3bb;
 	color: #000;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 h1 {
@@ -411,6 +413,10 @@ article header {
 	margin-bottom: 1.5em;
 	padding-left: 2%;
 	padding-right: 2%;
+}
+
+main header h1 {
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 main header nav {
