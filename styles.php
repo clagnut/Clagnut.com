@@ -12,7 +12,7 @@ include_once($dr . "writing_header.inc.php");
 
 <section>
 
-<p>This document is a guide to the mark-up styles used throughout the site. In particular it's a check that all likely mark-up is styled appropriately.</p>
+<p>This document is a guide to the mark-up styles used throughout the site. In particular it&#8217;s a check that all likely mark-up is styled appropriately.</p>
 
 <h2 id="sections">Sections (a Level 2 Heading)</h2>
 
@@ -132,12 +132,12 @@ p q r s t u v w x y z { | } ~ </samp></pre>
 
 <h3>Figures</h3>
 
-<p>Figures are usually used to refer to images</p>
+<p>Figures are usually used to refer to images.</p>
 
     <figure>
         <img src="http://lorempixum.com/320/200/abstract/?r" alt="Example image"/>
         <figcaption>
-            This is a placeholder image, with supporting caption.
+            This is a placeholder image, with supporting caption
         </figcaption>
     </figure>
 
@@ -146,9 +146,16 @@ p q r s t u v w x y z { | } ~ </samp></pre>
     <figure class="fullbleed">
         <img src="http://lorempixum.com/1200/300/abstract/?r" alt="Example image"/>
         <figcaption>
-            This is a full bleed placeholder image, with supporting caption.
+            This is a full bleed placeholder image, with supporting caption
         </figcaption>
     </figure>
+
+<figure class="inline">
+    <img src="http://lorempixum.com/200/300/abstract/?r" alt="Example image"/>
+    <figcaption>
+        This is an <code>inline</code> figure
+    </figcaption>
+</figure> 
 
 <p>Here, a part of a poem is marked up using figure:</p>
 
@@ -160,7 +167,8 @@ p q r s t u v w x y z { | } ~ </samp></pre>
         <figcaption>
             <p><cite>Jabberwocky</cite> (first verse). Lewis Carroll, 1832-98</p>
         </figcaption>
-    </figure>
+    </figure>   
+
 
 <h2 id="text">Text-level Semantics</h2>
 
@@ -202,7 +210,7 @@ p q r s t u v w x y z { | } ~ </samp></pre>
 
 <h3>Code</h3>
 
-<p>The <code>code</code> element is used to represent fragments of computer code as we've seen through this page. Here it is used in conjunction with the <code>pre</code> element:</p>
+<p>The <code>code</code> element is used to represent fragments of computer code as we&#8217;ve seen through this page. Here it is used in conjunction with the <code>pre</code> element:</p>
 
 <pre><code>function getJelly() {
     echo $aDeliciousSnack;

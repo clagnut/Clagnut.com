@@ -630,7 +630,7 @@ article.post figure.inline {
 }
 
 figure.inline figcaption {
-	text-align: center;
+	margin-left: 2px;
 }
 
 article.post figure {
