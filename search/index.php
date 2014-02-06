@@ -122,8 +122,7 @@ if ($q) {
 <div class="meta">
 
 <form action="/search/" method="get">
-<input type="search" name="q" value="<?php echo $q ?>" />
-<input type="submit" value="Search" />
+<input type="search" name="q" value="<?php echo $q ?>" size="30" /><input type="submit" value="Search" />
 </form>
 
 </div>
