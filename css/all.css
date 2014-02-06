@@ -250,7 +250,7 @@ i, em, cite, q, var, dfn, blockquote, figcaption, caption {
 }
 
 pre, code, kbd, tt, samp {
-	font-family: "Droid Sans Mono", "Andale Mono", consolas, monospace;
+	font-family: Consolas, Menlo, "Droid Sans Mono", "Andale Mono", monospace;
 	font-size-adjust: 0.488;
 	color: rgba(0,0,96,1);
 }
