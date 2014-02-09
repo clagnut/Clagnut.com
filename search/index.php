@@ -148,11 +148,11 @@ if (!isset($errorcode) AND $num_results > 0) {
 			$blog_id = $myblog["blog_id"];
 			$blogdate = $myblog["blogdate"];
 			$postdate = $myblog["postdate"];
-			$description = $myblog["description"];
-			$maincontent = $myblog["maincontent"];
+			$description = stripslashes($myblog["description"]);
+			$maincontent = stripslashes($myblog["maincontent"]);
 			$filename = $myblog["filename"];
 			
-			$title = format($myblog["title"]);
+			$title = format(stripslashes($myblog["title"]));
 			$title = str_replace(array("<p>","</p>"),array("",""),$title);
 			
 			$description = makeDescription($maincontent,$description);

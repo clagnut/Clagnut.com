@@ -60,7 +60,7 @@ body {
 	font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "liga" 1, "calt" 0; 
 }
 
-h2, h3, h4, h5, h6, footer.global, sup, sub, table {
+h2, h3, h4, h5, h6, footer.global, sup, sub, table, .tel {
 	-moz-font-feature-settings:"lnum" 1;
 	-ms-font-feature-settings:"lnum" 1;
 	-o-font-feature-settings:"lnum" 1;
@@ -104,12 +104,12 @@ a, a img {
 }
 
 a:hover {
-	background-color: rgba(255,255,255,0.5);
-	box-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
+	background-color: rgb(227, 224, 220);
+	box-shadow: 0px 0px 0 3px rgb(227, 224, 220), 0px 0px 6px 3px rgba(0,0,0, 0.1);
 }
 
 a:hover img {
-	box-shadow: 0px 0px 5px rgba(255, 255, 255, 1);
+	box-shadow: 0px 0px 0 3px rgb(227, 224, 220), 0px 0px 6px 3px rgba(0,0,0, 0.1);
 }
 
 main {
@@ -347,8 +347,8 @@ header.global h1 {
 	top: 3rem;
 	padding: 0.5em 1.5em;
 	opacity: 0;
-	-webkit-transition:opacity 0.5s;
-	transition:opacity 0.5s;
+	-webkit-transition:opacity 0.35s;
+	transition:opacity 0.35s;
 	z-index: 10;
 }
 
@@ -543,7 +543,7 @@ blockquote {
 	border-left:2px solid rgba(255,255,255,0.5);
 }
 
-article.post blockquote p+p {
+article.post blockquote p+p, p+figure.inline+p {
 	margin-top: 0;
 	text-indent: 1.5em;
 }
@@ -636,6 +636,10 @@ article.post figure.inline {
 	width: 29.5%;
 	text-align: left;
 	padding: 0;
+}
+
+article.post p+figure.inline {
+	margin-top: 0;
 }
 
 figure.inline figcaption {
@@ -1070,12 +1074,7 @@ main.archive header  {
 
 
 
-@media only screen and (min-width: 62em) {
-
-	main.post, main.archive {
-		width: 73.25%;
-		min-width: 56em;
-	}
+@media only screen and (min-width: 62em) and (min-height: 38em) {
 	
 	h1 {
 		font-size: 6rem;
@@ -1085,6 +1084,16 @@ main.archive header  {
 		font-size: 2.5rem;
 	}
 	
+}
+
+
+
+@media only screen and (min-width: 62em) {
+
+	main.post, main.archive {
+		width: 73.25%;
+		min-width: 56em;
+	}	
 }
 
 
@@ -1176,6 +1185,15 @@ main.archive header  {
 	    right: auto;
 	    text-align: center;
 	    width: auto;
+	}
+	
+	article.post p+figure.inline {
+		margin-top: 1em;
+	}
+	
+	p+figure.inline+p {
+		text-indent: 0;
+		margin-top: 1em;
 	}
 	
 	article.post .tags ul {
@@ -1348,7 +1366,7 @@ main.archive header  {
 		clear: right;
 	}
 	
-	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article header {
+	article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article header, article.post figure.inline {
 		padding-left: 1%;
 		padding-right:2%;
 	}

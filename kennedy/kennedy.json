@@ -1,6 +1,64 @@
 {"kennedy":[
   {
     "city" : "Brighton",
+    "fuzzyTime" : "twenty to four",
+    "captureDate" : "2014-02-09 15:41:08",
+    "newsHeadline" : "Barclays customer data 'stolen'        ",
+    "longitude" : "-0.11526230",
+    "day" : "Sunday",
+    "venueName" : "Kemp Town",
+    "text" : "Taking a very windy walk along the seafront the with the family.",
+    "latitude" : "50.81837973",
+    "timeOfDay" : "afternoon",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-26106138#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "imageFilename" : "1391960612.457470.jpg",
+    "weather" : "Scattered Clouds",
+    "venueID" : "4b058846f964a520cebb22e3",
+    "rss" : [
+      {
+        "title" : "We made mistake on floods - Pickles  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26106290#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Jones claims historic British medal  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/winter-olympics\/26056289"
+      },
+      {
+        "title" : "Giraffe killed despite campaign  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26098935#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Swiss immigration vote 'split 50-50'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26108597#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Bushfires sweep south-east Australia  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-26107272#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Barclays customer data 'stolen'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26106138#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Scheme to get the sick back to work  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26105246#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Mortar fire as UN aid reaches Homs  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-26110121#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Dead boy's dad 'had battled floods'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-surrey-26108777#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Pickles defends minister over cleaner  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-26108028#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
+    "city" : "Brighton",
     "fuzzyTime" : "twenty to three",
     "captureDate" : "2014-01-29 14:39:51",
     "newsHeadline" : "UK 'to act with urgency' on Syrians  \n      ",
