@@ -69,11 +69,11 @@ function getpost($blog_id) {
 
 			$postdate = $myblog["postdate"];
 			$enable_comments = $myblog["enable_comments"];
-			$title_raw = $myblog["title"];
-			$description_raw = $myblog["description"];
+			$title_raw = stripslashes($myblog["title"]);
+			$description_raw = stripslashes($myblog["description"]);
 			#$mainimage_src = $myblog["mainimage_src"];
 			#$mainimage_alt_raw = $myblog["mainimage_alt"];
-			$maincontent_raw = $myblog["maincontent"];
+			$maincontent_raw = stripslashes($myblog["maincontent"]);
 			$blogdate = $myblog["blogdate"];
 			$unixdate = $myblog["unixdate"];
 			$tags = $myblog["tags"];
@@ -82,7 +82,7 @@ function getpost($blog_id) {
 			$title = str_replace(array("<p>","</p>"),array("",""),$title);
 			$headtitle = strip_tags($title);
 			$googletitle = str_replace(" ",",",$headtitle);
-			$maincontent = format(stripslashes($maincontent_raw));
+			$maincontent = format($maincontent_raw);
 			$description = makeDescription($maincontent_raw,$description_raw);
 
 			$time_since_posted = time() - strtotime($blogdate);
