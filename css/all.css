@@ -904,6 +904,7 @@ section.live .twitter {
 	width: 45.653992395%;
 	padding-right: 4.346007605%;
 	float: left;
+	clear: left;
 }
 
 section.live .lastfm, section.live .kennedy, section.live .thisismyjam {
