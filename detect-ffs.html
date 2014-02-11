@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Opentype Test</title>
+<style>
+span.opentype-test {
+font-family: Corbel;
+font-size: 100px;
+position: absolute;
+visibility: hidden;
+}
+span.opentype-test.test {
+-moz-font-feature-settings: 'tnum=1';
+-webkit-font-feature-settings: 'tnum' 1;
+-moz-font-feature-settings: 'tnum' 1;
+-ms-font-feature-settings: 'tnum' 1;
+-o-font-feature-settings: 'tnum' 1;
+font-feature-settings: 'tnum' 1;
+}
+</style>
+<script>
+supportsFFS = function() {
+var span = document.createElement('span');
+span.appendChild(document.createTextNode('1'));
+span.className = 'opentype-test';
+document.getElementsByTagName('html')[0].appendChild(span);
+var controlWidth = span.offsetWidth;
+span.className += ' test';
+var testWidth = span.offsetWidth;
+document.getElementsByTagName('html')[0].removeChild(span);
+return (controlWidth != testWidth)? true : false;
+}
+document.write(supportsFFS()? 'I support font-feature-settings :-)' : 'I don&rsquo;t support font-feature settings :-(');
+</script>
+</head>
+<body>
+</body>
+</html>
