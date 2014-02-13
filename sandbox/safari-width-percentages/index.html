@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Testing Widths Set in Percentages with Safari</title>
+<style>
+@import url("/sandbox/basic.css");
+
+h4 {
+	margin: 1em 0 0 0.25em;
+}
+
+.bbox {
+	width: 1000px;
+	border: 1px solid #000;
+}
+
+.box {
+	background: rgba(0,0,0,0.5);
+	pbackground: #fff;
+	height: 10px;
+}
+
+.ex1 .box {
+	width: 50%;
+}
+
+.ex2 .box {
+	width: 50.9%;
+}
+
+.ex3 .box {
+	width: 50.4%;
+}
+
+.ex4 .box {
+	width: 33.333%;
+}
+
+.ex5 .box {
+	width: 66.667%;
+}
+
+.ex8 .box, .ex6 .box, .ex7 .box {
+	width: 97.99%;
+}
+
+.bbbox {
+	width: 97.99%;	
+}
+
+.ex1 {
+	background: url('firefox1.png') repeat-y left top;
+}
+
+.ex2 {
+	background: url('firefox2.png') repeat-y left top;
+}
+
+.ex3 {
+	background: url('firefox3.png') repeat-y left top;
+}
+
+.ex4 {
+	background: url('firefox4.png') repeat-y left top;
+}
+
+.ex5 {
+	background: url('firefox5.png') repeat-y left top;
+}
+
+.ex6 {
+	background: url('firefox6.png') repeat-y left top;
+}
+
+.ex7 {
+	background: url('firefox7.png') repeat-y left top;
+}
+
+.ex8 {
+	background: url('firefox8.png') repeat-y left top;
+}
+</style>
+</head>
+<body>
+<h1>Testing Widths Set in Percentages with Safari</h1>
+
+<h4>50%</h4>
+<div class="bbox ex1">
+<div class="box">
+</div>
+</div>
+
+<h4>50.9%</h4>
+<div class="bbox ex2">
+<div class="box">
+</div>
+</div>
+
+<h4>50.4%</h4>
+<div class="bbox ex3">
+<div class="box">
+</div>
+</div>
+
+<h4>33.333%</h4>
+<div class="bbox ex4">
+<div class="box">
+</div>
+</div>
+
+<h4>66.667%</h4>
+<div class="bbox ex5">
+<div class="box">
+</div>
+</div>
+
+<h4>97.99%</h4>
+<div class="bbox ex8">
+<div class="box">
+</div>
+</div>
+
+<h4>97.99%  in 97.99%</h4>
+<div class="bbox ex6">
+	<div class="bbbox">
+		<div class="box">
+		</div>
+	</div>
+</div>
+
+<h4>97.99%  in 97.99%  in 97.99%  in 97.99%  in 97.99%  in 97.99% in 97.99%</h4>
+<div class="bbox ex7">
+	<div class="bbbox">
+		<div class="bbbox">
+			<div class="bbbox">
+				<div class="bbbox">
+					<div class="bbbox">
+						<div class="bbbox">
+							<div class="box">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
