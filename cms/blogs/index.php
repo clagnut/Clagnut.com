@@ -55,7 +55,7 @@ $myblog = mysql_fetch_array($result);
 if($myblog) { // checks if any blogs have been returned from database
     echo "<ol>";
 	do { // prints an blog's details
-		$title = $myblog["title"];
+		$title = stripslashes($myblog["title"]);
 		if ($title=="") {$title="&nbsp;__&nbsp;";}
 		printf("<li value='%s'>[<a href=\"%s?del=1&id=%s\" onclick=\"return confirm('Are you sure you want to delete this post?')\">del</a>]
 	     <a href=\"editblog.php?id=%s\">%s</a> %s</li>\n", $myblog["blog_id"],
