@@ -192,7 +192,7 @@ function getpost($blog_id) {
 			# build the finished search term
 			$tagsforsearch = str_replace(array("geotagged", "booktagged") , "" , $tags);
 			$tagsforsearch = str_replace(array(",,", ", ,") , "" , $tagsforsearch);
-			$searchterm = addslashes(strip_tags($title . ". " . $tagsforsearch . ". " . $description));
+			$searchterm = addslashes(strip_tags($title . ". " . $tagsforsearch));
 			$tagsforboolean = str_replace(","," >",$tagsforsearch);
 			$tagsforboolean = str_replace("> ",">",$tagsforboolean);
 			$tagsforboolean = ">" . addslashes($tagsforboolean);
@@ -202,7 +202,6 @@ function getpost($blog_id) {
 	
 
 			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, title, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,tags,maincontent) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
-			#echo $sql;
 			
 			$result = mysql_query($sql);
 			

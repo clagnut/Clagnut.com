@@ -115,7 +115,6 @@ a:hover img, a:active img {
 main {
 	background: #c8c3bb;
 	color: #000;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 h1 {
@@ -236,6 +235,7 @@ h1, .home header h2 {
 	-o-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
 	-webkit-font-feature-settings:	"calt" 1, "onum" 0, "lnum" 1;
 	font-feature-settings:			"calt" 1, "onum" 0, "lnum" 1; 
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 h2, h3, h4, h5, h6, b, strong, ins, th, dt {
