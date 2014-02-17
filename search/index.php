@@ -31,7 +31,7 @@ $error[3] = "Sorry, I couldn’t find any matches for ‛<strong>$q</strong>’.
 
 if (!isset($errorcode)) {
 	# fulltext search
-	$sql="SELECT filename, blog_id, title, description, maincontent, content_type, blogdate, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,description,tags,maincontent) AGAINST ('$q') AND live='y' AND blogdate < NOW() AND content_type='blog' LIMIT 50";
+	$sql="SELECT filename, blog_id, title, description, maincontent, content_type, blogdate, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,tags,description,maincontent) AGAINST ('$q') AND live='y' AND blogdate < NOW() AND content_type='blog' LIMIT 50";
 	$fulltext_results=mysql_query($sql);
 	$num_results=mysql_num_rows($fulltext_results);
 }
@@ -52,7 +52,7 @@ if (!isset($errorcode) OR $errorcode == 3) {
 	$cats_keywords_result=mysql_query($sql);
 
 	# match categories based on search results
-	$sql="SELECT category, categorys.filename AS category_filename, (MATCH (title,description,tags,maincontent) AGAINST ('$q')) as score FROM blogs, categorys_blogs, categorys WHERE categorys.category_id =categorys_blogs.category_id AND blogs.blog_id = categorys_blogs.blog_id AND MATCH (title,description,tags,maincontent) AGAINST ('$q') AND blogdate < NOW() AND live='y' LIMIT 50";	
+	$sql="SELECT category, categorys.filename AS category_filename, (MATCH (title,tags,description,maincontent) AGAINST ('$q')) as score FROM blogs, categorys_blogs, categorys WHERE categorys.category_id =categorys_blogs.category_id AND blogs.blog_id = categorys_blogs.blog_id AND MATCH (title,tags,description,maincontent) AGAINST ('$q') AND blogdate < NOW() AND live='y' LIMIT 50";	
 	$cats_fulltext_result=mysql_query($sql);
 	
 	# build up array of categories and their scores
