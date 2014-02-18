@@ -86,9 +86,9 @@ $result = mysql_query($sql);
 if ($myblog = mysql_fetch_array($result)) {
 	do {
 		$postdate = $myblog["postdate"];
-		$maincontent = $myblog["maincontent"];
-		$description = $myblog["description"];
-		$title = format($myblog["title"]);
+		$maincontent = stripslashes($myblog["maincontent"]);
+		$description = stripslashes($myblog["description"]);
+		$title = format(stripslashes($myblog["title"]));
 		$title = str_replace(array("<p>","</p>"),array("",""),$title);
 		$id = $myblog["blog_id"];
 		$blogdate[$id] = $postdate;
@@ -179,9 +179,9 @@ $result = mysql_query($sql);
 if ($myblog = mysql_fetch_array($result)) {
 	do {
 		$postdate = $myblog["postdate"];
-		$maincontent = $myblog["maincontent"];
-		$description = $myblog["description"];
-		$title = format($myblog["title"]);
+		$maincontent = stripslashes($myblog["maincontent"]);
+		$description = stripslashes($myblog["description"]);
+		$title = format(stripslashes($myblog["title"]));
 		$title = str_replace(array("<p>","</p>"),array("",""),$title);
 		
 		$id = $myblog["blog_id"];

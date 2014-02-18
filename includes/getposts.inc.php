@@ -201,7 +201,7 @@ function getpost($blog_id) {
 			//echo $sql;
 	
 
-			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, title, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,tags,maincontent) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
+			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, title, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,tags,description) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
 			
 			$result = mysql_query($sql);
 			
