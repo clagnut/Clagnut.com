@@ -206,7 +206,7 @@ function getpost($blog_id) {
 			$result = mysql_query($sql);
 			
 			if ($myblog = mysql_fetch_array($result)) {
-				$related_posts = "";
+				$related_posts = "<ul class='articles'>";
 				do {
 				
 					$rp_id = $myblog["blog_id"];
@@ -220,13 +220,16 @@ function getpost($blog_id) {
 						$post_isodate[$rp_id] = $myblog["unixdate"];
 						$post_categories[$rp_id] = get_blog_cats($rp_id);
 					}
-					$related_posts .= "<article>
+					$related_posts .= "<li><article>
 					<p class='date'><time datetime='$post_isodate[$rp_id]'>$rp_postdate</time></p>
 					<h1><a href='/blog/$rp_id'>$post_headtitle[$rp_id]</a></h1>
 					<p class='categories'>$post_categories[$rp_id]</p>
-					</article>";
+					</article></li>";
 					
 				} while ($myblog = mysql_fetch_array($result));
+				
+				$related_posts .= "</ul>";
+				
 			} else {
 				$related_posts = "<p>No related posts. Browse the <a href=\"/archive/\">Blog archive</a>.</p>";
 			}
