@@ -795,6 +795,10 @@ aside.tags p.comment {
 }
 
 .articles li {
+	display: table;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	break-inside: avoid-column;				
 }
 
 .relatedposts article {
