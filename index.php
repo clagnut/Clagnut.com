@@ -137,23 +137,23 @@ echo stripslashes($homeflickr);
 
 <section class="cluster relatedposts latestposts">
 	<h2><span>Latest Posts</span></h2>
-	
+	<ul class='articles'>
 	<?php
 	
 	foreach ($blogpostids AS $key => $blogpostid) {
 		if ($key > 0 && $key < count($blogpostids)) {
 			getpost($blogpostid);
-			echo "<article>\n";
+			echo "<li><article>\n";
 			echo "	<p class=\"date\">\n";
 			echo "		<time datetime=\"" . $post_isodate[$blogpostid] . " \">" . $post_postdate[$blogpostid] . " </time>\n";
 			echo "	</p>\n";
 			echo "	<h1><a href=\"/blog/" . $blogpostid . "/\" rel=\"bookmark\">" . $post_title[$blogpostid] . " </a></h1>\n";
 			echo "	<p class=\"categories\">" . $post_categories[$blogpostid] . " </p>\n";
-			echo "</article>\n";
+			echo "</article></li>\n";
 		}
 	}
 	?>
-	
+	</ul>
 
 </section>
 
