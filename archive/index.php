@@ -163,7 +163,7 @@ if ($category_filter) {
 </div>
 </header>
 
-<section class="relatedposts archive">
+<section class='articles'>
 
 <?php		
 	if ($category_filter) {
@@ -193,16 +193,18 @@ if ($myblog = mysql_fetch_array($result)) {
 }
 
 if (isset($blogdate)) {
-# Print individual post title and descriptions
+	echo "<ul>\n";
+	# Print individual post title and descriptions
 	foreach($post_postdate AS $blogpostid => $date) {
-		echo "<article>\n";
+		echo "<li><article>\n";
 		echo "	<p class=\"date\">\n";
 		echo "		<time datetime=\"" . $post_isodate[$blogpostid] . " \">" . $post_postdate[$blogpostid] . " </time>\n";
 		echo "	</p>\n";
 		echo "	<h1><a href=\"/blog/" . $blogpostid . "/\" rel=\"bookmark\">" . $post_title[$blogpostid] . " </a></h1>\n";
 		echo "	<p class=\"summary\">" . $post_description[$blogpostid] . " </p>\n";
-		echo "</article>\n";
+		echo "</article></li>\n";
 	}
+	echo "</ul>";
 } else {
 	if ($category_filter) {
 		echo "<p>I haven&#8217;t posted any blog entries in this category.</p>";

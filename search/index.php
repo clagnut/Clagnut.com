@@ -129,7 +129,7 @@ if ($q) {
 
 </header>
 
-<section class="relatedposts archive">
+<section class="articles">
 
 <?php		
 	
@@ -143,6 +143,7 @@ if (!isset($errorcode) AND $num_results > 0) {
 	// Print search results
 	mysql_data_seek($fulltext_results,0);
 	if ($myblog = mysql_fetch_array($fulltext_results)) {
+		echo "<ul>\n";
 		do {
 			$content_type = $myblog["content_type"];
 			$blog_id = $myblog["blog_id"];
@@ -157,15 +158,16 @@ if (!isset($errorcode) AND $num_results > 0) {
 			
 			$description = makeDescription($maincontent,$description);
 		
-			echo "<article>\n";
+			echo "<li><article>\n";
 			echo "	<p class=\"date\">\n";
 			echo "		<time datetime=\"" . $blogdate . " \">" . $postdate . " </time>\n";
 			echo "	</p>\n";
 			echo "	<h1><a href=\"/blog/" . $blog_id . "/\" rel=\"bookmark\">" . $title . " </a></h1>\n";
 			echo "	<p class=\"summary\">" . $description . " </p>\n";
-			echo "</article>\n";
+			echo "</article></li>\n";
 			
 		} while ($myblog = mysql_fetch_array($fulltext_results));
+		echo "</ul>\n";
 	}
 }
 

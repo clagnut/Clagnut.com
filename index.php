@@ -71,11 +71,9 @@ echo stripslashes($homeflickr);
 ?>
 </article>
 
-<br style="clear:both"/>
 
 <section class="live">
-
-<section class="cluster twitter">
+	<section class="cluster twitter">
 	<h2><span><a href="http://twitter.com/clagnut" rel="me"><img src="/i/icon-twitter.png" alt="Follow me on Twitter" title="@clagnut" class="icon" /></a> @clagnut</span></h2>
 		 
 		 
@@ -89,8 +87,8 @@ echo stripslashes($homeflickr);
 	?>
 
 </section>
-
-<section class="cluster lastfm">
+	<div class="ambient"> <!-- td -->
+		<section class="cluster lastfm">
 	<h2><span><a href="http://www.last.fm/user/clagnut" rel="me"><img src="/i/icon-lastfm.png" alt="Last.fm" title="Last.fm" class="icon" /></a> Listening</span></h2>		 
 	
 	<?php
@@ -101,8 +99,7 @@ echo stripslashes($homeflickr);
 	?>
 	
 </section>	
-
-<section class="cluster kennedy">
+		<section class="cluster kennedy">
 	<h2><span><a href="http://kennedyapp.com"><img src="/i/icon-kennedy.png" alt="Kennedy App" title="Kennedy App" class="icon" /></a> A Moment</span></h2>		 
 		 	
 
@@ -122,8 +119,7 @@ echo stripslashes($homeflickr);
 	</article>
 	
 </section>	
-
-<section class="cluster thisismyjam">
+		<section class="cluster thisismyjam">
 	<h2><span><a href="https://www.thisismyjam.com/clagnut"><img src="/i/icon-jam.png" alt="ThisIsMyJam" title="ThisIsMyJam" class="icon" rel="me" /></a> Current Jam</span></h2>		 
 		 
 	<article>
@@ -132,10 +128,9 @@ echo stripslashes($homeflickr);
 	</article>	
 	
 </section>	
-
-</section> <!-- /live -->
-
-<section class="cluster relatedposts latestposts">
+	</div>
+	<div class="mylatest">
+		<section class="cluster latestposts">
 	<h2><span>Latest Posts</span></h2>
 	<ul class='articles'>
 	<?php
@@ -156,8 +151,7 @@ echo stripslashes($homeflickr);
 	</ul>
 
 </section>
-
-<section class="gallery cluster latestphotos">
+		<section class="gallery cluster latestphotos">
 	<h2><span><a href="http://flickr.com/photos/clagnut" rel="me"><img src="/i/icon-flickr" alt="Flickr" title="Flickr" class="icon" /></a> Latest Photos</span></h2>
 	
 	<?php
@@ -166,6 +160,8 @@ echo stripslashes($homeflickr);
 		echo stripslashes($latestflickr);
 	}
 	?>
+</section>
+	</div>
 </section>
 
 </main>
