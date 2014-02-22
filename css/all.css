@@ -150,6 +150,10 @@ header.global a:hover, footer.global a:hover {
 	box-shadow: none;
 }
 
+.gallery figure {
+	background: #62605d;
+}
+
 img.icon {
 	border-radius: 0;
 }
@@ -205,7 +209,7 @@ footer.global {
 	background-color: #c8c3bb;
 }
 
-aside.tags {
+aside.tags, .post .gallery {
 	border-top: 2px solid rgba(0,0,0,0.33);
 }
 
@@ -482,9 +486,8 @@ ol ol, ol ul, ul ul, ul ol {
 	margin-bottom: 0;
 }
 
-article.post section ul p, article.post section ol p, article.post section figure p {
-	padding-left: 0;
-	padding-right: 0;
+figure {
+	margin: 1em 0;
 }
 
 dt {
@@ -593,13 +596,17 @@ article.post section+section::before {
 	margin-bottom: 1.5em;
 }
 
-
 article table, .twitter p {
 	-moz-hyphens:auto;
 	-ms-hyphens:auto;
 	-o-hyphens:auto;
 	-webkit-hyphens:auto;
 	hyphens:auto;
+}
+
+article.post section ul p, article.post section ol p, article.post section figure p {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article.post pre, dl {
@@ -659,10 +666,6 @@ figure.inline figcaption {
 	margin-left: 2px;
 }
 
-article.post figure {
-	margin: 1em 0;
-}
-
 section > figure:first-child {
 	margin-top: 0;
 }
@@ -696,30 +699,33 @@ aside {
 }
 
 .gallery figure {
-	float: left;
-	width: 32%;
-	padding-right: .666666666%;
-	padding-left: .666666666%;
 	position: relative;
 	text-align: center;
-	background: #62605d;
+	margin: 0;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	break-inside: avoid;
 }
 
-.gallery figure:before {
-	content: "";
-	display: block;
-	padding-top: 75%; 	/* initial ratio of 4:3*/
+.gallery figure+figure {
+	margin: 1em 0;
 }
-
 
 .gallery figure a {
 	display: block;
-	position:  absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	width: 100%;
+	position: relative;
+	height: 0;
+	padding: 75% 0 0 0;
 	overflow: hidden;
+}
+
+.gallery figure img {
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: 0;
+	margin: auto;
 }
 
 .gallery figcaption, .favephoto figcaption {
@@ -731,32 +737,21 @@ aside {
 	color: #fff;
 	transition:	all 0.35s linear;
 	text-align: center;
-}
-
-.gallery figure:nth-of-type(3n+1) {
-	clear: left;
-}
-
-.gallery figure:nth-of-type(3n+1) a, .gallery figure:nth-of-type(3n+1) figcaption {
-	right: 2.666666667%;
-}
-
-.gallery figure:nth-of-type(3n+2) a, .gallery figure:nth-of-type(3n+2) figcaption {
-	right: 1.333333333%;
-	left: 1.333333333%;
-}
-
-.gallery figure:nth-of-type(3n+3) a, .gallery figure:nth-of-type(3n+3) figcaption {
-	left: 2.666666667%;
-}
-
-.gallery figure img {
-	width: 100%;
+	padding-left: .375em;
+	padding-right: .375em;
 }
 
 .gallery figure:hover figcaption, .favephoto figure:hover figcaption {
 	opacity: 0;
 	font-size: 0;
+}
+
+.post .gallery {
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+	padding-top: 0.5em;
+	margin-top: 1em;
 }
 
 aside.tags {
@@ -876,6 +871,7 @@ p.date {
 	width: 46%;
 	padding: 0 2%;
 	position: relative;
+	top: -0.5em;
 }
 
 .favephoto {
@@ -891,6 +887,7 @@ p.date {
 
 .favephoto figure {
 	position: relative;
+	margin: 0;
 }
 
 .newestpost p.date {
@@ -994,36 +991,16 @@ a.jam-image {
 	width: auto;
 }
 
-.latestphotos.gallery {
+.latestphotos, .thisismyjam, .twitter {
+	padding-bottom: 0;
+}
+
+.latestphotos .gallery {
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
 	margin: 0;
 }
-.latestphotos.gallery figure {
-	width: 49%;
-	padding-right: 0;
-	padding-left: 0;
-	border: 0;
-	margin-top: 3em;
-	margin-bottom: 0em;
-	margin-left: -1px;
-	margin-right: 0;
-	clear: none;
-}
-
-.latestphotos.gallery figure {
-	margin-left: 0;
-	margin-top: 0.75em;
-	margin-bottom: 0.75em;
-}
-
-.latestphotos figure:nth-of-type(2n) {
-	left:2%;
-}
-
-.gallery.latestphotos figure a, .gallery.latestphotos figure figcaption {
-	left: 0;
-	right: 0;
-}
-
 
 /* @end */
 

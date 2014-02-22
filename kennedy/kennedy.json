@@ -1,5 +1,60 @@
 {"kennedy":[
   {
+    "city" : "London",
+    "fuzzyTime" : "twenty to seven",
+    "captureDate" : "2014-02-21 18:41:26",
+    "newsHeadline" : "Home routers hit by security bugs  \n      ",
+    "longitude" : "-0.05439876",
+    "day" : "Friday",
+    "latitude" : "51.42735895",
+    "text" : "On a train with my fellow Lefties heading back from The Story 2014.",
+    "timeOfDay" : "evening",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/technology-26287517#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "rss" : [
+      {
+        "title" : "Ukraine rivals agree early election  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26289318#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Brooks: Personal life 'a car crash'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26284764#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Police probe into patient deaths  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-26295470#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "GB men miss out on curling gold  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/winter-olympics\/26287263"
+      },
+      {
+        "title" : "Atos seeks work tests contract exit  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-26287199#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Five lose housing benefit cut appeal  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26288112#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "No charges for Alps arrest man  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26290147#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Flood damage 'was preventable'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26284047#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Farage: I'll debate Clegg on Europe  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26287197#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Machete 'rampage' murderer gets life  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-south-yorkshire-26288789#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ],
+    "weather" : "Mostly Cloudy"
+  },
+  {
     "city" : "Brighton",
     "fuzzyTime" : "twenty to four",
     "captureDate" : "2014-02-09 15:41:08",

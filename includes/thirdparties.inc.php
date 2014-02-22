@@ -85,10 +85,10 @@ function makeFlickr() {
 	$machinetags = $post_machinetags[$blog_id];
 	$clagnut_mtag = urlencode($machinetags[0]);
 	
-	$per_page = 12;
+	$per_page = 9;
 	// $url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$clagnut_mtag&per_page=9";
-	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&$per_page=12&sort=interestingness-desc";
-	#echo "<p><a href='$url'>Flickr API call</a></p>";
+	$url = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bcb1e44260364b1bf6294f00a4cd1cb4&tags=$clagnut_mtag&sort=interestingness-desc&extras=url_m&per_page=$per_page&format=rest";
+	// echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
 
@@ -102,10 +102,13 @@ function makeFlickr() {
 				foreach ($photos as $photo) {
 				
 					$flickr_id = $photo -> getAttribute("id");
-				
+					$flickr_width = $photo -> getAttribute("width_m");
+					$flickr_height = $photo -> getAttribute("height_m");
+					$fixaspect = ($flickr_height/$flickr_width < 0.75)?"style='width:auto; max-width:none; height:100%' ":"";
+					
 					$flickrMarkup .= "<figure class='photo'><a href=\"http://www.flickr.com/photos/clagnut/";
 					$flickrMarkup .= $photo -> getAttribute("id");
-					$flickrMarkup .= "/\"><img ";
+					$flickrMarkup .= "/\"><img " . $fixaspect;
 					$flickrMarkup .= "src=\"http://static.flickr.com/";
 					$flickrMarkup .= $photo -> getAttribute("server");
 					$flickrMarkup .= "/";
@@ -148,7 +151,7 @@ function getlatestFlickr() {
 function makelatestFlickr() {
 	$latestflickrMarkup = "";
 
-	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&sort=date-posted-desc&per_page=4";
+	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&sort=date-posted-desc&per_page=4&extras=url_m";
 	//echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
@@ -160,10 +163,13 @@ function makelatestFlickr() {
 			$photos = $doc -> getElementsByTagName("photo");
 			if ($photos) {
 				foreach ($photos as $photo) {
+					$flickr_width = $photo -> getAttribute("width_m");
+					$flickr_height = $photo -> getAttribute("height_m");
+					$fixaspect = ($flickr_height/$flickr_width < 0.75)?"style='width:auto; max-width:none; height:100%' ":"";
 				
 					$latestflickrMarkup .= "<figure class=\"photo\"><a href=\"http://www.flickr.com/photos/clagnut/";
 					$latestflickrMarkup .= $photo -> getAttribute("id");
-					$latestflickrMarkup .= "/\"><img ";
+					$latestflickrMarkup .= "/\"><img " . $fixaspect;
 					$latestflickrMarkup .= "src=\"http://static.flickr.com/";
 					$latestflickrMarkup .= $photo -> getAttribute("server");
 					$latestflickrMarkup .= "/";

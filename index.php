@@ -156,17 +156,17 @@ echo stripslashes($homeflickr);
 		</ul>
 	
 	</section>
-			<section class="gallery cluster latestphotos">
+			<section class="cluster latestphotos">
 		<h2><span><a href="http://flickr.com/photos/clagnut" rel="me"><img src="/i/icon-flickr" alt="Flickr" title="Flickr" class="icon" /></a> Latest Photos</span></h2>
-		
+		<div class="gallery">
 		<?php
 		getlatestFlickr();
 		if (isset($latestflickr)) {
 			echo stripslashes($latestflickr);
 		}
 		?>
-	</section>
 		</div>
+	</section>
 	</div>
 </section>
 
