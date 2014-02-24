@@ -87,7 +87,7 @@ function makeFlickr() {
 	
 	$per_page = 9;
 	// $url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$clagnut_mtag&per_page=9";
-	$url = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bcb1e44260364b1bf6294f00a4cd1cb4&tags=$clagnut_mtag&sort=interestingness-desc&extras=url_m&per_page=$per_page&format=rest&privacy_filter=1";
+	$url = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&sort=interestingness-desc&extras=url_m&per_page=$per_page&format=rest&privacy_filter=1";
 	// echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
