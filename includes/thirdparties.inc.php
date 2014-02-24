@@ -151,7 +151,7 @@ function getlatestFlickr() {
 function makelatestFlickr() {
 	$latestflickrMarkup = "";
 
-	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&sort=date-posted-desc&per_page=4&extras=url_m";
+	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&sort=date-posted-desc&per_page=4&extras=url_m&privacy_filter=1";
 	//echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
@@ -176,7 +176,7 @@ function makelatestFlickr() {
 					$latestflickrMarkup .= $photo -> getAttribute("id");
 					$latestflickrMarkup .= "_";
 					$latestflickrMarkup .= $photo -> getAttribute("secret");
-					$latestflickrMarkup .= "_m.jpg\" alt=\"Photo\" /></a><figcaption>";
+					$latestflickrMarkup .= "_n.jpg\" alt=\"Photo\" /></a><figcaption>";
 					$latestflickrMarkup .= htmlentities($photo -> getAttribute("title"));
 					$latestflickrMarkup .= "</figcaption></figure>\n";
 								}
