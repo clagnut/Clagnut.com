@@ -91,16 +91,14 @@ echo stripslashes($maincontent);
 </section>
 
 
-
-
-<aside class="gallery group">
-	<?php		
-	getFlickr();
-	if (isset($flickr)) {
-		echo stripslashes($flickr);
-	}
-	?>
-</aside>
+<?php		
+getFlickr();
+if (isset($flickr)) {
+	echo "<aside class=\"gallery group\">";
+	echo stripslashes($flickr);
+	echo "</aside>";
+}
+?>
 
 
 <aside class="tags group">	
