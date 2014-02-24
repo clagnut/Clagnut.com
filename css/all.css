@@ -559,7 +559,7 @@ blockquote {
 	border-left:2px solid rgba(255,255,255,0.5);
 }
 
-article.post blockquote p+p, p+figure.inline+p {
+article.post blockquote p + blockquote p, p+figure.inline+p {
 	margin-top: 0;
 	text-indent: 1.5em;
 }
