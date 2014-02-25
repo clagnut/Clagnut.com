@@ -1271,40 +1271,6 @@ main.archive header  {
 		margin-right:0;
 	}
 	
-	.gallery figure {
-		width: 48.666666663%;
-	}
-	
-	.gallery figure:nth-of-type(3n+1) {
-		clear: none;
-	}
-	
-	.gallery figure:nth-of-type(2n+1) {
-		clear: left;
-	}
-	
-	.gallery figure:nth-of-type(3n+1) a, .gallery figure:nth-of-type(3n+1) figcaption {
-		right: 0;
-	}
-	
-	.gallery figure:nth-of-type(3n+2) a, .gallery figure:nth-of-type(3n+2) figcaption {
-		right: 0;
-		left: 0;
-	}
-	
-	.gallery figure:nth-of-type(3n+3) a, .gallery figure:nth-of-type(3n+3) figcaption {
-		left: 0;
-	}
-	
-	.gallery figure:nth-of-type(2n+1) a, .gallery figure:nth-of-type(2n+1) figcaption {
-		right: 2%;
-	}
-	
-	.gallery figure:nth-of-type(2n+2) a, .gallery figure:nth-of-type(2n+2) figcaption {
-		left: 2%;
-		right: 0;
-	}
-	
 	.relatedposts .articles, .latestposts .articles {
 		-moz-column-count: auto;
 		-webkit-column-count: auto;
@@ -1371,6 +1337,18 @@ main.archive header  {
 	
 	.ambient .cluster {
 		padding-top: 1.5em;
+	}
+	
+	.post .gallery {
+		-moz-column-count: 2;
+		-webkit-column-count: 2;
+		column-count: 2;
+		padding-top: 0.5em;
+		margin-top: 1em;
+	}
+	
+	.post .gallery figure {
+		margin-bottom: 1em;
 	}
 }
 

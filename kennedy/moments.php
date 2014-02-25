@@ -71,7 +71,7 @@ function formatMoment($moment) {
 	$weather = (isset($fuzzyWeather[$moment['weather']]))?$fuzzyWeather[$moment['weather']]:"";
 	$time = str_replace("o' clock", "o’clock", $moment['fuzzyTime']);
 	$momentMarkup .= "<p>At " . $time . " on a " . $weather . "<br/>\n";
-	$place = (isset($moment['venueName']))?$moment['venueName']:$moment['city'];
+	$place = (isset($moment['venueName']) && $moment['venueName']!="None")?$moment['venueName']:$moment['city'];
 	$momentMarkup .= $moment['day'] . " " . $moment['timeOfDay'] . " in <i>" . $place . "</i>,<br/>\n";
 	if(isset($moment['text'])) {
 		$text = lcfirst($moment['text']);
