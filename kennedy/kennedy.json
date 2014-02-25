@@ -1,15 +1,72 @@
 {"kennedy":[
   {
+    "city" : "Brighton",
+    "fuzzyTime" : "twenty to four",
+    "captureDate" : "2014-02-23 15:38:01",
+    "newsHeadline" : "Ukraine appoints interim president        ",
+    "longitude" : "-0.13747147",
+    "day" : "Sunday",
+    "venueName" : "None",
+    "text" : "Walking by Devils Dyke with all the family",
+    "latitude" : "50.83722465",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26312008#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "timeOfDay" : "afternoon",
+    "imageFilename" : "1393169908.775545.jpg",
+    "weather" : "Partly Cloudy",
+    "rss" : [
+      {
+        "title" : "Ukraine appoints interim president  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26312008#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Afghan troops die in Taliban attack  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-26312095#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Russian gold seals top medal haul  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/winter-olympics\/26070597"
+      },
+      {
+        "title" : "Morsi 'leaked secrets to Iran'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-26314356#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Cameron and Salmond focus on energy  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-north-east-orkney-shetland-26303932#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Last of Trapp Family Singers dies  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-26311694#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Deadly attacks hit rallies in Thailand  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-26311828#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "PMQs 'hits politics' reputation'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26311315#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "G20 targets extra economic growth  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/business-26312338#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Red Tractor stamp for ready meals  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26314663#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
     "city" : "London",
     "fuzzyTime" : "twenty to seven",
     "captureDate" : "2014-02-21 18:41:26",
-    "newsHeadline" : "Home routers hit by security bugs  \n      ",
+    "newsHeadline" : "Ukraine rivals agree early election        ",
     "longitude" : "-0.05439876",
     "day" : "Friday",
     "latitude" : "51.42735895",
     "text" : "On a train with my fellow Lefties heading back from The Story 2014.",
     "timeOfDay" : "evening",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/technology-26287517#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26289318#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "Ukraine rivals agree early election  \n      ",
