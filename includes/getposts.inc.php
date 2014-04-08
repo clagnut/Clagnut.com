@@ -63,7 +63,7 @@ function getpost($blog_id) {
 
 			// pull blog from database
 
-			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, enable_comments, title, description, mainimage_src, mainimage_alt, maincontent, tags, DATE_FORMAT(blogdate,'%D %M %Y') AS postdate FROM blogs WHERE blog_id = $blog_id AND content_type='blog'";
+			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, enable_comments, title, description, mainimage_src, mainimage_alt, maincontent_textile, maincontent, tags, DATE_FORMAT(blogdate,'%D %M %Y') AS postdate FROM blogs WHERE blog_id = $blog_id AND content_type='blog'";
 			$result = mysql_query($sql);
 			$myblog = mysql_fetch_array($result);
 
@@ -73,6 +73,7 @@ function getpost($blog_id) {
 			$description_raw = stripslashes($myblog["description"]);
 			#$mainimage_src = $myblog["mainimage_src"];
 			#$mainimage_alt_raw = $myblog["mainimage_alt"];
+			$maincontent_textile = $myblog["maincontent_textile"];
 			$maincontent_raw = stripslashes($myblog["maincontent"]);
 			$blogdate = $myblog["blogdate"];
 			$unixdate = $myblog["unixdate"];
@@ -82,7 +83,7 @@ function getpost($blog_id) {
 			$title = str_replace(array("<p>","</p>"),array("",""),$title);
 			$headtitle = strip_tags($title);
 			$googletitle = str_replace(" ",",",$headtitle);
-			$maincontent = format($maincontent_raw);
+			$maincontent = format($maincontent_raw, $maincontent_textile);
 			$description = makeDescription($maincontent_raw,$description_raw);
 
 			$time_since_posted = time() - strtotime($blogdate);
@@ -291,7 +292,7 @@ function getpost($blog_id) {
 
 			$contents = '
 			<?php
-			global $post_title, $post_headtitle, $post_mainimage, $post_maincontent, $post_description, $post_categories, $post_tags, $post_machinetags, $post_postdate, $post_isodate, $post_older, $post_oldertitle, $post_recent, $post_recenttitle, $post_related_posts, $post_enable_comments, $post_comments_expired, $post_numcomments, $post_referrers, $post_map;
+			global $post_title, $post_headtitle, $post_mainimage, $post_maincontent, $post_description, $post_categories, $post_tags, $post_machinetags, $post_postdate, $post_isodate, $post_older, $post_oldertitle, $post_recent, $post_recenttitle, $post_related_posts, $post_enable_comments, $post_comments_expired, $post_numcomments, $post_referrers, $post_map, $post_maincontent_textile;
 			$post_title['.$blog_id.'] = "' . addslashes($title) . '";
 			$post_headtitle['.$blog_id.'] = "' . addslashes($headtitle) . '";
 			$post_maincontent['.$blog_id.'] = "' . addslashes($maincontent) . '";
@@ -307,6 +308,7 @@ function getpost($blog_id) {
 			$post_recenttitle['.$blog_id.'] = "'. addslashes($recenttitle) . '";
 			$post_related_posts['.$blog_id.'] = "'. addslashes($related_posts) . '";
 			$post_map['.$blog_id.'] = "'. addslashes($map) . '";
+			$post_maincontent_textile['.$blog_id.'] = "'. addslashes($maincontent_textile) . '";
 			?>';
 
 			// write to file

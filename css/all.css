@@ -19,9 +19,12 @@ fieldset, legend, label, input, button, select, textarea, optgroup {
 	font-family: inherit;
 }
 
-img {
+img, iframe {
 	max-width: 100%;
 	vertical-align: bottom;
+}
+
+img {
 	border-radius: 0.125em;
 }
 [title] {

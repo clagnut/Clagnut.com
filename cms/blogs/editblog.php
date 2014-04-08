@@ -27,6 +27,7 @@ $description = (isset($_REQUEST["description"]))?$_REQUEST["description"]:"";
 $maincontent = (isset($_REQUEST["maincontent"]))?$_REQUEST["maincontent"]:"";
 $mainimage_src = (isset($_REQUEST["mainimage_src"]))?$_REQUEST["mainimage_src"]:"";
 $mainimage_alt = (isset($_REQUEST["mainimage_alt"]))?$_REQUEST["mainimage_alt"]:"";
+$maincontent_textile = (isset($_REQUEST["maincontent_textile"]))?$_REQUEST["maincontent_textile"]:"";
 $category_ids = (isset($_REQUEST["category_ids"]))?$_REQUEST["category_ids"]:"";
 $tags = (isset($_REQUEST["tags"]))?$_REQUEST["tags"]:"";
 $submitAdd = (isset($_REQUEST["submitAdd"]))?$_REQUEST["submitAdd"]:"";
@@ -46,8 +47,8 @@ if ($submitAdd && !$submitPreview) {
 		$blogdate = "'$blogdate'";
 	}
 	$sql = "INSERT INTO blogs
-	(blog_id,title,description,mainimage_src, mainimage_alt, maincontent, blogdate,content_type,enable_comments,tags)
-	VALUES ('$id', '$title', '$description', '$mainimage_src', '$mainimage_alt', '$maincontent', $blogdate, 'blog', '$enable_comments', '$tags')";
+	(blog_id,title,description,mainimage_src, mainimage_alt, maincontent, blogdate,content_type,enable_comments,tags,maincontent_textile)
+	VALUES ('$id', '$title', '$description', '$mainimage_src', '$mainimage_alt', '$maincontent', $blogdate, 'blog', '$enable_comments', '$tags','$maincontent_textile')";
 	$result = mysql_query($sql);
 	if (mysql_affected_rows() > 0) {
 		$id = mysql_insert_id();
@@ -100,7 +101,7 @@ if (preg_match("/[0-9]+/",$id)) {
 			$blogdate = "'".$blogdate."'";
 		}
 	    $sql = "UPDATE blogs SET
-	    title='$title', blogdate=$blogdate, description='$description', maincontent='$maincontent', mainimage_src='$mainimage_src', mainimage_alt='$mainimage_alt', enable_comments='$enable_comments', tags='$tags'
+	    title='$title', blogdate=$blogdate, description='$description', maincontent='$maincontent', mainimage_src='$mainimage_src', maincontent_textile='$maincontent_textile', mainimage_alt='$mainimage_alt', enable_comments='$enable_comments', tags='$tags'
 	    WHERE blog_id='$id'";
 		#echo "<textarea>".htmlentities($sql)."</textarea>";
 		$result = mysql_query($sql);
@@ -122,7 +123,7 @@ if (preg_match("/[0-9]+/",$id)) {
 
 	// pull blog from database
 	if (!$submitPreview) {
-		$sql = "SELECT title, enable_comments, description, maincontent, mainimage_src, mainimage_alt, blogdate, tags, DATE_FORMAT(blogdate, '%e %b %Y at %H:%i') AS date FROM blogs WHERE blog_id=$id";
+		$sql = "SELECT title, enable_comments, description, maincontent, maincontent_textile, mainimage_src, mainimage_alt, blogdate, tags, DATE_FORMAT(blogdate, '%e %b %Y at %H:%i') AS date FROM blogs WHERE blog_id=$id";
 		$result = mysql_query($sql);
 		if ($myblog = mysql_fetch_array($result)) {;
 			$blogdate = $myblog["blogdate"];
@@ -130,6 +131,7 @@ if (preg_match("/[0-9]+/",$id)) {
 			$title = $myblog["title"];
 			$description = $myblog["description"];
 			$maincontent = $myblog["maincontent"];
+			$maincontent_textile = $myblog["maincontent_textile"];
 			$mainimage_src = $myblog["mainimage_src"];
 			$mainimage_alt = $myblog["mainimage_alt"];
 			$tags = $myblog["tags"];
@@ -269,6 +271,13 @@ if (!$error) {
 	echo "/>yes</label>";
 	echo "<label><input type='radio' name='enable_comments' value='no' ";
 	if ($enable_comments == "no") {echo "checked='checked'";}
+	echo  "/>no</label>";
+	echo "</p>";
+	echo "<p>Textile enabled? <label><input type='radio' name='maincontent_textile' value='y' ";
+	if ($maincontent_textile != "n") {echo "checked='checked'";}
+	echo "/>yes</label>";
+	echo "<label><input type='radio' name='maincontent_textile' value='n' ";
+	if ($maincontent_textile == "n") {echo "checked='checked'";}
 	echo  "/>no</label>";
 	echo "</p>";
 	echo "<p>Description:<br>";

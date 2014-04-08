@@ -7,6 +7,7 @@ if (get_magic_quotes_gpc()) {
 }
 
 include($dr . "textile.php");
+include($dr . "markdown.php");
 
 function preformat($text) {
 	if (preg_match("/^<p>/",$text)){
@@ -18,135 +19,156 @@ function preformat($text) {
 	return $text;
 }
 
-function format($text) {
+function format($text, $textile="y") {
+
 	$text = preformat($text);
-	$text = textile($text);
+
+	if($textile=="y") {
+		$text = textile($text);
+		
+		# get amazon store
+		$amz_dest = (isset($_COOKIE["amz_dest"]))? $_COOKIE["amz_dest"] : "uk";
+		$amz_affil["uk"] = array(".co.uk", "jalfrezi-21", "UK and the rest of Europe");
+		$amz_affil["ca"] = array(".ca", "clagnut0d-20", "Canada");
+		$amz_affil["com"] = array(".com", "clagnut-20", "US and the rest of the world");
+		
+		$search = array (
+			"<p><p",
+			"</p></p>",
+			"<p>newsection</p>",
+			"newsection<br />",
+			"<p><address",
+			"</address></p>",
+			"<p><form",
+			"</form></p>",
+			"<p><dl",
+			"</dl></p>",
+			"<p><table",
+			"<table><br />",
+			"</table></p>",
+			"</table><br />",
+			"</tr><br />",
+			"</th><br />",
+			"</td><br />",
+			"</thead><br />",
+			"</tfoot><br />",
+			"</tbody><br />",
+			"</caption><br />",
+			" title=\"\"",
+			"<pre>",
+			"</pre>",
+			"<p><a imglink",
+			"<p><ai imglink",
+			 "<p><imgi",
+			"<p><img ",
+			"<li><ai imglink",
+			"<imgi ",
+			"<p><div",
+			"</div></p>",
+			"<p>&#8224;",
+			"<p>&#8225;",
+			"<p><ul",
+			"</ul></p>",
+			"</li><br />",
+			"<p><dl",
+			"</dt><br />",
+			"</dd><br />",
+			"</dl><br />",
+			"<p><ol",
+			"</ol></p>",
+			"<p><script",
+			"</script></p>",
+			"<br />\n<li>",
+			"amazon.co.uk",
+			"Amazon.co.uk",
+			"jalfrezi-21",
+			"<p>[firefoxad]</p>",
+			"<p><object",
+			"<p><h3",
+			"</h3></p>",
+			"<p><h2",
+			"</h2></p>");
+		$replace = array (
+			"<p",
+			"</p>",
+			"</section>\n<section>",
+			"</section>\n<section>",
+			"<address",
+			"</address>",
+			"<form",
+			"</form>",
+			"<dl",
+			"</dl>",
+			"<table",
+			"<table>",
+			"</table>",
+			"</table>",
+			"</tr>",
+			"</th>",
+			"</td>",
+			"</thead>",
+			"</tfoot>",
+			"</tbody>",
+			"</caption>",
+			"",
+			"<pre><code>",
+			"</code></pre>",
+			"<figure><a",
+			"<figure class='inline'><a",
+			"<figure class='inline'><img",
+			"<figure><img ",
+			"<li><a class='inline'",
+			"<img ",
+			"<div",
+			"</div>",
+			"<p class='footnote'>&#8224;",
+			"<p class='footnote'>&#8225;",
+			"<ul",
+			"</ul>",
+			"</li>",
+			"<dl",
+			"</dt>",
+			"</dd>",
+			"</dl>",
+			"<ol",
+			"</ol>",
+			"<script",
+			"</script>",
+			"\n<li>",
+			"amazon".$amz_affil[$amz_dest][0],
+			"Amazon".$amz_affil[$amz_dest][0],
+			$amz_affil[$amz_dest][1],
+			"<div style='float:left; width:125px; margin:0 1em 0.5em 0'><script type='text/javascript'>google_ad_client='pub-0245469311642720'; google_ad_width = 125; google_ad_height = 125; google_ad_format = '125x125_as_rimg'; google_cpa_choice = 'CAAQveHnzwEaCEiH5iXPqf1SKJe193M'; </script><script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script></div>",
+			"<p class='imgholder'><object",
+			"<h3",
+			"</h3>",
+			"<h2",
+			"</h2>");
+		$text = str_replace($search, $replace, $text);
+		
+		$search = array ("/<figure(.*?)<\/p>/is", "/<p class='imgholder inline'>(.*?)<\/p>/is", "/<p class=\"imgholder inline\">(.*?)<\/p>/is", "/<p class='imgholder'>(.*?)<\/p>/is", "/<figcaption><br \/>/is", "/<\/figure><\/figure>/is", "/<p><figure>/is", "/<code><code>/is", "/<\/code><\/code>/is");
+		$replace = array ("<figure$1</figure>", "<figure class='inline'>$1</figure>", "<figure class='inline'>$1</figure>", "<figure>$1</figure>", "<figcaption>", "</figure>", "<figure>", "<code>", "</code>");
+		$text = preg_replace($search, $replace, $text);
+	} else {
 	
-	# get amazon store
-	$amz_dest = (isset($_COOKIE["amz_dest"]))? $_COOKIE["amz_dest"] : "uk";
-	$amz_affil["uk"] = array(".co.uk", "jalfrezi-21", "UK and the rest of Europe");
-	$amz_affil["ca"] = array(".ca", "clagnut0d-20", "Canada");
-	$amz_affil["com"] = array(".com", "clagnut-20", "US and the rest of the world");
+		$text = markdown($text);
+		$text = smartypants($text);
+		$search = array (
+			"<p>newsection</p>",
+			"newsection<br />",
+			"<p><figure></p>",
+			"<p></figure></p>",
+			);
+		$replace = array (
+			"</section>\n<section>",
+			"</section>\n<section>",
+			"<figure>",
+			"</figure>",
+			);
+		$text = str_replace($search, $replace, $text);
 	
-	$search = array (
-		"<p><p",
-		"</p></p>",
-		"<p>newsection</p>",
-		"newsection<br />",
-		"<p><address",
-		"</address></p>",
-		"<p><form",
-		"</form></p>",
-		"<p><dl",
-		"</dl></p>",
-		"<p><table",
-		"<table><br />",
-		"</table></p>",
-		"</table><br />",
-		"</tr><br />",
-		"</th><br />",
-		"</td><br />",
-		"</thead><br />",
-		"</tfoot><br />",
-		"</tbody><br />",
-		"</caption><br />",
-		" title=\"\"",
-		"<pre>",
-		"</pre>",
-		"<p><a imglink",
-		"<p><ai imglink",
-		 "<p><imgi",
-		"<p><img ",
-		"<li><ai imglink",
-		"<imgi ",
-		"<p><div",
-		"</div></p>",
-		"<p>&#8224;",
-		"<p>&#8225;",
-		"<p><ul",
-		"</ul></p>",
-		"</li><br />",
-		"<p><dl",
-		"</dt><br />",
-		"</dd><br />",
-		"</dl><br />",
-		"<p><ol",
-		"</ol></p>",
-		"<p><script",
-		"</script></p>",
-		"<br />\n<li>",
-		"amazon.co.uk",
-		"Amazon.co.uk",
-		"jalfrezi-21",
-		"<p>[firefoxad]</p>",
-		"<p><object",
-		"<p><h3",
-		"</h3></p>",
-		"<p><h2",
-		"</h2></p>");
-	$replace = array (
-		"<p",
-		"</p>",
-		"</section>\n<section>",
-		"</section>\n<section>",
-		"<address",
-		"</address>",
-		"<form",
-		"</form>",
-		"<dl",
-		"</dl>",
-		"<table",
-		"<table>",
-		"</table>",
-		"</table>",
-		"</tr>",
-		"</th>",
-		"</td>",
-		"</thead>",
-		"</tfoot>",
-		"</tbody>",
-		"</caption>",
-		"",
-		"<pre><code>",
-		"</code></pre>",
-		"<figure><a",
-		"<figure class='inline'><a",
-		"<figure class='inline'><img",
-		"<figure><img ",
-		"<li><a class='inline'",
-		"<img ",
-		"<div",
-		"</div>",
-		"<p class='footnote'>&#8224;",
-		"<p class='footnote'>&#8225;",
-		"<ul",
-		"</ul>",
-		"</li>",
-		"<dl",
-		"</dt>",
-		"</dd>",
-		"</dl>",
-		"<ol",
-		"</ol>",
-		"<script",
-		"</script>",
-		"\n<li>",
-		"amazon".$amz_affil[$amz_dest][0],
-		"Amazon".$amz_affil[$amz_dest][0],
-		$amz_affil[$amz_dest][1],
-		"<div style='float:left; width:125px; margin:0 1em 0.5em 0'><script type='text/javascript'>google_ad_client='pub-0245469311642720'; google_ad_width = 125; google_ad_height = 125; google_ad_format = '125x125_as_rimg'; google_cpa_choice = 'CAAQveHnzwEaCEiH5iXPqf1SKJe193M'; </script><script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script></div>",
-		"<p class='imgholder'><object",
-		"<h3",
-		"</h3>",
-		"<h2",
-		"</h2>");
-	$text = str_replace($search, $replace, $text);
-	
-	$search = array ("/<figure(.*?)<\/p>/is", "/<p class='imgholder inline'>(.*?)<\/p>/is", "/<p class=\"imgholder inline\">(.*?)<\/p>/is", "/<p class='imgholder'>(.*?)<\/p>/is", "/<figcaption><br \/>/is", "/<\/figure><\/figure>/is", "/<p><figure>/is", "/<code><code>/is", "/<\/code><\/code>/is");
-	$replace = array ("<figure$1</figure>", "<figure class='inline'>$1</figure>", "<figure class='inline'>$1</figure>", "<figure>$1</figure>", "<figcaption>", "</figure>", "<figure>", "<code>", "</code>");
-	$text = preg_replace($search, $replace, $text);
-	
-	
+	}
+		
 	$text = trim($text);
 	
 	return $text;
