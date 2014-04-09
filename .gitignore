@@ -6,3 +6,6 @@ photos
 mint
 wendyandrichard
 .zip
+*.xml
+
+feeds/fullposts.xml

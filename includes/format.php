@@ -158,12 +158,16 @@ function format($text, $textile="y") {
 			"newsection<br />",
 			"<p><figure></p>",
 			"<p></figure></p>",
+			"<p><figure",
+			"</p>\n\n<figcaption>",
 			);
 		$replace = array (
 			"</section>\n<section>",
 			"</section>\n<section>",
 			"<figure>",
 			"</figure>",
+			"<figure",
+			"<figcaption>",
 			);
 		$text = str_replace($search, $replace, $text);
 	
