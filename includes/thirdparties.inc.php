@@ -3,7 +3,7 @@
 function includeCache($service, $cachewait) {
 	global $dr, $blog_id, $$service;
 	
-	if (!$blog_id OR $blog_id == "") {
+	if (!$blog_id OR $blog_id == "" OR $blog_id === "") {
 		$blog_id = "home";
 	}
 
@@ -86,8 +86,8 @@ function makeFlickr() {
 	$clagnut_mtag = urlencode($machinetags[0]);
 	
 	$per_page = 9;
-	// $url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$clagnut_mtag&per_page=9";
-	$url = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&sort=interestingness-desc&extras=url_m&per_page=$per_page&format=rest&privacy_filter=1";
+	// $url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=$clagnut_mtag&per_page=9";
+	$url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&tags=$clagnut_mtag&sort=interestingness-desc&extras=url_m&per_page=$per_page&format=rest&privacy_filter=1";
 	// echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
@@ -151,8 +151,8 @@ function getlatestFlickr() {
 function makelatestFlickr() {
 	$latestflickrMarkup = "";
 
-	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&sort=date-posted-desc&per_page=4&extras=url_m&privacy_filter=1";
-	//echo "<p><a href='$url'>Flickr API call</a></p>";
+	$url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&sort=date-posted-desc&per_page=4&extras=url_m&privacy_filter=1";
+	# echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
 
@@ -210,7 +210,7 @@ function getHomeFlickr() {
 function makeHomeFlickr() {
 	$homeFlickrMarkup = "";
 
-	$url = "http://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=fave&sort=date-taken-desc&per_page=1";
+	$url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a13e51b5034d53e70b00b1cb6856fece&user_id=27616775%40N00&tags=fave&sort=date-taken-desc&per_page=1";
 	//echo "<p><a href='$url'>Flickr API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
@@ -232,7 +232,7 @@ function makeHomeFlickr() {
 			}
 		}
 		/*
-		$url = "http://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=a13e51b5034d53e70b00b1cb6856fece&photo_id=$photoid";
+		$url = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=a13e51b5034d53e70b00b1cb6856fece&photo_id=$photoid";
 		// echo "<p><a href='$url'>Flickr API call</a></p>";
 		$doc = new DOMDocument();							
 

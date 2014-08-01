@@ -72,11 +72,11 @@ function formatMoment($moment) {
 	$time = str_replace("o' clock", "o’clock", $moment['fuzzyTime']);
 	$momentMarkup .= "<p>At " . $time . " on a " . $weather . "<br/>\n";
 	$place = (isset($moment['venueName']) && $moment['venueName']!="None")?$moment['venueName']:$moment['city'];
-	$momentMarkup .= $moment['day'] . " " . $moment['timeOfDay'] . " in <i>" . $place . "</i>,<br/>\n";
+	$momentMarkup .= $moment['day'] . " " . $moment['timeOfDay'] . " in <i>" . $place . "</i>";
 	if(isset($moment['text'])) {
 		$text = lcfirst($moment['text']);
 		$text = preg_replace("/\.$/", "", $text);
-		$momentMarkup .= "<strong>I was " . $text . "</strong>";
+		$momentMarkup .= ", <strong>I was " . $text . "</strong>";
 	}
 	if(isset($moment['song'])) {
 		$momentMarkup .= "<br/>\nwhile listening to " . $moment['artist'] . "’s <cite>" . $moment['song'] . "</cite>.";
@@ -98,7 +98,8 @@ $fuzzyWeather = array(
     "Scattered Clouds" => "slightly cloudy",
     "Partly Cloudy" => "partly cloudy",
     "Mostly Cloudy" => "cloudy",
-    "Light Rain" => "rainy"
+    "Light Rain" => "rainy",
+    "Haze" => "hazy",
 );
 
 ?>
