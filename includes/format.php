@@ -146,8 +146,8 @@ function format($text, $textile="y") {
 			"</h2>");
 		$text = str_replace($search, $replace, $text);
 		
-		$search = array ("/<figure(.*?)<\/p>/is", "/<p class='imgholder inline'>(.*?)<\/p>/is", "/<p class=\"imgholder inline\">(.*?)<\/p>/is", "/<p class='imgholder'>(.*?)<\/p>/is", "/<figcaption><br \/>/is", "/<\/figure><\/figure>/is", "/<p><figure>/is", "/<code><code>/is", "/<\/code><\/code>/is", "/<\/figure><\/p>/is");
-		$replace = array ("<figure$1</figure>", "<figure class='inline'>$1</figure>", "<figure class='inline'>$1</figure>", "<figure>$1</figure>", "<figcaption>", "</figure>", "<figure>", "<code>", "</code>", "</figure>");
+		$search = array ("/<figure(.*?)<\/p>/is", "/<p class='imgholder inline'>(.*?)<\/p>/is", "/<p class=\"imgholder inline\">(.*?)<\/p>/is", "/<p class='imgholder'>(.*?)<\/p>/is", "/<figcaption><br \/>/is", "/<\/figure><\/figure>/is", "/<p><figure>/is", "/<code><code>/is", "/<\/code><\/code>/is");
+		$replace = array ("<figure$1</figure>", "<figure class='inline'>$1</figure>", "<figure class='inline'>$1</figure>", "<figure>$1</figure>", "<figcaption>", "</figure>", "<figure>", "<code>", "</code>");
 		$text = preg_replace($search, $replace, $text);
 	} else {
 	
@@ -158,6 +158,7 @@ function format($text, $textile="y") {
 			"newsection<br />",
 			"<p><figure></p>",
 			"<p></figure></p>",
+			"</figure></p>",
 			"<p><figure",
 			"</p>\n\n<figcaption>",
 			);
@@ -165,6 +166,7 @@ function format($text, $textile="y") {
 			"</section>\n<section>",
 			"</section>\n<section>",
 			"<figure>",
+			"</figure>",
 			"</figure>",
 			"<figure",
 			"<figcaption>",
