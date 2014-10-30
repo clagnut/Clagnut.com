@@ -224,10 +224,11 @@ mark {
 
 /* @group Webfonts */
 
-body, nav, .search form  {
+body, nav, .search form, blockquote em, blockquote cite, blockquote i  {
 	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
 	font-size-adjust: 0.488;
 	font-weight: 500;
+	font-style: normal;
 }
 
 
@@ -254,10 +255,11 @@ h1, .home header h2 {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-h2, h3, h4, h5, h6, b, strong, ins, th, dt {
+h2, h3, h4, h5, h6, b, strong, th, dt {
 	font-family: "Akagi-Bold", "Akagi Bold", "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
 	font-weight: 700;
 	font-size-adjust: 0.492;
+	font-style: normal;
 }
 
 i, em, cite, q, var, dfn, blockquote, figcaption, caption {
@@ -615,6 +617,10 @@ article.post section ul p, article.post section ol p, article.post section figur
 article.post section+section::before, article.post section p, article.post ul, article.post ol, article.post section h1, article.post section h2, h3, h4, h5, h6, article.post pre, dl {
 	padding-left: 2%;
 	padding-right:35.63%;
+}
+
+article.post ul ul, article.post ol ol, article.post ul ol, article.post ol ul {
+	padding: 0;
 }
 
 article.post section p {

@@ -5,7 +5,6 @@
 <title>SXSW 2013 &amp; Web Typography Demo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="css/simple.css">
-<link rel="stylesheet" href="css/swish.css">
 </head>
 
 <body>
