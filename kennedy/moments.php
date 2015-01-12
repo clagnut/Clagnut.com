@@ -3,17 +3,17 @@
 function curlMoments() {
 	global $dr3;
 	$filename = $dr3 . "/kennedy/kennedy.json";
-	
+
 	if (file_exists($filename) && ((time() - filectime($filename) > 900))) {
 		// if file on my server is older than 10 minutes then get the json file again
-	
+
 		# Copy file from Dropbox
-		
+
 		// file handler
 		$file = fopen($filename, 'w');
 		// cURL
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,'https://dl.dropboxusercontent.com/s/zt30sdtg2olyd34/kennedy.json?dl=1&token_hash=AAH3MLZKaIWhJq57Hq-RTf6KFga8gJzrst0NlKjJA3pHIg');
+		curl_setopt($ch, CURLOPT_URL,'https://dl-web.dropbox.com/get/Apps/Kennedy/kennedy.json?w=AACgXqs_6TwI5sYjes6fMOK-Q_D_qOww_NiwO1m921tojQ&dl=1&_subject_uid=286611861');
 		// set cURL options
 		curl_setopt($ch, CURLOPT_FAILONERROR, true);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -25,21 +25,21 @@ function curlMoments() {
 		// close cURL
 		curl_close($ch);
 		// close file
-		
-		
+
+
 		/*
-		
+
 		Unzip
-		
+
 		// assuming file.zip is in the same directory as the executing script.
 		$file = 'kennedy.json.zip';
-		
+
 		// get the absolute path to $file
 		$path = pathinfo(realpath($file), PATHINFO_DIRNAME);
-		
+
 		$zip = new ZipArchive;
 		$res = $zip->open($file);
-		
+
 		if ($res === TRUE) {
 		  // extract it to the path we determined above
 		  $zip->extractTo($path);
@@ -48,7 +48,7 @@ function curlMoments() {
 		} else {
 		  echo "Doh! I couldn't open $file. resv was $res";
 		}
-		
+
 		*/
 	}
 }
@@ -84,10 +84,10 @@ function formatMoment($moment) {
 		$momentMarkup .= ".";
 	}
 	$momentMarkup .= "<br/>\nMeanwhile the news headline read <a href=\"" . $moment['newsURL'] . "\"><q>" . trim($moment['newsHeadline']) . "</q></a>.</p>";
-	
-	
+
+
 	$momentMarkup = SmartyPants($momentMarkup);
-	
+
 	return $momentMarkup;
 }
 
