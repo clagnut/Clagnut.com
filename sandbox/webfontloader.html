@@ -24,11 +24,11 @@ WebFontConfig = { fontdeck: { id: '17222' } };
 </script>
 <style>
 h1 { font-family:"Ingeborg Heavy", "Hoefler Text", Georgia, serif; }
-body { font-family:"Akagi Medium", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+body { font-family:"Akagi Medium", Calibri, "Segoe UI", sans-serif; }
 code { font-family:"Apercu Mono Regular", 'Andale Mono', monospace; }
 
 .wf-loading h1 { font-family:"Hoefler Text", Georgia, serif; }
-.wf-loading body { font-family:Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+.wf-loading body { font-family:Calibri, "Segoe UI", sans-serif; }
 .wf-loading code { font-family:'Andale Mono', monospace; }
 
 .hide-fonts article { opacity:0; }
@@ -99,13 +99,13 @@ WebFontConfig = {
 <p>Write your rules as normal to use the webfonts. For example, this page uses the following:</p>
 
 <pre><code>h1 { font-family:"Ingeborg Heavy", "Hoefler Text", Georgia, serif; }
-body { font-family:"Akagi Medium", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+body { font-family:"Akagi Medium", Calibri, "Segoe UI", sans-serif; }
 code { font-family:"Apercu Mono Regular", "Andale Mono", monospace; }</code></pre>
 
 <p>Then add the same set of rules, this time including the <code>.wf-loading</code> class and removing the webfont from the <code>font-family</code>. This will ensure text is rendered whilst the fonts are loading (albeit in the fallback font):</p>
 
 <pre><code>.wf-loading h1 { font-family:"Hoefler Text", Georgia, serif; }
-.wf-loading body { font-family:Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+.wf-loading body { font-family:Calibri, "Segoe UI", sans-serif; }
 .wf-loading code { font-family:"Andale Mono", monospace; }</code></pre>
 
 <p>The upside of this technique is that users get text to read whilst the fonts are downloading. The downside is that while they are reading the text will change font and the page will reflow, potentially disrupting the reading experience (if the webfonts are a similar shape and size to the fallback fonts, the page reflow may barely be noticeable). If the user's device is fairly slow, the change in font may even be noticeable when fonts are drawn from the browser cache rather than being downloaded. A final tweak can be added to your code to help with this situation - we can hide all the text for, at most, just under a second to give the webfonts a chance to load from the cache (or down a fast pipe).</p>
