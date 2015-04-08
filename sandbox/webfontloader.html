@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Using the webfont loader to speed up perceived page loading</title>
+<script type="text/javascript">
+var htmlEl = document.getElementsByTagName('html')[0];
+htmlEl.className = ' hide-fonts';
+setTimeout(function() {
+    htmlEl.className = htmlEl.className.replace('hide-fonts', '');
+}, 900)
+        
+WebFontConfig = { fontdeck: { id: '17222' } };
+
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();
+</script>
+<style>
+h1 { font-family:"Ingeborg Heavy", "Hoefler Text", Georgia, serif; }
+body { font-family:"Akagi Medium", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+code { font-family:"Apercu Mono Regular", 'Andale Mono', monospace; }
+
+.wf-loading h1 { font-family:"Hoefler Text", Georgia, serif; }
+.wf-loading body { font-family:Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+.wf-loading code { font-family:'Andale Mono', monospace; }
+
+.hide-fonts article { opacity:0; }
+.hide-fonts.wf-active { opacity: 1; }
+
+body {
+	font-weight:500;
+	margin: 1em 5%;
+}
+
+article {
+	max-width: 37em;
+}
+
+h1 {
+	font-size: 2.375em;
+	font-weight:800;
+	line-height: 1;
+}
+
+code {
+	font-size: 0.875em;
+	font-weight: 400;
+}
+</style>
+</head>
+<body>
+<article>
+
+<h1>Using the webfont loader to speed up perceived page loading</h1>
+
+<p>At Fontdeck we recommend you use the open source JavaScript webfont loader to load your fonts. Amongst other things, the webfont loader gives you some control over how webfonts load and render. At its simplest, you implement the webfont loader for your Fontdeck fonts by pasting this script block into the <code>&lt;head&gt;</code> of your page:</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+WebFontConfig = {
+  fontdeck: { id: '17222' } }; // change the project id accordingly
+
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();
+&lt;/script&gt;</code></pre>
+
+<p>The webfont loader asynchronously (without blocking other scripts or page rendering) loads a script from Fontdeck's servers which injects CSS <code>@font-face</code> rules into the web page. The webfont loader then adds classes to the HTML element which dynamically change depending on the loading status of the webfonts.</p>
+
+<ul>
+<li><code>.wf-loading</code> - This class is added when all fonts have been requested.</li>
+<li><code>.wf-active</code> - This class is added when the fonts have rendered (<code>.wf-loading</code> is removed).</li>
+<li><code>.wf-inactive</code> - This class is added if none of the fonts could be loaded (<code>.wf-active</code> is removed).</li>
+</ul>
+
+<p>Internet connectivity varies, so it's always possible that a font will fail to load or load slowly. Because of this, the <code>.wf-inactive</code> class will be triggered after 3 seconds  if the all fonts have failed to render. If at least one font successfully rendered, the <code>.wf-active</code> class will be triggered.</p>
+
+<p>You can change the default timeout by using the timeout option on the WebFontConfig object:</p>
+
+<pre><code>WebFontConfig = {
+  fontdeck: { id: '17222' },
+  timeout: 2000 // Set the timeout to two seconds
+};</code></pre>
+
+<p>Here's the gotcha when it comes to webfont rendering in modern browsers: when a browser detects that a piece of text should be rendered using a webfont, it hides that text until the font has loaded. If the fonts are taking a long time to load, it can be a long time until the reader gets some text to see. We can use the classes set by the webfont loader to alleviate this situation. To do this you'll need to add an extra set of rules to your site's stylesheet.</p>
+
+<p>Write your rules as normal to use the webfonts. For example, this page uses the following:</p>
+
+<pre><code>h1 { font-family:"Ingeborg Heavy", "Hoefler Text", Georgia, serif; }
+body { font-family:"Akagi Medium", Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+code { font-family:"Apercu Mono Regular", "Andale Mono", monospace; }</code></pre>
+
+<p>Then add the same set of rules, this time including the <code>.wf-loading</code> class and removing the webfont from the <code>font-family</code>. This will ensure text is rendered whilst the fonts are loading (albeit in the fallback font):</p>
+
+<pre><code>.wf-loading h1 { font-family:"Hoefler Text", Georgia, serif; }
+.wf-loading body { font-family:Calibri, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+.wf-loading code { font-family:"Andale Mono", monospace; }</code></pre>
+
+<p>The upside of this technique is that users get text to read whilst the fonts are downloading. The downside is that while they are reading the text will change font and the page will reflow, potentially disrupting the reading experience (if the webfonts are a similar shape and size to the fallback fonts, the page reflow may barely be noticeable). If the user's device is fairly slow, the change in font may even be noticeable when fonts are drawn from the browser cache rather than being downloaded. A final tweak can be added to your code to help with this situation - we can hide all the text for, at most, just under a second to give the webfonts a chance to load from the cache (or down a fast pipe).</p>
+
+<p>Add this line to the start of your webfont loader script:</p>
+
+<pre><code>var htmlEl = document.getElementsByTagName('html')[0];
+htmlEl.className = ' hide-fonts';
+setTimeout(function() {
+    htmlEl.className = htmlEl.className.replace('hide-fonts', '');
+}, 900)</code></pre>
+
+<p>Then add these rules to your stylesheet to hide the text for 900ms or until the fonts have loaded (whichever is the sooner):</p>
+
+<pre><code>.hide-fonts { opacity:0; }
+.hide-fonts.wf-active { opacity: 1; }</code></pre>
+
+<p>The page you are currently reading uses these techniques, so you can view source to see how it all ties together.</p>
+<p>The webfont loader also provides control down to individual fonts as well as JavaScript events, which you can learn more about on the <a href="https://github.com/typekit/webfontloader">Github page</a>.</p>
+</article>
+</body>
+</html>
