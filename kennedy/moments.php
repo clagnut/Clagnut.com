@@ -13,7 +13,7 @@ function curlMoments() {
 		$file = fopen($filename, 'w');
 		// cURL
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,'https://dl-web.dropbox.com/get/Apps/Kennedy/kennedy.json?w=AACgXqs_6TwI5sYjes6fMOK-Q_D_qOww_NiwO1m921tojQ&dl=1&_subject_uid=286611861');
+		curl_setopt($ch, CURLOPT_URL,'https://www.dropbox.com/s/pf14uxqwae4oalz/kennedy.json?dl=0');
 		// set cURL options
 		curl_setopt($ch, CURLOPT_FAILONERROR, true);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
