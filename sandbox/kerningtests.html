@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Kerning and letterspacing tests</title>
+<style>
+@font-face {
+  font-family: 'Museo Sans Rounded';
+  src: url('/assets/fonts/MuseoSansRounded-300.woff') format('woff');       
+  font-style:  normal;
+  font-weight: 400;
+}
+body {
+	font-family: 'Museo Sans Rounded', sans-serif;
+	font-size: 4rem;
+	line-height: 0.75;
+}
+p {
+	margin: 0;
+}
+.k {
+	font-kerning:normal;
+}
+.kff {
+  font-feature-settings: "kern" 1;
+  -webkit-font-feature-settings: "kern" 1;
+}
+.ls {
+	letter-spacing: 0.001em;
+}
+.ol {
+	text-rendering: optimizeLegibility;
+}
+</style>
+</head>
+<body>
+<p>AVAILABLE SOON</p>
+<p class="kff">AVAILABLE SOON kff</p>
+<p class="k">AVAILABLE SOON k</p>
+<p class="ls">AVAILABLE SOON ls</p>
+<p class="k ls">AVAILABLE SOON k ls</p>
+<p class="kff ls">AVAILABLE SOON kff ls</p>
+<p class="ol">AVAILABLE SOON ol</p>
+<p class="ol ls">AVAILABLE SOON ol ls</p>
+</body>
+</html>

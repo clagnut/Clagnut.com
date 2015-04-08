@@ -1,0 +1,60 @@
+h1 {
+    font-family: "Ingeborg Heavy", "Hoefler Text", Georgia, "Roboto Slab", serif;
+    font-weight: 800;
+}
+
+body  {
+	font-family: "Akagi Medium", "Segoe UI", "PT Sans", Roboto, sans-serif;
+	font-weight: 500;
+}
+
+.wf-loading h1 {
+	font-family: "Hoefler Text", Georgia, "Roboto Slab", serif;
+}
+
+.wf-loading body  {
+	font-family: "Segoe UI", "PT Sans", Roboto, sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+article {
+	background: #F2EEE9;
+	padding: 2em 0;
+}
+
+section {
+	margin: 0 auto;
+	padding: 1em 2em;
+	max-width: 48em;
+	border: 1px solid #D9D3C7;
+	background: #fff;
+}
+
+h1 {
+	font-size: 48px;
+	text-align: center;	
+	margin-top: 0.5em;
+}
+
+p  {
+	font-size: 18px;
+}
+
+body, header, footer {
+	background-color: #D9D3C7;
+	color: #000;
+}
+
+header {
+	border-bottom: 1px solid #BFB8B0;
+	padding:1em;
+}
+
+footer {
+	border-top: 1px solid #BFB8B0;
+	padding:1em;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Webfont loading test</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+WebFontConfig = { fontdeck: { id: '17222' } };
+
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();
+</script>
+</head>
+<body>
+<header>Header</header>
+<article>
+<section>
+<h1>Webfont Loading Test</h1>
+<p>This page uses the webfont loader.</p>
+</section>
+</article>
+<footer>Footer</footer>
+</body>
+</html>
