@@ -2,15 +2,15 @@ $(document).ready(
 function() {
 	// dim controls
 	$('#controls, #output').addClass("dimmed");
-	
+
 	// hide controls and set heading images to closed
 	$('.group, #font, #otherfont').hide();
 	$('#controls h3').addClass("closed");
-	
+
 	// show typeface selector by default
 	$('#typefacegroup, #projectgroup').toggleClass("closed");
 	$('#typefacegroup, #projectgroup').next(".group").show();
-	
+
 	// show/hide control group
 	$('#controls h3').click(
 		function() {
@@ -18,7 +18,7 @@ function() {
 			$(this).next(".group").slideToggle("fast");
 		}
 	);
-	
+
 	// update changes
 	$("#inputForm").change(
 		function() {
@@ -38,11 +38,12 @@ var defaultOff = [
   'smcp', 'c2sc',
   'lnum', 'onum', 'tnum', 'pnum',
   'frac', 'afrc',
+  'sups', 'subs',
   'zero', 'nalt',
   'kern',
   'liga', 'dlig', 'hlig', 'clig',
   'swsh', 'calt', 'hist', 'salt',
-  'ss01', 'ss02', 'ss03', 'ss04', 'ss05'
+  'ss01', 'ss02', 'ss03', 'ss04', 'ss05','ss06', 'ss07', 'ss08', 'ss09'
 ];
 
 var defaultOn = [];
@@ -53,16 +54,12 @@ function refreshFeatures() {
   var wfeatures = "";
   var f;
   for (f in defaultOn) {
-    if (!document.getElementById(defaultOn[f]).checked) { mfeatures += defaultOn[f] + "=0, "; }
     if (!document.getElementById(defaultOn[f]).checked) { wfeatures += "&quot;" + defaultOn[f] + "&quot; 0, "; }
   }
   for (f in defaultOff) {
-    if (document.getElementById(defaultOff[f]).checked) { mfeatures += defaultOff[f] + "=1, "; }
     if (document.getElementById(defaultOff[f]).checked) { wfeatures += "&quot;" + defaultOff[f] + "&quot; 1, "; }
   }
-  mfeatures = mfeatures.substring(0, mfeatures.length - 2);
   wfeatures = wfeatures.substring(0, wfeatures.length - 2);
-  document.getElementById("mozfeatures").innerHTML = mfeatures;
   document.getElementById("mozfeatures13").innerHTML = wfeatures;
   document.getElementById("msfeatures").innerHTML = wfeatures;
   document.getElementById("ofeatures").innerHTML = wfeatures;
@@ -74,49 +71,49 @@ function refreshFeatures() {
 };
 
 function refreshSample() {
- 
+
   var sample = document.getElementById("sampleText");
- 
+
   italic = document.getElementById("italic").checked ? "italic" : "";
   italicfamily = italic ? "'" + document.getElementById("font").value+" Italic', " : "";
   fontFamily = italicfamily + "'"+document.getElementById("font").value+"'";
   sample.style.fontFamily = fontFamily + ", sans-serif";
   sample.style.fontStyle = italic;
- 
+
   var wfeatures = document.getElementById("webkitfeatures").innerHTML;
- 
+
   if ("MozFontFeatureSettings" in sample.style) {
     // first, reset the property to normal
     sample.style.MozFontFeatureSettings = "normal";
- 
+
     // old Firefox syntax
     var mfeatures = document.getElementById("mozfeatures").innerHTML;
     sample.style.MozFontFeatureSettings = "'" + mfeatures + "'";
- 
+
     // if that failed setting will be "normal", use standard syntax
     if (sample.style.MozFontFeatureSettings == "normal") {
       sample.style.MozFontFeatureSettings = wfeatures;
     }
   }
- 
+
   document.getElementById("w3cfeatures").innerHTML = wfeatures;
   sample.style.msFontFeatureSettings = wfeatures;
   sample.style.oFontFeatureSettings = wfeatures;
   sample.style.WebkitFontFeatureSettings = wfeatures;
   sample.style.FontFeatureSettings = wfeatures;
-}; 
+};
 
 function refreshFont() {
     var typefaceSelect = document.getElementById("typeface");
     if ((typefaceSelect.selectedIndex) == 0) {
         $('#otherfont').show();
     } else {
-        $('#otherfont').hide();    
-        document.getElementById("font").value = typefaceSelect.value;  
+        $('#otherfont').hide();
+        document.getElementById("font").value = typefaceSelect.value;
     }
 }
 
-function refreshOther() {    
+function refreshOther() {
     document.getElementById("font").value = document.getElementById("otherfont").value;
     refreshSample();
 }
@@ -127,12 +124,12 @@ function getFamilies() {
 	var style_rules = fontdeck_style.childNodes[0].nodeValue;
 	var style_rules_ar = style_rules.split("font-family:'");
 	var families = new Array();
-    
+
 	for (var i = 1; i < style_rules_ar.length; i++) {
 		families[i-1] = style_rules_ar[i].split("'")[0];
-    } 
-    
-    return families;  
+    }
+
+    return families;
 }
 
 function initFamilies() {

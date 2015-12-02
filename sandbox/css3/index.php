@@ -1,5 +1,5 @@
 <?php
-$projectid = (isset($_REQUEST["projectid"]))?$_REQUEST["projectid"]:"21000"; 
+$projectid = (isset($_REQUEST["projectid"]))?$_REQUEST["projectid"]:"21000";
 ?>
 <!DOCTYPE html>
 <html>
@@ -93,6 +93,12 @@ Lucky affluent actor asks to feast on giant 10.34" cheese-filled quiche in fjord
 <label><input id="afrc" name="frac" type="radio">Alternate (afrc)</label>
 </div>
 
+<h3>Positioning</h3>
+<div class="group">
+<label><input id="subs" type="checkbox">Superscript/Superiors</label>
+<label><input id="sups" type="checkbox">Subscript/Inferiors</label>
+</div>
+
 <h3>Numeric Extras</h3>
 <div class="group">
 <label><input id="zero" type="checkbox">Slashed Zero (zero)</label>
@@ -114,6 +120,10 @@ Lucky affluent actor asks to feast on giant 10.34" cheese-filled quiche in fjord
 <label><input id="ss03" type="checkbox">Set 3 (ss03)</label>
 <label><input id="ss04" type="checkbox">Set 4 (ss04)</label>
 <label><input id="ss05" type="checkbox">Set 5 (ss05)</label>
+<label><input id="ss06" type="checkbox">Set 6 (ss06)</label>
+<label><input id="ss07" type="checkbox">Set 7 (ss07)</label>
+<label><input id="ss08" type="checkbox">Set 8 (ss08)</label>
+<label><input id="ss09" type="checkbox">Set 9 (ss09)</label>
 </div>
 
 <h3>Reset</h3></h3>
@@ -130,11 +140,9 @@ Lucky affluent actor asks to feast on giant 10.34" cheese-filled quiche in fjord
 <div id="output">
 <p><a href="http://fontdeck.com/typefaces/all/tags/opentype">OpenType-enabled webfonts from Fontdeck</a></p>
 <p class="caveat">No fonts have all OpenType features, so just play around. Try the ligatures first.<strong>
-Only supported in Firefox&nbsp;4+, IE10, Chrome, Safari&nbsp;6+.</strong></p>
+Only supported in Firefox&nbsp;4+, IE&nbsp;10+, Chrome&nbsp;33+, Opera&nbsp;15+.</strong></p>
 <div>
 -moz-font-feature-settings:<span id="mozfeatures13" contenteditable="" onkeyup="refreshSample()"></span>;
-<br />
--moz-font-feature-settings:&quot;<span id="mozfeatures" contenteditable="" onkeyup="refreshSample()"></span>&quot;;
 <br />
 -ms-font-feature-settings:<span id="msfeatures" contenteditable="" onkeyup="refreshSample()"></span>;
 <br />
@@ -144,7 +152,7 @@ Only supported in Firefox&nbsp;4+, IE10, Chrome, Safari&nbsp;6+.</strong></p>
 <br />
 font-feature-settings:<span id="w3cfeatures"></span>;
 </div>
-</div>	
+</div>
 
 
 
