@@ -1,114 +1,479 @@
 {"kennedy":[
   {
-    "newsHeadline" : "Ukraine rebels 'destroy MH17 clues'        ",
+    "fuzzyTime" : "quarter to eleven",
+    "city" : "Brighton",
+    "captureDate" : "2015-11-14 10:43:35",
+    "album" : "Rounds",
+    "newsHeadline" : "'Massacre in Paris'        ",
+    "song" : "My Angel Rocks Back and Forth",
+    "longitude" : "-0.11503523",
+    "day" : "Saturday",
+    "latitude" : "50.81821162",
+    "timeOfDay" : "morning",
+    "uniqueIdentifier" : "2B41384E-36B1-4FD1-A246-7B25425221C4",
+    "artist" : "Four Tet",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/blogs-the-papers-34816261#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "weather" : "Rain",
     "rss" : [
       {
-        "title" : "Ukraine rebels 'destroy MH17 clues'  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Paris attacks were 'act of war by IS'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-34820016#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "UK demands access to MH17 crash site  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28386599#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Cameron 'shocked' by Paris attacks  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-34816571#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "Casualties mount in Gaza conflict  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-28384924#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Paris attacks: Eyewitness accounts  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-34813570#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "UK storms cause further disruption  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28382702#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Children in Need raises record £37m  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/entertainment-arts-34819138#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "Mother's plea over ecstasy death  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-oxfordshire-28363419#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "First refugee charter flight due  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-glasgow-west-34815218#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "Migrants 'suffocate' on Italy boat  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383622#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Grey speed cameras phased out  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-34819171#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "Ex-Speaker Thomas abuse claim inquiry  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-28384108#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Earthquake off Japan's southern coast  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-34816292#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "Murder probe police seek hotel guest  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-humber-28383400#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Eurostar reverses bike storage decision  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-34815867#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "No return to tax and spend - Miliband  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-28381699#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "PM tried to save local police stations  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-34815792#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       },
       {
-        "title" : "Athletes' village bug cases up to 53  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-28383430#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+        "title" : "Russia suspended from athletics  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/athletics\/34811896"
+      }
+    ]
+  },
+  {
+    "city" : "Brighton",
+    "fuzzyTime" : "four o' clock",
+    "captureDate" : "2015-11-08 16:01:59",
+    "album" : "Born Under Saturn",
+    "newsHeadline" : "UK-Egypt ties hit after Russian plane crash        ",
+    "song" : "Shake And Tremble",
+    "longitude" : "-0.11489173",
+    "day" : "Sunday",
+    "latitude" : "50.81828912",
+    "text" : "Baking Anzac biscuits",
+    "timeOfDay" : "afternoon",
+    "uniqueIdentifier" : "FEBBA4CE-065A-4015-A880-14999752EE7E",
+    "artist" : "Django Django",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-34758441#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "imageFilename" : "1446998565.165867.jpg",
+    "weather" : "Partly Cloudy",
+    "rss" : [
+      {
+        "title" : "Remembrance Sunday marked across UK  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-34759280#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Corbyn attacks general in nuclear row  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-34759626#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Airport security 'may need rethink'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-34759152#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Don't 'snub' UK demands, EU warned  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-34759063#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Tata Steel warns suppliers over prices  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/business-34759970#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Counting starts after key Myanmar poll  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-34756381#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Man 'loses hand' in knife attack  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-essex-34760116#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Athletics faces long road - Coe  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/athletics\/34758980"
+      },
+      {
+        "title" : "Texas Chainsaw Massacre villain dies  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/entertainment-arts-34760060#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Critics slate Jolie and Pitt's latest film  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/entertainment-arts-34760052#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
+    "city" : "Brighton",
+    "fuzzyTime" : "ten to twelve",
+    "captureDate" : "2015-05-16 11:49:18",
+    "album" : "The War Room",
+    "newsHeadline" : "Labour contenders set for debate        ",
+    "song" : "Spitfire",
+    "longitude" : "-0.12239031",
+    "day" : "Saturday",
+    "latitude" : "50.81776860",
+    "text" : "Introducing Gracie to her first bike",
+    "timeOfDay" : "morning",
+    "uniqueIdentifier" : "ED48FF8B-5B8E-4C36-8EE6-E9134602CB24",
+    "artist" : "Public Service Broadcasting",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-32761561#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "imageFilename" : "1431773391.157672.jpg",
+    "weather" : "Scattered Clouds",
+    "rss" : [
+      {
+        "title" : "Egypt's Morsi sentenced to death  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-32763215#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "New lead in missing toddler case  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-south-yorkshire-32763397#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Labour discusses Jim Murphy's future  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-scotland-politics-32760196#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Labour contenders set for debate  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-32761561#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Death sentence for Boston bomber  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-32757790#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Amtrak train 'may have been struck'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-32757113#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "PM concern over poppy seller death  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-bristol-32762443#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "New Budget planned for July  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-32761566#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Farage should take a break - Carswell  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-32761766#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Bodies recovered at Nepal crash site  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-32763002#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
+    "city" : "Lewes",
+    "fuzzyTime" : "ten past one",
+    "captureDate" : "2015-04-26 13:11:06",
+    "newsHeadline" : "Britain has 'moral duty' for migrants        ",
+    "longitude" : "0.02564507",
+    "day" : "Sunday",
+    "latitude" : "50.86712787",
+    "text" : "Hanging out with Baby Laurie in Monkey Bizness",
+    "timeOfDay" : "afternoon",
+    "uniqueIdentifier" : "6441C18C-9189-44D0-BB7D-CBC81AD4C71F",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-32471030#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "imageFilename" : "1430050539.015296.jpg",
+    "weather" : "Mostly Cloudy",
+    "rss" : [
+      {
+        "title" : "Nepal quake relief drive intensifies  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-32470731#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Labour plan to cap rental increases  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/election-2015-32468997#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Cameron sets out '100 day' Tory plan  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/election-2015-32470837#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Baltimore protest turns violent  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-32470490#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Music boss tops Britain's rich list  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-32464402#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Russians 'accessed Obama's emails'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-32471408#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Vault owner 'not contacted by police'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-32470501#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Britain has 'moral duty' for migrants  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-32471030#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Dismemberment murder probe continues  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-south-east-wales-32461826#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Deadly protests in Burundi capital  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-africa-32471667#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
+    "fuzzyTime" : "twenty to two",
+    "city" : "Brighton",
+    "captureDate" : "2015-02-14 13:40:32",
+    "album" : "Secret Life",
+    "newsHeadline" : "Battles rage ahead of Ukraine truce        ",
+    "song" : "Apocalypse",
+    "longitude" : "-0.11507548",
+    "day" : "Saturday",
+    "latitude" : "50.81807349",
+    "timeOfDay" : "afternoon",
+    "uniqueIdentifier" : "A4C39D76-1612-43B7-AC92-EF2EE766ADE1",
+    "artist" : "Moon King",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-31470645#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "weather" : "Scattered Clouds",
+    "rss" : [
+      {
+        "title" : "Battles rage ahead of Ukraine truce  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-31470645#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Obese people 'could lose benefits'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-31464897#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Three dead in coach crash on M1  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-beds-bucks-herts-31469329#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Ed Miliband to pursue tax avoiders  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-31468781#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Canada foils 'mass shooting plot'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-31467662#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "HK ferry disaster captain convicted  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-china-31468706#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Forty vehicles in M40 fatal crash  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-oxfordshire-31469145#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "England thrashed in World Cup opener  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/cricket\/31469196"
+      },
+      {
+        "title" : "Boko Haram attacks Nigerian city  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-africa-31469073#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Body of AirAsia flight Briton found  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-humber-31469386#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
+    "fuzzyTime" : "twenty five past ten",
+    "city" : "Brighton",
+    "captureDate" : "2015-01-24 22:25:12",
+    "album" : "Lost In The Dream",
+    "newsHeadline" : "Mourinho 'ashamed' of FA Cup exit        ",
+    "song" : "Red Eyes",
+    "longitude" : "-0.11540914",
+    "day" : "Saturday",
+    "latitude" : "50.81838699",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "2F91D39A-5693-4534-B6B6-5A45D8DCC106",
+    "artist" : "The War On Drugs",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/30969286",
+    "weather" : "Clear",
+    "rss" : [
+      {
+        "title" : "UK Ebola nurse 'happy to be alive'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-30967337#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "UKIP MEP Bashir defects to Tories  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-30967633#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Mourinho 'ashamed' of FA Cup exit  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/30969286"
+      },
+      {
+        "title" : "Japan PM outrage at 'hostage death'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-30966651#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Rockets kill 30 in eastern Ukraine  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-30967949#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "US planes targeted by bomb threats  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-30971220#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "'Machete' killing sparks murder probe  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-gloucestershire-30965046#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "World leaders pay respects in Riyadh  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-30962740#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Aer Lingus 'to accept' new IAG bid  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/business-30967346#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "28 taken to hospital after M4 crash  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-30965592#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
+    "city" : "London",
+    "fuzzyTime" : "twenty five to one",
+    "captureDate" : "2015-01-12 12:37:08",
+    "newsHeadline" : "PM reviews UK risk of Paris attack        ",
+    "longitude" : "-0.22917259",
+    "day" : "Monday",
+    "venueName" : "BBC Broadcast Centre",
+    "text" : "Wishing Gracie a happy 4th birthday (wow, already!)",
+    "latitude" : "51.51440874",
+    "uniqueIdentifier" : "06DED395-3DE8-4483-82A0-F55BD7679C70",
+    "timeOfDay" : "afternoon",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-30772035#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "weather" : "Light Drizzle",
+    "venueID" : "4ae6f275f964a520aba721e3",
+    "rss" : [
+      {
+        "title" : "France to deploy 10,000 troops  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-30774114#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "PM reviews UK risk of Paris attack  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-30772035#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Boyhood takes Golden Globe honours  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/entertainment-arts-30767434#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "'Only 45%' to get full state pension  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/business-30777166#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Apology for 'Muslim Birmingham' claim  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-30773297#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "AirAsia divers recover 'black box'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-30773782#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Cameron warns of 'legacy of debt'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-30773974#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Avengers writer Brian Clemens dies  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-30775352#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Dairy farmers' payment delayed  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-30771288#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Peshawar school reopens after attack  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-30773120#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ]
+  },
+  {
+    "city" : "Brighton",
+    "fuzzyTime" : "twenty to nine",
+    "captureDate" : "2014-09-21 20:38:35",
+    "newsHeadline" : "VIDEO: Lancaster bombers fly over dam        ",
+    "longitude" : "-0.11508919",
+    "day" : "Sunday",
+    "latitude" : "50.81819148",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "21B6A023-7160-4D5A-8036-855CDFE98CB1",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-england-29302170#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "rss" : [
+      {
+        "title" : "No 10 stands by Scots powers pledge  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-29300084#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Global protests over climate change  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/science-environment-29301969#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Manchester City 1-1 Chelsea  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/29196082"
+      },
+      {
+        "title" : "Deal to end Yemen crisis signed  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-29302898#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Afghan contenders sign unity deal  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-asia-29299088#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Witheridge family 'broken' by murder  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-29300765#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Alice suspect 'could be in Latvia'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-london-29302443#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Labour makes £8 minimum wage pledge  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-29299230#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "UK hostage's wife in appeal to IS  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-29299031#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Police probe Balotelli racist abuse  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/29302216"
       }
     ],
+    "weather" : "Partly Cloudy"
+  },
+  {
     "city" : "Brighton",
-    "day" : "Saturday",
-    "weather" : "Haze",
+    "fuzzyTime" : "twenty to seven",
     "captureDate" : "2014-07-19 18:41:47",
-    "fuzzyTime" : "twenty to seven",
-    "latitude" : "50.81832898",
-    "longitude" : "-0.11518619",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
-  },
-  {
-    "newsHeadline" : "VIDEO: Lightning drama filmed in UK        ",
-    "rss" : [
-      {
-        "title" : "Ukraine rebels 'destroy MH17 clues'  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "UK demands access to MH17 crash site  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28386599#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "Casualties mount in Gaza conflict  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-28384924#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "UK storms cause further disruption  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28382702#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "Mother's plea over ecstasy death  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-oxfordshire-28363419#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "Migrants 'suffocate' on Italy boat  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383622#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "Ex-Speaker Thomas abuse claim inquiry  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-28384108#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "Murder probe police seek hotel guest  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-humber-28383400#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "No return to tax and spend - Miliband  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-28381699#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      },
-      {
-        "title" : "Athletes' village bug cases up to 53  \n      ",
-        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-28383430#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
-      }
-    ],
-    "city" : "Brighton",
-    "day" : "Saturday",
-    "weather" : "Haze",
-    "captureDate" : "2014-07-19 18:41:06",
-    "fuzzyTime" : "twenty to seven",
-    "latitude" : "50.81842877",
-    "longitude" : "-0.11537810",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-28367425#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
-  },
-  {
     "newsHeadline" : "Ukraine rebels 'destroy MH17 clues'        ",
+    "longitude" : "-0.11518619",
+    "day" : "Saturday",
+    "latitude" : "50.81832898",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "AC9C2868-1D25-414C-87F2-3F4547893545",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "Ukraine rebels 'destroy MH17 clues'  \n      ",
@@ -151,18 +516,129 @@
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-28383430#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
     ],
-    "city" : "Brighton",
-    "day" : "Saturday",
-    "weather" : "Haze",
-    "captureDate" : "2014-07-19 18:39:36",
-    "fuzzyTime" : "twenty to seven",
-    "latitude" : "50.81842877",
-    "longitude" : "-0.11537810",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
+    "weather" : "Haze"
   },
   {
+    "city" : "Brighton",
+    "fuzzyTime" : "twenty to seven",
+    "captureDate" : "2014-07-19 18:41:06",
+    "newsHeadline" : "VIDEO: Lightning drama filmed in UK        ",
+    "longitude" : "-0.11537810",
+    "day" : "Saturday",
+    "latitude" : "50.81842877",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "19F062FF-19AF-49F8-9E26-7626140C9237",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-28367425#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "rss" : [
+      {
+        "title" : "Ukraine rebels 'destroy MH17 clues'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "UK demands access to MH17 crash site  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28386599#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Casualties mount in Gaza conflict  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-28384924#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "UK storms cause further disruption  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28382702#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Mother's plea over ecstasy death  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-oxfordshire-28363419#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Migrants 'suffocate' on Italy boat  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383622#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Ex-Speaker Thomas abuse claim inquiry  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-28384108#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Murder probe police seek hotel guest  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-humber-28383400#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "No return to tax and spend - Miliband  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-28381699#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Athletes' village bug cases up to 53  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-28383430#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ],
+    "weather" : "Haze"
+  },
+  {
+    "city" : "Brighton",
+    "fuzzyTime" : "twenty to seven",
+    "captureDate" : "2014-07-19 18:39:36",
+    "newsHeadline" : "Ukraine rebels 'destroy MH17 clues'        ",
+    "longitude" : "-0.11537810",
+    "day" : "Saturday",
+    "latitude" : "50.81842877",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "BD4110A9-2E88-4BEF-9AC6-FB7310044626",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "rss" : [
+      {
+        "title" : "Ukraine rebels 'destroy MH17 clues'  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383625#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "UK demands access to MH17 crash site  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28386599#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Casualties mount in Gaza conflict  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-28384924#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "UK storms cause further disruption  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-28382702#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Mother's plea over ecstasy death  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-oxfordshire-28363419#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Migrants 'suffocate' on Italy boat  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-28383622#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Ex-Speaker Thomas abuse claim inquiry  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-28384108#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Murder probe police seek hotel guest  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-humber-28383400#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "No return to tax and spend - Miliband  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-28381699#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      },
+      {
+        "title" : "Athletes' village bug cases up to 53  \n      ",
+        "link" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-28383430#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
+      }
+    ],
+    "weather" : "Haze"
+  },
+  {
+    "city" : "Brighton",
+    "fuzzyTime" : "quarter past nine",
+    "captureDate" : "2014-07-01 21:15:14",
     "newsHeadline" : "Man faces life over teenager murder  \n      ",
+    "longitude" : "-0.11517431",
+    "day" : "Tuesday",
+    "latitude" : "50.81834821",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "E9E48783-60B8-4346-A50F-A2AC816244B9",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-glasgow-west-28111217#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "Israel holds teenagers' funerals  \n      ",
@@ -205,15 +681,7 @@
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-28098586#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
     ],
-    "city" : "Brighton",
-    "day" : "Tuesday",
-    "weather" : "Clear",
-    "captureDate" : "2014-07-01 21:15:14",
-    "fuzzyTime" : "quarter past nine",
-    "latitude" : "50.81834821",
-    "longitude" : "-0.11517431",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-scotland-glasgow-west-28111217#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
+    "weather" : "Clear"
   },
   {
     "city" : "Massa Lubrense",
@@ -225,6 +693,7 @@
     "venueName" : "Sant'Agata sui Due Golfi",
     "text" : "Holidaying with all the family",
     "latitude" : "40.61138273",
+    "uniqueIdentifier" : "B6FC36CD-8B9F-4068-AA1E-00952ECEC21C",
     "timeOfDay" : "morning",
     "newsURL" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/25285155",
     "weather" : "Mostly Cloudy",
@@ -273,7 +742,16 @@
     ]
   },
   {
+    "city" : "Brighton",
+    "fuzzyTime" : "twenty past ten",
+    "captureDate" : "2014-05-27 22:18:10",
     "newsHeadline" : "Dig unearths 'lost Roman harbour'        ",
+    "longitude" : "-0.11531657",
+    "day" : "Tuesday",
+    "latitude" : "50.81830259",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "57B7FE1B-C6FF-4190-AE02-FDD6C7B4E648",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-england-cumbria-27592597#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "Cameron: Brussels too big, too bossy  \n      ",
@@ -316,18 +794,19 @@
         "link" : "http:\/\/www.bbc.co.uk\/news\/business-27588394#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
     ],
-    "city" : "Brighton",
-    "day" : "Tuesday",
-    "weather" : "Rain",
-    "captureDate" : "2014-05-27 22:18:10",
-    "fuzzyTime" : "twenty past ten",
-    "latitude" : "50.81830259",
-    "longitude" : "-0.11531657",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-england-cumbria-27592597#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
+    "weather" : "Rain"
   },
   {
+    "city" : "Brighton",
+    "fuzzyTime" : "ten past ten",
+    "captureDate" : "2014-05-27 22:12:41",
     "newsHeadline" : "Dig unearths 'lost Roman harbour'        ",
+    "longitude" : "-0.11538830",
+    "day" : "Tuesday",
+    "latitude" : "50.81846691",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "3DCBF283-63B4-4A01-812B-CA97F7AD67E0",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-england-cumbria-27592597#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "Cameron: Brussels too big, too bossy  \n      ",
@@ -370,15 +849,7 @@
         "link" : "http:\/\/www.bbc.co.uk\/news\/business-27588394#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
     ],
-    "city" : "Brighton",
-    "day" : "Tuesday",
-    "weather" : "Rain",
-    "captureDate" : "2014-05-27 22:12:41",
-    "fuzzyTime" : "ten past ten",
-    "latitude" : "50.81846691",
-    "longitude" : "-0.11538830",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-england-cumbria-27592597#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
+    "weather" : "Rain"
   },
   {
     "city" : "Brighton",
@@ -390,7 +861,9 @@
     "latitude" : "50.81818797",
     "text" : "Hanging out with baby Laurie",
     "timeOfDay" : "afternoon",
+    "uniqueIdentifier" : "35A22C94-C450-4ACE-868D-62AD6F84A218",
     "newsURL" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/27170531",
+    "weather" : "Partly Cloudy",
     "rss" : [
       {
         "title" : "G7 'to intensify Russia sanctions'  \n      ",
@@ -432,8 +905,7 @@
         "title" : "Sell-out gig for teen cancer blogger  \n      ",
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-stoke-staffordshire-27162289#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
-    ],
-    "weather" : "Partly Cloudy"
+    ]
   },
   {
     "city" : "Brighton",
@@ -445,7 +917,9 @@
     "latitude" : "50.81833710",
     "text" : "Blogging about mountain biking.",
     "timeOfDay" : "evening",
+    "uniqueIdentifier" : "80360209-44C7-44EE-93F9-6EDC912B6663",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/technology-26954540#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "weather" : "Clear",
     "rss" : [
       {
         "title" : "PM defends MPs after Miller quits  \n      ",
@@ -487,8 +961,7 @@
         "title" : "Clifford 'master of intimidation'  \n      ",
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-26959346#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
-    ],
-    "weather" : "Clear"
+    ]
   },
   {
     "city" : "Manchester",
@@ -500,6 +973,7 @@
     "venueName" : "Manchester Town Hall",
     "text" : "settling in to FutureEverything",
     "latitude" : "53.47914989",
+    "uniqueIdentifier" : "9B616179-402A-43EA-855D-FDF5CA161BC6",
     "timeOfDay" : "morning",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26816033#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "weather" : "Clear",
@@ -548,7 +1022,16 @@
     ]
   },
   {
+    "city" : "Brighton",
+    "fuzzyTime" : "twenty five past eight",
+    "captureDate" : "2014-03-04 20:24:03",
     "newsHeadline" : "Sugar tax may be needed, MPs told        ",
+    "longitude" : "-0.11529211",
+    "day" : "Tuesday",
+    "latitude" : "50.81847154",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "E6152996-44F2-4DCA-A487-164AE58D804F",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/health-26442420#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "US condemns Russian 'aggression'  \n      ",
@@ -591,15 +1074,7 @@
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-tyne-26441513#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
     ],
-    "city" : "Brighton",
-    "day" : "Tuesday",
-    "weather" : "Clear",
-    "captureDate" : "2014-03-04 20:24:03",
-    "fuzzyTime" : "twenty five past eight",
-    "latitude" : "50.81847154",
-    "longitude" : "-0.11529211",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/health-26442420#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
+    "weather" : "Clear"
   },
   {
     "city" : "Brighton",
@@ -611,8 +1086,9 @@
     "venueName" : "None",
     "text" : "Walking by Devil’s Dyke with all the family",
     "latitude" : "50.83722465",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26312008#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "uniqueIdentifier" : "0611ED9B-D95F-4DB5-8953-FD3E225EA57B",
     "timeOfDay" : "afternoon",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26312008#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "imageFilename" : "1393169908.775545.jpg",
     "weather" : "Partly Cloudy",
     "rss" : [
@@ -668,7 +1144,9 @@
     "latitude" : "51.42735895",
     "text" : "On a train with my fellow Lefties heading back from The Story 2014.",
     "timeOfDay" : "evening",
+    "uniqueIdentifier" : "7B4DD0E0-4C4D-411D-8F41-8D4C0C79F37D",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-europe-26289318#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "weather" : "Mostly Cloudy",
     "rss" : [
       {
         "title" : "Ukraine rivals agree early election  \n      ",
@@ -710,8 +1188,7 @@
         "title" : "Machete 'rampage' murderer gets life  \n      ",
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-england-south-yorkshire-26288789#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
-    ],
-    "weather" : "Mostly Cloudy"
+    ]
   },
   {
     "city" : "Brighton",
@@ -723,6 +1200,7 @@
     "venueName" : "Kemp Town",
     "text" : "Taking a very windy walk along the seafront the with the family.",
     "latitude" : "50.81837973",
+    "uniqueIdentifier" : "BC4F652B-2043-4031-88B6-07E1C34FE184",
     "timeOfDay" : "afternoon",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-26106138#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "imageFilename" : "1391960612.457470.jpg",
@@ -781,7 +1259,9 @@
     "latitude" : "50.81822354",
     "text" : "Feeling very tired after little sleep",
     "timeOfDay" : "afternoon",
+    "uniqueIdentifier" : "03630067-0148-4ED7-B145-8E56C0CAEC49",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-politics-25934659#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "weather" : "Light Rain",
     "rss" : [
       {
         "title" : "Carney urges Scots pound plan care  \n      ",
@@ -823,8 +1303,7 @@
         "title" : "Schumacher 'stable' one month on  \n      ",
         "link" : "http:\/\/www.bbc.co.uk\/news\/world-europe-25943192#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
-    ],
-    "weather" : "Light Rain"
+    ]
   },
   {
     "city" : "Brighton",
@@ -836,7 +1315,9 @@
     "latitude" : "50.82273645",
     "text" : "Registering Laurence's birth.",
     "timeOfDay" : "morning",
+    "uniqueIdentifier" : "7CBEF4CB-3278-4CE6-B292-526BB3CE1946",
     "newsURL" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/25849959",
+    "weather" : "Light Rain Showers",
     "rss" : [
       {
         "title" : "NHS waiting time data 'unreliable'  \n      ",
@@ -878,11 +1359,19 @@
         "title" : "Jail disorder was 'full-scale riot'  \n      ",
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-25846596#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
-    ],
-    "weather" : "Light Rain Showers"
+    ]
   },
   {
+    "city" : "Brighton",
+    "fuzzyTime" : "twenty to seven",
+    "captureDate" : "2014-01-18 18:39:31",
     "newsHeadline" : "Army retakes key South Sudan town  \n      ",
+    "longitude" : "-0.11504884",
+    "day" : "Saturday",
+    "latitude" : "50.81815392",
+    "timeOfDay" : "evening",
+    "uniqueIdentifier" : "8F381DDC-069D-4B8B-9CDD-CBF26E8E3872",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-africa-25794699#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "Mikaeel mother held as body found  \n      ",
@@ -925,15 +1414,7 @@
         "link" : "http:\/\/www.bbc.co.uk\/news\/uk-25794283#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
     ],
-    "city" : "Brighton",
-    "day" : "Saturday",
-    "weather" : "Clear",
-    "captureDate" : "2014-01-18 18:39:31",
-    "fuzzyTime" : "twenty to seven",
-    "latitude" : "50.81815392",
-    "longitude" : "-0.11504884",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-africa-25794699#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "evening"
+    "weather" : "Clear"
   },
   {
     "city" : "Brighton",
@@ -945,6 +1426,7 @@
     "venueName" : "Coffee@33",
     "text" : "Mulling over the end of my running, and a permanent switch back to cycling.",
     "latitude" : "50.82848586",
+    "uniqueIdentifier" : "AFD51FD7-567B-4E57-82A9-0345B002455D",
     "timeOfDay" : "morning",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-us-canada-25770317#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "weather" : "Rain Showers",
@@ -1004,8 +1486,9 @@
     "latitude" : "50.82168485",
     "text" : "In my own world, on the bus",
     "timeOfDay" : "afternoon",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-25741225#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "uniqueIdentifier" : "B55C09ED-49FE-432A-B275-BF27012D411A",
     "artist" : "Four Tet",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-middle-east-25741225#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "weather" : "Scattered Clouds",
     "rss" : [
       {
@@ -1060,6 +1543,7 @@
     "venueName" : "Carluccio's",
     "text" : "Taking Gill, Bry, Gracie and Laurence out for lunch",
     "latitude" : "50.82433485",
+    "uniqueIdentifier" : "69F4E268-DB0F-4901-B99C-51957AE36A36",
     "timeOfDay" : "afternoon",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/business-25725899#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "weather" : "Partly Cloudy",
@@ -1108,7 +1592,16 @@
     ]
   },
   {
+    "city" : "Brighton",
+    "fuzzyTime" : "quarter to one",
+    "captureDate" : "2014-01-11 12:45:50",
     "newsHeadline" : "Storm damage clean-up gathers pace  \n      ",
+    "longitude" : "-0.11530992",
+    "day" : "Saturday",
+    "latitude" : "50.81859219",
+    "timeOfDay" : "afternoon",
+    "uniqueIdentifier" : "A15ADF56-3D24-4E8E-A4A7-8D1D31ADDE56",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-mid-wales-25682802#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "rss" : [
       {
         "title" : "Israel's ex-PM Ariel Sharon dies  \n      ",
@@ -1151,15 +1644,7 @@
         "link" : "http:\/\/www.bbc.co.uk\/news\/world-africa-25694897#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
     ],
-    "city" : "Brighton",
-    "day" : "Saturday",
-    "weather" : "Clear",
-    "captureDate" : "2014-01-11 12:45:50",
-    "fuzzyTime" : "quarter to one",
-    "latitude" : "50.81859219",
-    "longitude" : "-0.11530992",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-wales-mid-wales-25682802#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "timeOfDay" : "afternoon"
+    "weather" : "Clear"
   },
   {
     "city" : "Brighton",
@@ -1173,8 +1658,9 @@
     "latitude" : "50.81685770",
     "text" : "Having some me-time with a sunny walk along the seafront.",
     "timeOfDay" : "morning",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-africa-25694405#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "uniqueIdentifier" : "74249788-670B-41CB-BCA6-161C956C2D9E",
     "artist" : "Steve Mason",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/world-africa-25694405#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "imageFilename" : "1389435035.496866.jpg",
     "weather" : "Clear",
     "rss" : [
@@ -1230,6 +1716,7 @@
     "venueName" : "St George's Inn",
     "text" : "Wetting the baby's head with Grandpops.",
     "latitude" : "50.81821454",
+    "uniqueIdentifier" : "C0E9CBFF-8AAA-4D01-BFDD-C2DCBA0F4E30",
     "timeOfDay" : "afternoon",
     "newsURL" : "http:\/\/www.bbc.co.uk\/sport\/0\/football\/25685521",
     "weather" : "Partly Cloudy",
@@ -1287,8 +1774,10 @@
     "latitude" : "50.81814654",
     "text" : "Day 2 for baby Laurence. Fast Asleep, mostly.",
     "timeOfDay" : "morning",
+    "uniqueIdentifier" : "D8894823-0350-4AD1-8C50-107381BC9520",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-25682652#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "imageFilename" : "1389352427.224666.jpg",
+    "weather" : "Partly Cloudy",
     "rss" : [
       {
         "title" : "Met PC admits 'plebgate' misconduct  \n      ",
@@ -1330,12 +1819,11 @@
         "title" : "Heathrow calls price cap 'draconian'  \n      ",
         "link" : "http:\/\/www.bbc.co.uk\/news\/business-25680751#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
-    ],
-    "weather" : "Partly Cloudy"
+    ]
   },
   {
-    "city" : "Brighton",
     "fuzzyTime" : "twelve o' clock",
+    "city" : "Brighton",
     "captureDate" : "2014-01-09 12:01:54",
     "album" : "Praxis Makes Perfect",
     "newsHeadline" : "Duggan's aunt urges 'no violence'  \n      ",
@@ -1344,8 +1832,9 @@
     "day" : "Thursday",
     "latitude" : "50.81977112",
     "timeOfDay" : "afternoon",
-    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-england-25665484#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+    "uniqueIdentifier" : "E6C6ECCB-2F0D-4A1D-849A-0DB9992B5E9A",
     "artist" : "Neon Neon",
+    "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-england-25665484#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "weather" : "Scattered Clouds",
     "rss" : [
       {
@@ -1400,8 +1889,10 @@
     "latitude" : "50.81890934",
     "text" : "Baby Laurence's first morning.",
     "timeOfDay" : "morning",
+    "uniqueIdentifier" : "812C5A14-5417-449F-AC93-FD26C48E6173",
     "newsURL" : "http:\/\/www.bbc.co.uk\/news\/uk-25651116#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
     "imageFilename" : "1389263566.186323.jpg",
+    "weather" : "Mostly Cloudy",
     "rss" : [
       {
         "title" : "Duggan's aunt urges 'no violence'  \n      ",
@@ -1443,8 +1934,7 @@
         "title" : "CAR leader's future in balance  \n      ",
         "link" : "http:\/\/www.bbc.co.uk\/news\/world-africa-25663611#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa"
       }
-    ],
-    "weather" : "Mostly Cloudy"
+    ]
   },
   {
     "city" : "Brighton",
@@ -1456,7 +1946,9 @@
     "latitude" : "50.81985575",
     "text" : "Baby boy born 7.40pm!",
     "timeOfDay" : "evening",
+    "uniqueIdentifier" : "76E67D0F-48E7-459D-B132-8A50980BDF15",
     "newsURL" : "http:\/\/uk.news.yahoo.com\/polar-vortex-eases-grip-frozen-us-states-133102340.html",
+    "weather" : "Scattered Clouds",
     "rss" : [
       {
         "title" : "ISIL loses HQ in Syria's Aleppo, journalists freed",
@@ -1498,8 +1990,7 @@
         "title" : "Panama Canal spat deepens as Italy's Impregilo wades in",
         "link" : "http:\/\/uk.news.yahoo.com\/panama-canal-spat-deepens-italy-39-impregilo-wades-191743570--sector.html"
       }
-    ],
-    "weather" : "Scattered Clouds"
+    ]
   },
   {
     "city" : "Brighton",
@@ -1511,8 +2002,10 @@
     "latitude" : "50.81982105",
     "text" : "In maternity ward with Wendy, awaiting arrival of our baby boy.",
     "timeOfDay" : "afternoon",
+    "uniqueIdentifier" : "3B03FFAA-8C26-4EE2-A2BC-B9A1FD8E7243",
     "newsURL" : "http:\/\/uk.news.yahoo.com\/huge-seas-pound-atlantic-coastline-124259539.html",
     "imageFilename" : "1389194777.217972.jpg",
+    "weather" : "Scattered Clouds",
     "rss" : [
       {
         "title" : "13,000 families flee Fallujah amid Iraq standoff",
@@ -1554,8 +2047,7 @@
         "title" : "Conjoined Grey Whales Found in Mexico",
         "link" : "http:\/\/uk.news.yahoo.com\/conjoined-grey-whales-found-mexico-092655415.html"
       }
-    ],
-    "weather" : "Scattered Clouds"
+    ]
   }
 ]
 }
