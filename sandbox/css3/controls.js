@@ -99,8 +99,8 @@ function refreshSample() {
   document.getElementById("w3cfeatures").innerHTML = wfeatures;
   sample.style.msFontFeatureSettings = wfeatures;
   sample.style.oFontFeatureSettings = wfeatures;
-  sample.style.WebkitFontFeatureSettings = wfeatures;
-  sample.style.FontFeatureSettings = wfeatures;
+  sample.style.webkitFontFeatureSettings = wfeatures;
+  sample.style.fontFeatureSettings = wfeatures;
 };
 
 function refreshFont() {
