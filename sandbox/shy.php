@@ -56,6 +56,9 @@ p.five {
 p.six {
 	font-family: "Apercu Light", Arial, sans-serif; font-weight:200;
 }
+p.seven {
+	font-family: "Libre Baskerville", serif; font-weight:400;
+}
 
 </style>
 </head>
@@ -63,6 +66,11 @@ p.six {
 <p style="font-size:1rem">&larr; <a href="/blog/2377/">Back to blog post</a></p>
 <h1>Test page to demonstrate soft hyphen entity (&amp;shy;) errors with web fonts on <strong>Mac Webkit</strong> browsers</h1>
 
+
+
+<h2>7. Installed font, <code>font-family: "Libre Baskerville", serif; font-weight:400</code></h2>
+
+<p class="seven">There is a soft hyphen entity in this word: hippo&shy;potamus.</p>
 
 <h2>1. Web font <code>font-family: "Apercu Light", sans-serif; font-weight:200</code></h2>
 
