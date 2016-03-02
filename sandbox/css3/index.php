@@ -95,8 +95,8 @@ Lucky affluent actor asks to feast on giant 10.34" cheese-filled quiche in fjord
 
 <h3>Positioning</h3>
 <div class="group">
-<label><input id="subs" type="checkbox">Superscript/Superiors</label>
-<label><input id="sups" type="checkbox">Subscript/Inferiors</label>
+<label><input id="sups" type="checkbox">Superscript/Superiors</label>
+<label><input id="subs" type="checkbox">Subscript/Inferiors</label>
 </div>
 
 <h3>Numeric Extras</h3>
