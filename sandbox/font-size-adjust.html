@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="toc-hidden">
+
+<head>
+<meta charset="utf-8"/>
+<title>Font-size-adjust calculator</title>
+
+<style>
+body {
+	font-family: "Seravek", "Calibri", "PT Sans", "Roboto", sans-serif;
+}
+code {
+	font-family: inconsolata, consolas, "andale mono", "droid sans mono", menlo, monospace;	
+}
+.prose {
+	max-width: 50%;
+	min-width: 25em;
+}
+form {
+	max-width: 50%;
+	min-width: 25em;
+	float: left;
+}
+input, select {
+	font-size: 100%;
+	font-family: inherit;
+}
+.submit {
+	font-size: 1.25rem;
+}
+.calculator {
+	display: flex;
+}
+.font-render {
+	padding: 1em 2%;
+	background: #eee;
+	width: 13.3em;
+	margin-left: 2%;
+}
+#x {
+	font-family: Verdana;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 200px;
+    line-height: 1.3em;
+}
+#b {
+    opacity: 0.5;
+    color: rgba(0,0,0,0.5);
+}
+#x span {
+    font-size-adjust: none;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #fff;
+}
+#support {
+	font-style: italic;
+}
+</style>
+</head>
+
+<body>
+<section class="prose">
+<h1>Font-size-adjust</h1>
+
+<p>The <code>font-size-adjust</code> CSS3 property allows you to specify the aspect ratio between upper and lowercase letters.</p>
+<p>Browsers that support this property will adjust the x-height of a fallback font. By using this property you can ensure that font metrics are more consistent throughout a font-stack.</p>
+
+<div id="support"><p>Ah. Sadly, it looks like your browser doesn't support <code>font-size-adjust</code> so this tool won't work for you. <br>See <a href="http://caniuse.com/#feat=font-size-adjust">Can I Use</a> for current browser support.</p></div>
+
+</section>
+<div class="calculator">
+<form onsubmit="return getFSA(true)">
+
+<h3>Font-size-adjust calculator</h3>
+<p>This tool allows you to calculate the <code>font-size-adjust</code> value for any font installed on your machine. The calculator will only work on browsers that support the <code>font-size-adjust</code> CSS3 property.</p>
+<fieldset>
+<legend>Font</legend>
+<div class="label-control">
+<label>font-family</label>
+<input type="text" id="fontFamily" size="20" value="Verdana" onchange="getFSA()">
+</div>
+
+<div class="label-control">
+<label>font-style</label>
+<select id="fontStyle" onchange="getFSA()">
+	<option value="normal" selected="selected">normal</option>
+	<option value="italic">italic</option>
+	<option value="oblique">oblique</option>
+</select>
+</div>
+
+<div class="label-control">
+<label>font-weight</label>
+<select id="fontWeight" onchange="getFSA()">
+	<option value="normal" selected="selected">normal</option>
+	<option value="bold">bold</option>
+	<option value="100">100</option>
+	<option value="200">200</option>
+	<option value="300">300</option>
+	<option value="400">400</option>
+	<option value="500">500</option>
+	<option value="600">600</option>
+	<option value="700">700</option>
+	<option value="800">800</option>
+	<option value="900">900</option>
+</select>
+</div>
+</fieldset>
+
+<p class="submit"><input type="submit" value="Calculate font-size-adjust value"> » <input type="text" id="fsa" style="width:3em"></p>
+</form>
+
+<div class="font-render">
+
+<div id="x" style="font-family: Verdana, 'Comic Sans MS'; font-weight: normal; font-style: normal;">
+<span id="a">x</span><span id="b" style="font-size-adjust:0.5">x</span>
+</div>
+
+<p id="input" style="font-family: Verdana, 'Comic Sans MS'; font-weight: normal; font-style: normal;">Verdana  </p>
+
+<p>The above typeface will appear in <span style="font-family:'Comic Sans MS';">Comic Sans</span> if the font is not installed or is not recognised.</p>
+</div>
+</div>
+
+<script type="text/javascript">
+var original = document.getElementById("a");
+var compare = document.getElementById("b");
+document.getElementById("fsa").value = "";
+    
+function updateFont() {
+    var fontFamilyInput = document.getElementById("fontFamily").value;
+	var fontWeightInput = document.getElementById("fontWeight").value;
+	var fontStyleInput = document.getElementById("fontStyle").value;
+	var newfontFamily = fontFamilyInput + ", 'Comic Sans MS'";
+	document.getElementById("x").style.fontFamily = newfontFamily;
+	document.getElementById("x").style.fontWeight = fontWeightInput;
+	document.getElementById("x").style.fontStyle = fontStyleInput;
+	document.getElementById("fsa").value = "";
+	
+	document.getElementById("input").style.fontFamily = newfontFamily;
+	document.getElementById("input").style.fontWeight = fontWeightInput;
+	document.getElementById("input").style.fontStyle = fontStyleInput;
+	if (fontWeightInput == "normal") {fontWeightInput = "";}
+	if (fontStyleInput == "normal") {fontStyleInput = "";}
+	var input = fontFamilyInput + " " + fontWeightInput + " " + fontStyleInput;
+	document.getElementById("input").innerHTML = input;
+}
+
+// Calculate font-stretch-adjust value
+function getFSA(setFocus) {
+	updateFont();
+	var top = 1;
+	var bot = 0;
+	var newfsa = 0.5;
+	var count = 0;
+	compare.style.fontSizeAdjust = newfsa;
+    while(original.offsetHeight != compare.offsetHeight) {
+    	// Newton-Raphson iteration ftw
+        count++;
+        if(count>100){break;}
+        if (original.offsetHeight > compare.offsetHeight) {
+            bot = newfsa;
+            newfsa = (top + newfsa)/2
+        } else {
+            top = newfsa;
+            newfsa = (bot + newfsa)/2
+        }
+        compare.style.fontSizeAdjust = newfsa;
+    }
+    
+    newfsa = Math.round(newfsa*1000)/1000;
+    document.getElementById("fsa").value = newfsa; 
+    if (setFocus == true) {
+        document.getElementById("fsa").select();
+    }
+    return false; 
+}
+
+var supportdiv = document.getElementById("support");
+if(!compare.style.fontSizeAdjust) {
+    supportdiv.innerHTML = "<p>Ah. Sadly, it looks like your browser doesn't support <code>font-size-adjust</code> so this tool won't work for you. <br>See <a href='http://caniuse.com/#feat=font-size-adjust'>Can I Use</a> for current browser support.</p>";
+} else {
+    supportdiv.innerHTML = "<p>Support for the <code>font-size-adjust</code> property has been detected. <br>See <a href='http://caniuse.com/#feat=font-size-adjust'>Can I Use</a> for current browser support.</p>";
+}
+
+updateFont();
+
+</script>
+</body>
+</html>
