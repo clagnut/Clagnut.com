@@ -46,18 +46,20 @@ input, select {
     font-style: normal;
 }
 #x {
-    font-size: 200px;
-    line-height: 1em;
-    padding: 0.1em 0;
-    height: 1em;
+	display: flex;
+	align-items: flex-end;
+}
+#a {
+	height: 9em;	
 }
 #b {
+	height: 9ex;
     opacity: 0.5;
     color: rgba(0,0,0,0.5);
 }
-#x span {
-    font-size-adjust: none;
+#x div {
     background: #fff;
+    width: 5em;
 }
 </style>
 </head>
@@ -111,13 +113,15 @@ input, select {
 </div>
 </fieldset>
 
-<p class="submit"><input type="submit" value="Calculate font-size-adjust value"> » <input type="text" id="fsa" style="width:3em"></p>
+<p class="submit"><input type="submit" value="Calculate aspect value"> » <input type="text" id="fsa" style="width:3em"></p>
+
 </form>
 
 <div class="font-render">
 
 <div id="x">
-<span id="a">x</span><span id="b" style="font-size-adjust:0.5">x</span>
+<div id="a"> </div>
+<div id="b"> </div>
 </div>
 
 <p id="input">Verdana</p>
@@ -125,7 +129,6 @@ input, select {
 <p>The above typeface will appear in <span style="font-family:'Comic Sans MS';">Comic Sans</span> if the font is not installed or is not recognised.</p>
 </div>
 </div>
-
 
 <script type="text/javascript">
 var original = document.getElementById("a");
@@ -149,33 +152,20 @@ function updateFont() {
 	if (fontStyleInput == "normal") {fontStyleInput = "";}
 	var input = fontFamilyInput + " " + fontWeightInput + " " + fontStyleInput;
 	document.getElementById("input").innerHTML = input;
-	
 }
 
 // Calculate font-stretch-adjust value
 function getFSA(setFocus) {
 	updateFont();
-	var top = 1;
-	var bot = 0;
-	var newfsa = 0.5;
-	var count = 0;
-	compare.style.fontSizeAdjust = newfsa;
-    while(original.offsetHeight != compare.offsetHeight) {
-    	// Newton-Raphson iteration ftw
-        count++;
-        if(count>100){break;}
-        if (original.offsetHeight > compare.offsetHeight) {
-            bot = newfsa;
-            newfsa = (top + newfsa)/2
-        } else {
-            top = newfsa;
-            newfsa = (bot + newfsa)/2
-        }
-        compare.style.fontSizeAdjust = newfsa;
-    }
+	
+    var original = document.getElementById("a");
+    var compare = document.getElementById("b");
+    document.getElementById("fsa").value = "";
     
-    newfsa = Math.round(newfsa*1000)/1000;
-    document.getElementById("fsa").value = newfsa; 
+    var aspectratio = compare.offsetHeight / original.offsetHeight;
+    console.log(original.offsetHeight);
+    document.getElementById("fsa").value = Math.round(aspectratio*1000)/1000;;
+    
     if (setFocus == true) {
         document.getElementById("fsa").select();
     }

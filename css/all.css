@@ -1,3 +1,61 @@
+/* @group fontfaces */
+
+@font-face {
+	font-family: 'Ingeborg';
+	src: 	url('/fonts/ingeborg-heavy.woff2') format('woff2'),
+			url('/fonts/ingeborg-heavy.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Ingeborg';
+	src: 	url('/fonts/ingeborg-bold.woff2') format('woff2'),
+			url('/fonts/ingeborg-bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Akagi';
+	src: 	url('/fonts/akagi-medium.woff2') format('woff2'),
+			url('/fonts/akagi-medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Akagi';
+	src: 	url('/fonts/akagi-bold.woff2') format('woff2'),
+			url('/fonts/akagi-bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Akagi';
+	src: 	url('/fonts/akagi-mediumitalic.woff2') format('woff2'),
+			url('/fonts/akagi-mediumitalic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Akagi';
+	src: 	url('/fonts/akagi-bolditalic.woff2') format('woff2'),
+			url('/fonts/akagi-bolditalic.woff') format('woff');
+	font-weight: bold;
+	font-style: italic;
+	font-display: fallback;
+}
+
+/* @end */
+
 /* @group Reset */
 
 html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address,
@@ -225,7 +283,7 @@ mark {
 /* @group Webfonts */
 
 body, nav, .search form, blockquote em, blockquote cite, blockquote i  {
-	font-family: "Akagi-Medium", "Akagi Medium", "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
+	font-family: "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
 	font-size-adjust: 0.488;
 	font-weight: 500;
 	font-style: normal;
@@ -233,7 +291,7 @@ body, nav, .search form, blockquote em, blockquote cite, blockquote i  {
 
 
 h1, .home header h2 {
-    font-family: "Ingeborg Heavy", "Ingeborg-Heavy", Ingeborg, "HoeflerText-Black", "Hoefler Text", Georgia, serif;
+    font-family: Ingeborg, "HoeflerText-Black", "Hoefler Text", Georgia, serif;
     font-weight: 800;
     font-size-adjust: 0.455;
     -moz-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
@@ -244,7 +302,7 @@ h1, .home header h2 {
 }
 
 .meta, .articles h1, .archive aside h2 {
-    font-family: "Ingeborg Bold", Ingeborg, "Hoefler Text", Georgia, serif;
+    font-family: Ingeborg, "Hoefler Text", Georgia, serif;
     font-weight: bold;
 	font-size-adjust: 0.457;
 	-moz-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
@@ -256,14 +314,14 @@ h1, .home header h2 {
 }
 
 h2, h3, h4, h5, h6, b, strong, th, dt {
-	font-family: "Akagi-Bold", "Akagi Bold", "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
+	font-family: "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
 	font-weight: 700;
 	font-size-adjust: 0.492;
 	font-style: normal;
 }
 
 i, em, cite, q, var, dfn, blockquote, figcaption, caption {
-	font-family: "Akagi-MediumItalic", "Akagi Medium Italic", "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
+	font-family: "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
 	font-weight: 500;
 	font-style: italic;
 	font-size-adjust: 0.488;

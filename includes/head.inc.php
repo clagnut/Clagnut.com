@@ -2,28 +2,15 @@
     <meta name="author" content="Richard Rutter"/>
     <meta name="robots" content="index, follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    
+    <link rel="preload" href="/fonts/akagi-medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/ingeborg-heavy.woff2" as="font" type="font/woff2" crossorigin>
 
 	<script>
 	    var html = document.getElementsByTagName('html')[0];
 	    html.className = 'js';
 	</script>
-	
-    <!--fonts-->
-    <script>
-        var html = document.getElementsByTagName('html')[0];
-        html.className = 'js wf-loading';
-        setTimeout(function() {
-            html.className = html.className.replace(' wf-loading', '');
-        }, 3000)
-        WebFontConfig = { fontdeck: { id: 17222 } };
-        (function() {
-            var wf = document.createElement('script');
-            wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-            wf.async = 'true';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wf, s);
-        })();
-    </script>
     
     <script src="/js/jquery.js"></script>
     <script src="/js/global.js"></script>
