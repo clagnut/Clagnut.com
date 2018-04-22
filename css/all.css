@@ -284,7 +284,7 @@ mark {
 
 body, nav, .search form, blockquote em, blockquote cite, blockquote i  {
 	font-family: "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
-	font-size-adjust: 0.488;
+	/*font-size-adjust: 0.488;*/
 	font-weight: 500;
 	font-style: normal;
 }
@@ -293,7 +293,7 @@ body, nav, .search form, blockquote em, blockquote cite, blockquote i  {
 h1, .home header h2 {
     font-family: Ingeborg, "HoeflerText-Black", "Hoefler Text", Georgia, serif;
     font-weight: 800;
-    font-size-adjust: 0.455;
+    /*font-size-adjust: 0.455;*/
     -moz-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
     -ms-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
     -o-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
@@ -304,7 +304,7 @@ h1, .home header h2 {
 .meta, .articles h1, .archive aside h2 {
     font-family: Ingeborg, "Hoefler Text", Georgia, serif;
     font-weight: bold;
-	font-size-adjust: 0.457;
+	/*font-size-adjust: 0.457;*/
 	-moz-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
 	-ms-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
 	-o-font-feature-settings:		"calt" 1, "onum" 0, "lnum" 1;
@@ -316,7 +316,7 @@ h1, .home header h2 {
 h2, h3, h4, h5, h6, b, strong, th, dt {
 	font-family: "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
 	font-weight: 700;
-	font-size-adjust: 0.492;
+	/*font-size-adjust: 0.492;*/
 	font-style: normal;
 }
 
@@ -324,12 +324,12 @@ i, em, cite, q, var, dfn, blockquote, figcaption, caption {
 	font-family: "Akagi", Calibri, "Segoe UI", "PT Sans", sans-serif;
 	font-weight: 500;
 	font-style: italic;
-	font-size-adjust: 0.488;
+	/*font-size-adjust: 0.488;*/
 }
 
 pre, code, kbd, tt, samp {
 	font-family: Inconsolata, Consolas, "Andale Mono", "Droid Sans Mono", Menlo, monospace;
-	font-size-adjust: 0.457;
+	/*font-size-adjust: 0.457;*/
 	color: rgba(0,0,96,1);
 }
 
