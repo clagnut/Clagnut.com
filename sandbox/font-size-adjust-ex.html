@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-GB" class="toc-hidden">
+<html lang="en-GB">
 
 <head>
 <meta charset="utf-8"/>
-<title>Font-size-adjust calculator</title>
+<title>Aspect ratio calculator for font-size-adjust</title>
 
 <style>
 body {
@@ -66,19 +66,16 @@ input, select {
 
 <body>
 <section class="prose">
-<h1>Font-size-adjust</h1>
+<h1>Aspect value calculator</h1>
 
-<p>The <code>font-size-adjust</code> CSS3 property allows you to specify the aspect value between upper and lowercase letters.</p>
-<p>Browsers that support this property will adjust the x-height of a fallback font. By using this property you can ensure that font metrics are more consistent throughout a font-stack.</p>
+<p>The <code>font-size-adjust</code> CSS3 property allows you to specify the <em>aspect value</em> for a font. Browsers that support this property will adjust the x-height of a fallback font to match that of your desired font. By using this property you can ensure that font metrics are more consistent throughout a font-stack.</p>
+<p>This tool calculates the <strong>aspect value</strong> for any font installed on your machine. Use this value as your <code>font-size-adjust</code> number.</p>
 
-<div id="support"><p>Ah. Sadly, it looks like your browser doesn't support <code>font-size-adjust</code> so this tool won't work for you. <br>See <a href="http://caniuse.com/#feat=font-size-adjust">Can I Use</a> for current browser support.</p></div>
 
 </section>
 <div class="calculator">
 <form onsubmit="return getFSA(true)">
 
-<h3>Font-size-adjust calculator</h3>
-<p>This tool allows you to calculate the <code>font-size-adjust</code> value for any font installed on your machine. The calculator will only work on browsers that support the <code>font-size-adjust</code> CSS3 property.</p>
 <fieldset>
 <legend>Font</legend>
 <div class="label-control">
@@ -171,13 +168,6 @@ function getFSA(setFocus) {
     }
     
     return false; 
-}
-
-var supportdiv = document.getElementById("support");
-if(!compare.style.fontSizeAdjust) {
-    supportdiv.innerHTML = "<p>Ah. Sadly, it looks like <strong>your browser doesn't support <code>font-size-adjust</code></strong> so this tool won't work for you. <br>See <a href='http://caniuse.com/#feat=font-size-adjust'>Can I Use</a> for current browser support.</p>";
-} else {
-    supportdiv.innerHTML = "<p>Support for the <code>font-size-adjust</code> property has been detected. <br>See <a href='http://caniuse.com/#feat=font-size-adjust'>Can I Use</a> for current browser support.</p>";
 }
 
 updateFont();
