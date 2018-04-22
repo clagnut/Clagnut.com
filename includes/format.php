@@ -13,8 +13,8 @@ function preformat($text) {
 	if (preg_match("/^<p>/",$text)){
 		$text = str_replace("\n", "", $text);
 	}
-	$search = array ("\\", "'mare", "'flu", "'Flu", "---", "--", "<br />", "@media", "@font-face");
-	$replace = array ("\\\\", "&#8217;mare", "&#8217;flu", "&#8217;Flu", "\nnewsection\n", "-", "\n", "&#64;media", "&#64;font-face");
+	$search = array ("\\", "'mare", "'flu", "'Flu", "---", "--", "<br />");
+	$replace = array ("\\\\", "&#8217;mare", "&#8217;flu", "&#8217;Flu", "\nnewsection\n", "-", "\n");
 	$text = str_replace($search, $replace, $text);
 	return $text;
 }
