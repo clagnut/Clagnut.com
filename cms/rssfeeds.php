@@ -1,11 +1,10 @@
 <?php
-$dr = $_SERVER["DOCUMENT_ROOT"];
-$dr2 = preg_replace("/\/[^\/]+$/","/includes_clagnut",$dr);
-include($dr2 . "/db_connect.php");
+$dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
+include_once($dr . "path_to_db.inc.php");
 
 // format function
-include($dr . "/includes/format.php");
-include($dr . "/includes/cms_writerssfiles.php");
+include($dr . "format.php");
+include($dr . "cms_writerssfiles.php");
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
@@ -15,13 +14,13 @@ include($dr . "/includes/cms_writerssfiles.php");
 <title>Publish RSS feeds</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <?php
-include($dr . "/includes/cms_headlinks.inc");
+include($dr . "cms_headlinks.inc");
 ?>
 </head>
 <body>
 <div class="options">
 <?php
-include($dr . "/includes/cms_options.inc");
+include($dr . "cms_options.inc");
 ?>
 </div>
 <div id="screen">

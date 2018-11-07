@@ -180,11 +180,11 @@ function format($text, $textile="y") {
 	return $text;
 }
 
-function makeDescription($maincontent,$description) {
+function makeDescription($maincontent,$description, $textile="y") {
 	if ($description == "" OR $description == "<p></p>") {
 		$description = $maincontent;
 	}
-	$description = format($description);
+	$description = format($description, $textile);
 	$description = str_replace("<br />", " ", $description);
 	$description = strip_tags($description);
 	$description = substr($description,0,280);

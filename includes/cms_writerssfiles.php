@@ -131,7 +131,7 @@ function writefullrss() {
 		$contents=compilemetadata("Clagnut","http://clagnut.com/","A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)", "http://clagnut.com/feeds/fullposts.xml");
 		
 		// pull blogs from database
-		$sql = "SELECT blog_id, title, maincontent, tags, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') AS pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 5";
+		$sql = "SELECT blog_id, title, maincontent, maincontent_textile, tags, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') AS pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 5";
 		$result = mysql_query($sql);
 		
 		if ($myblog = mysql_fetch_array($result)) {
@@ -141,7 +141,8 @@ function writefullrss() {
 				$tags = $myblog["tags"];
 				$title = strip_tags(format($myblog["title"]));
 				$title = strip_tags($title);
-				$maincontent = format($myblog["maincontent"]);
+				$maincontent_textile = $myblog["maincontent_textile"];
+				$maincontent = format($myblog["maincontent"], $maincontent_textile);
 				$search = array ("href=\"/", "src=\"/");
 				$replace = array ("href=\"http://clagnut.com/", "src=\"http://clagnut.com/");
 				$maincontent = str_replace($search, $replace, $maincontent);
@@ -164,10 +165,10 @@ function writefullrss() {
 					} while ($blogcat = mysql_fetch_array($result_cats));
 				}
 				// add Technorati categories
-				$tags_ay = explode(" ", $tags);
-				foreach ($tags_ay AS $tag) {
-					$contents .= "<category domain=\"http://technorati.com/tag/$tag\">$tag</category>\n";
-				}
+//				$tags_ay = explode(" ", $tags);
+//				foreach ($tags_ay AS $tag) {
+//					$contents .= "<category domain=\"http://technorati.com/tag/$tag\">$tag</category>\n";
+//				}
 				
 				$contents .= "		</item>\n";
 			} while ($myblog = mysql_fetch_array($result));
@@ -210,7 +211,7 @@ function writesummariesrss() {
 		$contents=compilemetadata("Clagnut summaries","http://clagnut.com/","A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 10 posts in summary)", "http://clagnut.com/feeds/summaries.xml");
 		
 		// pull blogs from database
-		$sql = "SELECT blog_id, title, maincontent, tags, description, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') as pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 10";
+		$sql = "SELECT blog_id, title, maincontent, maincontent_textile, tags, description, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') as pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 10";
 		$result = mysql_query($sql);
 		
 		if ($myblog = mysql_fetch_array($result)) {
@@ -219,12 +220,13 @@ function writesummariesrss() {
 				$pubdate = $myblog["pubdate"];
 				$tags = $myblog["tags"];
 				$maincontent = $myblog["maincontent"];
+				$maincontent_textile = $myblog["maincontent_textile"];
 				$description = $myblog["description"];
 				$title = format($myblog["title"]);
 				$title = str_replace(array("<p>","</p>"),array("",""),$title);
 				$title = strip_tags($title);
 				$id = $myblog["blog_id"];
-				$summary = makeDescription($maincontent,$description);
+				$summary = makeDescription($maincontent,$description,$maincontent_textile);
 				$summary = $summary . " <a href='http://clagnut.com/blog/".$blog_id."/'>Read more</a>.";
 		
 				$contents .= "		<item>\n";
@@ -245,11 +247,11 @@ function writesummariesrss() {
 					} while ($blogcat = mysql_fetch_array($result_cats));
 				}
 				// add Technorati categories
-				$tags_ay = explode(" ", $tags);
-				foreach ($tags_ay AS $tag) {
-					$contents .= "<category domain=\"http://technorati.com/tag/$tag\">$tag</category>\n";
-				}
-				
+//				$tags_ay = explode(" ", $tags);
+//				foreach ($tags_ay AS $tag) {
+//					$contents .= "<category domain=\"http://technorati.com/tag/$tag\">$tag</category>\n";
+//				}
+//				
 				$contents .= "		</item>\n";
 			} while ($myblog = mysql_fetch_array($result));
 		}
