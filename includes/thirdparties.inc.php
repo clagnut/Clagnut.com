@@ -310,7 +310,7 @@ function makeTwitter() {
 				$isotime = strtotime($tweet['created_at']);
 				$fuzzyTime = get_elapsedtime($isotime); 
 				$twitterMarkup .= "<time datetime=\"$isotime\"><a href=\"https://twitter.com/clagnut/status/". $tweet['id'] ."\">$fuzzyTime</a></time>\n";
-				$status_text = SmartyPants($tweet['text']);
+				$status_text = SmartyPants::defaultTransform($tweet['text']);
 				$find = array(
 					"`((http)+(s)?:(//)|(www\.))((\w|\.|\-|_)+)(/)?(\S+)?`i", # find URLs
 					"`(\s|^)@(\w*)\b`i" # find @names
@@ -350,9 +350,9 @@ function getLastfm() {
 
 function makeLastfm() {
 	
-	$lastfmMarkup = "";
+	$lastfmMarkup = "<ul>";
 
-	$url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=clagnut&api_key=7fea57568921f8c8c3cf7ac6a951e560&limit=5";
+	$url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=clagnut&api_key=7fea57568921f8c8c3cf7ac6a951e560&limit=8";
 	#echo "<p><a href='$url'>Lastfm API call</a></p>";
 	$doc = new DOMDocument();							
 	if (@$doc -> load($url)) {
@@ -366,19 +366,19 @@ function makeLastfm() {
 				$track_name = $track -> getElementsByTagName("name") -> item(0) -> nodeValue;
 				$track_album = $track -> getElementsByTagName("album") -> item(0) -> nodeValue;
 				$track_url = $track -> getElementsByTagName("url") -> item(0) -> nodeValue;
-				$track_image = $track -> getElementsByTagName("image") -> item(0) -> nodeValue;
+				$track_image = $track -> getElementsByTagName("image") -> item(2) -> nodeValue;
 				if (!$track_image) {$track_image = "/i/cd.png";}
 				
-				$lastfmMarkup .= "<article><p><a href=\"$track_url\">";
+				$lastfmMarkup .= "<li><a href=\"$track_url\">";
 				$lastfmMarkup .= "<img src=\"$track_image\" alt=\"" . htmlentities($track_album) . "\" class=\"album_cover\" />";
 				$lastfmMarkup .= "<cite>" . htmlentities($track_name) . "</cite></a> by " . htmlentities($track_artist);
-				$lastfmMarkup .= "</p></article>\n";
+				$lastfmMarkup .= "</li>\n";
 			}
 		} else {		
-			$lastfmMarkup = "<article><p>All's quiet right now.</p></article>\n";
+			$lastfmMarkup = "<li>All's quiet right now.</li>\n";
 		}	
 		
-		$lastfmMarkup = SmartyPants($lastfmMarkup);
+		$lastfmMarkup = SmartyPants::defaultTransform($lastfmMarkup);
 			
 		// build cache contents
 		$contents = '

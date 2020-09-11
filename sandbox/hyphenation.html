@@ -1,0 +1,133 @@
+<html lang="en-GB">
+<head>
+<title>Testing CSS hyphenation properties</title>
+<style>
+body, h2 {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.tests {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:space-between;
+}
+
+.test {
+	font-family:"Georgia", serif;
+	width: 28.7ch;
+	margin-right: 2em;
+}
+
+.test p {
+	text-align: justify;
+}
+
+.test1 {
+	-webkit-hyphens:auto;
+	hyphens:auto;
+}
+
+.test2 {
+	-webkit-hyphens:auto;
+	hyphens:auto;
+	
+	-ms-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-lines: 2;
+	hyphenate-limit-lines: 2;
+}
+
+.test3 {
+	-webkit-hyphens:auto;
+	hyphens:auto;
+	
+	-ms-hyphenate-limit-chars: 6 4 2;
+	-moz-hyphenate-limit-chars: 6 4 2;
+	-webkit-hyphenate-limit-chars: 6 4 2;
+	hyphenate-limit-chars: 6 4 2;
+}
+
+.test4 {
+	-webkit-hyphens:auto;
+	hyphens:auto;
+	
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 2;
+	hyphenate-limit-before: 4;
+	hyphenate-limit-after: 2;
+}
+
+.test5 {
+	-webkit-hyphens:auto;
+	hyphens:auto;
+	
+	-webkit-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-zone: 8%;
+	hyphenate-limit-zone: 8%;
+}
+
+.test6 {
+	-webkit-hyphens:auto;
+	hyphens:auto;
+	
+	-webkit-hyphenate-limit-last: none;
+	-moz-hyphenate-limit-last: none;
+	-ms-hyphenate-limit-last: none;
+	hyphenate-limit-last: none;
+	
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphenate-limit-last: always;	
+	hyphenate-limit-last: always;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Testing CSS hyphenation properties</h1>
+<p>See <a href="/blog/2228/">accompanying blog post</a> for more details.</p>
+<hr>
+<div class="tests">
+
+<div class="test">
+<h2>0. No hyphenation</h2>
+<p class="test0">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+
+<div class="test">
+<h2>1. hyphens:auto</h2>
+<p class="test1">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+
+<div class="test">
+<h2>2. hyphens:auto, hyphenate-limit-lines</h2>
+<p class="test2">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+
+<div class="test">
+<h2>3. hyphens:auto, hyphenate-limit-chars</h2>
+<p class="test3">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+
+<div class="test">
+<h2>4. hyphens:auto,  hyphenate-limit-before/after</h2>
+<p class="test4">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+
+<div class="test">
+<h2>5. hyphens:auto,  hyphenate-limit-zone</h2>
+<p class="test5">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+
+<div class="test">
+<h2>6. hyphens:auto,  hyphenate-limit-last</h2>
+<p class="test5">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+		
+</div>
+
+</body>
+</html>

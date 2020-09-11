@@ -1,0 +1,8 @@
+RewriteEngine on
+ 
+  RewriteCond %{HTTP_HOST} ^www\.clagnut\.com$
+  RewriteRule (.*) http://clagnut.com/blog/$1 [R=Permanent]
+
+  RewriteBase /blog/  
+  RewriteRule ^([0-9]+)$ index.php?id=$1
+  RewriteRule ^([0-9]+)/$ index.php?id=$1

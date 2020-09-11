@@ -44,12 +44,12 @@ function makeMap($machinetagsAr) {
 
 
 
-function getpost($blog_id) {
+function getpost($blog_id) { 
 	global $dr, $dr2, $tagsAr, $clagnut_mtag;
 	// set cache file
 	$dr3 = str_replace("/includes/", "", $dr);	
 	$filename = $dr3 . "/cache/" . $blog_id . "-post.php";
-	$cachewait = 30; // seconds
+	$cachewait = 10; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait)) {
 		include($filename);
@@ -63,16 +63,18 @@ function getpost($blog_id) {
 
 			// pull blog from database
 
-			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, enable_comments, title, description, mainimage_src, mainimage_alt, maincontent_textile, maincontent, tags, DATE_FORMAT(blogdate,'%D %M %Y') AS postdate FROM blogs WHERE blog_id = $blog_id AND content_type='blog'";
-			$result = mysql_query($sql);
-			$myblog = mysql_fetch_array($result);
+			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, enable_comments, title, description, mainimage_src, mainimage_alt, socialimage_src, socialimage_alt, maincontent_textile, maincontent, tags, DATE_FORMAT(blogdate,'%D %M %Y') AS postdate FROM blogs WHERE blog_id = $blog_id AND content_type='blog'";
+			$result = mysqli_query($db, $sql);
+			$myblog = mysqli_fetch_array($result);
 
 			$postdate = $myblog["postdate"];
 			$enable_comments = $myblog["enable_comments"];
 			$title_raw = stripslashes($myblog["title"]);
 			$description_raw = stripslashes($myblog["description"]);
-			#$mainimage_src = $myblog["mainimage_src"];
-			#$mainimage_alt_raw = $myblog["mainimage_alt"];
+			$mainimage_src = $myblog["mainimage_src"];
+			$mainimage_alt_raw = $myblog["mainimage_alt"];
+			$socialimage_src = $myblog["socialimage_src"];
+			$socialimage_alt_raw = $myblog["socialimage_alt"];
 			$maincontent_textile = $myblog["maincontent_textile"];
 			$maincontent_raw = stripslashes($myblog["maincontent"]);
 			$blogdate = $myblog["blogdate"];
@@ -81,6 +83,7 @@ function getpost($blog_id) {
 
 			$title = format($title_raw);
 			$title = str_replace(array("<p>","</p>"),array("",""),$title);
+			
 			$headtitle = strip_tags($title);
 			$googletitle = str_replace(" ",",",$headtitle);
 			$maincontent = format($maincontent_raw, $maincontent_textile);
@@ -150,16 +153,27 @@ function getpost($blog_id) {
 
 
 			// build main image HTML
-			/*
-
 			if($mainimage_src) {
 				$mainimage_alt = format($mainimage_alt_raw);
 				$mainimage_alt = str_replace(array("<p>","</p>"),array("",""),$mainimage_alt);
-				$mainimage = "<p class=\"imgholder\"><img src=\"/images/$mainimage_src\" alt=\"$mainimage_alt\" /></p>";
+				$mainimage = "<figure class=\"fullbleed\"><img src=\"/images/$mainimage_src\" alt=\"$mainimage_alt\" /></figure>";
+				$mainimage_url = "http://clagnut.com/images/$mainimage_src";
 			} else {
 				$mainimage = "";
+				$mainimage_url = "";
+				$mainimage_alt = "";
 			}
-			*/
+			
+			
+			// build social image
+			if($socialimage_src) {
+				$socialimage_src = "http://clagnut.com/images/$socialimage_src";				
+				$socialimage_alt = format($socialimage_alt_raw);
+				$socialimage_alt = str_replace(array("<p>","</p>"),array("",""),$socialimage_alt);
+			} else {
+				$socialimage_src = "";
+				$socialimage_alt = "";
+			}
 
 			// get blog categories
 
@@ -169,23 +183,33 @@ function getpost($blog_id) {
 
 			$older = false;
 			$oldertitle = false;
+			$olderblogdate = false;
+			$olderunixdate = false;
 			$recent = false;
 			$recenttitle = false;
+			$recentblogdate = false;
+			$recentunixdate = false;
 
-			$sql = "SELECT blog_id, title FROM blogs WHERE blogdate < '$blogdate' AND content_type='blog' ORDER BY blogdate DESC LIMIT 1";
-			$result = mysql_query($sql);
-			$nextblog = mysql_fetch_array($result);
+			$sql = "SELECT blog_id, title, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate, UNIX_TIMESTAMP(blogdate) AS unixdate FROM blogs WHERE blogdate < '$blogdate' AND content_type='blog' ORDER BY blogdate DESC LIMIT 1";
+			$result = mysqli_query($db, $sql);
+			$nextblog = mysqli_fetch_array($result);
 			if($nextblog) {
 				$older = $nextblog["blog_id"];
-				$oldertitle = strip_tags(format($nextblog["title"]));
+				$oldertitle = format(stripslashes($nextblog["title"]));
+				$oldertitle = strip_tags($oldertitle);
+				$olderblogdate = $nextblog["postdate"];
+				$olderunixdate = $nextblog["unixdate"];
 			}
 
-			$sql = "SELECT blog_id, title FROM blogs WHERE blogdate > '$blogdate' AND blogdate < NOW() AND content_type='blog' ORDER BY blogdate ASC LIMIT 1";
-			$result = mysql_query($sql);
-			$prevblog = mysql_fetch_array($result);
+			$sql = "SELECT blog_id, title, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate, UNIX_TIMESTAMP(blogdate) AS unixdate FROM blogs WHERE blogdate > '$blogdate' AND blogdate < NOW() AND content_type='blog' ORDER BY blogdate ASC LIMIT 1";
+			$result = mysqli_query($db, $sql);
+			$prevblog = mysqli_fetch_array($result);
 			if($prevblog) {
 				$recent = $prevblog["blog_id"];
-				$recenttitle = strip_tags(format($prevblog["title"]));
+				$recenttitle = format(stripslashes($prevblog["title"]));
+				$recenttitle = strip_tags($recenttitle);
+				$recentblogdate = $prevblog["postdate"];
+				$recentunixdate = $prevblog["unixdate"];
 			}
 
 			// get related posts
@@ -202,11 +226,11 @@ function getpost($blog_id) {
 			//echo $sql;
 	
 
-			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, title, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,tags,description) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
+			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, title, maincontent, description, DATE_FORMAT(blogdate,'%e %M %Y') AS postdate FROM blogs WHERE MATCH (title,tags,description) AGAINST ('$searchterm') AND blog_id<>$blog_id AND blogdate < NOW() AND content_type='blog' LIMIT 3";
 			
-			$result = mysql_query($sql);
+			$result = mysqli_query($db, $sql);
 			
-			if ($myblog = mysql_fetch_array($result)) {
+			if ($myblog = mysqli_fetch_array($result)) {
 				$related_posts = "<ul class='articles'>";
 				do {
 				
@@ -219,15 +243,17 @@ function getpost($blog_id) {
 					} else {
 						$post_headtitle[$rp_id] = strip_tags($myblog["title"]);
 						$post_isodate[$rp_id] = $myblog["unixdate"];
-						$post_categories[$rp_id] = get_blog_cats($rp_id);
+						$post_decription_tmp = format(makeDescription($myblog["maincontent"], $myblog["description"]));
+						$post_decription_tmp = str_replace(array("<p>","</p>"),array("",""),$post_decription_tmp);
+						$post_description[$rp_id] = $post_decription_tmp;
 					}
 					$related_posts .= "<li><article>
+					<h3><a href='/blog/$rp_id'>$post_headtitle[$rp_id]</a></h3>
+					<p class='summary'>$post_description[$rp_id]</p>
 					<p class='date'><time datetime='$post_isodate[$rp_id]'>$rp_postdate</time></p>
-					<h1><a href='/blog/$rp_id'>$post_headtitle[$rp_id]</a></h1>
-					<p class='categories'>$post_categories[$rp_id]</p>
-					</article></li>";
+					</article></li>\n";
 					
-				} while ($myblog = mysql_fetch_array($result));
+				} while ($myblog = mysqli_fetch_array($result));
 				
 				$related_posts .= "</ul>";
 				
@@ -253,8 +279,8 @@ function getpost($blog_id) {
 				GROUP BY referer
 				ORDER BY counter DESC, dt DESC
 				LIMIT 10";
-				$result = mysql_query($sql);
-				if($myreferrer = mysql_fetch_array($result)) {
+				$result = mysqli_query($db, $sql);
+				if($myreferrer = mysqli_fetch_array($result)) {
 					$referrers = "<ul class=\"referrers\">";
 					do {
 						$referrer = $myreferrer["referer"];
@@ -267,7 +293,7 @@ function getpost($blog_id) {
 						$counter = $myreferrer["counter"];
 						$referrer = str_replace(" ", "+", $referrer);
 						$referrers .= "<li>$counter&nbsp;&middot;&nbsp;<a href=\"$referrer\" rel=\"nofollow\">$domain</a></li>\n";
-					} while ($myreferrer = mysql_fetch_array($result));
+					} while ($myreferrer = mysqli_fetch_array($result));
 					$referrers .= "</ul>";
 				} else {
 					$referrers = "<p>No referrers yet.</p>";
@@ -279,8 +305,8 @@ function getpost($blog_id) {
 			/*
 
 			$sql = "select count(blogID) AS numcomments from comments where blogID=$blog_id";
-			$result = mysql_query($sql);
-			if($mynumcomments = mysql_fetch_array($result)) {
+			$result = mysqli_query($db, $sql);
+			if($mynumcomments = mysqli_fetch_array($result)) {
 				$numcomments = $mynumcomments["numcomments"];
 			} else {
 				$numcomments = 0;
@@ -292,11 +318,11 @@ function getpost($blog_id) {
 
 			$contents = '
 			<?php
-			global $post_title, $post_headtitle, $post_mainimage, $post_maincontent, $post_description, $post_categories, $post_tags, $post_machinetags, $post_postdate, $post_isodate, $post_older, $post_oldertitle, $post_recent, $post_recenttitle, $post_related_posts, $post_enable_comments, $post_comments_expired, $post_numcomments, $post_referrers, $post_map, $post_maincontent_textile;
-			$post_title['.$blog_id.'] = "' . addslashes($title) . '";
-			$post_headtitle['.$blog_id.'] = "' . addslashes($headtitle) . '";
-			$post_maincontent['.$blog_id.'] = "' . addslashes($maincontent) . '";
-			$post_description['.$blog_id.'] = "' . addslashes($description) . '";
+			global $post_title, $post_headtitle, $post_mainimage, $post_mainimage_url, $post_mainimage_alt, $post_socialimage_url, $post_socialimage_alt, $post_maincontent, $post_description, $post_categories, $post_tags, $post_machinetags, $post_postdate, $post_isodate, $post_older, $post_oldertitle, $post_olderblogdate, $post_olderunixdate, $post_recent, $post_recenttitle, $post_recentblogdate, $post_recentunixdate, $post_related_posts, $post_enable_comments, $post_comments_expired, $post_numcomments, $post_referrers, $post_map, $post_maincontent_textile;
+			$post_title['.$blog_id.'] = \'' . addslashes($title) . '\';
+			$post_headtitle['.$blog_id.'] = \'' . addslashes($headtitle) . '\';
+			$post_maincontent['.$blog_id.'] = \'' . addslashes($maincontent) . '\';
+			$post_description['.$blog_id.'] = \'' . addslashes($description) . '\';
 			$post_categories['.$blog_id.'] = "' . addslashes($categories) . '";
 			$post_tags['.$blog_id.'] = array(' . $tagsarray . ');
 			$post_machinetags['.$blog_id.'] = array(' . $machinetagsarray . ');
@@ -304,10 +330,19 @@ function getpost($blog_id) {
 			$post_isodate['.$blog_id.'] = "' . date("c", $unixdate) . '";
 			$post_older['.$blog_id.'] = "'. $older . '";
 			$post_oldertitle['.$blog_id.'] = "'. addslashes($oldertitle) . '";
+			$post_olderblogdate['.$blog_id.'] = "' . addslashes($olderblogdate) . '";
+			$post_olderunixdate['.$blog_id.'] = "' . date("c", $olderunixdate) . '";
 			$post_recent['.$blog_id.'] = "'. $recent . '";
 			$post_recenttitle['.$blog_id.'] = "'. addslashes($recenttitle) . '";
+			$post_recentblogdate['.$blog_id.'] = "' . addslashes($recentblogdate) . '";
+			$post_recentunixdate['.$blog_id.'] = "' . date("c", $recentunixdate) . '";
 			$post_related_posts['.$blog_id.'] = "'. addslashes($related_posts) . '";
 			$post_map['.$blog_id.'] = "'. addslashes($map) . '";
+			$post_mainimage['.$blog_id.'] = "'. addslashes($mainimage) . '";
+			$post_mainimage_url['.$blog_id.'] = "'. addslashes($mainimage_url) . '";
+			$post_mainimage_alt['.$blog_id.'] = "'. addslashes($mainimage_alt) . '";
+			$post_socialimage_url['.$blog_id.'] = "'. addslashes($socialimage_src) . '";
+			$post_socialimage_alt['.$blog_id.'] = "'. addslashes($socialimage_alt) . '";
 			$post_maincontent_textile['.$blog_id.'] = "'. addslashes($maincontent_textile) . '";
 			?>';
 
@@ -333,11 +368,13 @@ function getpost($blog_id) {
 
 function get_blog_cats($blog_id) {
 // get blog categories
-
+	global $dr, $dr2;
+	include($dr2 . "/db_connect.php");
 	$categorysql = "SELECT filename, category, categorys.category_id FROM categorys, categorys_blogs WHERE blog_id = $blog_id AND categorys.category_id = categorys_blogs.category_id";
-	$categoryresult = mysql_query($categorysql);
-	$categorys = NULL;
-	if ($mycategory = mysql_fetch_array($categoryresult)) {
+	$categoryresult = mysqli_query($db, $categorysql);
+	$categorys = NULL;	
+	
+	if ($mycategory = mysqli_fetch_array($categoryresult)) {
 		do {
 			$category_id = $mycategory["category_id"];
 			$category = htmlentities($mycategory["category"]);
@@ -345,7 +382,7 @@ function get_blog_cats($blog_id) {
 			$categorys[$category_id] = $category;
 			$directorys[$category_id] = $directory;
 		}
-		while ($mycategory = mysql_fetch_array($categoryresult));
+		while ($mycategory = mysqli_fetch_array($categoryresult));
 	} else {
 		$categorys[0] = "Unfiled";
 	}
@@ -361,14 +398,15 @@ function get_blog_cats($blog_id) {
 		if ($category_id != 0) {
 			$category = str_replace(" ", "&nbsp;", $category);
 			$category_list = $category_list.$category;
-			$categories .= " <a href=\"/archive/".$directorys[$category_id]."/\" title=\"View all posts relating to $category.\">$category</a> ";
+			$categories .= "<li><a href=\"/archive/".$directorys[$category_id]."/\" title=\"View all posts relating to $category.\">$category</a>";
 		} else {
 			$categories .= "&#8211; $category &#8211;"; # prints - unfiled -
 		}
 		if ($catcounter != $numcats) {
 			$category_list = $category_list.",";
-			$categories .= " &middot; ";
+			$categories .= ",";
 		}
+		$categories .= "</li>\n";
 	}
 	return $categories;
 }
@@ -393,8 +431,8 @@ function getcomments($blog_id, $force=FALSE) {
 
 			// pull comments from database
 			$sql = "SELECT comment_id,author,email,web,comment,UNIX_TIMESTAMP(commentstamp) AS commentstamp, DATE_FORMAT(commentstamp, '%Y%m%d%H%i%s') AS mmcommentdate, gravatar, UNIX_TIMESTAMP(gravatar_check) AS gravatar_check FROM comments WHERE blogID = $blog_id ORDER BY commentstamp ASC";
-			$result = mysql_query($sql);
-			if($mycomment = mysql_fetch_array($result)) {
+			$result = mysqli_query($db, $sql);
+			if($mycomment = mysqli_fetch_array($result)) {
 				$comment_num = 0;
 				do {
 					$comment_num++;
@@ -427,7 +465,7 @@ function getcomments($blog_id, $force=FALSE) {
 								$gravatar="no";
 							}
 							$sqlgrav = "UPDATE comments SET gravatar='$gravatar', gravatar_check='$gravatar_check' where email='$commentemail'";
-							$resultgrav = mysql_query($sqlgrav);
+							$resultgrav = mysqli_query($db, $sqlgrav);
 						}
 						if($gravatar == "yes") {
 							$gravatar = "<img src='$grav_url' alt='".$comment_author."&#8217;s Gravatar' class='photo' />";
@@ -465,7 +503,7 @@ function getcomments($blog_id, $force=FALSE) {
 
 					$comments[] = $comment;
 
-				} while ($mycomment = mysql_fetch_array($result));
+				} while ($mycomment = mysqli_fetch_array($result));
 			}
 
 			// build cache
@@ -510,7 +548,7 @@ function gethomecontent() {
 	// set cache file
 	$dr3 = str_replace("/includes/", "", $dr);	
 	$filename = $dr3 . "/cache/home-content.php";
-	$cachewait = 30; // seconds
+	$cachewait = 10; // seconds
 
 	if (file_exists($filename) && (time() - filectime($filename) < $cachewait)) {
 		include($filename);
@@ -525,8 +563,8 @@ function gethomecontent() {
 			// pull blogmarks from database
 			/*
 			$sql = "SELECT * FROM blogs WHERE content_type='blogmark' ORDER BY blogdate DESC, tstamp DESC LIMIT 11";
-			$result = mysql_query($sql);
-			if ($myblogmark = mysql_fetch_array($result)) {
+			$result = mysqli_query($db, $sql);
+			if ($myblogmark = mysqli_fetch_array($result)) {
 				$blogmarks = "<ul>\n";
 				do {
 					$link_title = format($myblogmark["title"]);
@@ -540,7 +578,7 @@ function gethomecontent() {
 					if ($link_url != "") {
 						$blogmarks = $blogmarks . "<li><a href='$link_url' title='$link_comment'>$link_title</a></li>\n";
 					}
-				} while ($myblogmark = mysql_fetch_array($result));
+				} while ($myblogmark = mysqli_fetch_array($result));
 				$blogmarks = $blogmarks . "</ul>\n";
 			} else {
 				$blogmarks = "<p>No blogmarks yet.</p>\n";
@@ -557,12 +595,12 @@ function gethomecontent() {
 			AND artists.artist_id = music.artist
 			AND formats.id = music.format
 			ORDER BY artist, title";
-			$result = mysql_query($sql);
-			if ($mymusic = mysql_fetch_array($result)) {
+			$result = mysqli_query($db, $sql);
+			if ($mymusic = mysqli_fetch_array($result)) {
 				$latestmusic = "<ul>\n";
 				do {
 					$latestmusic = $latestmusic . "<li><cite>" .htmlentities($mymusic["title"]) . "</cite> &middot; " . htmlentities($mymusic["artist"]) . "</li>\n";
-				} while ($mymusic = mysql_fetch_array($result));
+				} while ($mymusic = mysqli_fetch_array($result));
 				$latestmusic = $latestmusic . "</ul>\n";
 			} else {
 				$latestmusic = "<p>No recent purchases.</p>";
@@ -577,21 +615,21 @@ function gethomecontent() {
 
 			// get latest posts
 			$sql = "SELECT blog_id FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 5";
-			$result = mysql_query($sql);
-			if ($myblog = mysql_fetch_array($result)) {
+			$result = mysqli_query($db, $sql);
+			if ($myblog = mysqli_fetch_array($result)) {
 				do {
 					$blogpostids[] = $myblog["blog_id"];
-				} while ($myblog = mysql_fetch_array($result));
+				} while ($myblog = mysqli_fetch_array($result));
 			}
 
 			// get post from one year ago
 			/*
 			$sql = "SELECT blog_id, title, description, maincontent, blogdate, ABS((UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(blogdate))/86400 - 365) AS daysincepost FROM blogs WHERE content_type='blog'  AND (TO_DAYS(NOW()) - TO_DAYS(blogdate)) BETWEEN 335 AND 395 ORDER BY daysincepost LIMIT 1";
-			$result = mysql_query($sql);
-			if ($myblog = mysql_fetch_array($result)) {
+			$result = mysqli_query($db, $sql);
+			if ($myblog = mysqli_fetch_array($result)) {
 				do {
 					$blogpostids[] = $myblog["blog_id"];
-				} while ($myblog = mysql_fetch_array($result));
+				} while ($myblog = mysqli_fetch_array($result));
 			} else {
 				$blogpostids[] = 0;
 			}

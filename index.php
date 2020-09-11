@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Europe/London");
 $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENAME']);
 $dr3 = str_replace("/includes/", "", $dr);
 
@@ -26,152 +27,113 @@ gethomecontent();
 <head>
 <?php include($dr . "head.inc.php"); ?>
 
-    <title>Clagnut by Richard Rutter</title>
-    
-	<meta name="description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, user experience design, Brighton, music and occasionally mountain biking. " />
-	<meta name="author" content="Richard Rutter" /> 
-    
-    <link rel="openid.server" href="http://www.myopenid.com/server" />
-    <link rel="openid.delegate" href="http://clagnut.myopenid.com/" />
-    <link rel="openid2.provider" href="http://www.myopenid.com/server" />
-    <link rel="openid2.local_id" href="http://clagnut.myopenid.com/" />
-    <meta name="verify-v1" content="IJz7pHnlmNG5vpLqcQlYqEKpcrz4tPaMqM+w2eTM5XE=" />
-    
-</head>
+<title>Clagnut by Richard Rutter</title>
 
+<meta name="description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, human-centred design, Brighton, music and occasionally mountain biking. " />
+<meta name="author" content="Richard Rutter" /> 
+
+<!-- Twitter Card -->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@clagnut" />
+<meta name="twitter:title" content="Clagnut by Richard Rutter" />
+<meta name="twitter:description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, human-centred design, Brighton, music and cycling." />
+<meta name="twitter:image" content="https://ampersand.s3.amazonaws.com/rr-twittercard.jpg" />
+
+</head>
 
 <body>
 <?php 
 include($dr . "header.inc.php");
 ?>
 
-<main class="home">
+<main class="home archive">
+
+<article class="post">
 
 <header>
 
+<div class="hgroup">
 <h2>An enthusiasm by</h2>
 <h1>Richard Rutter</h1>
+</div>
+
+<div class="introblock">
+<p><strong class="intro">Hello. I’m Richard, a designer, <a href="http://book.webtypography.net/">author</a> and <a href="/speaking">speaker</a> living by the sea in Brighton, UK. I’m co-founder of <a href="https://clearleft.com/">Clearleft</a>, a digital design consultancy.</strong></p>
+<p>I love all things to do with human-centred design, typography, music and cycling. I occasionally write about them here.</p>
+</div>
 
 </header>
 
-<div class="newness">
 
-<article class="newestpost">
-<?php getpost($blogpostids[0]); ?>
-<p class="date"><time datetime="<?php echo $post_isodate[$blogpostids[0]] ?>"><?php echo $post_postdate[$blogpostids[0]] ?></time></p>
-<h1><a href="/blog/<?php echo $blogpostids[0] ?>/" rel="bookmark"><?php echo $post_title[$blogpostids[0]] ?></a></h1>
-<p><?php echo stripslashes($post_description[$blogpostids[0]]) ?></p>
+<section>
+<div class="listing">
 
-<p class="more"><a href="/blog/<?php echo $blogpostids[0] ?>/">Read on</a> &rarr;</p>
-</article>
+<h2 class="home-latest-posts">Latest Posts</h2>
 
-
-<article class="favephoto">
 <?php
-getHomeFlickr();
-echo stripslashes($homeflickr);
-?>
-</article>
+if (isset($blogpostids)) {
+	echo "<ul class='articles'>\n";
+	# Print individual post title and descriptions
+	foreach ($blogpostids AS $key => $blogpostid) {
+		getpost($blogpostid);
+		echo "<li><article>\n";
+		echo "	<h3><a href=\"/blog/" . $blogpostid . "/\" rel=\"bookmark\">" . $post_title[$blogpostid] . " </a></h3>\n";
+		
+		$description = format($post_description[$blogpostid]);
+		$description = str_replace(array("<p>","</p>"),array("",""),$description);
+		
+		echo "	<p class=\"summary\">" . $description . " </p>\n";
+		echo "	<p class=\"date\">\n";
+		echo "		<time datetime=\"" . $post_isodate[$blogpostid] . " \">" . $post_postdate[$blogpostid] . " </time>\n";
+		echo "	</p>\n";
+		echo "</article></li>\n";
+	}
+	echo "</ul>";
+}
+?> 
 
+<nav class="pagination"><div></div><h5 class="older"><a href="/archive/">All posts</a></h5></nav>
+
+</div>	
+
+<aside class="categorylist">
+
+<div class="elsewhere social">
+<h3>Me Elsewhere</h3>
+<ul>
+<li><a href="https://twitter.com/clagnut" class="icon" rel="me"><img src="/i/icon-twitter.svg" alt="twitter"></a> <a href="https://twitter.com/clagnut" rel="me">Twitter</a></li>
+    <li><a href="https://flickr.com/photos/clagnut" class="icon" rel="me"><img src="/i/icon-flickr.svg" alt="flickr"></a> <a href="https://flickr.com/photos/clagnut" rel="me">Flickr</a></li>
+    <li><a href="https://github.com/clagnut" class="icon" rel="me"><img src="/i/icon-github.svg" alt="github"></a> <a href="https://github.com/clagnut" rel="me">Github</a></li>
+    <li><a href="https://strava.com/athletes/clagnut" class="icon" rel="me"><img src="/i/icon-strava.svg" alt="strava"></a> <a href="https://strava.com/athletes/clagnut" rel="me">Strava</a></li>
+	<li><a href="https://linkedin.com/in/richardrutter" class="icon" rel="me"><img src="/i/icon-linkedin.svg" alt="linkedin"></a> <a href="https://linkedin.com/in/richardrutter" rel="me">LinkedIn</a></li>
+</ul>
 </div>
 
+<div class="elsewhere lastfm">
+<h3>Latest listening</h3>
 
-<section class="live">
-		<section class="cluster twitter">
-		<h2><span><a href="http://twitter.com/clagnut" rel="me"><img src="/i/icon-twitter.png" alt="Follow me on Twitter" title="@clagnut" class="icon" /></a> @clagnut</span></h2>
-			 
-			 
-		<?php
-		getTwitter();
-		if (isset($twitter)) {
-			echo stripslashes($twitter);
-		} else {
-			echo "<article><p>No tweets available. Probably a fail whale scenario.</p></article>";
-		}
-		?>
-	
-	</section>
-		<div class="ambient"> <!-- td -->
-			<section class="cluster lastfm">
-		<h2><span><a href="http://www.last.fm/user/clagnut" rel="me"><img src="/i/icon-lastfm.png" alt="Last.fm" title="Last.fm" class="icon" /></a> Listening</span></h2>		 
-		
-		<?php
-		getLastfm();
-		if (isset($lastfm)) {
-			echo stripslashes($lastfm);
-		}
-		?>
-		
-	</section>	
-			<section class="cluster kennedy">
-		<h2><span><a href="http://kennedyapp.com"><img src="/i/icon-kennedy.png" alt="Kennedy App" title="Kennedy App" class="icon" /></a> A Moment</span></h2>		 
-			 	
-	
-		<article>
-			<?php		
-			# Get latest moment from Kennedy
-			include($dr3 . "/kennedy/moments.php");
-			
-			$moments = getMoments($dr3);
-			if(is_array($moments) && count($moments)>0) {
-				$moment = $moments[0];
-				echo formatMoment($moment);
-			} else {
-				echo "<p>No moments available.</p>";
-			}
-			?>
-		</article>
-		
-	</section>	
-			<section class="cluster thisismyjam">
-		<h2><span><a href="https://www.thisismyjam.com/clagnut"><img src="/i/icon-jam.png" alt="ThisIsMyJam" title="ThisIsMyJam" class="icon" rel="me" /></a> Current Jam</span></h2>		 
-			 
-		<article>
-		<script src="http://www.thisismyjam.com/includes/js/medallion.js"></script>
-		<script>Jam.Medallion.insert({"username":"clagnut","imageSize":"medium"});</script>
-		</article>	
-		
-	</section>	
-		</div>
-		<div class="mylatest">
-			<section class="cluster latestposts">
-		<h2><span>Latest Posts</span></h2>
-		<ul class='articles'>
-		<?php
-		
-		foreach ($blogpostids AS $key => $blogpostid) {
-			if ($key > 0 && $key < count($blogpostids)) {
-				getpost($blogpostid);
-				if($key==3) { echo "</ul>\n<ul class='articles'>"; }
-				echo "<li><article>\n";
-				echo "	<p class=\"date\">\n";
-				echo "		<time datetime=\"" . $post_isodate[$blogpostid] . " \">" . $post_postdate[$blogpostid] . " </time>\n";
-				echo "	</p>\n";
-				echo "	<h1><a href=\"/blog/" . $blogpostid . "/\" rel=\"bookmark\">" . $post_title[$blogpostid] . " </a></h1>\n";
-				echo "	<p class=\"categories\">" . $post_categories[$blogpostid] . " </p>\n";
-				echo "</article></li>\n";
-			}
-		}
-		?>
-		</ul>
-	
-	</section>
-			<section class="cluster latestphotos">
-		<h2><span><a href="http://flickr.com/photos/clagnut" rel="me"><img src="/i/icon-flickr" alt="Flickr" title="Flickr" class="icon" /></a> Latest Photos</span></h2>
-		<div class="gallery">
-		<?php
-		getlatestFlickr();
-		if (isset($latestflickr)) {
-			echo stripslashes($latestflickr);
-		}
-		?>
-		</div>
-	</section>
-	</div>
+<?php
+getLastfm();
+if (isset($lastfm)) {
+	echo stripslashes($lastfm);
+}
+?>
+
+<ul>
+    <li><a href="http://last.fm/user/clagnut" class="icon" rel="me"><img src="/i/icon-lastfm.svg" alt="lastfm"></a> <a href="http://last.fm/user/clagnut" rel="me">Last.fm</a></li>
+</ul>
+</div>
+
+</aside>
+
 </section>
+
+</article>
 
 </main>
 
 <?php include($dr . "footer.inc.php"); ?>
+
 </body>
 </html>

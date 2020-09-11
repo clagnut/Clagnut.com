@@ -37,21 +37,21 @@ include($dr . "/cms_blogs.inc")
 // if delete has been pressed and and id is present then delete
 if ($del && $id) {
     $sql = "DELETE FROM blogs WHERE blog_id='$id'";
-    $result = mysql_query($sql);
+    $result = mysqli_query($db, $sql);
 	if ($result) {
 	    echo "<p>Blog deleted!</p>";
 	    echo writefullrss();
 		echo writesummariesrss();
 	} else {
 		echo "<p>Error deleting blog.</p>\n";
-		echo "<p>".mysql_error()."</p>";
+		echo "<p>".mysqli_error()."</p>";
 	}
 }
 
 // get list of blogs from database
 $sql = "SELECT blog_id,title,DATE_FORMAT(blogdate, '%e %b %Y at %H:%i') FROM blogs WHERE content_type='blog' ORDER BY blogdate DESC";
-$result = mysql_query($sql);
-$myblog = mysql_fetch_array($result);
+$result = mysqli_query($db, $sql);
+$myblog = mysqli_fetch_array($result);
 if($myblog) { // checks if any blogs have been returned from database
     echo "<ol>";
 	do { // prints an blog's details
@@ -61,7 +61,7 @@ if($myblog) { // checks if any blogs have been returned from database
 	     <a href=\"editblog.php?id=%s\">%s</a> %s</li>\n", $myblog["blog_id"],
     	 $_SERVER["PHP_SELF"], $myblog["blog_id"],
 	     $myblog["blog_id"], $title, $myblog["DATE_FORMAT(blogdate, '%e %b %Y at %H:%i')"]);
-	} while ($myblog = mysql_fetch_array($result)); // loops back through $myblog array for each blog returned from database
+	} while ($myblog = mysqli_fetch_array($result)); // loops back through $myblog array for each blog returned from database
 	echo "</ol>";
 } else {
         echo "<p>No blogs as yet.</p>";

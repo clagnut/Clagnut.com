@@ -27,6 +27,8 @@ $description = (isset($_REQUEST["description"]))?$_REQUEST["description"]:"";
 $maincontent = (isset($_REQUEST["maincontent"]))?$_REQUEST["maincontent"]:"";
 $mainimage_src = (isset($_REQUEST["mainimage_src"]))?$_REQUEST["mainimage_src"]:"";
 $mainimage_alt = (isset($_REQUEST["mainimage_alt"]))?$_REQUEST["mainimage_alt"]:"";
+$socialimage_src = (isset($_REQUEST["socialimage_src"]))?$_REQUEST["socialimage_src"]:"";
+$socialimage_alt = (isset($_REQUEST["socialimage_alt"]))?$_REQUEST["socialimage_alt"]:"";
 $maincontent_textile = (isset($_REQUEST["maincontent_textile"]))?$_REQUEST["maincontent_textile"]:"";
 $category_ids = (isset($_REQUEST["category_ids"]))?$_REQUEST["category_ids"]:"";
 $tags = (isset($_REQUEST["tags"]))?$_REQUEST["tags"]:"";
@@ -47,11 +49,11 @@ if ($submitAdd && !$submitPreview) {
 		$blogdate = "'$blogdate'";
 	}
 	$sql = "INSERT INTO blogs
-	(blog_id,title,description,mainimage_src, mainimage_alt, maincontent, blogdate,content_type,enable_comments,tags,maincontent_textile)
-	VALUES ('$id', '$title', '$description', '$mainimage_src', '$mainimage_alt', '$maincontent', $blogdate, 'blog', '$enable_comments', '$tags','$maincontent_textile')";
-	$result = mysql_query($sql);
-	if (mysql_affected_rows() > 0) {
-		$id = mysql_insert_id();
+	(blog_id,title,description,mainimage_src, mainimage_alt,socialimage_src, socialimage_alt, maincontent, blogdate,content_type,enable_comments,tags,maincontent_textile)
+//	VALUES ('$id', '$title', '$description', '$mainimage_src', '$mainimage_alt', '$socialimage_src', '$socialimage_alt', '$maincontent', $blogdate, 'blog', '$enable_comments', '$tags','$maincontent_textile')";
+	$result = mysqli_query($db, $sql);
+	if (mysqli_affected_rows($db) > 0) {
+		$id = mysqli_insert_id($db);
 		$message = "Post modified.";
 
 
@@ -86,7 +88,7 @@ if ($submitAdd && !$submitPreview) {
 		}
 	} else {
 		$message = "There was a problem.<br>
-		MySQL said: ".mysql_error().".<br />".$sql;
+		MySQL said: ".mysqli_error($db).".<br />".$sql;
 	}
 }
 
@@ -101,15 +103,15 @@ if (preg_match("/[0-9]+/",$id)) {
 			$blogdate = "'".$blogdate."'";
 		}
 	    $sql = "UPDATE blogs SET
-	    title='$title', blogdate=$blogdate, description='$description', maincontent='$maincontent', mainimage_src='$mainimage_src', maincontent_textile='$maincontent_textile', mainimage_alt='$mainimage_alt', enable_comments='$enable_comments', tags='$tags'
+	    title='$title', blogdate=$blogdate, description='$description', maincontent='$maincontent', mainimage_src='$mainimage_src', socialimage_src='$socialimage_src', socialimage_alt='$socialimage_alt', maincontent_textile='$maincontent_textile', mainimage_alt='$mainimage_alt', enable_comments='$enable_comments', tags='$tags'
 	    WHERE blog_id='$id'";
 		#echo "<textarea>".htmlentities($sql)."</textarea>";
-		$result = mysql_query($sql);
-		if (mysql_affected_rows() > 0) {
+		$result = mysqli_query($db, $sql);
+		if (mysqli_affected_rows($db) > 0) {
 			$message = "Post modified.";
-		} elseif (mysql_error()) {
+		} elseif (mysqli_error($db)) {
 			$message = "There was a problem.<br>
-			MySQL said: ".mysql_error().".";
+			MySQL said: ".mysqli_error($db).".";
 		} else {
 			$message = "Post not modified.<br>
 			MySQL didn't report an error so there were probably no changes to make.";
@@ -123,9 +125,9 @@ if (preg_match("/[0-9]+/",$id)) {
 
 	// pull blog from database
 	if (!$submitPreview) {
-		$sql = "SELECT title, enable_comments, description, maincontent, maincontent_textile, mainimage_src, mainimage_alt, blogdate, tags, DATE_FORMAT(blogdate, '%e %b %Y at %H:%i') AS date FROM blogs WHERE blog_id=$id";
-		$result = mysql_query($sql);
-		if ($myblog = mysql_fetch_array($result)) {;
+		$sql = "SELECT title, enable_comments, description, maincontent, maincontent_textile, mainimage_src, mainimage_alt, socialimage_src, socialimage_alt, blogdate, tags, DATE_FORMAT(blogdate, '%e %b %Y at %H:%i') AS date FROM blogs WHERE blog_id=$id";
+		$result = mysqli_query($db, $sql);
+		if ($myblog = mysqli_fetch_array($result)) {;
 			$blogdate = $myblog["blogdate"];
 			$date = $myblog["date"];
 			$title = $myblog["title"];
@@ -134,6 +136,8 @@ if (preg_match("/[0-9]+/",$id)) {
 			$maincontent_textile = $myblog["maincontent_textile"];
 			$mainimage_src = $myblog["mainimage_src"];
 			$mainimage_alt = $myblog["mainimage_alt"];
+			$socialimage_src = $myblog["socialimage_src"];
+			$socialimage_alt = $myblog["socialimage_alt"];
 			$tags = $myblog["tags"];
 			$enable_comments = $myblog["enable_comments"];
 			$thenchecked = "checked='checked' ";
@@ -148,7 +152,7 @@ if (preg_match("/[0-9]+/",$id)) {
 		// first delete existing entries for the blog
 		$sql = "DELETE from categorys_blogs WHERE
 		 blog_id=$id";
-		$result = mysql_query($sql);
+		$result = mysqli_query($db, $sql);
 
 		// then insert categories
 		if (is_array($category_ids)) {
@@ -156,7 +160,7 @@ if (preg_match("/[0-9]+/",$id)) {
 				$sql = "INSERT INTO categorys_blogs
 				 (blog_id, category_id)
 				 VALUES ('$id', '$category_id')";
-				$result = mysql_query($sql);
+				$result = mysqli_query($db, $sql);
 			}
 		}
 	}
@@ -164,11 +168,11 @@ if (preg_match("/[0-9]+/",$id)) {
 	// pull out categories for this blog
 
 	$sql = "SELECT category_id FROM categorys_blogs WHERE blog_id = '$id'";
-	$result = mysql_query($sql);
-	if ($mycategory = mysql_fetch_array($result)) {
+	$result = mysqli_query($db, $sql);
+	if ($mycategory = mysqli_fetch_array($result)) {
 		do {
 			$category_id_array[] = $mycategory["category_id"];
-		} while ($mycategory = mysql_fetch_array($result));
+		} while ($mycategory = mysqli_fetch_array($result));
 	}
 } else { //we're in add mode
 	// do date live radio buttons
@@ -184,7 +188,7 @@ if (preg_match("/[0-9]+/",$id)) {
 
 // pull categories from db
 $sql = "SELECT * FROM categorys ORDER BY category";
-$catsresult = mysql_query($sql);
+$catsresult = mysqli_query($db, $sql);
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -260,6 +264,8 @@ if (!$error) {
 	$maincontent = stripslashes(htmlspecialchars($maincontent));
 	$mainimage_alt = stripslashes(htmlspecialchars($mainimage_alt));
 	$mainimage_src = stripslashes(htmlspecialchars($mainimage_src));
+	$socialimage_src = stripslashes(htmlspecialchars($socialimage_src));
+	$socialimage_alt = stripslashes(htmlspecialchars($socialimage_alt));
 	$date = (isset($date))?$date:"";
 	$nowchecked = (isset($nowchecked))?$nowchecked:"";
 	$thenchecked = (isset($thenchecked))?$thenchecked:"";
@@ -284,6 +290,9 @@ if (!$error) {
 	printf("<textarea name=\"description\" rows=\"3\" cols=\"45\" onkeypress='countchars()' onkeyup='countchars()'>%s</textarea><br><input name='count' type='text' size='4'></p>\n",$description);
 	echo "<p>Main image:<br>";
 	printf("/images/<input type='text' name=\"mainimage_src\" value='%s' size='30'> alt: <input name='mainimage_alt' type='text' value='%s' size='50'></p>\n",$mainimage_src, $mainimage_alt);
+	
+	echo "<p>Social image:<br>";
+	printf("/images/<input type='text' name=\"socialimage_src\" value='%s' size='30'> alt: <input name='socialimage_alt' type='text' value='%s' size='50'></p>\n",$socialimage_src, $socialimage_alt);
 	echo "<p>Main content:<br>";
 	printf("<textarea name=\"maincontent\" rows=\"20\" 	cols=\"45\">%s</textarea></p>\n",$maincontent);
 
@@ -295,14 +304,14 @@ if (!$error) {
 	echo "\n<input type='Submit' name='submitPreview' value='Preview' accesskey='r'>";
 
 	echo "<fieldset>\n<legend>Category</legend>\n";
-	if ($mycategory = mysql_fetch_array($catsresult)) {
+	if ($mycategory = mysqli_fetch_array($catsresult)) {
 		do {
 			$category_id = $mycategory["category_id"];
 			$category = $mycategory["category"];
 			printf("<label><input type='checkbox' name='category_ids[]' value='%s' onclick='makeTags(this, this.form)'", $category_id);
 			if((isset($category_id_array) AND is_array($category_id_array) AND in_array($category_id, $category_id_array)) OR (is_array($category_ids) AND in_array($category_id, $category_ids))) {echo " checked='checked'";}
 			printf(">%s</label>\n", $category);
-		} while ($mycategory = mysql_fetch_array($catsresult));
+		} while ($mycategory = mysqli_fetch_array($catsresult));
 	}
 	echo "<p style='clear:left'><a href='/cms/cats/addblogcat.php'>Add a new category</a></p>\n";
 	echo "</fieldset>\n";

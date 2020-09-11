@@ -12,7 +12,7 @@ RewriteRule (.*) http://clagnut.com/$1 [R=Permanent]
 RewriteRule ^([0-9]+)$ index.php?prev=$1
 RewriteRule ^([0-9]+)/$ index.php?prev=$1
 RewriteRule ^blogs/(.*) blog/$1
-
+RewriteRule ^(.*)about/?(.*)$ $1/speaking$2 [R=301,L]
 
 RedirectPermanent /blacklist.txt http://clagnut.com/blacklist/blacklist.txt
 RedirectPermanent /writing/about/ http://clagnut.com/about/
@@ -26,6 +26,7 @@ RedirectPermanent /rss/summaries/ http://feeds.feedburner.com/ClagnutSummaries
 RedirectPermanent /rss.php http://feeds.feedburner.com/Clagnut
 RedirectPermanent /rss http://feeds.feedburner.com/Clagnut
 RedirectPermanent /blog/366/) http://clagnut.com/blog/366/
+RedirectPermanent /clagtunes http://clagnut.com/archive/clagtunes/
 
 ErrorDocument 404 /errors/404.php
 ErrorDocument 500 /errors/500.php
@@ -35,25 +36,3 @@ ErrorDocument 503 /errors/503.php
 # SecFilterEngine Off
 
 AddType font/otf otf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

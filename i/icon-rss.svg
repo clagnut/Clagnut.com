@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="99px" height="100px" viewBox="0 0 99 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-rss</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-rss" fill="#FFFFFF">
+            <ellipse id="Oval" cx="13.566" cy="86.286" rx="13.566" ry="13.714"></ellipse>
+            <path d="M65.569,100 L46.35,100 C46.35,74.121 25.598,53.142 0,53.142 L0,33.715 C36.214,33.715 65.569,63.391 65.569,100 Z" id="Path"></path>
+            <path d="M79.135,100 C79.135,55.817 43.706,20 0,20 L0,0 C54.631,0 98.918,44.772 98.918,100 L79.135,100 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

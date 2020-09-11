@@ -29,7 +29,7 @@ function compilemetadata($title, $link, $description, $atomfile) {
 # Write Blogmarks RSS feed 
 
 function writeblogmarkrss() {
-	global $dr, $dr3;
+	global $dr, $dr3, $db;
 	$error = "";
 	
 	// set file to write
@@ -43,9 +43,9 @@ function writeblogmarkrss() {
 		
 		// pull blogs from database
 		$sql = "SELECT blog_id, title AS link_title, tags, blogs.filename AS link_url, description AS link_comment, via_title, via_url, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') AS pubdate FROM blogs WHERE content_type='blogmark' ORDER by blogdate DESC, tstamp DESC LIMIT 12";
-		$result = mysql_query($sql);
+		$result = mysqli_query($db, $sql);
 		
-		if ($myblogmark = mysql_fetch_array($result)) {
+		if ($myblogmark = mysqli_fetch_array($result)) {
 			do {
 				$blog_id = $myblogmark["blog_id"];
 				$pubdate = $myblogmark["pubdate"];
@@ -76,13 +76,13 @@ function writeblogmarkrss() {
 				
 				// get categories for this blogmark
 				$sql_cats = "SELECT category, filename FROM categorys_blogs, categorys WHERE blog_id = $blog_id AND categorys_blogs.category_id = categorys.category_id";
-				$result_cats = mysql_query($sql_cats);
-				if ($blogmarkcat = mysql_fetch_array($result_cats)) {
+				$result_cats = mysqli_query($db, $sql_cats);
+				if ($blogmarkcat = mysqli_fetch_array($result_cats)) {
 					do {
 						$category = htmlentities($blogmarkcat["category"]);
 						$filename = $blogmarkcat["filename"];
 						$contents .= "			<category domain=\"http://clagnut.com/blogmarks/$filename/\">$category</category>\n";	
-					} while ($blogmarkcat = mysql_fetch_array($result_cats));
+					} while ($blogmarkcat = mysqli_fetch_array($result_cats));
 				}
 				// add Technorati categories
 				$tags_ay = explode(" ", $tags);
@@ -91,7 +91,7 @@ function writeblogmarkrss() {
 				}
 				
 				$contents .= "		</item>\n";
-			} while ($myblogmark = mysql_fetch_array($result));
+			} while ($myblogmark = mysqli_fetch_array($result));
 		}
 		
 		$contents .="	</channel>
@@ -118,7 +118,7 @@ function writeblogmarkrss() {
 # Write full posts RSS feed
 
 function writefullrss() {
-	global $dr, $dr3;
+	global $dr, $dr3, $db;
 	$error = "";
 	
 	// set file to write
@@ -132,9 +132,9 @@ function writefullrss() {
 		
 		// pull blogs from database
 		$sql = "SELECT blog_id, title, maincontent, maincontent_textile, tags, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') AS pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 5";
-		$result = mysql_query($sql);
+		$result = mysqli_query($db, $sql);
 		
-		if ($myblog = mysql_fetch_array($result)) {
+		if ($myblog = mysqli_fetch_array($result)) {
 			do {
 				$blog_id = $myblog["blog_id"];
 				$pubdate = $myblog["pubdate"];
@@ -156,13 +156,13 @@ function writefullrss() {
 				
 				// get categories for this blog
 				$sql_cats = "SELECT category, filename FROM categorys_blogs, categorys WHERE blog_id = $blog_id AND categorys_blogs.category_id = categorys.category_id";
-				$result_cats = mysql_query($sql_cats);
-				if ($blogcat = mysql_fetch_array($result_cats)) {
+				$result_cats = mysqli_query($db, $sql_cats);
+				if ($blogcat = mysqli_fetch_array($result_cats)) {
 					do {
 						$category = htmlentities($blogcat["category"]);
 						$filename = $blogcat["filename"];
 						$contents .= "			<category domain=\"http://clagnut.com/archive/$filename/\">$category</category>\n";	
-					} while ($blogcat = mysql_fetch_array($result_cats));
+					} while ($blogcat = mysqli_fetch_array($result_cats));
 				}
 				// add Technorati categories
 //				$tags_ay = explode(" ", $tags);
@@ -171,7 +171,7 @@ function writefullrss() {
 //				}
 				
 				$contents .= "		</item>\n";
-			} while ($myblog = mysql_fetch_array($result));
+			} while ($myblog = mysqli_fetch_array($result));
 		}
 		
 		$contents .="	</channel>
@@ -198,7 +198,7 @@ function writefullrss() {
 # Write summarised posts feed
 
 function writesummariesrss() {
-	global $dr, $dr3;
+	global $dr, $dr3, $db;
 	$error = "";
 	
 	// set file to write
@@ -212,9 +212,9 @@ function writesummariesrss() {
 		
 		// pull blogs from database
 		$sql = "SELECT blog_id, title, maincontent, maincontent_textile, tags, description, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') as pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 10";
-		$result = mysql_query($sql);
+		$result = mysqli_query($db, $sql);
 		
-		if ($myblog = mysql_fetch_array($result)) {
+		if ($myblog = mysqli_fetch_array($result)) {
 			do {
 				$blog_id = $myblog["blog_id"];
 				$pubdate = $myblog["pubdate"];
@@ -238,13 +238,13 @@ function writesummariesrss() {
 				
 				// get categories for this blog
 				$sql_cats = "SELECT category, filename FROM categorys_blogs, categorys WHERE blog_id = $blog_id AND categorys_blogs.category_id = categorys.category_id";
-				$result_cats = mysql_query($sql_cats);
-				if ($blogcat = mysql_fetch_array($result_cats)) {
+				$result_cats = mysqli_query($db, $sql_cats);
+				if ($blogcat = mysqli_fetch_array($result_cats)) {
 					do {
 						$category = htmlentities($blogcat["category"]);
 						$filename = $blogcat["filename"];
 						$contents .= "			<category domain=\"http://clagnut.com/archive/$filename/\">$category</category>\n";	
-					} while ($blogcat = mysql_fetch_array($result_cats));
+					} while ($blogcat = mysqli_fetch_array($result_cats));
 				}
 				// add Technorati categories
 //				$tags_ay = explode(" ", $tags);
@@ -253,7 +253,7 @@ function writesummariesrss() {
 //				}
 //				
 				$contents .= "		</item>\n";
-			} while ($myblog = mysql_fetch_array($result));
+			} while ($myblog = mysqli_fetch_array($result));
 		}
 		
 		$contents .="	</channel>

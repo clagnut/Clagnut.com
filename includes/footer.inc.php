@@ -1,10 +1,10 @@
 <footer class="global">
-<p class="copyright">&copy;&thinsp;2002&ndash;2014 Richard Rutter</p>
-<p>
-<a href="http://twitter.com/clagnut"><img src="/i/icon-twitter.png" alt="Follow me on Twitter" title="@clagnut" class="icon" /></a>
-<a href="/feeds/fullposts.xml"><img src="/i/icon-feed.png" alt="RSS Feed" title="RSS Feed" class="icon" /></a>
+<p class="copyright">© 2002–<?php echo date('Y'); ?> <a href="/about">Richard Rutter</a></p>
+<p class="icons">
+<a href="http://twitter.com/clagnut" class="icon"><img src="/i/icon-twitter-white.svg" alt="Follow me on Twitter" title="@clagnut"></a>
+<a href="/feeds/fullposts.xml" class="icon"><img src="/i/icon-rss.svg" alt="RSS Feed" title="RSS Feed"></a>
 </p>
-<nav class="footer">Published in Brighton, UK &middot; <a href="/colophon">Colophon</a></nav>
+<nav class="colophon">Published in Brighton, UK · <a href="/colophon">Colophon</a></nav>
 </footer>
 
-<script src="/mint/?js" type="text/javascript"></script>
+<script src="/js/prism.js"></script>

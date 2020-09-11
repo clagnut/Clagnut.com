@@ -4,7 +4,7 @@ RewriteEngine on
   RewriteRule ^([0-9][0-9][0-9][0-9])/([0-9][0-9])/$ index.php?theyear=$1&themonth=$2
   RewriteRule ^([a-z_]+)$ index.php?filename=$1
   RewriteRule ^([a-z_]+)/$ index.php?filename=$1
-  RewriteRule ^([0-9]+)$ index.php
-  RewriteRule ^([0-9]+)/$ index.php
+  RewriteRule ^([0-9]+)$ index.php?page=$1
+  RewriteRule ^([0-9]+)/$ index.php?page=$1
   
   

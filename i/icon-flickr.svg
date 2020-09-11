@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="8px" viewBox="0 0 18 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-flickr</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LS-Profile-Links" transform="translate(-107.000000, -45.000000)" fill="#000">
+            <g id="Group-6">
+                <path d="M110.96,53 C108.772,53 107,51.211 107,49 C107,46.789 108.772,45 110.96,45 C113.147,45 114.92,46.789 114.92,49 C114.92,51.211 113.147,53 110.96,53 Z M120.96,53 C118.772,53 117,51.211 117,49 C117,46.789 118.772,45 120.96,45 C123.147,45 124.92,46.789 124.92,49 C124.92,51.211 123.147,53 120.96,53 Z" id="icon-flickr"></path>
+            </g>
+        </g>
+    </g>
+</svg>

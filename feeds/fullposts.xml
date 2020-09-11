@@ -5,7 +5,7 @@
 				<atom:link href="http://clagnut.com/feeds/fullposts.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)</description>
 				<language>en-gb</language>
-				<copyright>Copyright 2003-2014, Richard Rutter</copyright>
+				<copyright>Copyright 2003-2019, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
@@ -16,203 +16,553 @@
 					<height>31</height>
 				</image>
 		<item>
-			<pubDate>Wed, 09 Apr 2014 11:51:43 PST</pubDate>
-			<title>The Big Dog Cometh</title>
-			<link>http://clagnut.com/blog/2376/</link>
-			<guid>http://clagnut.com/blog/2376/</guid>
-			<description><![CDATA[<p><figure class="inline"><a href="http://instagram.com/p/mZk4lUwWtF/"><img src="" alt="Photo"/></a><figcaption>Dave and Mikey climbing through Stanmer woods</figcaption></figure>
+			<pubDate>Wed, 20 Mar 2019 07:31:46 PST</pubDate>
+			<title>All you need to know about hyphenation in&nbsp;CSS</title>
+			<link>http://clagnut.com/blog/2394/</link>
+			<guid>http://clagnut.com/blog/2394/</guid>
+			<description><![CDATA[<p>Earlier this month I was invited to give an <a href="http://typographischegesellschaft.at/k_vortrag_workshop/v_rutter.html">evening lecture</a> at the Typography Society of Austria (<a href="http://typographischegesellschaft.at">tga</a>) in Vienna. I was honoured to do so, as it meant following in the footsteps of such luminaries as Matthew Carter, Wim Crouwel, Margaret Calvert, Erik Spiekermann, and the late Freda Sack to name but a few.</p>
 
-	<p>Back in December I [knackered my Achilles tendon](https://twitter.com/clagnut/status/409365946919559168) while out running. Since then I&#8217;ve been [getting back into cycling](https://twitter.com/clagnut/status/424099628217561088). As much I enjoy running, cycling and [mountain biking](/archive/biking/) in particular is my first love but has taken something of a back seat since the arrival of kids and a lack of other people to ride with. I&#8217;m perfectly happy running on my own, but the joy of cycling I find is greatly enhanced when in a group.</p>
+<p>I presented some golden rules for typography on the web to a full house. In the Q&amp;A afterwards I was asked about the current state of automatic hyphenation on the web. This was a good question considering that German is well known for its long words – noun compounds feature commonly (for example <dfn lang="de">Verbesserungsvorschlag</dfn> meaning <i>suggestion for improvement</i>) – so hyphenation is extensively used in most written media.</p>
 
-	<p>Anyway that&#8217;s all changed this year. I&#8217;m out on the bike(s) a lot more, I have friends in and out of work who ride, and I&#8217;ve discovered new places to go.</p>
+<p>Automatic hyphenation on the web has been <a href="http://clagnut.com/blog/2394">possible since 2011</a> and is now <a href="https://caniuse.com/#feat=css-hyphens">broadly supported</a>. Safari, Firefox and Internet Explorer 9 upwards support automatic hyphenation, as does Chrome on Android and MacOS (but <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=652964">not yet on Windows or Linux</a>).</p>
 
-	<p>One of those places is the woods surrounding Stanmer Park on the edge of the South Downs. It&#8217;s a small area, but the riding is fun with a decent bit (300m) of climbing and lots of technical singletrack to enjoy. It&#8217;s the closest thing within easy reach to my [beloved North Downs](/blog/202/).</p>
+<h2>How to turn on&nbsp;automatic&nbsp;hyphenation</h2>
 
-	<p>In August one of Britain&#8217;s biggest mountain races comes to Stanmer Park. The [Brighton Big Dog](http://www.brightonbigdog.com/) is a 6 hour endurance race winding through the very woods we ride every week.</p>
+<div class="group-with-aside">
+<p>There are two steps required to turn on automatic hyphenation. The first is to set the language of the text. This will tell the browser which <dfn>hyphenation dictionary</dfn> to use – correct automatic hyphenation requires a hyphenation dictionary appropriate to the language of the text. If the browser does not know the language of the text, the <abbr class='c2sc'>CSS</abbr> guidelines say it is not required to hyphenate automatically, even if you turn on hyphenation in a style sheet.</p>
 
-	<p>The Big Dog can be ridden by individuals (*no thanks*) or by teams of three in a relay (much more sensible). [Clearleft](http://clearleft.com) is entering a team &#8211; me, Jon and Mikey. We don&#8217;t have any hopes of placing well in the race, but it should be a fun day.</p>
+<aside><p>Hyphenation is a complex subject. Hyphenation points are mainly based on syllables using a combination of etymology and phonology, but house styles also have differing rules on dividing words.</p></aside>
+</div>
 
-	<figure><iframe src="http://clagnut.com//player.vimeo.com/video/73134417?title=0&byline=0&portrait=0&color=a2bd30" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><figcaption><a href="http://vimeo.com/73134417">Brighton Big Dog</a> from <a href="http://vimeo.com/morvelo">Morv&eacute;lo Bicycle Apparel</a></figcaption></figure>
+<h3>1. Setting&nbsp;the&nbsp;language</h3>
 
-	<p>None-the-less I&#8217;d still like to give it a decent shot, so I&#8217;m trying to get in shape. It&#8217;s a something of a course for good climbers, so the first thing I want to do is get my weight down to 80kg &#8211; I&#8217;m currently 83.5kg. Hopefully keeping an eye on my eating (and drinking) combined with plenty of riding will get me in better shape by August.</p>
+<p>The language of a webpage should ideally be sent as an <abbr class='c2sc'>HTTP</abbr> header by the web server (speak to your friendly sysadmin about this). You can also set it using the <abbr class='c2sc'>HTML</abbr> <code>lang</code> attribute:</p>
 
-	<figure><iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='http://www.strava.com/activities/124815654/embed/e3b7c126ebe704d2d59ee2e21591f0be9ba52ab1'></iframe><figcaption>One of our rides around Stanmer, as captured by Strava</figcaption></figure>
+<figure class="pre"><pre><code class="language-html">&lt;html lang="en"&gt;
+</code></pre></figure>
 
-	<p>Watch this space, and my progress on Strava.</p>
-<p><a href='http://clagnut.com/blog/2376/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/biking/">Mountain biking</category>
-			<category domain="http://clagnut.com/archive/brighton/">Brighton</category>
-<category domain="http://technorati.com/tag/Mountain">Mountain</category>
-<category domain="http://technorati.com/tag/biking,">biking,</category>
-<category domain="http://technorati.com/tag/Big">Big</category>
-<category domain="http://technorati.com/tag/Dog,">Dog,</category>
-<category domain="http://technorati.com/tag/cycling,">cycling,</category>
-<category domain="http://technorati.com/tag/Stanmer,">Stanmer,</category>
-<category domain="http://technorati.com/tag/strava,">strava,</category>
-<category domain="http://technorati.com/tag/racing">racing</category>
+<p>Setting the language in this way is best practice for all web pages regardless of whether you are hyphenating or not. Knowing the language of the text will help automatic translating tools, screen readers and other assistive software.</p>
+
+<p>The <code>lang="en"</code> attribute uses an <a href="https://www.w3.org/International/articles/language-tags/">ISO language tag</a> to tell the browser that the text is in English. In this case the browser will choose its default English hyphenation dictionary, which will often mean hyphenating for American English. While there are important differences in spelling and pronunciation (and hence hyphenation) between American English and other countries, there can even bigger differences in languages such as Portuguese. The solution is to add a ‘region’ to the language so that the browser knows which is the most appropriate hyphenation dictionary. For instance, to specify Brazilian Portuguese:</p>
+
+<figure class="pre"><pre><code class="language-html">&lt;html lang="pt-BR"&gt;
+</code></pre></figure>
+
+<h3>2. Turn on&nbsp;the&nbsp;hyphens</h3>
+
+<p>Now you’ve set your language, you are ready to turn on automatic hyphenation in <abbr class='c2sc'>CSS</abbr>. This couldn’t be much easier:</p>
+
+<figure class="pre"><pre><code class="language-css">hyphens: auto;
+</code></pre></figure>
+
+<p>Currently Safari and <abbr class='c2sc'>IE</abbr>/Edge both require prefixes, so this is what you’ll need right now:</p>
+
+<figure class="pre"><pre><code class="language-css">-ms-hyphens: auto;
+-webkit-hyphens: auto;
+hyphens: auto;
+</code></pre></figure>
+
+<h2>Hyphenation&nbsp;controls</h2>
+
+<p>There is more to setting hyphenation than just turning on the hyphens. The <a href="https://www.w3.org/TR/css-text-4/#hyphenation">CSS Text Module Level 4</a> has introduced the same kind of hyphenation controls provided in layout software (eg. InDesign) and some word processors (including Word). These controls provide different ways to define how much hyphenation occurs through your text.</p>
+
+<h3>Limiting the word length and the number of characters before and after&nbsp;a&nbsp;hyphen</h3>
+
+<div class="group-with-aside">
+<p>If you hyphenate short words they can be harder to read. Likewise, you don’t want too few characters left on a line before the hyphen, or pushed to the next line after the hyphen. A common rule of thumb is to only allow words at least six-letters long to be hyphenated, leaving at least three characters before the word break, and taking a minimum of two to the next line.</p>
+
+<aside><p>The <cite>Oxford Style Manual</cite> recommends that three is the minimum number of letters after a hyphen at a line break, though exceptions can be made in very short measures.</p></aside>
+</div>
+
+<p>You can set these limits with the <code>hyphenate-limit-chars</code> property. It takes three space-separated values. The first is the minimum character limit for a word to be hyphenated; the second is the minimum number of characters before the hyphenation break; and the last is the minimum characters after the hyphenation break. To set the aforementioned rule of thumb, with a six-character word limit, three characters before the hyphenation break and two after, use:</p>
+
+<figure class="pre"><pre><code class="language-css">hyphenate-limit-chars: 6 3 2;
+</code></pre></figure>
+
+</div><!-- /.prose --><figure><img src="http://clagnut.com/images/1-handj-hyphenate-limit-chars.png" alt="" /><figcaption>hyphenate-limit-chars in&nbsp;action.</figcaption></figure><div class='prose'>
+
+<p>The default value for <code>hyphenate-limit-chars</code> is <code>auto</code> for all three settings. This means that the browser should pick the best settings based on the current language and layout. The <abbr class='c2sc'>CSS</abbr> Text Module Level 4 suggests that browsers use <code>5 2 2</code> as their starting point (which I think results in too much hyphenation), but browsers are free to vary that as they see fit.</p>
+
+<p>Currently only <abbr class='c2sc'>IE</abbr>/Edge supports this property (with a prefix), however Safari does support hyphenation character limits using some legacy properties specified in an earlier draft of the <abbr class='c2sc'>CSS3</abbr> Text Module. This means you can get the same control in Edge and Safari (with some forward planning for Firefox) like this:</p>
+
+<figure class="pre"><pre><code class="language-css">/* legacy properties */
+-webkit-hyphenate-limit-before: 3;
+-webkit-hyphenate-limit-after: 2;
+
+/* current proposal */
+-moz-hyphenate-limit-chars: 6 3 2; /* not yet supported */
+-webkit-hyphenate-limit-chars: 6 3 2; /* not yet supported */
+-ms-hyphenate-limit-chars: 6 3 2;
+hyphenate-limit-chars: 6 3 2;
+</code></pre></figure>
+
+<h3>Limiting the number of consecutive&nbsp;hyphenated&nbsp;lines</h3>
+
+<p>For primarily aesthetic reasons, you can limit the number of lines in a row that are hyphenated. Consecutively hyphenated lines, particularly three or more, are pejoratively called a <dfn>ladder</dfn>. The general rule of thumb for English is that two consecutive lines is the ideal maximum (in contrast, readers of German may well be faced with many ladders). By default, <abbr class='c2sc'>CSS</abbr> sets no limit to the number of consecutive hyphens, but you can use the <code>hyphenate-limit-lines</code> property to specify a maximum. Currently this is only supported by <abbr class='c2sc'>IE</abbr>/Edge.</p>
+
+<figure class="pre"><pre><code class="language-css">-ms-hyphenate-limit-lines: 2;
+hyphenate-limit-lines: 2;
+</code></pre></figure>
+
+</div><!-- /.prose --><figure><img src="http://clagnut.com/images/1-handj-hyphenate-limit-lines.png" alt="" /><figcaption>hyphenate-limit-lines applied to prevent a ladder.</figcaption></figure><div class='prose'>
+
+<p>You can remove the limit using a value of <code>no-limit</code>.</p>
+
+<h3>Avoiding hyphenated words across the last line of&nbsp;a&nbsp;paragraph</h3>
+
+<p>Unless you tell it otherwise, a browser will happily hyphenate the very last word of a paragraph such that the end of the broken word sits alone on the final line, a lonely orphan of an orphan. It is often preferable to have a large gap at the end of the penultimate line than having half a word on the final line. You can achieve this by activating the <code>hyphenate-limit-last</code> property with a value of <code>always</code>.</p>
+
+<figure class="pre"><pre><code class="language-css">hyphenate-limit-last: always;
+</code></pre></figure>
+
+<p>Currently this is only supported in <abbr class='c2sc'>IE</abbr>/Edge (with a prefix).</p>
+
+<h3>Reducing hyphenation by setting a&nbsp;hyphenation&nbsp;zone</h3>
+
+<p>By default, hyphenation will occur as often as the browser can split a word across two lines, within any <code>hyphenate-limit-chars</code> and <code>hyphenate-limit-lines</code> values you set. Even when applying those properties to control when hyphenation occurs, you could still end up with heavily hyphenated paragraphs.</p>
+
+<p>Consider a left-aligned paragraph. The right edge is ragged, which hyphenation can reduce. By default, all words which are allowed to be hyphenated will be. This will give you the maximum amount of hyphenation and thus the maximum reduction to the rag. If you are prepared to tolerate a little more unevenness to the edge of the paragraph, you can reduce the amount of hyphenation.</p>
+
+<p>You can do this by specifying the maximum amount of whitespace allowed between the last word of the line and edge of the text box. If a new word begins within this whitespace it is not hyphenated. This whitespace is known as the <dfn>hyphenation zone</dfn>. The bigger the hyphenation zone, the greater the rag and the less the hyphenation. By adjusting the hyphenation zone you are balancing the ratio between better spacing and fewer hyphens.</p>
+
+</div><!-- /.prose --><figure><img src="http://clagnut.com/images/1-handj-hyphenation-zone.png" alt="" /><figcaption>
+<i>Left</i>: Arrows indicate lines where hyphenation is allowed.<br/>
+<i>Right</i>: Hyphenation with hyphenation zone set.
+</figcaption>
+
+</figure><div class='prose'>
+
+<p>To do this you use the <code>hyphenation-limit-zone</code> property, which takes a length or a percentage value (in terms of the width of the text box). In the context of responsive design, it makes most sense to set your hyphenation zone as a percentage. Doing so means you would get a smaller hyphenation zone on smaller screens, leading to more hyphenation and less rag. Conversely on wider screens you would get a broader hyphenation zone, hence less hyphenation and more rag, which a wider measure would be better able to accommodate. Based on typical defaults in page layout software, 8% is a good start:</p>
+
+<figure class="pre"><pre><code class="language-css">hyphenate-limit-zone: 8%
+</code></pre></figure>
+
+<p>Currently this is only supported in <abbr class='c2sc'>IE</abbr>/Edge (with a prefix).</p>
+
+<h3>Putting it&nbsp;all&nbsp;together</h3>
+
+<p>To apply the same kinds of hyphenation controls as are available in conventional layout software (at least on a line-by-line basis) to paragraph using <abbr class='c2sc'>CSS</abbr> Text Module Level 4 properties:</p>
+
+<figure class="pre"><pre><code class="language-css">p {
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;   
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
+}
+</code></pre></figure>
+
+<p>And with the appropriate browser prefixes and fallbacks:</p>
+
+<figure class="pre"><pre><code class="language-css">p {
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-chars: 6 3 3;
+    -webkit-hyphenate-limit-lines: 2;
+    -webkit-hyphenate-limit-last: always;   
+    -webkit-hyphenate-limit-zone: 8%;
+
+    -moz-hyphens: auto;
+    -moz-hyphenate-limit-chars: 6 3 3;
+    -moz-hyphenate-limit-lines: 2;  
+    -moz-hyphenate-limit-last: always;
+    -moz-hyphenate-limit-zone: 8%;
+
+    -ms-hyphens: auto;
+    -ms-hyphenate-limit-chars: 6 3 3;
+    -ms-hyphenate-limit-lines: 2;
+    -ms-hyphenate-limit-last: always;   
+    -ms-hyphenate-limit-zone: 8%;
+
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;   
+    hyphenate-limit-zone: 8%;
+}
+</code></pre></figure>
+
+<p>Hyphenation is a perfect example of progressive enhancement, so you can start applying the above now if you think your readers will benefit from it – support among browsers will only increase. If you are designing for a website written in a language with long words, such as German, your readers will definitely thank you for it.</p>
+<p><a href='http://clagnut.com/blog/2394/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
 		</item>
 		<item>
-			<pubDate>Thu, 13 Feb 2014 17:36:19 PST</pubDate>
-			<title>In conversation with Brighton station about CCTV</title>
-			<link>http://clagnut.com/blog/2374/</link>
-			<guid>http://clagnut.com/blog/2374/</guid>
-			<description><![CDATA[<p>A few days ago I was stuck at Brighton railway station, watching trains get delayed and eventually cancelled. In the end I gave up waiting for carriage to take me to my meeting in London, and went back to \<a href="http://68middle.st">the office\</a>. But while I sat on the concourse I noticed &#8211; not for the first time &#8211; the sheer amount of <abbr>CCTV</abbr>, cameras, and various surveillance devices in plain view all around the station.</p>
+			<pubDate>Mon, 07 Jan 2019 22:25:43 PST</pubDate>
+			<title>Top Tunes 2018</title>
+			<link>http://clagnut.com/blog/2393/</link>
+			<guid>http://clagnut.com/blog/2393/</guid>
+			<description><![CDATA[<p>Back after a decidedly long hiatus, hereâ€™s a compilation of favourite songs I bought in the last year (note not all were released this year). It was a damn fine year in my view, and I certainly splashed out on plenty of vinyl – a new set of hi-fi will do that to a chap. Particular highlights include a return to form from Spiritualized, Nils Frahmâ€™s haunting, delicate music and the magnificent Snapped Ankles with probably my favourite album of the year.</p>
 
-	<p><figure class=\"fullbleed\"><img src=\"/images/cctv.jpg\" alt=\"Montage of photos\" /><figcaption>A selection of the surveillance in Brighton station</figcaption></figure>
+<p><img src="http://clagnut.com/images/2018vinyl.jpg" alt="Thirty-odd vinyl records spread out on my floor" /></p>
 
-	<p>In this day and age, and especially here in the <abbr>UK</abbr> where we have \<a href="http://www.wired.co.uk/magazine/archive/2010/05/start/investigation-a-sharp-focus-on-cctv">the most <abbr>CCTV</abbr> per capita in Europe\</a>, we as society have come to expect and seemingly accept having a few cameras in public places like railway stations. Personally I\&#8217;m very dubious about the efficacy of <abbr>CCTV</abbr> as means of crime prevention, I\&#8217;m even less convinced about the cost effectiveness &#8211; <acronym title='Freedom of Information'>FOI</acronym> requests reveal that one installed camera costs around &#163;20,000. And I\&#8217;m perturbed further still about where that footage goes and how it is used. </p>
+<p>Because I keep these compilations to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list, including new(ish) albums from Gruff Rhys, Gaz Coombes, Band of Horse and Cavern of Anti-Matter.</p>
 
-	<p>Anyway, I saw all those cameras (there are 28 in the photo) and was a bit bored, so I did what any good citizen would do. I tweeted about it:</p>
+<h3>The Best Songs I Bought in&nbsp;2018,&nbsp;Ever</h3>
 
-	<dl><dt>&#8207;@clagnut <a href=\"https://twitter.com/clagnut/status/431718797771173888\">9:19am, 7 Feb 2014</a></dt><dd><abbr>CCTV</abbr> gone mad in Brighton station (there are 3 banks like this). Is this really acceptable &#64;southernrailuk? \<a href="http://pic.twitter.com/YstXebY2y8">pic.twitter.com/YstXebY2y8\</a> </dd></dl><p>Soon after, I got a reply. Turns out \<a href="https://twitter.com/brightonstation">Brighton Station\</a> has got a Twitter account.</p>
+<ol>
+<li><cite>Ullswater</cite> by Hookworms from the album <cite>Microshift</cite></li>
+<li><cite>Jailbird</cite> by Primal Scream from the album <cite>Give Out But Don&#8217;t Give Up: The Original Memphis Recordings</cite></li>
+<li><cite>Once in My Life</cite> by The Decemberists from the album <cite>I&#8217;ll Be Your Girl</cite></li>
+<li><cite>Cactus</cite> by Teleman from the album <cite>Family Of Aliens</cite></li>
+<li><cite>Bubblegum</cite> by Confidence Man from the album <cite>Confident Music For Confident People </cite></li>
+<li><cite>Morning Velvet Sky (Richard Norris Remix)</cite> by Gulp from the album <cite>All Good Wishes – Remixes</cite></li>
+<li><cite>My Mistakes</cite> by Eleanor Friedberger from the album <cite>Last Summer</cite></li>
+<li><cite>Always Trying to Work It Out</cite> by Low from the album <cite>Double Negative</cite></li>
+<li><cite>I&#8217;m Your Man</cite> by Spiritualized from the album <cite>And Nothing Hurt</cite></li>
+<li><cite>Singularity</cite> by Jon Hopkins from the album <cite>Singularity</cite></li>
+<li><cite>Paradox</cite> by Sextile from the <abbr class='c2sc'>EP</abbr> <cite>3</cite></li>
+<li><cite>Lost in Light</cite> by Moon Duo from the album <cite>Occult Architecture Vol. 2</cite></li>
+<li><cite>A Place</cite> by Nils Frahm from the album <cite>All Melody</cite></li>
+<li><cite>Firecrackers</cite> by Marissa Nadler from the album <cite>July</cite></li>
+<li><cite>In My Head</cite> by Our Girl from the album <cite>Stranger Today</cite></li>
+<li><cite>Jonny Guitar Calling Gosta Berlin</cite> by Snapped Ankles from the album <cite>Come Play The Trees</cite></li>
+</ol>
 
-	<dl><dt>&#8207;&#8207;@brightonstation <a href=\"https://twitter.com/clagnut/status/431718797771173888\">9:44am, 7 Feb 2014</a></dt>
-<dd>.@clagnut I guess it depends if your loved ones have been assaulted or not and you want to catch the scoundrel</dd>
-</dl><p>And \<a href="https://twitter.com/brightonstation/status/431725032638009344">the conversation\</a> continued as only Twitter can. It got a bit interesting here and there.</p>
-
-	<dl><dt>&#8207;@clagnut</dt>
-<dd>@brightonstation Proportion. Privacy.</dd>
-<dt>&#8207;@clagnut</dt>
-<dd>@brightonstation Also, how many convictions have there been thanks to the <abbr>CCTV</abbr>? Have crime rates decreased since their installation?</dd>
-<dt>&#8207;@Binarytales</dt>
-<dd>@clagnut I believe they are facial recognition cameras focused on the gates. Not that that makes it okay.</dd>
-<dt>&#8207;@brightonstation</dt>
-<dd>.@clagnut if you look, they are mostly focused one per gate, to catch naughty ticket people/protect staff and pax from unfounded allegations</dd>
-<dt>&#8207;@clagnut</dt>
-<dd>@brightonstation That might be why <strong>you</strong> use the cameras, but what happens to the recordings? We&#8217;re given good reason to paranoid recently.</dd>
-<dt>&#8207;@Belladax</dt>
-<dd>@brightonstation &#64;clagnut ah, that makes more sense. Revenue protection, not really looking out for our \&#8217;loved ones\&#8217;.</dd>
-<dt>&#8207;@brightonstation</dt>
-<dd>@Belladax If you were assaulted on station and then they said they had removed cameras to protect the innocent, would you be happier?</dd>
-<dt>&#8207;@Belladax</dt>
-<dd>@brightonstation I absolutely appreciate the need for security, but wld hope enough staff on duty to help. As &#64;clagnut says, bit excessive</dd>
-<dt>Brighton Station</dt>
-<dd>@Belladax Realistically, to get a prosecution in 2014 you need good clear facial cctv, word of staff not enough for <abbr>CPS</abbr> usually</dd>
-<dt>&#8207;@Belladax</dt>
-<dd>@brightonstation good to know, thanks. You get a lot of assaults?</dd>
-<dt>&#8207;@brightonstation</dt>
-<dd>@Belladax I have 16mil people through me a year, and at weekends in summer a lot of boozed up landlubbers come down to party too hard!</dd>
-<dt>&#8207;@brightonstation</dt>
-<dd>@clagnut The station is private property and there are signs saying there is cctv. I bet your local newsagent has more cameras per sq foot</dd>
-<dt>&#8207;@ShirtlessKirk</dt>
-<dd>@brightonstation &#64;clagnut Well hidden signs. Plus, Waterloo has the most cameras of any terminus yet doesn\&#8217;t have any gate-facing ones&#8230;</dd>
-<dt>&#8207;@clagnut</dt>
-<dd>@brightonstation Specious argument. My newsagent can&#8217;t track my movements and isn&#8217;t connected to national infrastructure.</dd>
-<dt>&#8207;@bh_community</dt>
-<dd>@clagnut never heard of <a href=\"http://www.police-life.co.uk/products/crime-fighting-scheme-engages-public-monitoring-of-cctv\">internet eyes</a>?</dd></dl>
-
-	<p>I should probably add that I\&#8217;ve no idea if \<a href="http://twitter.com/brightonstation">@brightonstation\</a> actually speaks on behalf of Southern Rail &#8211; the \<a href="https://twitter.com/aegirthor/status/434028753434710016">general opinion\</a> is that the account is an enthusiast, rather than an official account.</p>
-<p><a href='http://clagnut.com/blog/2374/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/brighton/">Brighton</category>
-			<category domain="http://clagnut.com/archive/politics/">Politics</category>
-<category domain="http://technorati.com/tag/Brighton,War">Brighton,War</category>
-<category domain="http://technorati.com/tag/and">and</category>
-<category domain="http://technorati.com/tag/Politics,CCTV,privacy,station,Twitter">Politics,CCTV,privacy,station,Twitter</category>
+<p>You can listen to the <a href="https://open.spotify.com/user/clagnut/playlist/5YoSIPrD5jY1K8U3g1uTik?si=YnvHE0sgRlaz9unIZk3rNw">playlist on Spotify</a>.</p>
+<p><a href='http://clagnut.com/blog/2393/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/music/">Music</category>
 		</item>
 		<item>
-			<pubDate>Sun, 09 Feb 2014 23:15:01 PST</pubDate>
-			<title>A new year, a new design</title>
-			<link>http://clagnut.com/blog/2373/</link>
-			<guid>http://clagnut.com/blog/2373/</guid>
-			<description><![CDATA[<p>To my surprise, Clagnut.com was last redesigned in <a href="http://clagnut.com/blog/2183/">September 2008</a> &#8211; that&#8217;s getting on for 6 years ago. Well, that&#8217;s all changed now, as will be evident to you, unless you&#8217;re viewing this in a <abbr title="Really Simple Sydication" class="smcp"><abbr title='Really Simple Syndication'>RSS</abbr></abbr> reader (remember those?).</p><p>I&#8217;m still pleased with the 2008 design &#8211; I think it held up reasonably well &#8211; but it was fixed-width, designed with the grid first, and starting to feel a bit &#8216;small&#8217;. I felt the site needed a redesign, created from the typography outwards, responsive from the beginning and elegant on huge as well as tiny screens. That and I really want to write more, so I felt &#8211; in true procrastination style &#8211; that I needed a new design with a lovely reading experience to encourage that writing to happen.</p>                <figure class="inline"><a href="http://www.amazon.co.uk/dp/389955468X?tag=jalfrezi-21"><img src="http://clagnut.com/images/designingnews_180.png" alt="Book cover showing similar colours and typographic treatment" /></a><figcaption>Front cover of Designing News</figcaption></figure><h3>Inspiration</h3><p>After a few false starts to the redesign, I came across a fabulous book, <a href="http://www.amazon.co.uk/dp/389955468X?tag=jalfrezi-21"><cite>Designing News</cite></a> by <a href="http://www.FrancescoFranchi.com">Francesco Franchi</a> and was hooked. It&#8217;s not hard to see that I ended up unashamedly using the book&#8217;s front cover as a basis for my graphic design. I hope Francesco can forgive me for butchering his fine work and adapting it for my own purposes.</figure><h3>Typography</h3><p>Where my design is different to Franchi&#8217;s is in the choice of type. In all of those false starts, I had been trying to combine a high contrast serif font, set large for headings, with a sensibly sized contemporary sans for the body text. More and more I found myself drawn to the same two typefaces.  <a href="http://typejockeys.com/">Michael Hochleitner</a>&#8217;s <a href="http://fontdeck.com/typeface/ingeborg/">Ingeborg</a> for the headings, and <a href="http://fontdeck.com/typeface/akagi/">Akagi</a> by <a href="http://positype.com/">Neil Summerour</a> for the body text.</p><p>To my eyes, Akagi and Ingeborg have common typographic ancestry. They both have a vertical stress with a sturdy, rational approach tempered by a certain glamour &#8211; the very definition of substance and style. The two typefaces have similar flourishes such as the eye to the lower case g, and matching letterforms such as the lowercase a and y. The low-contrast Akagi Medium works extremely well on screens, and juxtaposes really well with the high contrast, almost fat-face Ingeborg Heavy. It works for me. As you might expect, both fonts are served up by <a href="http://fontdeck.com/">Fontdeck</a>.</p><figure><img src="http://clagnut.com/images/ingeborg-akagi.png" alt="Comparison of the two fonts" style="opacity:0.9" /><figcaption>Ingeborg Heavy / Akagi Medium</figcaption></figure>                 <h3>Responsiveness</h3>               <figure class="inline"><img src="http://clagnut.com/images/responsive-design-view.png" alt="Firefox Responsive Design View" title="Firefox Responsive Design View" /><figcaption>Responsive Design View</figcaption></figure><p> I&#8217;ve used responsive design techniques to help the site be nicely readable on lots of devices. At the time of writing, there are nine break points, including height as well as width. All the media queries are set in <code>em</code> rather than <code>px</code> as the break points are designed around where the design <em>breaks</em> rather than an arbitrary screen size. The <a href="https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View">Firefox Responsive Design View</a> proved invaluable before an actual device testing on the <a href="http://clearleft.com/testlab/">Clearleft test lab</a> was involved.</figure><p>I&#8217;ve put together a kind of <a href="http://clagnut.com/styles">style guide</a>, mostly as a check that all likely mark-up is styled appropriately. While the site has not been widely tested, it should be fine on all modern browsers. Please <a href="http://clagnut.com/about#contact">let me know</a> if you come across any problems. You can also read more production details in the <a href="http://clagnut.com/colophon/">colophon</a>.</p> <h3>Home Page</h3><p>The home page is now slightly more dashboard-like, in that I wanted to include a lot of &#8216;live&#8217; content from my presence elsewhere on the web. So interspersed among the blog posts are photos from Flickr, tweets, music scrobbled via Last.fm, extracts from Kennedy app, and my current Jam.</p><h3>Blog Post Pages</h3><p>The reading experience of the blog posts should be better now, and they can now handle much larger images and tables. I&#8217;m using machine tags to pull in photos from Flickr where relevant. The related posts should soon become more relevant too. I&#8217;m planning on introducing a calendar view to the archive, but for you&#8217;ll have to make do with paging through months and categories.</p> <h4>What No Comments?</h4>    <p>The site is built on my homemade <abbr class="smcp"><abbr>CMS</abbr></abbr> written in <abbr class="smcp"><abbr>PHP</abbr></abbr> and <span class="smcp">M</span>y<span class="smcp"><abbr>SQL</abbr></span>. Unfortunately, since <a href="http://clagnut.com/blog/2272/">the great database disappearance</a> comments have been turned off. I might reinstate them at some point in the future, but for now you can <a href="http://clagnut.com/about#contact">contact me</a> by other methods. The whole site is now hosted by <a href="http://my.vidahost.com/aff.php?aff=1321">Vidahost</a> who have a simpler and more reliable database backup system than Joyent clearly did.</p>
-<p><a href='http://clagnut.com/blog/2373/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
-			<category domain="http://clagnut.com/archive/design_thinking/">Design thinking</category>
-<category domain="http://technorati.com/tag/redesign,">redesign,</category>
-<category domain="http://technorati.com/tag/ClagnutNews,">ClagnutNews,</category>
-<category domain="http://technorati.com/tag/typography,">typography,</category>
-<category domain="http://technorati.com/tag/responsive,">responsive,</category>
-<category domain="http://technorati.com/tag/RWD,">RWD,</category>
-<category domain="http://technorati.com/tag/Vidahost,">Vidahost,</category>
-<category domain="http://technorati.com/tag/Firefox,">Firefox,</category>
-<category domain="http://technorati.com/tag/responsive">responsive</category>
-<category domain="http://technorati.com/tag/design">design</category>
+			<pubDate>Thu, 26 Apr 2018 16:50:37 PST</pubDate>
+			<title>Upcoming changes to the CSS you need for variable fonts</title>
+			<link>http://clagnut.com/blog/2391/</link>
+			<guid>http://clagnut.com/blog/2391/</guid>
+			<description><![CDATA[<p>Two weeks ago <a href="https://clearleft.com/posts/inside-css">I was invited to Berlin</a> for a CSS Working Group three-day meeting. One afternoon was dedicated to resolving issues with the <abbr class='c2sc'>CSS</abbr> Text and Font modules. Two resolutions in particular will affect the <abbr class='c2sc'>CSS</abbr> we need to work with variable fonts.</p>
+
+<h2>1.&nbsp;Font&nbsp;weights</h2>
+
+<p>According to the <a href="https://www.w3.org/TR/2018/WD-css-fonts-4-20180410/">current <abbr class='c2sc'>CSS</abbr> Fonts Level 4</a> specification, this is the basic way to use any webfont (variable or static):</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: Gentium;
+  src: url(gentium.woff);
+}</code></pre></figure>
+
+<p>What this rule doesn&#8217;t make obvious is the effect absent property descriptors have. Implicit in this rule are <code>font-weight</code>, <code>font-stretch</code> and <code>font-style</code> descriptors which, even when not specified, are still set. This means the preceding simple rule – at the time of writing – is actually the same as:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: Gentium;
+  src: url(gentium.woff);
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+}</code></pre></figure>
+
+<p>This is important because <code>font-weight:normal</code> is an alias for <code>font-weight:400</code>, and when you include a <code>font-weight</code> descriptor in an <code>@font-face</code> rule, you are telling the browser that the font corresponds to that weight, and that weight only. By omitting the <code>font-weight</code> descriptor, what you are actually instructing the browser to do is &#8216;clamp&#8217; the font to the default weight of 400. This is the case whether or not your font has a weight axis variation.</p>
+
+<p>To make use of the weight axis, and for the <code>font-weight</code> properties to work as you might expect, you need to add a weight range to the <code>font-weight</code> descriptor:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: Gentium;
+  src: url(gentium.woff);
+  font-weight: 1 999;
+}</code></pre></figure>
+
+<p>The font weight range allows the variable font to be displayed at any weight from 1 to 999. The same is true of the other property descriptors: <code>font-style</code> is clamped to an upright position – to make use of a slant axis you would need to include a range of angles. For <code>font-stretch</code> you would need a range of absolute widths to make use of a width axis. Ideally you would specify ranges which match the extremes of the axes in the font.</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: Gentium;
+  src: url(gentium.woff);
+  font-weight: 1 999;
+  font-style: oblique -90 90;
+  font-stretch: 50% 200%;
+}</code></pre></figure>
+
+<p>The forthcoming change to the specification is subtle but important. It will change the default value of <code>font-weight</code> from <code>normal</code> to <code>auto</code>, thus enabling the full range of weights available in the variable font, and defaulting to <code>normal</code> for static fonts. The same applies to other property descriptors. This means that – in the future – if you omit the descriptors, the variable fonts will still function across the full range of their axes. Be aware that if you do include a single value descriptor such as <code>font-weight:300</code> a variable font will still be clamped to that value.</p>
+
+<p>The <abbr class='c2sc'>CSS WG</abbr> resolution on this change, and accompanying minutes from the <abbr class='c2sc'>CSS WG</abbr> meeting, is documented in <a href="https://github.com/w3c/csswg-drafts/issues/2485#issuecomment-380477779">this Github issue</a>.</p>
+
+<h2>2. Requiring&nbsp;variable&nbsp;fonts</h2>
+
+<p>Variable fonts are not a new font format, they are OpenType fonts that contain additional tables of data which describe variations possible within the font. This means variable fonts are still <code>.ttf</code> or <code>.otf</code> files, and so can be made into <abbr class='c2sc'>WOFF</abbr> or <abbr class='c2sc'>WOFF2</abbr> formats. The upshot is that the font pointed to in the previous <code>@font-face</code> rule may or may not be a variable font, but it could be important to know either way in order that styles requiring variable fonts are applied, and fallback fonts are provided for browsers which don&#8217;t support font variations.</p>
+
+<p>Currently the way that you could provide a fallback static font is by specifying the variable font through a <code>format()</code> hint like this:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'Gentium';
+  src: url(gentium-var.woff2) format('woff2-variations'),
+       url(gentium-static.woff2) format('woff2');
+}</code></pre></figure>
+
+<p>However <a href="https://www.w3.org/TR/2018/WD-css-fonts-4-20180410/#src-desc">the list</a> of potential format strings is growing fast and could in future contain other kinds of font features, such as colour fonts. With an eye on the future, the CSS Working Group recently resolved to change the syntax of the <code>format()</code> hint separate out the font features from the file type:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'Gentium';
+  src: url(gentium-var.woff2) format('woff2' supports variations),
+       url(gentium-static.woff2) format('woff2');
+}</code></pre></figure>
+
+<p>A problem with this new syntax is that currently it causes the entire <code>src</code> descriptor to be invalid and thus the whole <code>@font-face</code> rule is ignored. To address this the <abbr class='c2sc'>CSS WG</abbr> also resolved a change in the way the <code>src</code> descriptor should be handled: browsers should parse the value of <code>src</code> throwing out invalid parts in the manner of media queries rather than selectors. In other words they should split on the commas and throw out the pieces they don&#8217;t understand, not the whole <code>src</code> descriptor.</p>
+
+<p>Once the new syntax is implemented, you could still provide fallback fonts without breaking older browsers by repeating the <code>src</code> like this:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'Gentium';
+  src: url(gentium-static.woff2) format('woff2'),
+       url(gentium-static.woff) format('woff');
+  src: url(gentium-var.woff2) format('woff2' supports variations);
+}</code></pre></figure>
+
+<p>The <abbr class='c2sc'>CSS WG</abbr> resolution on this change, and accompanying minutes from the <abbr class='c2sc'>CSS WG</abbr> meeting, is documented in <a href="https://github.com/w3c/csswg-drafts/issues/633#issuecomment-380469287">this Github issue</a>.</p>
+
+<p>Variable fonts are a high priority for browser makers at the moment, so these changes should make it into the <a href="https://www.w3.org/TR/css-fonts-4/">CSS Fonts Module Level 4</a> specification (thanks to Apples&#8217;s Myles Maxfield) and major browser implementations over the next few months.</p>
+<p><a href='http://clagnut.com/blog/2391/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/standards/">Web standards</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
 		</item>
 		<item>
-			<pubDate>Wed, 05 Dec 2012 20:37:10 PST</pubDate>
-			<title>UK Museums on the Web 2012</title>
-			<link>http://clagnut.com/blog/2371/</link>
-			<guid>http://clagnut.com/blog/2371/</guid>
-			<description><![CDATA[<p><a href="http://lanyrd.com/2012/ukmw12/" title="on Lanyrd"><abbr>UK</abbr> Museums on the Web</a> is a one day conference organised by the <a href="http://museumscomputergroup.org.uk">Museums Computer Group</a> and held in the lecture theatre of the <a href="http://www.wellcomecollectionconference.org/">Wellcome Collection</a>. Representatives from museums and other organisations in the sector shared their experiences over the past year and beyond. Tweets tagged #ukmw12 on the day are <a href="http://www.tweetarchivist.com/armchair_caver/7" title="#ukmw12">archived on TweetArchivist</a>. These are some scattered notes transcribed from scribbles in my notebook.</p>
+			<pubDate>Thu, 25 Jan 2018 17:18:51 PST</pubDate>
+			<title>How to use variable fonts in the real world</title>
+			<link>http://clagnut.com/blog/2390/</link>
+			<guid>http://clagnut.com/blog/2390/</guid>
+			<description><![CDATA[<p><ins>This article has been updated to reflect pending clarifications and modifications to the <a href="https://www.w3.org/TR/css-fonts-4/">CSS Fonts Module Level 4</a>.</ins></p>
 
-	<p>This year the conference was dubbed &#8216;Strategically Digital&#8217;. It was a fascinating, insightful day with some really engaging speakers. The format worked well, with three lots of three presentations on a theme followed by a brief panel discussion with Q&#38;A. Coincidentally this a format Clearleft will be employing at our forthcoming Responsive Day Out.</p>
+<p>A variable font is a single font file which behaves like multiple styles. (I wrote more about them <a href="http://clagnut.com/blog/2389/">here</a> in an extract from my Web Typography book). There are plenty of sites out there <a href="https://codepen.io/mandymichael/">demoing the possibilities</a> of variable fonts and the font variation technology within, but for the new <a href="https://2018.ampersandconf.com/">Ampersand conference website</a> I wanted to show variable fonts being using in a real, production context. It might well be the first commercial site ever to do so.</p>
 
-	<p><a href="http://twitter.com/armchair_caver"><strong>Paul Rowe</strong></a>, <abbr>CEO</abbr> of <a href="http://www.vernonsystems.com">Vernon Systems</a>, and with the strongest New Zealand accent I&#8217;ve ever heard, gave us a typically witty keynote. He encouraged everyone to share their content and make it available everywhere. <abbr>API</abbr>s, Commons media, and loose licenses to the fore.</p>
+<p>Two months ago browser support for variable fonts was only 7%, but as of this morning <a href="https://caniuse.com/#search=variable%20fonts">support is at over 60%</a>. Safari 11, Chrome 62+, Firefox 57+ and Edge 17+ all support variable fonts (Firefox only on a Mac and if you set <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1302685#c4">the correct flags</a>). This means font variations is a usable technology right now. But not all support is equal, as you&#8217;ll see.</p>
 
-	<p><strong>Andrew Lewis</strong>, Digital Content Delivery Manager (I like that this role exists) from the <a href="http://www.vam.ac.uk">Victoria &#38; Albert Museum</a> talked about the gradual transformation to becoming a digital first organisation. He described how that necessitated a brand new, top-down, governance structure to ensure consistency and longevity of technologies, and to avoid duplication of ideas across departments. Digital, he said, does not respect departmental boundaries.</p>
+<p>Variable font capable software is already more pervasive than you might think. For example, the latest versions of Photoshop and Illustrator support them, and if you&#8217;re using macOS 10.13+ or iOS 11+ the system font San Francisco uses font variations extensively. That said, the availability of variable fonts for use on the web is extremely limited. At the time of writing there are very few <em>commercial</em> variable webfonts available (<a href="http://cjtype.com/dunbar/">Dunbar</a> and <a href="https://djr.com/fit/">Fit</a> are notable exceptions), but there is a growing number of free and experimental variable webfonts, as showcased in the <a href="https://www.axis-praxis.org">Axis Praxis</a> playground and more recently listed on <a href="http://v-fonts.com">Variable Fonts</a>.</p>
 
-	<p><a href="http://twitter.com/richbs"><strong>Rich Barrett-Small</strong></a>, lead web developer at the V&#38;A, followed up with his view &#8216;from a dark place&#8217;. He used the analogy that his team worked as an Agile barrel tumbling through the waterfall processes of an inherently un-agile organisation. He urged museums not to embark on any digital project longer than 3 months, or if it really needs to be longer than that, deliver something tangible after each three months.</p>
+<p>From this limited palette of fonts, we (by which I mean Clearleft designer <a href="https://clearleft.com/team/james-gilyead">James Gilyead</a>) chose <a href="https://github.com/LettError/mutatorSans">Mutator Sans</a> for the display text, and <a href="https://github.com/adobe-fonts/source-sans-pro/releases">Source Sans</a> for the body text in a Saul Bass-inspired design. Both fonts enabled us to make use of their variable weight axis. Fonts chosen now came the tricky, multi-step business of implementing variable fonts into the website. I&#8217;ll take you through how we (by which I mean Clearleft developer <a href="https://clearleft.com/team/mark-perkins">Mark Perkins</a>) did it, using simplified code snippets.</p>
 
-	<p>In the audience, Stuart Dempster from <a href="http://www.jisc.ac.uk">Jisc</a> (which works on behalf of <abbr>UK</abbr> higher &#38; further education to champion the use of digital technologies and is responsible for <abbr>JANET</abbr>) made the point that part of digital strategy should be managing your organisation&#8217;s online reputation. At it simplest, that means &#8211; among other things &#8211; replying to tweets and answering comments on <a href="http://www.tripadvisor.com/Attraction_Review-g186338-d187677-Reviews-Tate_Modern-London_England.html">TripAdvisor</a>, and making changes in the real world if those comments highlight areas needing improvement. Stuart also mentioned that the <a href="http://www.hlf.org.uk">Heritage Lottery Fund</a> has finally agreed that digital output from a cultural institution is something it is <a href="http://www.hlf.org.uk/HowToApply/furtherresources/Pages/Newdigitalpolicyandrequirementsfordigitaloutputs.aspx">prepared to fund</a>.</p>
+<h2>1. Link to&nbsp;the&nbsp;fonts</h2>
 
-	<p>Charlotte Holmes from the <a href="http://www.museumsassociation.org/">Museums Association</a>, which she said represents museums and their suppliers, talked about <abbr title="continuing professsional development"><abbr>CPD</abbr></abbr> with respect to digital. She said they require more mentors to help people achieve the professional qualifications they offer (<a href="http://www.museumsassociation.org/professional-development/associateship-of-the-museums-association"><abbr>AMA</abbr>s</a>). It seems to me that people outside of the sector itself, a <a href="http://clearleft.com/">digital design agency</a> for example, could be able to help in this regard, although some business development opportunities in return would probably be desirable. It was hard to tell if they was any desire for either.</p>
+<p>Getting your variable fonts working in a basic fashion is fairly straight forward. At the time of writing Safari and Chrome have the most complete support. If you&#8217;re following along with these steps, you&#8217;ll need one of those browsers to start off with.</p>
 
-	<p><a href="https://twitter.com/TomGrinsted">Tom Grinsted</a>, product manager of core mobile apps for the <a href="http://guardian.co.uk">Guardian</a> gave a brief but entertaining view of the rapidly changing face of digital audiences, or &#8220;How I learned that there&#8217;s no such thing as a digital consumer&#8221;. Which about sums it up. He showed that use of the Guardian iPad app peaks first thing in the morning, but not in the evening; whereas the website viewed on a tablet peaks in the evening but less so in the morning. The main takeaway being: when designing don&#8217;t partition people, partition actions; in other words there&#8217;s no such thing as a mobile user.</p>
+<p>We downloaded the Source Sans variable font from its home <a href="https://github.com/adobe-fonts/source-sans-pro/releases">on Github</a> and used <code>@font-face</code> with a format of <code>truetype-variations</code> to link it up to the stylesheet:</p>
 
-	<p><a href="https://twitter.com/NickPoole1">Nick Poole</a>, <abbr>CEO</abbr> of the <a href="http://www.collectionstrust.org.uk/">Collections Trust</a> presented some pithy truths about creating digital resources:</p>
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'SourceSans';
+  src: url('source-sans-variable.ttf') format('truetype');
+}</code></pre></figure>
 
+<p>We could then set the variable Source Sans font as the main typeface for the page in the usual way:</p>
+
+<figure class="pre"><pre><code class="language-css">html {
+  font-family: 'SourceSans', sans-serif;
+}</code></pre></figure>
+
+<h2>2. Set&nbsp;the&nbsp;weights</h2>
+
+<p>The variable font implementation in <abbr class='c2sc'>CSS</abbr> is designed to use existing properties for certain pre-defined variation axes. We&#8217;re using three weights within the body text: regular, semibold and black. We set the bold fonts using <code>font-weight</code> in the usual way:</p>
+
+<figure class="pre"><pre><code class="language-css">.hero { font-weight: 900; }
+.blurb { font-weight: 600; }</code></pre></figure>
+
+<p>However this doesn&#8217;t work as expected without modifying the <code>@font-face</code> rule. When you include a <code>font-weight</code> descriptor in an <code>@font-face</code> rule, you are telling the browser that the font corresponds to that weight, and that weight only. When you omit the <code>font-weight</code> descriptor, the browser treats the rule as if you set <code>font-weight:400</code>. This is the case whether or not your font is variable with a weight axis – the font will be &#8216;clamped&#8217; to a weight of 400.</p>
+
+<p>To make use of the weight axis, and for the <code>font-weight</code> properties to work as you might expect, we needed to add a <code>font-weight</code> range to the <code>@font-face</code> rule:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'SourceSans';
+  src: url('source-sans-variable.ttf') format('truetype');
+  font-weight: 1 999;
+}</code></pre></figure>
+
+<p>The font weight range allows the variable font to be displayed at any weight from 1 to 999 (you could specify a more constrained range if you wanted). In the near future the <abbr class='c2sc'>CSS</abbr> Fonts Level 4 spec will allow you to omit the range descriptor because the default value will become a new value of <code>auto</code>, thus enabling the full range of weights available in the variable font, and defaulting to <code>normal</code> for static fonts. (The same applies to other descriptors such as <code>font-stretch</code>.)</p>
+
+<p>With variable fonts, your weight doesn&#8217;t have to be limited to intervals of 100. It can be any integer in the range 1-999. For the main heading, set in Mutator Sans, we used subtle differences in weight for each letter to give a more hand-drawn feel to the design:</p>
+
+<figure class="pre"><pre><code class="language-css">b:nth-child(1) { font-weight: 300; }
+b:nth-child(2) { font-weight: 250; }
+b:nth-child(3) { font-weight: 275; }</code></pre></figure>
+
+<h2>3. Subset and create&nbsp;a&nbsp;WOFF2</h2>
+
+<p>The Source Sans variable font is pretty big: the TrueType file is 491Kb. This is mostly because it has a huge character set: nearly 2000 glyphs including Greek, Cyrillic, alternate characters and symbols. Your first step in reducing file size is to create a subset of the font so that it no longer contains characters you won&#8217;t ever need.</p>
+
+<p>We decided to be fairly conservative in what we kept in, so we subsetted to include Basic Latin, Latin-1 Supplement and Latin Extended-A character ranges; a total of around 400 characters covering most European languages. In Unicode terms these are U+0020-007F, U+00A0-00FF and U+0100-017F.</p>
+
+<p>There are plenty of online tools for subsetting fonts, such as <a href="https://www.fontsquirrel.com/tools/webfont-generator">Fontsquirrel</a>. However all tools that I have seen strip out the variation data. This means you&#8217;ll need to turn to a command line approach. We subsetted the font using the open source <code>pyftsubset</code>, a component of <a href="https://github.com/behdad/fonttools">fonttools</a> (see <a href="https://michaeljherold.com/2016/05/04/creating-a-subset-font.html">Michael Herold&#8217;s tutorial</a> for more info). If Node is more your thing, you could instead use <a href="https://www.npmjs.com/package/glyphhanger">Glyphhanger</a>.</p>
+
+<p>Both Glyphhanger and fonttools (if you <a href="https://github.com/google/woff2">install Brotli compression</a>) will output the subsetted file as a <abbr class='c2sc'>WOFF2</abbr>. We don&#8217;t need a regular <abbr class='c2sc'>WOFF</abbr> as well because all browsers which support variable fonts also support <abbr class='c2sc'>WOFF2</abbr>.</p>
+
+<p>Running the subsetting routine and conversion to <abbr class='c2sc'>WOFF2</abbr> gave us a pleasingly tiny 29Kb file. We updated the <code>@font-face</code> rule accordingly:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'SourceSans';
+  src: url('source-sans-variable.woff2') format('woff2');
+}</code></pre></figure>
+
+<p>So that&#8217;s the job done for browsers which support variable fonts. But that&#8217;s barely half the story.</p>
+
+<h2>4. Provide fonts for&nbsp;incapable&nbsp;browsers</h2>
+
+<p>Variable fonts do render on browsers which don&#8217;t support font variations, but you obviously have no control over which weight (or other axis instance) will be used.</p>
+
+<p>To get around this, you need to serve non-variable (single-style) fonts to these browsers. At the time of writing, the <a href="https://www.w3.org/TR/2018/WD-css-fonts-4-20180410/#src-desc">CSS Fonts Module Level 4</a> specifies that variable fonts can be indicated with a specific <code>format()</code> value:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+   font-family: 'SourceSans';
+   src: url('source-sans-variable.woff2') format('woff2-variations');
+ }</code></pre></figure>
+
+<p>This enables you to create <code>@font-face</code> rules like this:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'SourceSans';
+  src: url('source-sans-variable.woff2') format('woff2-variations'),
+       url('source-sans-regular.woff2') format('woff2');
+  font-weight: 400; 
+}
+
+@font-face {
+  font-family: 'SourceSans';
+  src: url('source-sans-variable.woff2') format('woff2-variations'),
+       url('source-sans-black.woff2') format('woff2');
+  font-weight: 900; 
+}</code></pre></figure>
+
+<p>The preceding code points to the single-style font files with an <code>@font-face</code> rule including the font&#8217;s weight, as you would normally. You can then repeat a reference to the variable font file in each rule. Browsers which support variable fonts will download the file marked as <code>format('woff2-variations')</code> (once only), and browsers which don&#8217;t will download the single-style font marked as <code>format('woff2')</code>.</p>
+
+<p>But. Only Safari supports <code>format('woff2-variations')</code> (and that syntax is changing) which rather messes things up if we want the other capable browsers to get their variable font. So we resorted to a different, rather more verbose tactic. Firstly we gave the variable font a different name to the single-style typeface, thus separating links to variable fonts from single-style fonts:</p>
+
+<figure class="pre"><pre><code class="language-css">@font-face {
+  font-family: 'SourceSansVariable';
+  src: url('source-sans-variable.woff2') format('woff2');
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: 'SourceSans';
+  src: url('source-sans-black.woff2') format('woff2'),
+         url('source-sans-black.woff') format('woff');
+  font-weight: 900; 
+}
+
+@font-face {
+  font-family: 'SourceSans';
+  src: url('source-sans-semibold.woff2') format('woff2'),
+         url('source-sans-semibold.woff') format('woff');
+  font-weight: 600; 
+}</code></pre></figure>
+
+<p>We then needed to write an @supports rule to ensure the right fonts went to the right browsers:</p>
+
+<figure class="pre"><pre><code class="language-css">html {
+  font-family: 'SourceSans' sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'SourceSansVariable', sans-serif;
+  }
+}</code></pre></figure>
+
+<p>In the above code, the single-style fonts are specified as standard, however if a browser supports variable fonts (it&#8217;s a reasonable assumption that can be judged by support for <code>font-variation-settings</code>) then it gets the variable font instead.</p>
+
+<p>One final thing. For a belt and braces approach, every time you use variable fonts you should explicitly set the font weight even when the weight you want is <code>400</code> or <code>normal</code>. With a variable font, one browser&#8217;s idea of the default weight may differ slightly from another. In our testing Firefox rendered default text significantly lighter than Safari and Chrome, until we did this:</p>
+
+<figure class="pre"><pre><code class="language-css">html {
+  font-family: 'SourceSans' sans-serif;
+   font-weight: 400;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'SourceSansVariable', sans-serif;
+    font-variation-settings: "wght" 400;
+  }
+}</code></pre></figure>
+
+<p>And that&#8217;s it. Do check out how it came together on the <a href="https://2018.ampersandconf.com/">Ampersand website</a>, and don&#8217;t forget Ampersand is a conference dedicated to typography on the web – if that&#8217;s your thing you might want to check it out. There will be plenty of discussion of variable fonts, and much more besides.</p>
+
+</div><!-- /.prose --></section>
+<section><div class='prose'>
+
+</div><!-- /.prose --><figure class="inline">
+<a href="https://2018.ampersandconf.com/"><img src="http://clagnut.com/images/ampersand-conf.png" alt="Ampersand" style="max-width:4.5em"></a>
+</figure><div class='prose'>
+
+<p>To get the full low-down on variable fonts – and a lot more besides – join me and experts from around the world at <strong><a href="https://2018.ampersandconf.com/">Ampersand</a></strong> to get the full picture of what web typography can be today. The day before the conference I&#8217;ll also be running a <strong><a href="https://2018.ampersandconf.com/workshops">responsive web typography workshop</a></strong>.</p>
+<p><a href='http://clagnut.com/blog/2390/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Tue, 21 Feb 2017 19:47:49 PST</pubDate>
+			<title>Getting started with variable fonts</title>
+			<link>http://clagnut.com/blog/2389/</link>
+			<guid>http://clagnut.com/blog/2389/</guid>
+			<description><![CDATA[<p><em>The following is an original draft from my book <a href="http://book.webtypography.net/">Web Typography</a>.</em></p>
+
+</div><!-- /.prose --></section>
+<section><div class='prose'>
+
+<p>In October 2016, version 1.8 of OpenType was <a href="https://medium.com/@tiro/12ba6cd2369">released</a>, and with it an extensive new technology: OpenType Font Variations. More commonly known as <dfn>variable fonts</dfn>, the technology enables a single font file to behave like multiple fonts. This is done by defining variations within the font, which are interpolated along one or more axes. Two of these axes might be width and weight, but the type designer can define many others too.</p>
+
+</div><!-- /.prose --><figure>
+<img src="http://clagnut.com/images/2389/variablefonts.png" alt="6 by 6 matrix styles" style="max-width:19em">
+<figcaption><a href="http://koe.berlin/variablefont/">Gingham</a> variable font with continuous variation along width and weight axes</figcaption>
+</figure><div class='prose'>
+
+<p>The preceding image shows a variable font rendered in 36 different styles, all from one file. If you were to pick four styles and serve them as normal fonts, a variable font file capable of providing the same styles would be significantly smaller than the four separate files, with the added speed advantage of requiring just one call to the server.</p>
+
+<p>The illustration varies width and weight. Those two axes alone mean that, according to the OpenType Font Variations specification, theoretically 1000Ã—1000 (one million) variations are possible within the one file with no extra data. A third axis could increase the possibilities to one billion.</p>
+
+<p>At the time of writing the technology is in its infancy, but it potentially opens up tremendous opportunities for new kinds of responsive typography. The file size savings and fine precision means that many small adjustments could be made to the rendered font, potentially responding dynamically to the reader&#8217;s device and environment, as well to the text.</p>
+
+<p>Within the design space created by the axes of variation in a font, the type designer can define specific positions as <dfn>named instances</dfn>. Each named instance could appear to users of design software as if it were a separate font, for example &#8216;regular&#8217;, &#8216;light condensed&#8217; or &#8216;extra bold extended&#8217;.</p>
+
+<p>In the OpenType specification, five common axes of variation have been pre-defined as four-character tags: weight <code>wght</code>, width <code>wdth</code>, italic <code>ital</code>, slant <code>slnt</code> and optical size <code>opsz</code>. These font variations can be enabled by the <code>font-weight</code>, <code>font-stretch</code>, and <code>font-style</code> properties. <a href="https://drafts.csswg.org/css-fonts-4/">CSS4</a> adds new values for the properties to work with font variations:</p>
 
 <ul>
-	<li>access &#8800; value</li>
-	<li>open access &#8800; lower sales</li>
-	<li>digital &#8800; audience</li>
-
+<li><code>font-weight</code> takes any integer from 1â€“999 (not limited to multiples of 100 as in <abbr class='c2sc'>CSS3</abbr>).</li>
+<li><code>font-stretch</code> takes a percentage number in a range where 100% is normal, 50% is ultra-condensed and 200% is ultra-expanded.</li>
+<li><code>font-style</code> takes an oblique angle value from <code>oblique -90deg</code> to <code>oblique 90deg</code>.</li>
+<li><code>font-optical-sizing</code> is a new property taking a value of <code>auto</code> or <code>none</code> which turns on optical sizing if it&#8217;s available as an axis in the variable font.</li>
 </ul>
-	<p>Nick talked about determining the return on investment of providing a digital resource, not so much in financial terms but in terms of a cultural return. That linked perfectly into the next talk. <a href="http://twitter.com/SimonTanner">Simon Tanner</a> from the <a href="http://www.kcl.ac.uk/artshums/depts/ddh/">Department of Digital Humanities</a> at King&#8217;s College London talked passionately about Curation &#38; Impact for the Digital Age, with the emphasis very much on impact, which is akin to the &#8216;return&#8217; described by Nick in the previous talk.</p>
 
-	<p>Simon defined impact as &#8220;the measurable outcomes arising from the existence of a digital resource that demonstrate a change in the life or life opportunities of the community for which the resource is intended.&#8221; Put simply, how does your digital presence affect people&#8217;s lives? Loads more details, including how to present a convincing evidence-based argument for digital resources are <a href="http://www.kdcs.kcl.ac.uk/innovation/impact.html">available for download</a> on the <abbr>KDCS</abbr> website.</p>
+</div><!-- /.prose --><figure>
+<img src="http://clagnut.com/images/2389/variablefonts-opsz.png" alt="6 styles">
+<figcaption>Continuous variation along an optical sizing axis in <a href="https://www.typenetwork.com/brochure/opentype-variable-fonts-moving-right-along/">Amstelvar</a></figcaption>
+</figure><div class='prose'>
 
-	<p><a href="https://twitter.com/clairey_ross">Claire Ross</a> and <a href="https://twitter.com/shelfappeal">Jane Audas</a> talked about their experience trying to run digital R&#38;D with the <a href="http://www.iwm.org.uk">Imperial War Museums</a>. They came across similar difficulties to those highlighted by Rich Barrett-Small in trying to do Agile in a fundamentally non-agile environment. Long term outputs (5 years plus) with lots of stakeholders wanting to &#8216;sign off&#8217; does not map to a process of continuous iteration.</p>
+<p>Font designers can also define custom axes with their own four-character tags. This enables designers to vary almost any imaginable aspect of a typeface, such as contrast, <span class='nobr'>x-height</span>, serif-shape, grunginess, and even parts of an individual glyphs, such as the length of the tail on a Q. Using a syntax similar to <code>font-feature-settings</code>, custom axes as well as the predefined ones, are available through the low-level <code>font-variation-settings</code> property. For example, this would render text with a variation that is very wide, light weight and optically sized for 48pt:</p>
 
-	<p>Part of their project was enabling museum visitors to write comments on the exhibits using a kiosk next to the exhibit itself. A battle won was allowing for &#8216;radical trust&#8217; and the realisation that post moderation works: visitors may write inane comments, but never offensive ones. Oh, and <abbr>QR</abbr> codes don&#8217;t work.</p>
+<figure class="pre"><pre><code class="language-css">h2 {
+    font-variation-settings: "wdth" 600, "wght" 200, "opsz" 48;
+}
+</code></pre></figure>
 
-	<p>Mentioned in passing was the fascinating <a href="http://ww1.discovery.ac.uk/"><abbr>WW1</abbr> Discovery</a> project which aims to make resources about the Great War more discoverable, and find new and innovative ways to present this content for the benefit of education and research. Also cropping up was the <a href="http://www.google.com/culturalinstitute/#!home">Google Cultural Institute</a>, which I&#8217;ll admit I&#8217;d never come across, probably because while Google claims it is &#8220;building tools that make it simple to tell the stories of our diverse cultural heritage&#8221; it all looks very closed.</p>
+<p>Visit Laurence Penney&#8217;s <a href="http://Axis-Praxis.org">Axis-Praxis.org</a> to play with variations and design instances of some variable fonts (requires <a href="https://developer.apple.com/safari/technology-preview/">Safari Technology Preview</a>).</p>
 
-	<p>The afore-mentioned Stuart Dempster was up next and quoted <a href="https://twitter.com/gnat&#8217;s">Nat Torkington</a> excellent article <a href="http://nathan.torkington.com/blog/2011/11/23/libraries-where-it-all-went-wrong/">Libraries &#8211; Where It All Went Wrong</a>. The choice bit being:</p>
+<p>As with regular OpenType fonts, variable fonts can be used as web fonts as-is, or preferably wrapped up as a <abbr class='c2sc'>WOFF</abbr>. If you want to use to a variable font as a web font, in your <code>@font-face</code> rule you should set the <code>format</code> to <code>woff-variations</code> or <code>ttf-variations</code>. If you wish to provide regular font fallbacks for browsers which don&#8217;t support variable fonts, you can use multiple font-face rules where necessary, repeating the variable font each time.</p>
 
-	<blockquote><p>I look at the results of digitization projects, I find the shittiest websites on the planet.  It&#8217;s like a gallery spent all its money buying art and then just stuck the paintings in supermarket bags and leaned them against the wall.</p></blockquote>
+<pre>@font-face {
+    font-family: 'Nicefont';
+    src: url('nicefont_var.woff2') format('woff-variations');
+    src: url('nicefont_regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nicefont';
+    src: url('nicefont_var.woff2') format('woff-variations');
+    src: url('nicefont_black.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}</pre>
 
-	<p>Finally came <a href="katybeale">Katy Beale</a> from <a href="http://wearecaper.com/">Caper</a> who talked about a few of their fun ventures, including <a href="http://culturehackday.org.uk">Culture Hackday</a> and the <a href="http://happenstanceproject.com/">Happenstance</a> project, the <a href="http://happenstanceproject.com/james-bridle/">James Bridle</a> and <a href="http://happenstanceproject.com/natalia-buckley/">Natalia Buckley</a> part of which happened in Clearleft&#8217;s building.</p>
+<p>At the time of writing there is support for <code>font-variation-settings</code> in Webkit Nightlies and <a href="https://developer.apple.com/safari/technology-preview/">Safari Technology Preview</a>, but neither support <code>font-weight</code> or other such properties with variable fonts. Additionally the web font <code>format</code> needs to be <code>woff</code> or <code>ttf</code>.</p>
 
-	<p>All in all it was a thoroughly interesting day, especially from one who is somewhat of an outsider, and I got to have some fascinating conversations in the break. I&#8217;m really looking forward to Clearleft working more with museums, galleries and others in this sector.</p>
-<p><a href='http://clagnut.com/blog/2371/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
-			<category domain="http://clagnut.com/archive/conferences/">Conferences</category>
-<category domain="http://technorati.com/tag/Conferences,">Conferences,</category>
-<category domain="http://technorati.com/tag/Information">Information</category>
-<category domain="http://technorati.com/tag/design,">design,</category>
-<category domain="http://technorati.com/tag/museums,">museums,</category>
-<category domain="http://technorati.com/tag/heritage">heritage</category>
-<category domain="http://technorati.com/tag/sector,">sector,</category>
-<category domain="http://technorati.com/tag/ukmw12">ukmw12</category>
-		</item>
-		<item>
-			<pubDate>Tue, 26 Jun 2012 09:40:58 PST</pubDate>
-			<title>Something\&#8217;s missing around here</title>
-			<link>http://clagnut.com/blog/2272/</link>
-			<guid>http://clagnut.com/blog/2272/</guid>
-			<description><![CDATA[<p>You may have noticed that the most recent post on Clagnut (apart from this one) dates back almost exactly six years &#8211; to June 2006. That is due to a catastrophic database failure. I hope to rescue the missing 6 years over the coming weeks; there\&#8217;s quite a lot in the \<a href="http://wayback.archive.org/web/*/http://clagnut.com">WayBackMachine\</a> so that might be a good start. The comments are in there too, which would be as much of a sad loss as the blog posts themselves.</p>
+<p>Variable fonts were jointly developed by Adobe, Apple, Google and Microsoft. This means support in new versions of browsers should arrive across the board as soon as the precise implementations and <abbr class='c2sc'>CSS</abbr> specifications are agreed. Current <a href="http://responsivewebdesign.com/podcast/variable-fonts">estimates</a> have variable fonts being a viable option on the web by early 2018.</p>
 
-	<p>So did I have a backup? Well obviously not, at least not a recent one. Files: yes. Database: no. So what happened to the database anyway? Good question, thanks for asking.</p>
+</div><!-- /.prose --></section>
+<section><div class='prose'>
 
-	<p>It all started back in 2004 when I stumped up $200 for lifetime hosting with \&#8221;Textdrive (Going back in time)\&#8221;:http://web.archive.org/web/20051129024936/http://www.textdrive.com/ (I was a so-called <abbr>VC200</abbr>). \<a href="http://joyent.com">Joyent\</a> acquired Textdrive a few years later and honoured the lifetime hosting for <abbr>VC200</abbr> folk. Well since then we\&#8217;ve been stuck on what seems to be a wretchedly slow server (the dreaded \&#8217;One\&#8217; shared server), but heh you pay peanuts&#8230;.</p>
+</div><!-- /.prose --><figure class="inline">
+<a href="https://2018.ampersandconf.com/"><img src="http://clagnut.com/images/ampersand-conf.png" alt="Ampersand" style="max-width:4.5em"></a>
+</figure><div class='prose'>
 
-	<p>In fairness Joyent have tried pursuading me to move to one or other of their better services, but frankly they didn\&#8217;t exactly offer much help with that beyond a long set of daunting technical instructions. And so eventually payback came. \&#8217;One\&#8217; finally gave up the ghost and disppeared off the face of the Earth. Along with the files and databases I run for all my sites, including \<a href="http://clagnut.com/">Clagnut\</a> and \<a href="http://webtypography.net/">Web Typography\</a>. After a few days Joyent managed to reinstate all the files and databases apart from the \&#8217;clagnut\&#8217; database. It was gone without trace. Still at least they apologised:</p>
-
-	<blockquote><p>I\&#8217;m very sorry about this. Our operations team have not been able to restore the \&#8217;clagnut\&#8217; database.</p></blockquote>
-
-	<p>I\&#8217;ve now moved Clagnut over to \&#8221;Vidahost (Yes it\&#8217;s an affiliate link but I\&#8217;m happy to recommend them)\&#8221;:http://my.vidahost.com/aff.php?aff=1321 who, so far, seem very helpful. And my site is much faster too.</p>
-
-	<h4>Update</h4>
-
-	<p>I\&#8217;m gradually reinstating blog posts from the \<a href="http://wayback.archive.org/web/*/http://clagnut.com/">Internet Archive\</a>, so if you see some slightly odd and out-of-date things appearing, check the date on the post.</p>
-<p><a href='http://clagnut.com/blog/2272/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
-<category domain="http://technorati.com/tag/ClagnutNews,">ClagnutNews,</category>
-<category domain="http://technorati.com/tag/Textdrive,">Textdrive,</category>
-<category domain="http://technorati.com/tag/fail,">fail,</category>
-<category domain="http://technorati.com/tag/hosting,">hosting,</category>
-<category domain="http://technorati.com/tag/Vidahost">Vidahost</category>
+<p>To get the full low-down on variable fonts – and a lot more besides – join me and experts from around the world at <strong><a href="https://2018.ampersandconf.com/">Ampersand</a></strong> to get the full picture of what web typography can be today. The day before the conference Iâ€™ll also be running a <strong><a href="https://2018.ampersandconf.com/workshops">responsive web typography workshop</a></strong>.</p>
+<p><a href='http://clagnut.com/blog/2389/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
 		</item>
 	</channel>
 		</rss>

@@ -5,7 +5,7 @@
 				<atom:link href="http://clagnut.com/feeds/summaries.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 10 posts in summary)</description>
 				<language>en-gb</language>
-				<copyright>Copyright 2003-2014, Richard Rutter</copyright>
+				<copyright>Copyright 2003-2019, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
@@ -16,138 +16,96 @@
 					<height>31</height>
 				</image>
 		<item>
-			<pubDate>Wed, 09 Apr 2014 11:51:43 PST</pubDate>
-			<title>The Big Dog Cometh</title>
-			<link>http://clagnut.com/blog/2376/</link>
-			<guid>http://clagnut.com/blog/2376/</guid>
-			<description><![CDATA[Since I knackered my Achilles tendon in December, I&#8217;ve been getting back into cycling and mountain biking in particular. The Brighton Big Dog race is on in August and uses the same tracks I now ride most weeks. We&#8217;ve entered a Clearleft team. <a href='http://clagnut.com/blog/2376/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/biking/">Mountain biking</category>
-			<category domain="http://clagnut.com/archive/brighton/">Brighton</category>
-<category domain="http://technorati.com/tag/Mountain">Mountain</category>
-<category domain="http://technorati.com/tag/biking,">biking,</category>
-<category domain="http://technorati.com/tag/Big">Big</category>
-<category domain="http://technorati.com/tag/Dog,">Dog,</category>
-<category domain="http://technorati.com/tag/cycling,">cycling,</category>
-<category domain="http://technorati.com/tag/Stanmer,">Stanmer,</category>
-<category domain="http://technorati.com/tag/strava,">strava,</category>
-<category domain="http://technorati.com/tag/racing">racing</category>
+			<pubDate>Wed, 20 Mar 2019 07:31:46 PST</pubDate>
+			<title>All you need to know about hyphenation in&nbsp;CSS</title>
+			<link>http://clagnut.com/blog/2394/</link>
+			<guid>http://clagnut.com/blog/2394/</guid>
+			<description><![CDATA[Automatic hyphenation on the web has been possible since 2011 and is now broadly supported. There is however far more control available to designers than just turning on hyphens, as this post explains. <a href='http://clagnut.com/blog/2394/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
 		</item>
 		<item>
-			<pubDate>Thu, 13 Feb 2014 17:36:19 PST</pubDate>
-			<title>In conversation with Brighton station about CCTV</title>
-			<link>http://clagnut.com/blog/2374/</link>
-			<guid>http://clagnut.com/blog/2374/</guid>
-			<description><![CDATA[A couple of days ago I was stuck at Brighton railway station, watching trains get delayed and eventually cancelled. While sat on the concourse I noticed the sheer amount of CCTV and various surveillance devices in plain view all around the station. <a href='http://clagnut.com/blog/2374/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/brighton/">Brighton</category>
-			<category domain="http://clagnut.com/archive/politics/">Politics</category>
-<category domain="http://technorati.com/tag/Brighton,War">Brighton,War</category>
-<category domain="http://technorati.com/tag/and">and</category>
-<category domain="http://technorati.com/tag/Politics,CCTV,privacy,station,Twitter">Politics,CCTV,privacy,station,Twitter</category>
+			<pubDate>Mon, 07 Jan 2019 22:25:43 PST</pubDate>
+			<title>Top Tunes 2018</title>
+			<link>http://clagnut.com/blog/2393/</link>
+			<guid>http://clagnut.com/blog/2393/</guid>
+			<description><![CDATA[Back after a decidedly long hiatus, hereâ€™s a compilation of favourite songs I bought this year, and a damn fine year it was too. <a href='http://clagnut.com/blog/2393/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/music/">Music</category>
 		</item>
 		<item>
-			<pubDate>Sun, 09 Feb 2014 23:15:01 PST</pubDate>
-			<title>A new year, a new design</title>
-			<link>http://clagnut.com/blog/2373/</link>
-			<guid>http://clagnut.com/blog/2373/</guid>
-			<description><![CDATA[To my surprise, Clagnut.com was last redesigned in September 2008. Well, it&#8217;s all change, with a new redesign launched today. It&#8217;s been created from the typography outwards, responsive from the beginning and elegant on huge as well as tiny screens. <a href='http://clagnut.com/blog/2373/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
+			<pubDate>Thu, 26 Apr 2018 16:50:37 PST</pubDate>
+			<title>Upcoming changes to the CSS you need for variable fonts</title>
+			<link>http://clagnut.com/blog/2391/</link>
+			<guid>http://clagnut.com/blog/2391/</guid>
+			<description><![CDATA[Two weeks ago I was invited to Berlin for a CSS Working Group meeting. One afternoon was dedicated to resolving issues with the CSS Text and Font modules. Two resolutions in particular will affect the CSS we need to work with variable fonts. <a href='http://clagnut.com/blog/2391/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/standards/">Web standards</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Thu, 25 Jan 2018 17:18:51 PST</pubDate>
+			<title>How to use variable fonts in the real world</title>
+			<link>http://clagnut.com/blog/2390/</link>
+			<guid>http://clagnut.com/blog/2390/</guid>
+			<description><![CDATA[Using variable fonts in the real world turns out to be tricky. This post explains how we achieved it for the new Ampersand website and what we learned along theÂ way. <a href='http://clagnut.com/blog/2390/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Tue, 21 Feb 2017 19:47:49 PST</pubDate>
+			<title>Getting started with variable fonts</title>
+			<link>http://clagnut.com/blog/2389/</link>
+			<guid>http://clagnut.com/blog/2389/</guid>
+			<description><![CDATA[Variable fonts are a new font format offering unprecedented flexibility. They will be landing in web browsers and native operating systems within 12 months. Learn how to try them out now. <a href='http://clagnut.com/blog/2389/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Mon, 15 Aug 2016 23:02:06 PST</pubDate>
+			<title>The importance of putting your champions on a pedestal</title>
+			<link>http://clagnut.com/blog/2387/</link>
+			<guid>http://clagnut.com/blog/2387/</guid>
+			<description><![CDATA[A champion is the person in your client&#8217;s organisation who can pinpoint the barriers to a great solution going live. Champions are obstacle clearers, problem insulators and praise singers. Find them and treat them with the reverence they deserve. <a href='http://clagnut.com/blog/2387/'>Read more</a>.]]></description>
 			<category domain="http://clagnut.com/archive/design_thinking/">Design thinking</category>
-<category domain="http://technorati.com/tag/redesign,">redesign,</category>
-<category domain="http://technorati.com/tag/ClagnutNews,">ClagnutNews,</category>
-<category domain="http://technorati.com/tag/typography,">typography,</category>
-<category domain="http://technorati.com/tag/responsive,">responsive,</category>
-<category domain="http://technorati.com/tag/RWD,">RWD,</category>
-<category domain="http://technorati.com/tag/Vidahost,">Vidahost,</category>
-<category domain="http://technorati.com/tag/Firefox,">Firefox,</category>
-<category domain="http://technorati.com/tag/responsive">responsive</category>
-<category domain="http://technorati.com/tag/design">design</category>
+			<category domain="http://clagnut.com/archive/industry/">New media industry</category>
+			<category domain="http://clagnut.com/archive/clearleft/">Clearleft</category>
 		</item>
 		<item>
-			<pubDate>Wed, 05 Dec 2012 20:37:10 PST</pubDate>
-			<title>UK Museums on the Web 2012</title>
-			<link>http://clagnut.com/blog/2371/</link>
-			<guid>http://clagnut.com/blog/2371/</guid>
-			<description><![CDATA[UK Museums on the Web is a one day conference organised by the Museums Computer Group. Representatives from museums and other organisations in the sector shared their experiences over the past year and beyond. These are my notes from the day. <a href='http://clagnut.com/blog/2371/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
+			<pubDate>Fri, 24 Jun 2016 15:37:42 PST</pubDate>
+			<title>Choco Leibniz</title>
+			<link>http://clagnut.com/blog/2386/</link>
+			<guid>http://clagnut.com/blog/2386/</guid>
+			<description><![CDATA[In a rare excursion we delve in some Friday political commentary from Half Man Half Biscuit. It&#226;&#8364;&#8482;s National Shite Day. <a href='http://clagnut.com/blog/2386/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/hmhb/">Half Man Half Biscuit</category>
+		</item>
+		<item>
+			<pubDate>Fri, 15 Apr 2016 12:46:34 PST</pubDate>
+			<title>Chrome just got darker</title>
+			<link>http://clagnut.com/blog/2385/</link>
+			<guid>http://clagnut.com/blog/2385/</guid>
+			<description><![CDATA[A couple of days ago, my installation of Google Chrome updated itself from version 49 to version 50. The timing was fortuitous and relieved me of a growing text rendering headache. <a href='http://clagnut.com/blog/2385/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+		</item>
+		<item>
+			<pubDate>Mon, 29 Feb 2016 21:37:39 PST</pubDate>
+			<title>Use rems for global sizing, use ems for local sizing</title>
+			<link>http://clagnut.com/blog/2384/</link>
+			<guid>http://clagnut.com/blog/2384/</guid>
+			<description><![CDATA[An unedited extract from my forthcoming book, Web Typography. This chapter is quite technically focussed and hopefully stands well on its own. The other chapters I&#8217;ve written contain much higher proportion of typographic theory. <a href='http://clagnut.com/blog/2384/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Thu, 08 Oct 2015 10:29:59 PST</pubDate>
+			<title>Conference diversity from an organiser&#226;&#8364;&#8482;s perspective</title>
+			<link>http://clagnut.com/blog/2383/</link>
+			<guid>http://clagnut.com/blog/2383/</guid>
+			<description><![CDATA[Clearleft we know we have a responsibility to the industry to help redress the gender balance, and that means putting together diverse line-ups at our conferences. This is much easier said than done, but difficult doesnâ€™t mean impossible. <a href='http://clagnut.com/blog/2383/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/clearleft/">Clearleft</category>
 			<category domain="http://clagnut.com/archive/conferences/">Conferences</category>
-<category domain="http://technorati.com/tag/Conferences,">Conferences,</category>
-<category domain="http://technorati.com/tag/Information">Information</category>
-<category domain="http://technorati.com/tag/design,">design,</category>
-<category domain="http://technorati.com/tag/museums,">museums,</category>
-<category domain="http://technorati.com/tag/heritage">heritage</category>
-<category domain="http://technorati.com/tag/sector,">sector,</category>
-<category domain="http://technorati.com/tag/ukmw12">ukmw12</category>
-		</item>
-		<item>
-			<pubDate>Tue, 26 Jun 2012 09:40:58 PST</pubDate>
-			<title>Something\&#8217;s missing around here</title>
-			<link>http://clagnut.com/blog/2272/</link>
-			<guid>http://clagnut.com/blog/2272/</guid>
-			<description><![CDATA[Clagnut went missing but now it\&#8217;s partially back. <a href='http://clagnut.com/blog/2272/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
-<category domain="http://technorati.com/tag/ClagnutNews,">ClagnutNews,</category>
-<category domain="http://technorati.com/tag/Textdrive,">Textdrive,</category>
-<category domain="http://technorati.com/tag/fail,">fail,</category>
-<category domain="http://technorati.com/tag/hosting,">hosting,</category>
-<category domain="http://technorati.com/tag/Vidahost">Vidahost</category>
-		</item>
-		<item>
-			<pubDate>Mon, 31 Jan 2011 14:17:24 PST</pubDate>
-			<title>Top Tunes 2010</title>
-			<link>http://clagnut.com/blog/2354/</link>
-			<guid>http://clagnut.com/blog/2354/</guid>
-			<description><![CDATA[Here&#8217;s the track listing to my annual compilation. As ever, titled as &#8216;The Best Songs I Bought In 2010 Ever&#8217;. <a href='http://clagnut.com/blog/2354/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
-<category domain="http://technorati.com/tag/Music,TopTunes,compilation,2010">Music,TopTunes,compilation,2010</category>
-		</item>
-		<item>
-			<pubDate>Wed, 14 Oct 2009 18:16:42 PST</pubDate>
-			<title>The postcode lookup pattern</title>
-			<link>http://clagnut.com/blog/2292/</link>
-			<guid>http://clagnut.com/blog/2292/</guid>
-			<description><![CDATA[As a way of enabling address input, the UK postcode look-up is fraught with danger and is rarely implemented well. As is often the case in UX design, everything is fine until an exception is reached. <a href='http://clagnut.com/blog/2292/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/information_design/">Information design</category>
-			<category domain="http://clagnut.com/archive/geospatial/">Mapping &amp; Geospatial</category>
-			<category domain="http://clagnut.com/archive/ajax/">Ajax</category>
-<category domain="http://technorati.com/tag/Information">Information</category>
-<category domain="http://technorati.com/tag/design,Mapping">design,Mapping</category>
-<category domain="http://technorati.com/tag/and">and</category>
-<category domain="http://technorati.com/tag/Geospatial,UX,postcode,lookup,user">Geospatial,UX,postcode,lookup,user</category>
-<category domain="http://technorati.com/tag/flow,Ajax,flow">flow,Ajax,flow</category>
-<category domain="http://technorati.com/tag/diagram">diagram</category>
-		</item>
-		<item>
-			<pubDate>Sat, 13 Jan 2007 20:38:22 PST</pubDate>
-			<title>Top Tunes 2006</title>
-			<link>http://clagnut.com/blog/1867/</link>
-			<guid>http://clagnut.com/blog/1867/</guid>
-			<description><![CDATA[Here&#8217;s the track listing to my annual compilation, this year cleverly titled as &#8216;The Best Songs I Bought In 2006 Ever&#8217;. It was another good year. <a href='http://clagnut.com/blog/1867/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
-<category domain="http://technorati.com/tag/Music,Top">Music,Top</category>
-<category domain="http://technorati.com/tag/Tunes,compilation">Tunes,compilation</category>
-		</item>
-		<item>
-			<pubDate>Wed, 10 Jan 2007 20:28:06 PST</pubDate>
-			<title>iPhone arrives</title>
-			<link>http://clagnut.com/blog/1861/</link>
-			<guid>http://clagnut.com/blog/1861/</guid>
-			<description><![CDATA[Like many other Apple-loving tech companies yesterday, Clearleft were huddled around MacRumours following its coverage of Steve Jobs&#8217;s keynote. And Gruff Rhys. <a href='http://clagnut.com/blog/1861/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
-			<category domain="http://clagnut.com/archive/apple/">Apple</category>
-<category domain="http://technorati.com/tag/Apple,iPhone,Gruff">Apple,iPhone,Gruff</category>
-<category domain="http://technorati.com/tag/Rhys,Steve">Rhys,Steve</category>
-<category domain="http://technorati.com/tag/Jobs,keynote,Music">Jobs,keynote,Music</category>
-		</item>
-		<item>
-			<pubDate>Sat, 06 Jan 2007 19:56:28 PST</pubDate>
-			<title>2006 &#8211; Where did it go?</title>
-			<link>http://clagnut.com/blog/1859/</link>
-			<guid>http://clagnut.com/blog/1859/</guid>
-			<description><![CDATA[I&#8217;ve just being perusing the 2006 Review edition of Grafik magazine and came across some mini-interviews with graphic design luminaries. I thought they wrapped up the year nicely, so I&#8217;ve copied their questions here and provided my own answers. <a href='http://clagnut.com/blog/1859/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/personal/">Personal</category>
-<category domain="http://technorati.com/tag/Personal,New">Personal,New</category>
-<category domain="http://technorati.com/tag/Year's">Year's</category>
-<category domain="http://technorati.com/tag/Resolutions,Grafik">Resolutions,Grafik</category>
 		</item>
 	</channel>
 		</rss>

@@ -254,13 +254,14 @@ ABC(Always Be Closing) <acronym title="Always Be Closing">ABC</acronym>
 		'/\bSVG\b/',
 	#	'/\bSMS\b/',
 		'/\bIM\b/',
-		'/\b([A-Z][A-Z0-9]{2,})(s?)\b(?:[(]([^)]*)[)])/',		# 3+ uppercase acronym
-		'/(^|[^"][>\s])([A-Z][A-Z0-9\-]+)([^<a-zA-Z0-9]|$|s)/');	# 2+ uppercase caps
+	#	'/\b([A-Z][A-Z0-9]{2,})(s?)\b(?:[(]([^)]*)[)])/',		# 3+ uppercase acronym
+	#	'/(^|[^"][>\s])([A-Z][A-Z0-9\-]+)([^<a-zA-Z0-9]|$|s)/',	# 2+ uppercase caps
+		);
 
 	$abbr_replace = array( # [RAR]
 		"<abbr>OS&nbsp;X</abbr>",
 		"<abbr>OS&nbsp;X</abbr>",
-		"<span class='caps'>M</span>y<abbr>SQL</abbr>",
+		"<span class='c2sc'>M</span>y<abbr>SQL</abbr>",
 	#	"<abbr title='PHP HyperText Processor'>PHP</abbr>",
 	#	"<abbr title='HyperText Mark-up Language'>HTML</abbr>",
 	#	"<abbr title='Cascading Style Sheets'>CSS</abbr>",
@@ -281,8 +282,9 @@ ABC(Always Be Closing) <acronym title="Always Be Closing">ABC</acronym>
 		"<abbr title='Scalable Vector Graphics'>SVG</abbr>",
 	#	"<abbr title='Short Message Service'>SMS</abbr>",
 		"<abbr title='Instant Message'>IM</abbr>",
-		"<acronym title='$3'>$1</acronym>$2",	# 3+ uppercase acronym
-		"$1<abbr>$2</abbr>$3");		# 2+ uppercase caps
+	#	"<acronym title='$3'>$1</acronym>$2",	# 3+ uppercase acronym
+	#	"$1<abbr>$2</abbr>$3",		# 2+ uppercase caps
+		);
 
 	$glyph_search = array(
 		'/(\s)&(\s)/',										# ampersand

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-linkedin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LS-Profile-Links" transform="translate(-208.000000, -38.000000)" fill="#000">
+            <g id="Group-6">
+                <path d="M212,40 C212,41.1 211.3,42 210,42 C208.8,42 208,41.1 208,40.1 C208,39 208.8,38 210,38 C211.2,38 212,38.9 212,40 Z M208,56 L212,56 L212,43 L208,43 L208,56 Z M221.6,43.2 C219.5,43.2 218.3,44.4 217.8,45.2 L217.7,45.2 L217.5,43.5 L213.9,43.5 C213.9,44.6 214,45.9 214,47.4 L214,56 L218,56 L218,48.9 C218,48.5 218,48.2 218.1,47.9 C218.4,47.2 218.9,46.3 220,46.3 C221.4,46.3 222,47.5 222,49.1 L222,56 L226,56 L226,48.6 C226,44.9 224.1,43.2 221.6,43.2 Z" id="icon-linkedin"></path>
+            </g>
+        </g>
+    </g>
+</svg>

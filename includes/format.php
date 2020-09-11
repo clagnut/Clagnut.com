@@ -7,7 +7,9 @@ if (get_magic_quotes_gpc()) {
 }
 
 include($dr . "textile.php");
-include($dr . "markdown.php");
+require_once $dr . 'Michelf/MarkdownExtra.inc.php';
+use Michelf\MarkdownExtra;
+
 
 function preformat($text) {
 	if (preg_match("/^<p>/",$text)){
@@ -16,6 +18,11 @@ function preformat($text) {
 	$search = array ("\\", "'mare", "'flu", "'Flu", "---", "--", "<br />");
 	$replace = array ("\\\\", "&#8217;mare", "&#8217;flu", "&#8217;Flu", "\nnewsection\n", "-", "\n");
 	$text = str_replace($search, $replace, $text);
+	
+	$reg_patterns = array ("/ (\d+) (px|em|ems|en|ex|rem|dpi|ppi|ch|pt|inch|cm|mm|arcmin|lb|AD|BC|pica|picas|vw|vmin)\b/");
+	$reg_replace = array (" $1 $2");
+	$text = preg_replace($reg_patterns, $reg_replace, $text);
+
 	return $text;
 }
 
@@ -146,13 +153,39 @@ function format($text, $textile="y") {
 			"</h2>");
 		$text = str_replace($search, $replace, $text);
 		
-		$search = array ("/<figure(.*?)<\/p>/is", "/<p class='imgholder inline'>(.*?)<\/p>/is", "/<p class=\"imgholder inline\">(.*?)<\/p>/is", "/<p class='imgholder'>(.*?)<\/p>/is", "/<figcaption><br \/>/is", "/<\/figure><\/figure>/is", "/<p><figure>/is", "/<code><code>/is", "/<\/code><\/code>/is");
-		$replace = array ("<figure$1</figure>", "<figure class='inline'>$1</figure>", "<figure class='inline'>$1</figure>", "<figure>$1</figure>", "<figcaption>", "</figure>", "<figure>", "<code>", "</code>");
+		$search = array (
+			"/<figure(.*?)<\/p>/is", 
+			"/<p class='imgholder inline'>(.*?)<\/p>/is", 
+			"/<p class=\"imgholder inline\">(.*?)<\/p>/is", 
+			"/<p class='imgholder'>(.*?)<\/p>/is", 
+			"/<p class=\"imgholder\">(.*?)<\/p>/is", 
+			"/<figcaption><br \/>/is", 
+			"/<\/figure><\/figure>/is", 
+			"/<p><figure>/is", 
+			"/<code><code>/is", 
+			"/<\/code><\/code>/is", 
+			"/<table>/is", 
+			"/<\/table>/is"
+			);
+		$replace = array (
+			"<figure$1</figure>", 
+			"<figure class='inline'>$1</figure>", 
+			"<figure class='inline'>$1</figure>", 
+			"<figure>$1</figure>", 
+			"<figure>$1</figure>", 
+			"<figcaption>", 
+			"</figure>", 
+			"<figure>", 
+			"<code>", 
+			"</code>", 
+			"<figure class='fig-table'><table>", 
+			"</table></figure>"
+			);
 		$text = preg_replace($search, $replace, $text);
 	} else {
-	
-		$text = markdown($text);
-		$text = smartypants($text);
+		
+		$text = MarkdownExtra::defaultTransform($text);		
+		$text = SmartyPants::defaultTransform($text);
 		$search = array (
 			"<p>newsection</p>",
 			"newsection<br />",
@@ -161,6 +194,7 @@ function format($text, $textile="y") {
 			"</figure></p>",
 			"<p><figure",
 			"</p>\n\n<figcaption>",
+			"</figcaption></p>",
 			);
 		$replace = array (
 			"</section>\n<section>",
@@ -170,10 +204,90 @@ function format($text, $textile="y") {
 			"</figure>",
 			"<figure",
 			"<figcaption>",
+			"</figcaption>",
 			);
 		$text = str_replace($search, $replace, $text);
 	
 	}
+		
+	$search = array (
+		"<figure",
+		"</figure>",
+		"<section>",
+		"</section>",
+		"<pre><code>",
+		"</code></pre>",
+		"<code class=\"language-css\">// html\n",
+		" - ",
+		" OS X",
+		"CSS 2",
+		"CSS 3",
+		"CSS 4",
+		"WOFF 2",
+		"HTML 4",
+		"HTML 5",
+		" × ",
+		"imgholder ",
+		"URLs",
+		);
+	$replace = array (
+		"</div><!-- /.prose --><figure",
+		"</figure><div class='prose'>",
+		"<section><div class='prose'>",
+		"</div><!-- /.prose --></section>",
+		"<figure class=\"pre\"><pre><code class=\"language-css\">",
+		"</code></pre></figure>",
+		"<code class=\"language-html\">",
+		" – ",
+		" OS X",
+		"CSS2",
+		"CSS3",
+		"CSS4",
+		"WOFF2",
+		"HTML&nbsp;4",
+		"HTML&nbsp;5",
+		"&nbsp;×&nbsp;",
+		"",
+		"<abbr class=\"c2sc\">URL</abbr>s",		);
+	$text = str_replace($search, $replace, $text);
+	
+	$search = array (
+		"/(\S+) (\w+<\/h[1-6]>)/i",
+		"/<figure class='inline'>(.*?)<\/figure>/i",
+		"/<figure class=\"inline\">(.*?)<\/figure>/i",
+		"/<figure>[\s]*<p><img/i",
+		"/ (\S+<\/h[2-6]>)/",		
+		"/([0-9]+)x([0-9]+)/",
+		"/\b(x-height)(s?)\b/",
+		"/(<h[1-6])&nbsp;/",
+		'/\b([A-Z][A-Z0-9]{2,})(s?)\b(?:[(]([^)]*)[)])/',		# 3+ uppercase acronym
+		'/(^|[^"][>\s])([A-Z][A-Z0-9\-]+)([^a-zA-Z0-9]|$|s)/',	# 2+ uppercase caps
+		);
+	$replace = array (
+		"$1&nbsp;$2",
+		"<figure class='inline'><div class='inline-holder'>$1</div></figure>",
+		"<figure class='inline'><div class='inline-holder'>$1</div></figure>",
+		"<figure><img",
+		"&nbsp;$1",		
+		"$1×$2",
+		"<span class='nobr'>$1$2</span>",
+		"$1 ",
+		"<abbr class='c2sc' title='$3'>$1</abbr>$2",	# 3+ uppercase acronym
+		"$1<abbr class='c2sc'>$2</abbr>$3",		# 2+ uppercase caps
+		);
+	$text = preg_replace($search, $replace, $text);
+	
+	# some smallcaps corrections
+	$search = array (
+		"<abbr class='c2sc'>CSS</abbr> Working Group",
+		"<abbr class='c2sc'>CSS</abbr> WG",
+		);
+	$replace = array (
+		"CSS Working Group",
+		"<abbr class='c2sc'>CSS WG</abbr>",
+		);
+	$text = str_replace($search, $replace, $text);
+	
 		
 	$text = trim($text);
 	
@@ -256,144 +370,109 @@ function get_elapsedtime($time) {
 
 }
 
+
 #
-# SmartyPants  -  Smart punctuation for web sites
+# SmartyPants  -  Smart typography for web sites
 #
-# PHP SmartyPants  
-# Copyright (c) 2004-2013 Michel Fortin
-# <http://michelf.ca/>
+# PHP SmartyPants
+# Copyright (c) 2004-2016 Michel Fortin
+# <https://michelf.ca/>
 #
 # Original SmartyPants
 # Copyright (c) 2003-2004 John Gruber
-# <http://daringfireball.net>
+# <https://daringfireball.net/>
 #
-
-
-define( 'SMARTYPANTS_VERSION',  "1.5.1f" ); # Unreleased
+# namespace Michelf;
 
 
 #
-# Default configuration:
+# SmartyPants Parser Class
 #
-#  1  ->  "--" for em-dashes; no en-dash support  
-#  2  ->  "---" for em-dashes; "--" for en-dashes  
-#  3  ->  "--" for em-dashes; "---" for en-dashes  
-#  See docs for more configuration options.
-#
-define( 'SMARTYPANTS_ATTR',    1 );
+
+class SmartyPants {
+
+	### Version ###
+
+	const  SMARTYPANTSLIB_VERSION  =  "1.8.1";
 
 
-# SmartyPants will not alter the content of these tags:
-define( 'SMARTYPANTS_TAGS_TO_SKIP', 'pre|code|kbd|script|style|math');
+	### Presets
+
+	# SmartyPants does nothing at all
+	const  ATTR_DO_NOTHING             =  0;
+	# "--" for em-dashes; no en-dash support
+	const  ATTR_EM_DASH                =  1;
+	# "---" for em-dashes; "--" for en-dashes
+	const  ATTR_LONG_EM_DASH_SHORT_EN  =  2;
+	# "--" for em-dashes; "---" for en-dashes
+	const  ATTR_SHORT_EM_DASH_LONG_EN  =  3;
+	# "--" for em-dashes; "---" for en-dashes
+	const  ATTR_STUPEFY                = -1;
+
+	# The default preset: ATTR_EM_DASH
+	const  ATTR_DEFAULT  =  SmartyPants::ATTR_EM_DASH;
 
 
-### Standard Function Interface ###
+	### Standard Function Interface ###
 
-define( 'SMARTYPANTS_PARSER_CLASS', 'SmartyPants_Parser' );
+	public static function defaultTransform($text, $attr = SmartyPants::ATTR_DEFAULT) {
+	#
+	# Initialize the parser and return the result of its transform method.
+	# This will work fine for derived classes too.
+	#
+		# Take parser class on which this function was called.
+		$parser_class = \get_called_class();
 
-function SmartyPants($text, $attr = SMARTYPANTS_ATTR) {
-#
-# Initialize the parser and return the result of its transform method.
-#
-	# Setup static parser array.
-	static $parser = array();
-	if (!isset($parser[$attr])) {
-		$parser_class = SMARTYPANTS_PARSER_CLASS;
-		$parser[$attr] = new $parser_class($attr);
+		# try to take parser from the static parser list
+		static $parser_list;
+		$parser =& $parser_list[$parser_class][$attr];
+
+		# create the parser if not already set
+		if (!$parser)
+			$parser = new $parser_class($attr);
+
+		# Transform text using parser.
+		return $parser->transform($text);
 	}
 
-	# Transform text using parser.
-	return $parser[$attr]->transform($text);
-}
 
-function SmartQuotes($text, $attr = null) {
-	switch ($attr) {
-		case 0:  return $text;
-		case 2:  $attr = 'qb'; break;
-		default: $attr = 'q'; break;
-	}
-	return SmartyPants($text, $attr);
-}
+	### Configuration Variables ###
 
-function SmartDashes($text, $attr = null) {
-	switch ($attr) {
-		case 0:  return $text;
-		case 2:  $attr = 'D'; break;
-		case 3:  $attr = 'i'; break;
-		default: $attr = 'd'; break;
-	}
-	return SmartyPants($text, $attr);
-}
-
-function SmartElipsis($text, $attr = null) {
-	switch ($attr) {
-		case 0:  return $text;
-		default: $attr = 'e'; break;
-	}
-	return SmartyPants($text, $attr);
-}
-
-
-### WordPress Plugin Interface ###
-
-/*
-Plugin Name: SmartyPants
-Plugin URI: http://michelf.ca/projects/php-smartypants/
-Description: SmartyPants is a web publishing utility that translates plain ASCII punctuation characters into &#8220;smart&#8221; typographic punctuation HTML entities. This plugin <strong>replace the default WordPress Texturize algorithm</strong> for the content and the title of your posts, the comments body and author name, and everywhere else Texturize normally apply. Based on the original Perl version by <a href="http://daringfireball.net/">John Gruber</a>.
-Version: 1.5.1f
-Author: Michel Fortin
-Author URI: http://michelf.ca/
-*/
-
-if (isset($wp_version)) {
-	# Remove default Texturize filter that would conflict with SmartyPants.
-	remove_filter('category_description', 'wptexturize');
-	remove_filter('list_cats', 'wptexturize');
-	remove_filter('comment_author', 'wptexturize');
-	remove_filter('comment_text', 'wptexturize');
-	remove_filter('single_post_title', 'wptexturize');
-	remove_filter('the_title', 'wptexturize');
-	remove_filter('the_content', 'wptexturize');
-	remove_filter('the_excerpt', 'wptexturize');
-	remove_filter('the_tags', 'wptexturize');
-	# Add SmartyPants filter.
-	add_filter('category_description', 'SmartyPants', 11);
-	add_filter('list_cats', 'SmartyPants', 11);
-	add_filter('comment_author', 'SmartyPants', 11);
-	add_filter('comment_text', 'SmartyPants', 11);
-	add_filter('single_post_title', 'SmartyPants', 11);
-	add_filter('the_title', 'SmartyPants', 11);
-	add_filter('the_content', 'SmartyPants', 11);
-	add_filter('the_excerpt', 'SmartyPants', 11);
-	add_filter('the_tags', 'SmartyPants', 11);
-}
-
-
-### Smarty Modifier Interface ###
-
-function smarty_modifier_smartypants($text, $attr = NULL) {
-	return SmartyPants($text, $attr);
-}
-
-
-#
-# SmartyPants Parser
-#
-
-class SmartyPants_Parser {
+	# Partial regex for matching tags to skip
+	public $tags_to_skip = 'pre|code|kbd|script|style|math';
 
 	# Options to specify which transformations to make:
-	var $do_nothing   = 0;
-	var $do_quotes    = 0;
-	var $do_backticks = 0;
-	var $do_dashes    = 0;
-	var $do_ellipses  = 0;
-	var $do_stupefy   = 0;
-	var $convert_quot = 0; # should we translate &quot; entities into normal quotes?
+	public $do_nothing   = 0; # disable all transforms
+	public $do_quotes    = 0;
+	public $do_backticks = 0; # 1 => double only, 2 => double & single
+	public $do_dashes    = 0; # 1, 2, or 3 for the three modes described above
+	public $do_ellipses  = 0;
+	public $do_stupefy   = 0;
+	public $convert_quot = 0; # should we translate &quot; entities into normal quotes?
 
-	function SmartyPants_Parser($attr = SMARTYPANTS_ATTR) {
+	# Smart quote characters:
+	# Opening and closing smart double-quotes.
+	public $smart_doublequote_open  = '&#8220;';
+	public $smart_doublequote_close = '&#8221;';
+	public $smart_singlequote_open  = '&#8216;';
+	public $smart_singlequote_close = '&#8217;'; # Also apostrophe.
+
+	# ``Backtick quotes''
+	public $backtick_doublequote_open  = '&#8220;'; // replacement for ``
+	public $backtick_doublequote_close = '&#8221;'; // replacement for ''
+	public $backtick_singlequote_open  = '&#8216;'; // replacement for `
+	public $backtick_singlequote_close = '&#8217;'; // replacement for ' (also apostrophe)
+
+	# Other punctuation
+	public $em_dash = '&#8212;';
+	public $en_dash = '&#8211;';
+	public $ellipsis = '&#8230;';
+
+	### Parser Implementation ###
+
+	public function __construct($attr = SmartyPants::ATTR_DEFAULT) {
 	#
-	# Initialize a SmartyPants_Parser with certain attributes.
+	# Initialize a parser with certain attributes.
 	#
 	# Parser attributes:
 	# 0 : do nothing
@@ -456,7 +535,7 @@ class SmartyPants_Parser {
 		}
 	}
 
-	function transform($text) {
+	public function transform($text) {
 
 		if ($this->do_nothing) {
 			return $text;
@@ -477,7 +556,7 @@ class SmartyPants_Parser {
 			if ($cur_token[0] == "tag") {
 				# Don't mess with quotes inside tags.
 				$result .= $cur_token[1];
-				if (preg_match('@<(/?)(?:'.SMARTYPANTS_TAGS_TO_SKIP.')[\s>]@', $cur_token[1], $matches)) {
+				if (preg_match('@<(/?)(?:'.$this->tags_to_skip.')[\s>]@', $cur_token[1], $matches)) {
 					$in_pre = isset($matches[1]) && $matches[1] == '/' ? 0 : 1;
 				}
 			} else {
@@ -495,7 +574,31 @@ class SmartyPants_Parser {
 	}
 
 
-	function educate($t, $prev_token_last_char) {
+	function decodeEntitiesInConfiguration() {
+	#
+	#   Utility function that converts entities in configuration variables to
+	#   UTF-8 characters.
+	#
+		$output_config_vars = array(
+			'smart_doublequote_open',
+			'smart_doublequote_close',
+			'smart_singlequote_open',
+			'smart_singlequote_close',
+			'backtick_doublequote_open',
+			'backtick_doublequote_close',
+			'backtick_singlequote_open',
+			'backtick_singlequote_close',
+			'em_dash',
+			'en_dash',
+			'ellipsis',
+		);
+		foreach ($output_config_vars as $var) {
+			$this->$var = html_entity_decode($this->$var);
+		}
+	}
+
+
+	protected function educate($t, $prev_token_last_char) {
 		$t = $this->processEscapes($t);
 
 		if ($this->convert_quot) {
@@ -520,19 +623,19 @@ class SmartyPants_Parser {
 			if ($t == "'") {
 				# Special case: single-character ' token
 				if (preg_match('/\S/', $prev_token_last_char)) {
-					$t = "&#8217;";
+					$t = $this->smart_singlequote_close;
 				}
 				else {
-					$t = "&#8216;";
+					$t = $this->smart_singlequote_open;
 				}
 			}
 			else if ($t == '"') {
 				# Special case: single-character " token
 				if (preg_match('/\S/', $prev_token_last_char)) {
-					$t = "&#8221;";
+					$t = $this->smart_doublequote_close;
 				}
 				else {
-					$t = "&#8220;";
+					$t = $this->smart_doublequote_open;
 				}
 			}
 			else {
@@ -547,7 +650,7 @@ class SmartyPants_Parser {
 	}
 
 
-	function educateQuotes($_) {
+	protected function educateQuotes($_) {
 	#
 	#   Parameter:  String.
 	#
@@ -556,6 +659,11 @@ class SmartyPants_Parser {
 	#   Example input:  "Isn't this fun?"
 	#   Example output: &#8220;Isn&#8217;t this fun?&#8221;
 	#
+		$dq_open  = $this->smart_doublequote_open;
+		$dq_close = $this->smart_doublequote_close;
+		$sq_open  = $this->smart_singlequote_open;
+		$sq_close = $this->smart_singlequote_close;
+	
 		# Make our own "punctuation" character class, because the POSIX-style
 		# [:PUNCT:] is only available in Perl 5.6 or later:
 		$punct_class = "[!\"#\\$\\%'()*+,-.\\/:;<=>?\\@\\[\\\\\]\\^_`{|}~]";
@@ -564,17 +672,16 @@ class SmartyPants_Parser {
 		# followed by punctuation at a non-word-break. Close the quotes by brute force:
 		$_ = preg_replace(
 			array("/^'(?=$punct_class\\B)/", "/^\"(?=$punct_class\\B)/"),
-			array('&#8217;',                 '&#8221;'), $_);
-
+			array($sq_close,                 $dq_close), $_);
 
 		# Special case for double sets of quotes, e.g.:
 		#   <p>He said, "'Quoted' words in a larger quote."</p>
 		$_ = preg_replace(
-			array("/\"'(?=\w)/",    "/'\"(?=\w)/"),
-			array('&#8220;&#8216;', '&#8216;&#8220;'), $_);
+			array("/\"'(?=\w)/",     "/'\"(?=\w)/"),
+			array($dq_open.$sq_open, $sq_open.$dq_open), $_);
 
 		# Special case for decade abbreviations (the '80s):
-		$_ = preg_replace("/'(?=\\d{2}s)/", '&#8217;', $_);
+		$_ = preg_replace("/'(?=\\d{2}s)/", $sq_close, $_);
 
 		$close_class = '[^\ \t\r\n\[\{\(\-]';
 		$dec_dashes = '&\#8211;|&\#8212;';
@@ -591,7 +698,7 @@ class SmartyPants_Parser {
 			)
 			'                   # the quote
 			(?=\\w)              # followed by a word character
-			}x", '\1&#8216;', $_);
+			}x", '\1'.$sq_open, $_);
 		# Single closing quotes:
 		$_ = preg_replace("{
 			($close_class)?
@@ -601,10 +708,10 @@ class SmartyPants_Parser {
 			)               # char or an 's' at a word ending position. This
 							# is a special case to handle something like:
 							# \"<i>Custer</i>'s Last Stand.\"
-			}xi", '\1&#8217;', $_);
+			}xi", '\1'.$sq_close, $_);
 
 		# Any remaining single quotes should be opening ones:
-		$_ = str_replace("'", '&#8216;', $_);
+		$_ = str_replace("'", $sq_open, $_);
 
 
 		# Get most opening double quotes:
@@ -619,7 +726,7 @@ class SmartyPants_Parser {
 			)
 			\"                   # the quote
 			(?=\\w)              # followed by a word character
-			}x", '\1&#8220;', $_);
+			}x", '\1'.$dq_open, $_);
 
 		# Double closing quotes:
 		$_ = preg_replace("{
@@ -627,16 +734,16 @@ class SmartyPants_Parser {
 			\"
 			(?(1)|(?=\\s))   # If $1 captured, then do nothing;
 							   # if not, then make sure the next char is whitespace.
-			}x", '\1&#8221;', $_);
+			}x", '\1'.$dq_close, $_);
 
 		# Any remaining quotes should be opening ones.
-		$_ = str_replace('"', '&#8220;', $_);
+		$_ = str_replace('"', $dq_open, $_);
 
 		return $_;
 	}
 
 
-	function educateBackticks($_) {
+	protected function educateBackticks($_) {
 	#
 	#   Parameter:  String.
 	#   Returns:    The string, with ``backticks'' -style double quotes
@@ -646,13 +753,14 @@ class SmartyPants_Parser {
 	#   Example output: &#8220;Isn't this fun?&#8221;
 	#
 
-		$_ = str_replace(array("``",       "''",),
-						 array('&#8220;', '&#8221;'), $_);
+		$_ = str_replace(array("``", "''",),
+						 array($this->backtick_doublequote_open,
+							   $this->backtick_doublequote_close), $_);
 		return $_;
 	}
 
 
-	function educateSingleBackticks($_) {
+	protected function educateSingleBackticks($_) {
 	#
 	#   Parameter:  String.
 	#   Returns:    The string, with `backticks' -style single quotes
@@ -663,12 +771,13 @@ class SmartyPants_Parser {
 	#
 
 		$_ = str_replace(array("`",       "'",),
-						 array('&#8216;', '&#8217;'), $_);
+						 array($this->backtick_singlequote_open,
+							   $this->backtick_singlequote_close), $_);
 		return $_;
 	}
 
 
-	function educateDashes($_) {
+	protected function educateDashes($_) {
 	#
 	#   Parameter:  String.
 	#
@@ -676,12 +785,12 @@ class SmartyPants_Parser {
 	#               an em-dash HTML entity.
 	#
 
-		$_ = str_replace('--', '&#8212;', $_);
+		$_ = str_replace('--', $this->em_dash, $_);
 		return $_;
 	}
 
 
-	function educateDashesOldSchool($_) {
+	protected function educateDashesOldSchool($_) {
 	#
 	#   Parameter:  String.
 	#
@@ -690,14 +799,14 @@ class SmartyPants_Parser {
 	#               an em-dash HTML entity.
 	#
 
-		#                      em         en
-		$_ = str_replace(array("---",     "--",),
-						 array('&#8212;', '&#8211;'), $_);
+		#                      em              en
+		$_ = str_replace(array("---",          "--",),
+						 array($this->em_dash, $this->en_dash), $_);
 		return $_;
 	}
 
 
-	function educateDashesOldSchoolInverted($_) {
+	protected function educateDashesOldSchoolInverted($_) {
 	#
 	#   Parameter:  String.
 	#
@@ -713,14 +822,14 @@ class SmartyPants_Parser {
 	#               Swartz for the idea.)
 	#
 
-		#                      en         em
-		$_ = str_replace(array("---",     "--",),
-						 array('&#8211;', '&#8212;'), $_);
+		#                      en              em
+		$_ = str_replace(array("---",          "--",),
+						 array($this->en_dash, $this->em_dash), $_);
 		return $_;
 	}
 
 
-	function educateEllipses($_) {
+	protected function educateEllipses($_) {
 	#
 	#   Parameter:  String.
 	#   Returns:    The string, with each instance of "..." translated to
@@ -731,12 +840,12 @@ class SmartyPants_Parser {
 	#   Example output: Huh&#8230;?
 	#
 
-		$_ = str_replace(array("...",     ". . .",), '&#8230;', $_);
+		$_ = str_replace(array("...",     ". . .",), $this->ellipsis, $_);
 		return $_;
 	}
 
 
-	function stupefyEntities($_) {
+	protected function stupefyEntities($_) {
 	#
 	#   Parameter:  String.
 	#   Returns:    The string, with each SmartyPants HTML entity translated to
@@ -762,7 +871,7 @@ class SmartyPants_Parser {
 	}
 
 
-	function processEscapes($_) {
+	protected function processEscapes($_) {
 	#
 	#   Parameter:  String.
 	#   Returns:    The string, with after processing the following backslash
@@ -786,7 +895,7 @@ class SmartyPants_Parser {
 	}
 
 
-	function tokenizeHTML($str) {
+	protected function tokenizeHTML($str) {
 	#
 	#   Parameter:  String containing HTML markup.
 	#   Returns:    An array of the tokens comprising the input
@@ -822,199 +931,4 @@ class SmartyPants_Parser {
 
 }
 
-
-/*
-
-PHP SmartyPants
-===============
-
-Description
------------
-
-This is a PHP translation of the original SmartyPants quote educator written in
-Perl by John Gruber.
-
-SmartyPants is a web publishing utility that translates plain ASCII
-punctuation characters into "smart" typographic punctuation HTML
-entities. SmartyPants can perform the following transformations:
-
-*	Straight quotes (`"` and `'`) into "curly" quote HTML entities
-*	Backticks-style quotes (` ``like this'' `) into "curly" quote HTML 
-	entities
-*	Dashes (`--` and `---`) into en- and em-dash entities
-*	Three consecutive dots (`...`) into an ellipsis entity
-
-SmartyPants does not modify characters within `<pre>`, `<code>`, `<kbd>`, 
-`<script>`, or `<math>` tag blocks. Typically, these tags are used to 
-display text where smart quotes and other "smart punctuation" would not 
-be appropriate, such as source code or example markup.
-
-
-### Backslash Escapes ###
-
-If you need to use literal straight quotes (or plain hyphens and
-periods), SmartyPants accepts the following backslash escape sequences
-to force non-smart punctuation. It does so by transforming the escape
-sequence into a decimal-encoded HTML entity:
-
-	Escape  Value  Character
-	------  -----  ---------
-	  \\    &#92;    \
-	  \"    &#34;    "
-	  \'    &#39;    '
-	  \.    &#46;    .
-	  \-    &#45;    -
-	  \`    &#96;    `
-
-This is useful, for example, when you want to use straight quotes as
-foot and inch marks: 6'2" tall; a 17" iMac.
-
-
-Bugs
-----
-
-To file bug reports or feature requests (other than topics listed in the
-Caveats section above) please send email to:
-
-<michel.fortin@michelf.com>
-
-If the bug involves quotes being curled the wrong way, please send example
-text to illustrate.
-
-
-### Algorithmic Shortcomings ###
-
-One situation in which quotes will get curled the wrong way is when
-apostrophes are used at the start of leading contractions. For example:
-
-	'Twas the night before Christmas.
-
-In the case above, SmartyPants will turn the apostrophe into an opening
-single-quote, when in fact it should be a closing one. I don't think
-this problem can be solved in the general case -- every word processor
-I've tried gets this wrong as well. In such cases, it's best to use the
-proper HTML entity for closing single-quotes (`&#8217;`) by hand.
-
-
-Version History
----------------
-
-1.5.1f (23 Jan 2013)
-
-*	Fixed handling of HTML comments to match latest HTML specs instead of
-	doing it the old SGML way.
-
-*	Lowered WordPress filtering priority to avoid clashing with the 
-	[caption] tag filter. Thanks to Mehdi Kabab for the fix.
-
-
-1.5.1oo (19 May 2006, unreleased)
-
-*   Converted SmartyPants to a object-oriented design.
-
-
-1.5.1e (9 Dec 2005)
-
-*	Corrected a bug that prevented special characters from being 
-    escaped.
-
-
-1.5.1d (25 May 2005)
-
-*	Corrected a small bug in `_TokenizeHTML` where a Doctype declaration
-	was not seen as HTML (smart quotes where applied inside).
-
-
-1.5.1c (13 Dec 2004)
-
-*	Changed a regular expression in `_TokenizeHTML` that could lead to
-	a segmentation fault with PHP 4.3.8 on Linux.
-
-
-1.5.1b (6 Sep 2004)
-
-*	Corrected a problem with quotes immediately following a dash
-	with no space between: `Text--"quoted text"--text.`
-	
-*	PHP SmartyPants can now be used as a modifier by the Smarty 
-	template engine. Rename the file to "modifier.smartypants.php"
-	and put it in your smarty plugins folder.
-
-*	Replaced a lot of space characters by tabs, saving about 4 KB.
-
-
-1.5.1a (30 Jun 2004)
-
-*	PHP Markdown and PHP Smartypants now share the same `_TokenizeHTML` 
-	function when loaded simultanously.
-
-*	Changed the internals of `_TokenizeHTML` to lower the PHP version
-	requirement to PHP 4.0.5.
-
-
-1.5.1 (6 Jun 2004)
-
-*	Initial release of PHP SmartyPants, based on version 1.5.1 of the 
-	original SmartyPants written in Perl.
-
-
-Author
-------
-
-Original SmartyPants by John Gruber
-<http://daringfireball.net/>
-
-PHP Port by Michel Fortin
-<http://michelf.ca/>
-
-
-Additional Credits
-------------------
-
-Portions of this plug-in are based on Brad Choate's nifty MTRegex plug-in.
-Brad Choate also contributed a few bits of source code to this plug-in.
-Brad Choate is a fine hacker indeed. (<http://bradchoate.com/>)
-
-Jeremy Hedley (<http://antipixel.com/>) and Charles Wiltgen
-(<http://playbacktime.com/>) deserve mention for exemplary beta testing of 
-the orignal SmartyPants.
-
-
-Copyright and License
----------------------
-
-Copyright (c) 2003 John Gruber  
-<http://daringfireball.net/>  
-All rights reserved.
-
-Copyright (c) 2004-2013 Michel Fortin  
-<http://michelf.ca>
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-*	Redistributions of source code must retain the above copyright
-	notice, this list of conditions and the following disclaimer.
-
-*	Redistributions in binary form must reproduce the above copyright
-	notice, this list of conditions and the following disclaimer in the
-	documentation and/or other materials provided with the distribution.
-
-*	Neither the name "SmartyPants" nor the names of its contributors may
-	be used to endorse or promote products derived from this software
-	without specific prior written permission.
-
-This software is provided by the copyright holders and contributors "as is"
-and any express or implied warranties, including, but not limited to, the 
-implied warranties of merchantability and fitness for a particular purpose 
-are disclaimed. In no event shall the copyright owner or contributors be 
-liable for any direct, indirect, incidental, special, exemplary, or 
-consequential damages (including, but not limited to, procurement of 
-substitute goods or services; loss of use, data, or profits; or business 
-interruption) however caused and on any theory of liability, whether in 
-contract, strict liability, or tort (including negligence or otherwise) 
-arising in any way out of the use of this software, even if advised of the
-possibility of such damage.
-
-*/
 ?>
