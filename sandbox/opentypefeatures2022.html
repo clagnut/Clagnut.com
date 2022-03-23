@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>Testing opentype features</title>
+<style>
+@font-face {
+	font-family: 'Premiera';
+	src:	url('../fonts/Premiera-Book.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Premiera';
+	src:	url('../fonts/Premiera-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Skolar Sans';
+	src:	url('../fonts/SkolarSans-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: fallback;
+}
+body {
+	font-family: "Premiera", serif;
+	font-size: 2rem;
+}
+.zerofont {
+	font-family: "Skolar Sans";	
+}
+table {
+	font-size: 100%;
+}
+h4 {
+	margin-bottom: 0;
+}
+p {
+	margin-top: 0;
+}
+body {
+	font-variant-ligatures: common-ligatures;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+}
+h1, h2, h3, h4, table, .lnum, pre code, figcaption, caption, .meta {
+	font-variant-numeric: lining-nums;
+}
+table, .tnum {
+	font-variant-numeric: tabular-nums;
+}
+.c2sc, .smcp {
+	font-variant-caps: all-small-caps;
+}
+
+h1 .c2sc, h2 .c2sc, h3 .c2sc, h4 .c2sc, h5 .c2sc, h6 .c2sc { /* no smallcaps in headings */	
+	font-variant-caps: normal;
+}
+
+.zero, math {
+	font-variant-numeric: slashed-zero;
+}
+
+/* subscripts and superscripts */
+
+/* subscripts */
+sub {
+	font-variant-position: sub;
+}   
+
+@supports (font-variant-position: sub) {
+    sub {
+    	 vertical-align: inherit;
+          font-size: inherit;
+    }
+}
+
+/* superscripts */
+sup {
+	font-variant-position: super;
+}   
+
+@supports (font-variant-position: super) {
+    sup { vertical-align: inherit;
+          font-size: inherit; }
+}
+
+/* @end */
+
+</style>
+</head>
+<body>
+<h4>Common ligatures</h4>
+<p>swift affluent caffeine filled fjord</p>
+
+
+<h4>Kerning</h4>
+<p>World Wide Web</p>
+
+<h4>Oldstyle proportional numerals</h4>
+<p>The phone number is 1234567890 yes it is.</p>
+
+<h4>Lining numerals</h4>
+<p>The phone number is <span class="lnum">1234567890</span> yes it is.</p>
+
+<h4>Tabular numerals</h4>
+<p>The phone number is <span class="tnum">1234567890</span> yes it is.</p>
+
+<table>
+<tr><td>12341234</td></tr>
+<tr><td>56785678</td></tr>
+<tr><td>10101010</td></tr>
+</table>
+
+<h4>Small caps <span class="c2sc">NO SMALL caps</span></h4>
+<p>The <abbr class="c2sc">UNESCO</abbr> <abbr class="smcp">ShouTing</abbr> heritage site</p>
+
+<h4>Slashed zero</h4>
+<p class="zerofont">Hero to 0<span class="zero">0</span>.</p>
+
+<h4>Superscript and&nbsp;subscript&nbsp;text</h4>
+
+<p>The <code>sup</code> element represents a superscript and the sub element represents a <code>sub</code>. Example:
+The coordinate of the i<sup>th</sup> point is (x<sub>i</sub>, y<sub>i</sub>). For example, the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>).
+f(x, n) = log<sub>4</sub>x<sup>n</sup>
+</body>
+</html>

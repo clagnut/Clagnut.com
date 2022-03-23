@@ -11,3 +11,5 @@ wendyandrichard
 feeds/fullposts.xml
 
 feeds/fullposts.xml
+*.crt
+clagnut.local.key

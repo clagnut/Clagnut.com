@@ -49,8 +49,7 @@ if ($submitAdd && !$submitPreview) {
 		$blogdate = "'$blogdate'";
 	}
 	$sql = "INSERT INTO blogs
-	(blog_id,title,description,mainimage_src, mainimage_alt,socialimage_src, socialimage_alt, maincontent, blogdate,content_type,enable_comments,tags,maincontent_textile)
-//	VALUES ('$id', '$title', '$description', '$mainimage_src', '$mainimage_alt', '$socialimage_src', '$socialimage_alt', '$maincontent', $blogdate, 'blog', '$enable_comments', '$tags','$maincontent_textile')";
+	(blog_id,title,description,mainimage_src, mainimage_alt,socialimage_src, socialimage_alt, maincontent, blogdate,content_type,enable_comments,tags,maincontent_textile) VALUES ('$id', '$title', '$description', '$mainimage_src', '$mainimage_alt', '$socialimage_src', '$socialimage_alt', '$maincontent', $blogdate, 'blog', '$enable_comments', '$tags','$maincontent_textile')";
 	$result = mysqli_query($db, $sql);
 	if (mysqli_affected_rows($db) > 0) {
 		$id = mysqli_insert_id($db);

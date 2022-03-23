@@ -59,7 +59,7 @@ include($dr . "header.inc.php");
 </div>
 
 <div class="introblock">
-<p><strong class="intro">Hello. I’m Richard, a designer, <a href="http://book.webtypography.net/">author</a> and <a href="/speaking">speaker</a> living by the sea in Brighton, UK. I’m co-founder of <a href="https://clearleft.com/">Clearleft</a>, a digital design consultancy.</strong></p>
+<p><strong>Hello. I’m Richard, a designer, <a href="http://book.webtypography.net/">author</a> and <a href="/speaking">speaker</a> living by the sea in Brighton, UK. I’m co-founder of <a href="https://clearleft.com/">Clearleft</a>, a digital design consultancy.</strong></p>
 <p>I love all things to do with human-centred design, typography, music and cycling. I occasionally write about them here.</p>
 </div>
 

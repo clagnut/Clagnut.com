@@ -64,6 +64,7 @@ function getpost($blog_id) {
 			// pull blog from database
 
 			$sql = "SELECT blog_id, blogdate, UNIX_TIMESTAMP(blogdate) AS unixdate, enable_comments, title, description, mainimage_src, mainimage_alt, socialimage_src, socialimage_alt, maincontent_textile, maincontent, tags, DATE_FORMAT(blogdate,'%D %M %Y') AS postdate FROM blogs WHERE blog_id = $blog_id AND content_type='blog'";
+			#echo "<p><code>$sql</code></p>";
 			$result = mysqli_query($db, $sql);
 			$myblog = mysqli_fetch_array($result);
 

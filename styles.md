@@ -24,7 +24,7 @@ The header above is an `h6` element, which may be used for any form of page-leve
 
 All paragraphs are wrapped in `p` tags. Additionally, `p` elements can be wrapped with a `blockquote` element _if the `p` element is indeed a quote_.
 
-This is a paragraph directly following a paragraph. It should be indented with no gap between this and the prior paragraph.
+This is a paragraph directly following a paragraph. There should be a small gap between this and the prior paragraph.
 
 ### Code block
 
@@ -200,7 +200,7 @@ The `kbd` element is used to denote <kbd>user input</kbd>.
 
 ### Superscript and subscript text
 The `sup` element represents a superscript and the sub element represents a `sub`. Example:
-The coordinate of the ith point is (x<sub>i</sub>, y<sub>i</sub>). For example, the 10th point has coordinate (x<sub>10</sub>, y<sub>10</sub>).
+The coordinate of the i<sup>th</sup> point is (x<sub>i</sub>, y<sub>i</sub>). For example, the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>).
 f(x, n) = log<sub>4</sub>x<sup>n</sup>
 
 ### Marked or highlighted text

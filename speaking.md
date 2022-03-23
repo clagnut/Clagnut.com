@@ -15,15 +15,19 @@ Please feel free to get in touch or [download my vCard](http://h2vx.com/vcf/clag
 <div class="contactcard">
 
 <p>Drop an email to <a class="email" href="mailto:&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;">&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;</a> or tweet <a href="http://twitter.com/clagnut">@clagnut</a>.</p>
-<p>Phone me at <span class="org">Clearleft</span> on <a class="tel lnum" href="tel:+44-845-8386163">+44 845 838 6163</a>.</p>
+<p>Phone me at <span class="org">Clearleft</span> on <a class="tel lnum" href="tel:+44-1273-747607">+44 1273 747607</a>.</p>
 
 </div>
 
 ## Selected speaking highlights
 
+### 2022
+
+- [Leading Design](https://leadingdesign.com/conferences/new-york-2022/speakers/rich-rutter/#collaborative-frameworks-for-your-design-teams-personal-developmen) · _March_, New York, USA
+
 ### 2019
 
-- [Typographic Society of Austria (tga)](http://typographischegesellschaft.at/k_vortrag_workshop/v_rutter.html) · _February_, Vienna, Austria
+- [Typographic Society of Austria (tga)](http://typographischegesellschaft.at/a_vortrag_workshop/v_w_2019/v_rutter.html) · _February_, Vienna, Austria
 
 ### 2018
 

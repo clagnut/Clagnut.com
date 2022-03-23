@@ -167,7 +167,6 @@ th, td {
 
 .archive .articles h3 {
 	font-size: var(--textsize-h3);
-	line-height: var(--textgrid-h3-tighter);
 }
 
 .archive .articles .summary {

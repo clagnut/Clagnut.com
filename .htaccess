@@ -3,30 +3,34 @@ RewriteBase /
 
 Options +MultiViews
 
+RewriteCond %{HTTP_HOST} ^clagnut\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://clagnut.com/$1 [R,L]
+
 RewriteCond %{HTTP_HOST} ^www\.clagnut\.com$
-RewriteRule (.*) http://clagnut.com/$1 [R=Permanent]
+RewriteRule (.*) https://clagnut.com/$1 [R=Permanent]
 
 RewriteCond %{HTTP_HOST} ^stepchildren\.clagnut\.com$
-RewriteRule (.*) http://clagnut.com/$1 [R=Permanent]
+RewriteRule (.*) https://clagnut.com/$1 [R=Permanent]
 
 RewriteRule ^([0-9]+)$ index.php?prev=$1
 RewriteRule ^([0-9]+)/$ index.php?prev=$1
 RewriteRule ^blogs/(.*) blog/$1
 RewriteRule ^(.*)about/?(.*)$ $1/speaking$2 [R=301,L]
 
-RedirectPermanent /blacklist.txt http://clagnut.com/blacklist/blacklist.txt
-RedirectPermanent /writing/about/ http://clagnut.com/about/
-RedirectPermanent /contact/ http://clagnut.com/about/#contact
-RedirectPermanent /writings/imagetests/ http://clagnut.com/sandbox/imagetest/
-RedirectPermanent /writings/imagetests/imagetest.htm http://clagnut.com/sandbox/imagetest/
-RedirectPermanent /writings/imagetests/imagetest2.htm http://clagnut.com/sandbox/imagetest2/
-RedirectPermanent /writings/csstabs/ http://clagnut.com/sandbox/csstabs
-RedirectPermanent /rss/blogmarks/ http://feeds.feedburner.com/ClagnutBlogmarks
-RedirectPermanent /rss/summaries/ http://feeds.feedburner.com/ClagnutSummaries
-RedirectPermanent /rss.php http://feeds.feedburner.com/Clagnut
-RedirectPermanent /rss http://feeds.feedburner.com/Clagnut
-RedirectPermanent /blog/366/) http://clagnut.com/blog/366/
-RedirectPermanent /clagtunes http://clagnut.com/archive/clagtunes/
+RedirectPermanent /blacklist.txt https://clagnut.com/blacklist/blacklist.txt
+RedirectPermanent /writing/about/ https://clagnut.com/about/
+RedirectPermanent /contact/ https://clagnut.com/about/#contact
+RedirectPermanent /writings/imagetests/ https://clagnut.com/sandbox/imagetest/
+RedirectPermanent /writings/imagetests/imagetest.htm https://clagnut.com/sandbox/imagetest/
+RedirectPermanent /writings/imagetests/imagetest2.htm https://clagnut.com/sandbox/imagetest2/
+RedirectPermanent /writings/csstabs/ https://clagnut.com/sandbox/csstabs
+RedirectPermanent /rss/blogmarks/ https://feeds.feedburner.com/ClagnutBlogmarks
+RedirectPermanent /rss/summaries/ https://feeds.feedburner.com/ClagnutSummaries
+RedirectPermanent /rss.php https://feeds.feedburner.com/Clagnut
+RedirectPermanent /rss https://feeds.feedburner.com/Clagnut
+RedirectPermanent /blog/366/) https://clagnut.com/blog/366/
+RedirectPermanent /clagtunes https://clagnut.com/archive/clagtunes/
 
 ErrorDocument 404 /errors/404.php
 ErrorDocument 500 /errors/500.php
@@ -36,3 +40,10 @@ ErrorDocument 503 /errors/503.php
 # SecFilterEngine Off
 
 AddType font/otf otf
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php71” package as the default “PHP” programming language.
+#<IfModule mime_module>
+#  AddHandler application/x-httpd-ea-php71 .php .php7 .phtml
+#</IfModule>
+# php -- END cPanel-generated handler, do not edit
