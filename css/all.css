@@ -20,134 +20,92 @@ mark {
 	background-color: rgba(255,255,0,0.5);
 }
 
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+	text-decoration-skip-ink: auto;
+}
+
+img, object, embed, svg {
+	max-width: 100%;
+	border: 0;
+	display: inline-block;
+	vertical-align:bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
 /* @end */
 
 /* @group Webfonts */
 
+
+
 @font-face {
-	font-family: 'Ingeborg';
-	src:	url('/fonts/Ingeborg-Fat.woff2') format('woff2');
-	font-weight: 900;
+	font-family: 'Literata';
+	src: url('/fonts/Literata-var.woff2') format('woff2');
+	font-weight: 1 1000;
 	font-style: normal;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: 'Ingeborg';
-	src:	url('/fonts/Ingeborg-Heavy.woff2') format('woff2');
-	font-weight: 800;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Premiera';
-	src:	url('/fonts/Premiera-Book.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Premiera';
-	src:	url('/fonts/Premiera-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Premiera';
-	src:	url('/fonts/Premiera-Italic.woff2') format('woff2');
-	font-weight: normal;
+	font-family: 'Literata';
+	src: url('/fonts/Literata-Italic-var.woff2') format('woff2');
+	font-weight: 1 1000;
 	font-style: italic;
-	font-display: fallback;
+	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Skolar Sans Cn';
-	src:	url('/fonts/SkolarSansCn.woff2') format('woff2');
-	font-weight: normal;
+	font-family: 'Plex Sans';
+	src:	url('/fonts/Plex-Sans-var.woff2') format('woff2');
+	font-weight: 1 1000;
+	font-stretch: 50% 200%;
 	font-style: normal;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: 'Skolar Sans Cn';
-	src:	url('/fonts/SkolarSansCn-It.woff2') format('woff2');
-	font-weight: normal;
+	font-family: 'Plex Sans';
+	src:	url('/fonts/Plex-Sans-Italic-var.woff2') format('woff2');
+	font-weight: 1 1000;
+	font-stretch: 50% 200%;
 	font-style: italic;
-	font-display: fallback;
+	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Skolar Sans Cn';
-	src:	url('/fonts/SkolarSansCn-Sb.woff2') format('woff2');
-	font-weight: 600;
+	font-family: 'Inconsolata';
+	src:	url('/fonts/Inconsolata.woff2') format('woff2');
+	font-weight: 1 1000;
+	font-stretch: 50% 200%;
 	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Skolar Sans';
-	src:	url('/fonts/SkolarSans-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Skolar Sans';
-	src:	url('/fonts/SkolarSans.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Skolar Sans';
-	src:	url('/fonts/SkolarSans-It.woff2') format('woff2');
-	font-weight: normal;
-	font-style: italic;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Consolas';
-	src:	local('Consolas'),
-			url('/fonts/Consolas.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Consolas';
-	src:	local('Consolas-Bold'),
-			local('Consolas Bold'),
-			url('/fonts/Consolas-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Consolas';
-	src:	local('Consolas-Italic'),
-			local('Consolas Italic'),
-			url('/fonts/Consolas-Italic.woff2') format('woff2');
-	font-weight: normal;
-	font-style: italic;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: 'Consolas';
-	src:	local('Consolas-BoldItalic'),
-			local('Consolas Bold Italic'),
-			url('/fonts/Consolas-BoldItalic.woff2') format('woff2');
-	font-weight: bold;
-	font-style: italic;
 	font-display: fallback;
 }
 
@@ -155,12 +113,18 @@ mark {
 
 /* @group OpenType features */
 
+/* Set custom properties for each layout feature */
+:root {
+    --bodytext-smcp: "smcp" off;
+    --bodytext-c2sc: "c2sc" off;
+}
+
 body {
 	font-variant-ligatures: common-ligatures;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
 }
-h1, h2, h3, h4, table, .lnum, pre code, figcaption, caption, .meta {
+h1, h2, h3, h4, h5, h6, table, .lnum, pre code, figcaption, caption, .meta {
 	font-variant-numeric: lining-nums;
 }
 table, .tnum {
@@ -168,25 +132,35 @@ table, .tnum {
 }
 article h5, article h6 {
 	font-variant-caps: all-small-caps;
+	font-variant-numeric: oldstyle-nums;
 }
 .c2sc {
 	font-variant-caps: all-small-caps;
-}
-
-h1 .c2sc, h2 .c2sc, h3 .c2sc, h4 .c2sc, h5 .c2sc, h6 .c2sc { /* no smallcaps in headings */	
-	font-variant-caps: normal;
+	font-variant-numeric: oldstyle-nums;
 }
 
 .smcp {
 	font-variant-caps: all-small-caps;
+	font-variant-numeric: oldstyle-nums;
+}
+
+h1 .c2sc, h2 .c2sc, h3 .c2sc, h4 .c2sc { /* no smallcaps in headings */	
+	font-variant-caps: normal;
+}
+
+/* over-ride for Safari which synths small-caps with font-variant-caps when there is any character not defined as an opentype small cap glyph */
+
+.isSafari article h5, .isSafari article h6,
+.isSafari .c2sc,
+.isSafari .smcp {
+	font-variant-caps: normal;	
+	--bodytext-smcp: "smcp" on;
+    --bodytext-c2sc: "c2sc" on;
+    font-feature-settings: var(--bodytext-c2sc), var(--bodytext-smcp);
 }
 
 .zero, math {
 	font-variant-numeric: slashed-zero;
-}	
-
-blockquote .c2sc {
-	font-style:normal;
 }
 
 /* subscripts and superscripts */
@@ -235,39 +209,36 @@ article.post {
 
 a {
 	color: inherit;
-	text-decoration: none;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-	transition-property: border, text-decoration, color, opacity;
+	text-decoration: underline;
+	text-decoration-color: rgba(0,0,0,0.2);
+	transition-property: border, text-decoration, text-decoration-color, color, opacity;
 	transition-duration: 0.25s;
 	transition-timing-function: ease;
 }
 
-@supports (text-decoration-skip: ink) or (-webkit-text-decoration-skip: ink) {
-	a {
-	-webkit-text-decoration: underline rgba(0,0,0,0.2);
-		text-decoration: underline rgba(0,0,0,0.2);
-		-webkit-text-decoration-skip: ink;
-		text-decoration-skip: ink;
-		border-bottom: 0;
-	}
-}
-
 a:hover, a:active, a:focus {
 	color: rgb(231, 25, 1);
-	border-bottom: 1px solid rgba(0,0,0,0.6);
-}
-
-
-@supports (text-decoration-skip: ink) or (-webkit-text-decoration-skip: ink) {
-	a:hover, a:active, a:focus {
-	-webkit-text-decoration: underline rgba(0,0,0,0.6);
-	text-decoration: underline rgba(0,0,0,0.6);
-	border-bottom: 0;
-	}
+	text-decoration: underline;
+	text-decoration-color: rgba(0,0,0,0.6);
 }
 
 pre, code, var, samp, kbd {
 	color: #555;
+}
+
+figure.pre {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: calc(var(--textgrid-body) / 2);
+}
+
+.code-block__header button, .code-block__alert {
+	background: #fff;
+	color: #555;
+}
+
+.code-block__header button:hover, .code-block__header button:focus {
+	background: #555;
+	color: #fff;
 }
 
 figcaption, caption, .meta, .tags a, .date, .group-with-aside aside {
@@ -280,41 +251,24 @@ figcaption, caption, .meta, .tags a, .date, .group-with-aside aside {
 
 header.global a, footer.global a {
 	color: #fff;
-	border-bottom-color: rgba(255,255,255,0.2);
+	text-decoration: underline;
+	text-decoration-color: rgba(255,255,255,0.2);
 	opacity: 0.8;
-}
-
-@supports (text-decoration-skip: ink) or (-webkit-text-decoration-skip: ink) {
-	header.global a, footer.global a {
-	-webkit-text-decoration: underline rgba(255,255,255,0.2);
-	text-decoration: underline rgba(255,255,255,0.2);
-	}
 }
 
 header.global a:hover, header.global a:active, header.global a:focus,
 footer.global a:hover, footer.global a:active, footer.global a:focus {
 	opacity: 1;
-	border-bottom-color: rgba(255,255,255,1);
-}
-
-
-@supports (text-decoration-skip: ink) or (-webkit-text-decoration-skip: ink) {
-	header.global a:hover, header.global a:active, header.global a:focus,
-	footer.global a:hover, footer.global a:active, footer.global a:focus {
-	-webkit-text-decoration-color: rgba(255,255,255,1);
-		text-decoration-color: rgba(255,255,255,1);
-	}
+	text-decoration-color: rgba(255,255,255,1);
 }
 
 a.icon {
-	border: 0;
 	text-decoration: none;
 }
 
 #logo a {
 	opacity: 0.9;
 	text-decoration: none;
-	border: 0;
 }
 
 #logo a:hover, #logo a:focus {	
@@ -326,14 +280,12 @@ a.icon {
 
 /* @group Layout */
 
-main, footer.global, .masthead {
+footer.global, .masthead {
 	padding-left: 3px;
 }
 
-@media all and (min-width: 40.13em) { /*610px + 5% when prose hits max width*/
-	main {
-		padding-left: 5%;
-	}
+main {
+	padding-left: max(3px,5%);
 }
 
 article.post h1, div.prose, .relatedposts, .next-prev, .home header {
@@ -567,8 +519,9 @@ footer.global, .masthead {
 
 /* @group type scales */
 
+/* Utopia type scaling */
 
-/* @link https://utopia.fyi/type/calculator?c=320,17,1.125,1920,21,1.25,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1920,21,1.25,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
 :root {
   --fluid-min-width: 320;
@@ -588,49 +541,49 @@ footer.global, .masthead {
 }
 
 :root {
-  --f--1-min: 15.11;
+  --f--1-min: 14.22;
   --f--1-max: 16.80;
   --step--1: calc(
     ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
       var(--fluid-bp)
   );
 
-  --f-0-min: 17.00;
+  --f-0-min: 16.00;
   --f-0-max: 21.00;
   --step-0: calc(
     ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
       var(--fluid-bp)
   );
 
-  --f-1-min: 19.13;
+  --f-1-min: 18.00;
   --f-1-max: 26.25;
   --step-1: calc(
     ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
       var(--fluid-bp)
   );
 
-  --f-2-min: 21.52;
+  --f-2-min: 20.25;
   --f-2-max: 32.81;
   --step-2: calc(
     ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
       var(--fluid-bp)
   );
 
-  --f-3-min: 24.21;
+  --f-3-min: 22.78;
   --f-3-max: 41.02;
   --step-3: calc(
     ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
       var(--fluid-bp)
   );
 
-  --f-4-min: 27.23;
+  --f-4-min: 25.63;
   --f-4-max: 51.27;
   --step-4: calc(
     ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
       var(--fluid-bp)
   );
 
-  --f-5-min: 30.63;
+  --f-5-min: 28.83;
   --f-5-max: 64.09;
   --step-5: calc(
     ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
@@ -639,20 +592,17 @@ footer.global, .masthead {
 }
 
 /* @group Text grid */
-/* textgrid multipliers based on 19px text */
 
 :root { 
---textgrid-body: 1.473684211em; /* 28/19 */
---textgrid-body-tighter: 1.157894737em; /* 22/19 */
+--textgrid-body: 1.5em;
+--textgrid-body-tighter: 1.15em;
 
---textgrid-h2: 1.19447555em; /* 32/26.79 */
+--textgrid-h2: 1.25em;
 
---textgrid-h3: 1.24113475em; /* 28/22.56 */
+--textgrid-h3: 1.25em;
 
---textgrid-sm: 1.125em; /* 18/16 */
---textgrid-sm-looser: 1.375em; /* 22/16 */
-
---textgrid-pre: 1.29411765em; /* 22/17 */
+--textgrid-sm: 1.125em;
+--textgrid-sm-looser: 1.375em;
 }
 
 /* @end */
@@ -674,22 +624,22 @@ article.post {
 }
 
 h1 {
-	font-size: calc(1.25rem + 3vmin);
-	font-size: calc(var(--step-5) + 1vh);
+	font-size: calc(var(--step-4) + 1.75vh);
 	line-height: 1;
-	letter-spacing: -0.02em;
 }
 
 h2 {
 	font-size: var(--step-2);
 	line-height: var(--textgrid-h2);
 	margin-top: var(--textgrid-h2);
+	margin-bottom: calc(var(--textgrid-h2) / 8);
 }
 
 h3 {
 	font-size: var(--step-1);
 	line-height: var(--textgrid-h3);
 	margin-top: var(--textgrid-h3);
+	margin-bottom: calc(var(--textgrid-h3) / 8);
 }
 
 h4, h5, h6 {
@@ -739,15 +689,18 @@ figcaption, caption, blockquote footer {
 	padding-top: calc((var(--textgrid-sm) - var(--step--1)) * 2);
 }
 
+figure.pre {
+	padding: var(--textgrid-body);
+	box-sizing: border-box;
+}
+
 pre {
-	font-size: calc(var(--step-0) * 17/19); /* 17px in 19px text */;
-	line-height: var(--textgrid-pre);
-	margin-top: var(--textgrid-body);
-	margin-bottom: var(--textgrid-body);
+	font-size: calc(var(--step-0));
+	line-height: var(--textgrid-body);
 }
 
 th, td {
-	font-size: var(--step--1);
+	font-size: calc(var(--step-0) * 20 / 21) ; /* make a bit smaller to closer mtach Literata */
 	line-height: var(--textgrid-sm);
 }
 
@@ -926,11 +879,11 @@ article p, article li, article table, article dl, article blockquote {
 }
 
 body {
-	font-family: "Premiera", "Cambria", "Roboto Slab", "Georgia", "Times New Roman", serif, ".PhoneFallback", "Arial Unicode MS";
+	font-family: "Literata", "Cambria", "Roboto Slab", "Georgia", "Times New Roman", serif, ".PhoneFallback", "Arial Unicode MS";
 }
 
 h1 {
-	font-family: "Ingeborg", "Premiera", "Hoefler Text", "Cambria", "Roboto Slab", Georgia, "Times New Roman", serif;
+	font-family: "Literata", "Hoefler Text", "Cambria", "Roboto Slab", Georgia, "Times New Roman", serif;
 	color: rgba(0,0,0,0.8);
 	font-weight: 900;
 	text-align: center;
@@ -942,20 +895,16 @@ h1 {
 	margin-bottom: 1.5em;
 }
 
-h2 {
-	font-weight: bold;
-}
-
-h3 {
-	font-weight: bold;
+h2, h3 {
+	font-weight: 650;
 }
 
 h4 {
-	font-weight: bold;
+	font-weight: 600;
 }
 
 h5, h6 {
-	font-weight:normal;
+	font-weight:500;
 }
 
 blockquote {
@@ -1003,7 +952,7 @@ ul {
 }
 
 dt {
-	font-weight: bold;
+	font-weight: 650;
 }
 
 ol ol, ol ul, ul ul, ul ol {
@@ -1035,28 +984,36 @@ q {
 }
 
 strong, b {
-	font-weight: bold;
-	color: rgba(0,0,0,0.85);
+	font-weight: 600; /* not so bold */
 }
 
 strong strong {
 	text-decoration: underline;
 }
 
-pre, code, var, samp, kbd {
-	font-family: consolas, "andale mono", "droid sans mono", monospace, "Lucida Grande", "Arial Unicode MS";
+pre, code, var, samp, kbd, .code-block__header button, .code-block__alert {
+	font-family: "inconsolata", "consolas", "andale mono", "droid sans mono", monospace, "Lucida Grande", "Arial Unicode MS";
 	-webkit-hyphens: manual;
 	-moz-hyphens: manual;
 	-ms-hyphens: manual;
 	hyphens: manual;
+	font-weight: 500; /* prefer a slightly bolder look, more like Consolata */
 }
 
 code, var, samp, kbd {
-	font-size: calc(1em * 17/19); /* 17px in 19px text */
+	font-size: 1.06em; /* ~18px in 17px text to more closely match Literata */
 }
 
 pre code, pre var, pre samp, pre kbd, kbd kbd {
 	font-size: 1em;
+}
+
+p code, p var, p samp, p kbd {
+	font-stretch: 95%; /* condense slightly to fit in nicer with running text */
+}
+
+figcaption code, figcaption var, figcaption samp, figcaption kbd {
+	font-stretch: 85%; /* compress to match figcation text */
 }
 
 del {
@@ -1065,7 +1022,7 @@ del {
 
 ins {
 	text-decoration: underline;
-	text-decoration: underline dotted;
+	text-decoration-style: dotted;
 	
 }
 /* @end */
@@ -1080,21 +1037,48 @@ figure {
 
 figure.pre {
 	text-align: left;
+	position: relative;
+}
+
+.code-block__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  z-index: 1;
+}
+
+.code-block__header button, .code-block__alert {
+  line-height: 1;
+  font-size: var(--step--1);
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+ }
+ 
+ .code-block__alert {
+ 	cursor: default;
+ 	position: absolute;
+ 	right: 0;
+ 	top: 0;
+ 	width: 17ch;
+ }
+ 
+ .code-block__alert, .code-block__header button {
+  padding: .25em 1em;
+  border-radius: 0 .5em;
+  margin: 0;
 }
 
 figcaption, caption, .group-with-aside aside {
-	font-family: "Skolar Sans Cn", "Avenir Next Condensed", "PT Sans Narrow", "Arial Narrow", "Roboto Condensed", sans-serif;
+	font-family: "Plex Sans", "Avenir Next Condensed", "PT Sans Narrow", "Arial Narrow", "Roboto Condensed", sans-serif;
 	font-style: normal;
+	font-stretch: 85%;
 }
 
 figcaption, caption {
 	text-align: center;
-}
-
-img, object, embed {
-	max-width: 100%;
-	vertical-align: bottom;
-	border: 0;
 }
 
 div.inline-holder, .inline figcaption {
@@ -1102,7 +1086,6 @@ div.inline-holder, .inline figcaption {
 }
 
 .icon {
-	vertical-align: middle;
 	display: inline-block;
 	width: 1.5em;
 	text-align: center;
@@ -1142,7 +1125,8 @@ tbody {
 }
 
 tr {
-	font-family: "Skolar Sans", "Avenir Next", "PT Sans", "Segoe UI", "Roboto", sans-serif;
+	font-family: "Plex Sans", "Avenir Next", "PT Sans", "Segoe UI", "Roboto", sans-serif;
+	font-stretch: 100%;
 }
 
 th {
@@ -1150,6 +1134,7 @@ th {
 	-moz-hyphens: manual;
 	-ms-hyphens: manual;
 	hyphens: manual;
+	font-weight: 600;
 }
 
 th, td {
@@ -1186,8 +1171,9 @@ caption {
 /* @group Meta and Related */
 
 .meta, .tags, .date {
-	font-family: "Skolar Sans Cn", "Avenir Next Condensed", "PT Sans Narrow", "Arial Narrow", "Roboto Condensed", sans-serif;
+	font-family: "Plex Sans", "Avenir Next Condensed", "PT Sans Narrow", "Arial Narrow", "Roboto Condensed", sans-serif;
 	font-style: normal;
+	font-stretch: 85%;
 }
 
 .meta {
@@ -1218,7 +1204,6 @@ caption {
   
 .categories li a {
 	text-decoration: none;
-	border-bottom:  none;
 }
 
 .tags {
@@ -1248,7 +1233,6 @@ caption {
   
 .tags li a:link {
   	text-decoration: none;
-  	border-bottom:  none;
 }
 
 .comment {
@@ -1256,8 +1240,7 @@ caption {
 }
 
 .comment a {
-  	text-decoration: none;
-  	border-bottom:  none;	
+  	text-decoration: none;	
 }
 
 .comment .icon {
@@ -1364,9 +1347,10 @@ ul.articles {
 }
 
 .categorylist li {	
-	font-family: "Skolar Sans", "Avenir Next", "PT Sans", "Segoe UI", "Roboto", sans-serif;
+	font-family: "Plex Sans", "Avenir Next", "PT Sans", "Segoe UI", "Roboto", sans-serif;
 	list-style: none;
 	margin-left:0;
+	font-stretch: 100%;
 }
 
 form.search {
@@ -1374,7 +1358,8 @@ form.search {
 }
 
 .search input {
-	font-family: "Skolar Sans", "Avenir Next", "PT Sans", "Segoe UI", "Roboto", sans-serif;
+	font-family: "Plex Sans", "Avenir Next", "PT Sans", "Segoe UI", "Roboto", sans-serif;
+	font-stretch: 100%;
 }
 
 /* @end */
@@ -1384,8 +1369,9 @@ form.search {
 /* @group Masthead */
 
 #logo {
-	font-family: "Ingeborg", "Premiera", "Cambria", "Roboto Slab", Georgia, "Times New Roman", serif;
-	font-weight: 900;
+	font-family: "Literata", "Cambria", "Roboto Slab", Georgia, "Times New Roman", serif;
+	font-weight: 850;
+	font-variation-settings: "opsz" 52;
 }
 
 .searchlink-icon {
@@ -1394,8 +1380,6 @@ form.search {
 }
 
 .searchlink-icon svg {
-	vertical-align:bottom;
-	vertical-align:text-bottom;
 	width: 1em;
 	height: 1em;
 }
@@ -1552,7 +1536,7 @@ pre[class*="language-"] {
 
 .token.important,
 .token.bold {
-	font-weight: bold;
+	font-weight: 600;
 }
 .token.italic {
 	font-style: italic;

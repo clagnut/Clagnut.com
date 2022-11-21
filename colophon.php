@@ -3,7 +3,7 @@ $dr = str_replace($_SERVER['SCRIPT_NAME'], '/includes/', $_SERVER['SCRIPT_FILENA
 include_once($dr . "php_errors.inc.php");
 
 $title = "Colophon";
-$meta_title = "Colophon";
+$meta_title = "Colophon and Style Guide";
 $meta_description = "";
 $meta_keywords = "";
 
