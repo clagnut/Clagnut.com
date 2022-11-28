@@ -144,7 +144,7 @@ if (!isset($errorcode) AND $num_results > 0) {
 	// Print search results
 	mysqli_data_seek($fulltext_results,0);
 	if ($myblog = mysqli_fetch_array($fulltext_results)) {
-		echo "<ul class='articles'>\n";
+		echo "<ul class='articles' role='list'>\n";
 		do {
 			$content_type = $myblog["content_type"];
 			$blog_id = $myblog["blog_id"];
@@ -202,7 +202,7 @@ $category_count = (isset($category_score))?count($category_score):0;
 if (!isset($errorcode) OR $errorcode == 3 AND ($category_count > 0)) {
 	echo "<h2>Related Categories</h2>\n";
 	if ($category_count > 0) {
-		echo "<ul>\n";
+		echo "<ul role='list'>\n";
 		$i = 1;
 		foreach($category_score as $filename => $score) {
 			if ($i < 6) {
