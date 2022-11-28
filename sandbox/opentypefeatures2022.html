@@ -1,36 +1,30 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Testing opentype features</title>
+<script>
+if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+	var root = document.getElementsByTagName( 'html' )[0];
+	root.className += ' isSafari';
+}
+</script>
 <style>
+
 @font-face {
-	font-family: 'Premiera';
-	src:	url('../fonts/Premiera-Book.woff2') format('woff2');
-	font-weight: normal;
+	font-family: 'Literata';
+	src: url('../fonts/Literata-var.woff2') format('woff2');
+	font-weight: 1-1000;
 	font-style: normal;
 	font-display: fallback;
 }
 
-@font-face {
-	font-family: 'Premiera';
-	src:	url('../fonts/Premiera-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-	font-display: fallback;
-}
 
-@font-face {
-	font-family: 'Skolar Sans';
-	src:	url('../fonts/SkolarSans-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-	font-display: fallback;
-}
 body {
-	font-family: "Premiera", serif;
+	font-family: "Literata", fantasy;
 	font-size: 2rem;
 }
-.zerofont {
-	font-family: "Skolar Sans";	
+h1 {
+	font-weight: 800;
 }
 table {
 	font-size: 100%;
@@ -52,12 +46,42 @@ h1, h2, h3, h4, table, .lnum, pre code, figcaption, caption, .meta {
 table, .tnum {
 	font-variant-numeric: tabular-nums;
 }
-.c2sc, .smcp {
+.c2sc {
 	font-variant-caps: all-small-caps;
+}
+.smcp {
+	font-variant-caps: small-caps;
 }
 
 h1 .c2sc, h2 .c2sc, h3 .c2sc, h4 .c2sc, h5 .c2sc, h6 .c2sc { /* no smallcaps in headings */	
 	font-variant-caps: normal;
+}
+
+/* Set custom properties for each layout feature */
+:root {
+    --bodytext-smcp: "smcp" off;
+    --bodytext-c2sc: "c2sc" off;
+}
+
+/* over-ride for Safari which synths small-caps with font-variant-caps when there is any character not defined as an opentype small cap glyph */
+.isSafari .c2sc {
+	font-variant-caps: normal;	
+	--bodytext-smcp: "smcp" on;
+    --bodytext-c2sc: "c2sc" on;
+    font-feature-settings: var(--bodytext-c2sc), var(--bodytext-smcp);
+	background: yellow;
+}
+
+.isSafari .smcp {
+	font-variant-caps: normal;	
+	--bodytext-smcp: "smcp" on;
+    font-feature-settings: var(--bodytext-c2sc), var(--bodytext-smcp);
+}
+
+.isSafari h1 .c2sc, .isSafari h2 .c2sc, .isSafari h3 .c2sc, .isSafari h4 .c2sc, .isSafari h5 .c2sc, .isSafari h6 .c2sc { /* no smallcaps in headings */	
+    --bodytext-smcp: "smcp" off;
+    --bodytext-c2sc: "c2sc" off;
+    font-feature-settings: var(--bodytext-c2sc), var(--bodytext-smcp);
 }
 
 .zero, math {
@@ -90,9 +114,12 @@ sup {
 
 /* @end */
 
+
 </style>
 </head>
 <body>
+<h1>OpenType tester</h1>
+
 <h4>Common ligatures</h4>
 <p>swift affluent caffeine filled fjord</p>
 
@@ -116,7 +143,7 @@ sup {
 </table>
 
 <h4>Small caps <span class="c2sc">NO SMALL caps</span></h4>
-<p>The <abbr class="c2sc">UNESCO</abbr> <abbr class="smcp">ShouTing</abbr> heritage site</p>
+<p>The <abbr class="c2sc">BBC Unesco 3</abbr> <abbr class="smcp">ShouTing 4</abbr> heritage site</p>
 
 <h4>Slashed zero</h4>
 <p class="zerofont">Hero to 0<span class="zero">0</span>.</p>
@@ -124,7 +151,7 @@ sup {
 <h4>Superscript and&nbsp;subscript&nbsp;text</h4>
 
 <p>The <code>sup</code> element represents a superscript and the sub element represents a <code>sub</code>. Example:
-The coordinate of the i<sup>th</sup> point is (x<sub>i</sub>, y<sub>i</sub>). For example, the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>).
+The coordinate of the i<sup>th</sup> point is (x<sub>i</sub>, y<sub>i</sub>). For example, the 10<sup>t3h</sup> point<sup>3</sup> has coordinate (x<sub>10</sub>, y<sub>10</sub>).
 f(x, n) = log<sub>4</sub>x<sup>n</sup>
 </body>
 </html>
