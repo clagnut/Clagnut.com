@@ -5,7 +5,7 @@
 				<atom:link href="http://clagnut.com/feeds/fullposts.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)</description>
 				<language>en-gb</language>
-				<copyright>Copyright 2003-2019, Richard Rutter</copyright>
+				<copyright>Copyright 2003-2022, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
@@ -16,553 +16,228 @@
 					<height>31</height>
 				</image>
 		<item>
-			<pubDate>Wed, 20 Mar 2019 07:31:46 PST</pubDate>
-			<title>All you need to know about hyphenation in&nbsp;CSS</title>
-			<link>http://clagnut.com/blog/2394/</link>
-			<guid>http://clagnut.com/blog/2394/</guid>
-			<description><![CDATA[<p>Earlier this month I was invited to give an <a href="http://typographischegesellschaft.at/k_vortrag_workshop/v_rutter.html">evening lecture</a> at the Typography Society of Austria (<a href="http://typographischegesellschaft.at">tga</a>) in Vienna. I was honoured to do so, as it meant following in the footsteps of such luminaries as Matthew Carter, Wim Crouwel, Margaret Calvert, Erik Spiekermann, and the late Freda Sack to name but a few.</p>
+			<pubDate>Sun, 18 Sep 2022 15:35:38 PST</pubDate>
+			<title>How to typeset a date range properly</title>
+			<link>http://clagnut.com/blog/2419/</link>
+			<guid>http://clagnut.com/blog/2419/</guid>
+			<description><![CDATA[<p>As I write this we in the <abbr class='c2sc'>UK</abbr> are reaching the culmination of 10 days of mourning following the death of the Queen. Wherever you look – on websites, billboards and shop windows – we are reminded of the longevity of Her Majesty’s life. More precisely we’re presented with a date range: 1926 – 2022.</p>
 
-<p>I presented some golden rules for typography on the web to a full house. In the Q&amp;A afterwards I was asked about the current state of automatic hyphenation on the web. This was a good question considering that German is well known for its long words – noun compounds feature commonly (for example <dfn lang="de">Verbesserungsvorschlag</dfn> meaning <i>suggestion for improvement</i>) – so hyphenation is extensively used in most written media.</p>
+</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2419/queen.jpg" alt="Photo of the Queen on a bus stop advertising screen" /><figcaption>Messages about the Queen on screens in bus stops and shop windows throughout the city</figcaption></figure><div class='prose'>
 
-<p>Automatic hyphenation on the web has been <a href="http://clagnut.com/blog/2394">possible since 2011</a> and is now <a href="https://caniuse.com/#feat=css-hyphens">broadly supported</a>. Safari, Firefox and Internet Explorer 9 upwards support automatic hyphenation, as does Chrome on Android and MacOS (but <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=652964">not yet on Windows or Linux</a>).</p>
+<p>A badly typeset date range, usually comprising a hyphen surrounded by two spaces. “What’s wrong with that?,” you might well ask. A lack of attention to detail for a start. There is a long-standing convention for how to properly typeset a date range, or any numerical range for that matter, but it involves going a bit deeper beyond what faces on our standard keyboards (which are still relics from the age typewriters).</p>
 
-<h2>How to turn on&nbsp;automatic&nbsp;hyphenation</h2>
+<p>Even the <a href="https://www.royal.uk">Royals’ own website</a> makes the same mistake:</p>
 
-<div class="group-with-aside">
-<p>There are two steps required to turn on automatic hyphenation. The first is to set the language of the text. This will tell the browser which <dfn>hyphenation dictionary</dfn> to use – correct automatic hyphenation requires a hyphenation dictionary appropriate to the language of the text. If the browser does not know the language of the text, the <abbr class='c2sc'>CSS</abbr> guidelines say it is not required to hyphenate automatically, even if you turn on hyphenation in a style sheet.</p>
+</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2419/hyphen.jpg" alt="Screenshot" /><figcaption>Royal.uk uses a spaced hyphen for the date range, made worse by letter-spacing<figcaption></figure><div class='prose'>
 
-<aside><p>Hyphenation is a complex subject. Hyphenation points are mainly based on syllables using a combination of etymology and phonology, but house styles also have differing rules on dividing words.</p></aside>
-</div>
+<p>The preferred way is to use an <em>en-dash</em> instead of a hyphen, and separate it from the numerals with a <em>thin-space</em>, like this:</p>
 
-<h3>1. Setting&nbsp;the&nbsp;language</h3>
+<p><span style="font-size:1.5em">1926 – 2022</span></p>
 
-<p>The language of a webpage should ideally be sent as an <abbr class='c2sc'>HTTP</abbr> header by the web server (speak to your friendly sysadmin about this). You can also set it using the <abbr class='c2sc'>HTML</abbr> <code>lang</code> attribute:</p>
+<p>Compare with the poorly typeset:</p>
 
-<figure class="pre"><pre><code class="language-html">&lt;html lang="en"&gt;
-</code></pre></figure>
+<p><span style="font-size:1.5em">1926&#32;&#45;&#32;2022</span></p>
 
-<p>Setting the language in this way is best practice for all web pages regardless of whether you are hyphenating or not. Knowing the language of the text will help automatic translating tools, screen readers and other assistive software.</p>
+<p>The point here is that the date range is a self-contained element, an individual thought if you like, not two loosely connected items. Using a tightly spaced dash joins the numerals together into a single element.</p>
 
-<p>The <code>lang="en"</code> attribute uses an <a href="https://www.w3.org/International/articles/language-tags/">ISO language tag</a> to tell the browser that the text is in English. In this case the browser will choose its default English hyphenation dictionary, which will often mean hyphenating for American English. While there are important differences in spelling and pronunciation (and hence hyphenation) between American English and other countries, there can even bigger differences in languages such as Portuguese. The solution is to add a ‘region’ to the language so that the browser knows which is the most appropriate hyphenation dictionary. For instance, to specify Brazilian Portuguese:</p>
+<p>Any typographically configured <abbr class='c2sc'>CMS</abbr> should automatically convert your number-space-hyphen-space-number combination for you, swapping in thin spaces and en-dash. If you need to manually insert the desired characters, the easiest way for you right now is to cut and paste straight out of this page – they are standard Unicode glyphs.</p>
 
-<figure class="pre"><pre><code class="language-html">&lt;html lang="pt-BR"&gt;
-</code></pre></figure>
-
-<h3>2. Turn on&nbsp;the&nbsp;hyphens</h3>
-
-<p>Now you’ve set your language, you are ready to turn on automatic hyphenation in <abbr class='c2sc'>CSS</abbr>. This couldn’t be much easier:</p>
-
-<figure class="pre"><pre><code class="language-css">hyphens: auto;
-</code></pre></figure>
-
-<p>Currently Safari and <abbr class='c2sc'>IE</abbr>/Edge both require prefixes, so this is what you’ll need right now:</p>
-
-<figure class="pre"><pre><code class="language-css">-ms-hyphens: auto;
--webkit-hyphens: auto;
-hyphens: auto;
-</code></pre></figure>
-
-<h2>Hyphenation&nbsp;controls</h2>
-
-<p>There is more to setting hyphenation than just turning on the hyphens. The <a href="https://www.w3.org/TR/css-text-4/#hyphenation">CSS Text Module Level 4</a> has introduced the same kind of hyphenation controls provided in layout software (eg. InDesign) and some word processors (including Word). These controls provide different ways to define how much hyphenation occurs through your text.</p>
-
-<h3>Limiting the word length and the number of characters before and after&nbsp;a&nbsp;hyphen</h3>
-
-<div class="group-with-aside">
-<p>If you hyphenate short words they can be harder to read. Likewise, you don’t want too few characters left on a line before the hyphen, or pushed to the next line after the hyphen. A common rule of thumb is to only allow words at least six-letters long to be hyphenated, leaving at least three characters before the word break, and taking a minimum of two to the next line.</p>
-
-<aside><p>The <cite>Oxford Style Manual</cite> recommends that three is the minimum number of letters after a hyphen at a line break, though exceptions can be made in very short measures.</p></aside>
-</div>
-
-<p>You can set these limits with the <code>hyphenate-limit-chars</code> property. It takes three space-separated values. The first is the minimum character limit for a word to be hyphenated; the second is the minimum number of characters before the hyphenation break; and the last is the minimum characters after the hyphenation break. To set the aforementioned rule of thumb, with a six-character word limit, three characters before the hyphenation break and two after, use:</p>
-
-<figure class="pre"><pre><code class="language-css">hyphenate-limit-chars: 6 3 2;
-</code></pre></figure>
-
-</div><!-- /.prose --><figure><img src="http://clagnut.com/images/1-handj-hyphenate-limit-chars.png" alt="" /><figcaption>hyphenate-limit-chars in&nbsp;action.</figcaption></figure><div class='prose'>
-
-<p>The default value for <code>hyphenate-limit-chars</code> is <code>auto</code> for all three settings. This means that the browser should pick the best settings based on the current language and layout. The <abbr class='c2sc'>CSS</abbr> Text Module Level 4 suggests that browsers use <code>5 2 2</code> as their starting point (which I think results in too much hyphenation), but browsers are free to vary that as they see fit.</p>
-
-<p>Currently only <abbr class='c2sc'>IE</abbr>/Edge supports this property (with a prefix), however Safari does support hyphenation character limits using some legacy properties specified in an earlier draft of the <abbr class='c2sc'>CSS3</abbr> Text Module. This means you can get the same control in Edge and Safari (with some forward planning for Firefox) like this:</p>
-
-<figure class="pre"><pre><code class="language-css">/* legacy properties */
--webkit-hyphenate-limit-before: 3;
--webkit-hyphenate-limit-after: 2;
-
-/* current proposal */
--moz-hyphenate-limit-chars: 6 3 2; /* not yet supported */
--webkit-hyphenate-limit-chars: 6 3 2; /* not yet supported */
--ms-hyphenate-limit-chars: 6 3 2;
-hyphenate-limit-chars: 6 3 2;
-</code></pre></figure>
-
-<h3>Limiting the number of consecutive&nbsp;hyphenated&nbsp;lines</h3>
-
-<p>For primarily aesthetic reasons, you can limit the number of lines in a row that are hyphenated. Consecutively hyphenated lines, particularly three or more, are pejoratively called a <dfn>ladder</dfn>. The general rule of thumb for English is that two consecutive lines is the ideal maximum (in contrast, readers of German may well be faced with many ladders). By default, <abbr class='c2sc'>CSS</abbr> sets no limit to the number of consecutive hyphens, but you can use the <code>hyphenate-limit-lines</code> property to specify a maximum. Currently this is only supported by <abbr class='c2sc'>IE</abbr>/Edge.</p>
-
-<figure class="pre"><pre><code class="language-css">-ms-hyphenate-limit-lines: 2;
-hyphenate-limit-lines: 2;
-</code></pre></figure>
-
-</div><!-- /.prose --><figure><img src="http://clagnut.com/images/1-handj-hyphenate-limit-lines.png" alt="" /><figcaption>hyphenate-limit-lines applied to prevent a ladder.</figcaption></figure><div class='prose'>
-
-<p>You can remove the limit using a value of <code>no-limit</code>.</p>
-
-<h3>Avoiding hyphenated words across the last line of&nbsp;a&nbsp;paragraph</h3>
-
-<p>Unless you tell it otherwise, a browser will happily hyphenate the very last word of a paragraph such that the end of the broken word sits alone on the final line, a lonely orphan of an orphan. It is often preferable to have a large gap at the end of the penultimate line than having half a word on the final line. You can achieve this by activating the <code>hyphenate-limit-last</code> property with a value of <code>always</code>.</p>
-
-<figure class="pre"><pre><code class="language-css">hyphenate-limit-last: always;
-</code></pre></figure>
-
-<p>Currently this is only supported in <abbr class='c2sc'>IE</abbr>/Edge (with a prefix).</p>
-
-<h3>Reducing hyphenation by setting a&nbsp;hyphenation&nbsp;zone</h3>
-
-<p>By default, hyphenation will occur as often as the browser can split a word across two lines, within any <code>hyphenate-limit-chars</code> and <code>hyphenate-limit-lines</code> values you set. Even when applying those properties to control when hyphenation occurs, you could still end up with heavily hyphenated paragraphs.</p>
-
-<p>Consider a left-aligned paragraph. The right edge is ragged, which hyphenation can reduce. By default, all words which are allowed to be hyphenated will be. This will give you the maximum amount of hyphenation and thus the maximum reduction to the rag. If you are prepared to tolerate a little more unevenness to the edge of the paragraph, you can reduce the amount of hyphenation.</p>
-
-<p>You can do this by specifying the maximum amount of whitespace allowed between the last word of the line and edge of the text box. If a new word begins within this whitespace it is not hyphenated. This whitespace is known as the <dfn>hyphenation zone</dfn>. The bigger the hyphenation zone, the greater the rag and the less the hyphenation. By adjusting the hyphenation zone you are balancing the ratio between better spacing and fewer hyphens.</p>
-
-</div><!-- /.prose --><figure><img src="http://clagnut.com/images/1-handj-hyphenation-zone.png" alt="" /><figcaption>
-<i>Left</i>: Arrows indicate lines where hyphenation is allowed.<br/>
-<i>Right</i>: Hyphenation with hyphenation zone set.
-</figcaption>
-
-</figure><div class='prose'>
-
-<p>To do this you use the <code>hyphenation-limit-zone</code> property, which takes a length or a percentage value (in terms of the width of the text box). In the context of responsive design, it makes most sense to set your hyphenation zone as a percentage. Doing so means you would get a smaller hyphenation zone on smaller screens, leading to more hyphenation and less rag. Conversely on wider screens you would get a broader hyphenation zone, hence less hyphenation and more rag, which a wider measure would be better able to accommodate. Based on typical defaults in page layout software, 8% is a good start:</p>
-
-<figure class="pre"><pre><code class="language-css">hyphenate-limit-zone: 8%
-</code></pre></figure>
-
-<p>Currently this is only supported in <abbr class='c2sc'>IE</abbr>/Edge (with a prefix).</p>
-
-<h3>Putting it&nbsp;all&nbsp;together</h3>
-
-<p>To apply the same kinds of hyphenation controls as are available in conventional layout software (at least on a line-by-line basis) to paragraph using <abbr class='c2sc'>CSS</abbr> Text Module Level 4 properties:</p>
-
-<figure class="pre"><pre><code class="language-css">p {
-    hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    hyphenate-limit-lines: 2;   
-    hyphenate-limit-last: always;
-    hyphenate-limit-zone: 8%;
-}
-</code></pre></figure>
-
-<p>And with the appropriate browser prefixes and fallbacks:</p>
-
-<figure class="pre"><pre><code class="language-css">p {
-    -webkit-hyphens: auto;
-    -webkit-hyphenate-limit-before: 3;
-    -webkit-hyphenate-limit-after: 3;
-    -webkit-hyphenate-limit-chars: 6 3 3;
-    -webkit-hyphenate-limit-lines: 2;
-    -webkit-hyphenate-limit-last: always;   
-    -webkit-hyphenate-limit-zone: 8%;
-
-    -moz-hyphens: auto;
-    -moz-hyphenate-limit-chars: 6 3 3;
-    -moz-hyphenate-limit-lines: 2;  
-    -moz-hyphenate-limit-last: always;
-    -moz-hyphenate-limit-zone: 8%;
-
-    -ms-hyphens: auto;
-    -ms-hyphenate-limit-chars: 6 3 3;
-    -ms-hyphenate-limit-lines: 2;
-    -ms-hyphenate-limit-last: always;   
-    -ms-hyphenate-limit-zone: 8%;
-
-    hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    hyphenate-limit-lines: 2;
-    hyphenate-limit-last: always;   
-    hyphenate-limit-zone: 8%;
-}
-</code></pre></figure>
-
-<p>Hyphenation is a perfect example of progressive enhancement, so you can start applying the above now if you think your readers will benefit from it – support among browsers will only increase. If you are designing for a website written in a language with long words, such as German, your readers will definitely thank you for it.</p>
-<p><a href='http://clagnut.com/blog/2394/'>Read or add comments</a></p>]]></description>
+<p>I also use a handy Unicode character finder for these purposes. There’s a few around, but my favourite is <a href="https://glyphfinder.com">Glyphfinder</a> for MacOS. (The Glyphfinder website was down for me at the time of writing, but you can get the <a href="https://ueberdosis.gumroad.com/l/ZaEQz">download from Gumroad</a> for the price of a pint).</p>
+<p><a href='http://clagnut.com/blog/2419/'>Read or add comments</a></p>]]></description>
 			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+			<category domain="http://clagnut.com/archive/markup/">Mark-up techniques</category>
 		</item>
 		<item>
-			<pubDate>Mon, 07 Jan 2019 22:25:43 PST</pubDate>
-			<title>Top Tunes 2018</title>
-			<link>http://clagnut.com/blog/2393/</link>
-			<guid>http://clagnut.com/blog/2393/</guid>
-			<description><![CDATA[<p>Back after a decidedly long hiatus, hereâ€™s a compilation of favourite songs I bought in the last year (note not all were released this year). It was a damn fine year in my view, and I certainly splashed out on plenty of vinyl – a new set of hi-fi will do that to a chap. Particular highlights include a return to form from Spiritualized, Nils Frahmâ€™s haunting, delicate music and the magnificent Snapped Ankles with probably my favourite album of the year.</p>
+			<pubDate>Fri, 06 May 2022 15:30:25 PST</pubDate>
+			<title>How to subset a variable font</title>
+			<link>http://clagnut.com/blog/2418/</link>
+			<guid>http://clagnut.com/blog/2418/</guid>
+			<description><![CDATA[<p>Using variable fonts can be an excellent way to reduce bandwidth and latency as they can highly efficiently combine multiple styles into one font file. However, as with standard professional fonts, they can contain a lot characters you will never use (in my case this would include Greek and Cyrillic – your mileage will vary). These un-needed characters can be removed from the font to reduce file-size, a process called subsetting.</p>
 
-<p><img src="http://clagnut.com/images/2018vinyl.jpg" alt="Thirty-odd vinyl records spread out on my floor" /></p>
+<p>This post is primarily an aide-memoire explaining how to subset fonts from first principles on a Mac (macOS Monterey 12.3.1 at time of writing). I&#8217;ll be using <a href="https://github.com/fonttools/fonttools">fonttools</a>, an open source font manipulation library written in Python, to subset a font and create a <abbr class='c2sc'>WOFF2</abbr> font file for use on the Web.</p>
 
-<p>Because I keep these compilations to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list, including new(ish) albums from Gruff Rhys, Gaz Coombes, Band of Horse and Cavern of Anti-Matter.</p>
+<h3>1.&nbsp;Install&nbsp;Python</h3>
 
-<h3>The Best Songs I Bought in&nbsp;2018,&nbsp;Ever</h3>
+<p>macOS no longer comes bundled with Python, so firstly download and install <a href="https://www.python.org/downloads/macos/">the latest version of Python 3</a> following the instructions in the macOS installer.</p>
+
+<h3>2.&nbsp;Install&nbsp;fonttools</h3>
+
+<p>Once Python 3 has installed successfully, open Terminal and install fonttools using pip (which is shipped with Python):</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">python3 -m pip install fonttools
+</code></pre></figure>
+
+<h3>3.&nbsp;Install&nbsp;Brotli</h3>
+
+<p>Next install Brotli compression, which is required to output a <abbr class='c2sc'>WOFF2</abbr>.</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">python3 -m pip install brotli
+</code></pre></figure>
+
+<h3>4. Move to where the font&nbsp;file&nbsp;is</h3>
+
+<p>Change the Terminal directory to the folder containing the font file you want to convert, eg.</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">cd /Users/rich/
+</code></pre></figure>
+
+<h3>5.&nbsp;Run&nbsp;fonttools</h3>
+
+<p>Finally run the fonttools subsetting routine using the desired options. For example:</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">pyftsubset LiterataTT.ttf 
+    -unicodes="U+0020-007F, U+00A0-00FF, U+0100-017F, U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2200-22FF, U+FB00-FB4F" 
+    -layout-features='*' 
+    -flavor="woff2" 
+    -output-file="LiterataTT.woff2"
+</code></pre></figure>
+
+<p>In this case I am subsetting <a href="https://www.type-together.com/literata-font"><code>LiterataTT.ttf</code></a> and outputting as <code>LiterataTT.woff2</code> into the same directory.</p>
+
+<p>The <code>unicodes</code> option specifies which characters to include in the subset, by way of <a href="https://jrgraphix.net/r/Unicode/">Unicode character ranges</a>. It doesn&#8217;t matter if the font doesn&#8217;t have all the Unicode ranges available in the list, or all the characters within a specified range – these just get ignored. In this case I am including the following Unicode ranges:</p>
+
+</div><!-- /.prose --><figure class="fig-table">
+<table>
+<tbody>
+<tr><td>U+0020-007F</td><td><a href="https://jrgraphix.net/r/Unicode/0020-007F">Basic Latin</a></td></tr>
+<tr><td>U+00A0-00FF</td><td><a href="https://jrgraphix.net/r/Unicode/00A0-00FF">Latin-1 Supplement</a></td></tr>
+<tr><td>U+0100-017F</td><td><a href="https://jrgraphix.net/r/Unicode/0100-017F">Latin Extended-A</a></td></tr>
+<tr><td>U+2000-206F</td><td><a href="https://jrgraphix.net/r/Unicode/2000-206F">General Punctuation</a></td></tr>
+<tr><td>U+2070-209F</td><td><a href="https://jrgraphix.net/r/Unicode/2070-209F">Superscripts and Subscripts</a></td></tr>
+<tr><td>U+20A0-20CF</td><td><a href="https://jrgraphix.net/r/Unicode/20A0-20CF">Currency Symbols</a></td></tr>
+<tr><td>U+2100-214F</td><td><a href="https://jrgraphix.net/r/Unicode/2100-214F">Letterlike Symbols</a></td></tr>
+<tr><td>U+2200-22FF</td><td><a href="https://jrgraphix.net/r/Unicode/2200-22FF">Mathematical Operators</a></td></tr>
+<tr><td>U+FB00-FB4F</td><td><a href="https://jrgraphix.net/r/Unicode/FB00-FB4F">Alphabetic Presentation Forms</a></td></tr>
+</tbody>
+</table>
+</figure><div class='prose'>
+
+<p>The <code>layout-features</code> option specifies which OpenType layout features to include, such as kerning, ligatures, numerals and alternate characters. In this example I&#8217;m using <code>layout-features='*'</code> to include all the features available. Instead, you can also add selected features to the default set. For example <code>layout-features+=onum,pnum,ss01</code> will keep the default set of features and add <code>onum</code>, <code>pnum</code> and <code>ss01</code> (old-style and proportional numerals, and styleset 1). The default features include <code>calt</code>, <code>clig</code>, <code>kern</code> and <code>liga</code> among others. See the <a href="https://fonttools.readthedocs.io/en/latest/subset/index.html?highlight=layout-features#glyph-set-expansion">fonttools Documentation</a> for more info on <code>layout-features</code>.</p>
+
+<p>Applying that subsetting routine to LiterataTT reduced the original font file from 913Kb to 207Kb. The latter is still a fairly large file, but I was conservative in my subsetting (as in keeping in plenty of European characters and OpenType features) and, as a variable font, this file will cover all situations from light to black weights and low to high contrast optical sizing.</p>
+<p><a href='http://clagnut.com/blog/2418/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/tools_software/">Tools &amp; software</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+		</item>
+		<item>
+			<pubDate>Sun, 30 Jan 2022 19:21:17 PST</pubDate>
+			<title>Top Tunes 2021</title>
+			<link>http://clagnut.com/blog/2416/</link>
+			<guid>http://clagnut.com/blog/2416/</guid>
+			<description><![CDATA[<p>I&#8217;ve just about squeezed this out while it&#8217;s still January – my annual compilation of favourite songs from those I bought in the last year (not all were released this year). As a deviation from the electronic pop favourites of last year, I&#8217;ve gone a bit post-punk, or whatever the kids are calling it nowadays: Squid; Black Country, New Road; and a cracking new album from Mogwai. But my absolute favourite is Darkside (both albums) and Nicolas Jaar from 2013.</p>
+
+<p>RÃ³isÃ­n Murphy gets in again, with a banging remix from her producer Crooked Man. Snapped Ankles make a welcome return and there&#8217;s a fab Hot Chip remix of long time favourite Django Django.</p>
+
+</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2021vinyl.jpg" alt="Photo" /><figcaption>Over fifty vinyl records spread out on my floor</figcaption></figure><div class='prose'>
+
+<p>Because I keep these playlists roughly to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list. Black Midi is one, although I find it a little hard work at the moment. Also a classic oldie from Metronomy, some Seventies jazz funk from Ian Carr&#8217;s Nucleus, and a classic album from Love which was largely unknown to me – an omission generously corrected by my good friend Anthony.</p>
+
+<h3>The Best Songs I Bought in&nbsp;2021,&nbsp;Ever</h3>
 
 <ol>
-<li><cite>Ullswater</cite> by Hookworms from the album <cite>Microshift</cite></li>
-<li><cite>Jailbird</cite> by Primal Scream from the album <cite>Give Out But Don&#8217;t Give Up: The Original Memphis Recordings</cite></li>
-<li><cite>Once in My Life</cite> by The Decemberists from the album <cite>I&#8217;ll Be Your Girl</cite></li>
-<li><cite>Cactus</cite> by Teleman from the album <cite>Family Of Aliens</cite></li>
-<li><cite>Bubblegum</cite> by Confidence Man from the album <cite>Confident Music For Confident People </cite></li>
-<li><cite>Morning Velvet Sky (Richard Norris Remix)</cite> by Gulp from the album <cite>All Good Wishes – Remixes</cite></li>
-<li><cite>My Mistakes</cite> by Eleanor Friedberger from the album <cite>Last Summer</cite></li>
-<li><cite>Always Trying to Work It Out</cite> by Low from the album <cite>Double Negative</cite></li>
-<li><cite>I&#8217;m Your Man</cite> by Spiritualized from the album <cite>And Nothing Hurt</cite></li>
-<li><cite>Singularity</cite> by Jon Hopkins from the album <cite>Singularity</cite></li>
-<li><cite>Paradox</cite> by Sextile from the <abbr class='c2sc'>EP</abbr> <cite>3</cite></li>
-<li><cite>Lost in Light</cite> by Moon Duo from the album <cite>Occult Architecture Vol. 2</cite></li>
-<li><cite>A Place</cite> by Nils Frahm from the album <cite>All Melody</cite></li>
-<li><cite>Firecrackers</cite> by Marissa Nadler from the album <cite>July</cite></li>
-<li><cite>In My Head</cite> by Our Girl from the album <cite>Stranger Today</cite></li>
-<li><cite>Jonny Guitar Calling Gosta Berlin</cite> by Snapped Ankles from the album <cite>Come Play The Trees</cite></li>
+<li><cite>Pearl in the Palm</cite> by W. H. Lung from the album <cite>Vanities</cite></li>
+<li><cite>Teeth</cite> by Working Men&#8217;s Club from the album <cite>Working Men&#8217;s Club</cite></li>
+<li><cite>Black Widow Spider</cite> by Parquet Courts from the album <cite>Sympathy For Life</cite></li>
+<li><cite>G.S.K.</cite> by Squid from the album <cite>Bright Green Field</cite></li>
+<li><cite>The Limit</cite> by Darkside from the album <cite>Spiral</cite></li>
+<li><cite>Der Rhythmus der Maschinen</cite> by Public Service Broadcasting from the album <cite>Bright Magic</cite></li>
+<li><cite>Push/Pull</cite> by bdrmm from the album <cite>Bedroom</cite></li>
+<li><cite>Ritchie Sacramento</cite> by Mogwai from the album <cite>As The Love Continues</cite></li>
+<li><cite>Hardcore Jealousy</cite> by RÃ³isÃ­n Murphy from the album <cite>Crooked Machine</cite></li>
+<li><cite>The Revolution Of Super Visions</cite> by Jane Weaver from the album <cite>Flock</cite></li>
+<li><cite>Athens, France</cite> by Black Country, New Road from the album <cite>For The First Time</cite></li>
+<li><cite>Festival</cite> by Tom Misch & Yussef Dayes from the album <cite>What Kinda Music</cite></li>
+<li><cite>Too Many Kids Finding Rain In the Dust</cite> by Nicolas Jaar from the album <cite>Space Is Only Noise</cite></li>
+<li><cite>You&#8217;ll Have to Scream Louder</cite> by Tindersticks from the album <cite>Distractions</cite></li>
+<li><cite>All I Ever Need</cite> by Caribou from the album <cite>Our Love</cite></li>
+<li><cite>Illumina</cite> by Lamb from the album <cite>The Secret Of Letting Go</cite></li>
+<li><cite>Emergence in Nature</cite> by Hannah Peel from the album <cite>Fir Wave</cite></li>
+<li><cite>Shared Particles</cite> by <abbr class='c2sc'>AK</abbr>/DK from the album <cite>Shared Particles</cite></li>
+<li><cite>Rhythm Is Our Business</cite> by Snapped Ankles from the album <cite>Forest Of Your Problems</cite></li>
+<li><cite>Glowing in the Dark (Hot Chip remix)</cite> by Django Django from the <abbr class='c2sc'>A23</abbr> <cite>Glowing in the Dark – the Remixes</cite></li>
 </ol>
 
-<p>You can listen to the <a href="https://open.spotify.com/user/clagnut/playlist/5YoSIPrD5jY1K8U3g1uTik?si=YnvHE0sgRlaz9unIZk3rNw">playlist on Spotify</a>.</p>
-<p><a href='http://clagnut.com/blog/2393/'>Read or add comments</a></p>]]></description>
+<p>You can listen to the playlist on <a href="https://open.spotify.com/playlist/5ayTtvb21f18K0ZwNOXvCZ?si=fe5a6c611f3744be">Spotify</a> or <a href="https://music.apple.com/gb/playlist/2021-the-best-songs-i-bought-in-2021-ever/pl.u-jV8966juYaX5z">Apple Music</a>.</p>
+<p><a href='http://clagnut.com/blog/2416/'>Read or add comments</a></p>]]></description>
 			<category domain="http://clagnut.com/archive/music/">Music</category>
 		</item>
 		<item>
-			<pubDate>Thu, 26 Apr 2018 16:50:37 PST</pubDate>
-			<title>Upcoming changes to the CSS you need for variable fonts</title>
-			<link>http://clagnut.com/blog/2391/</link>
-			<guid>http://clagnut.com/blog/2391/</guid>
-			<description><![CDATA[<p>Two weeks ago <a href="https://clearleft.com/posts/inside-css">I was invited to Berlin</a> for a CSS Working Group three-day meeting. One afternoon was dedicated to resolving issues with the <abbr class='c2sc'>CSS</abbr> Text and Font modules. Two resolutions in particular will affect the <abbr class='c2sc'>CSS</abbr> we need to work with variable fonts.</p>
+			<pubDate>Fri, 26 Mar 2021 17:55:27 PST</pubDate>
+			<title>One year on and what next for remote working?</title>
+			<link>http://clagnut.com/blog/2415/</link>
+			<guid>http://clagnut.com/blog/2415/</guid>
+			<description><![CDATA[<p>A year ago this week the <abbr class='c2sc'>UK</abbr> went into its first lockdown. Like most savvy businesses, Clearleft had already closed our studio and started working from home. Also like many businesses, we&#8217;ve yet to reopen our office, but more on that later.</p>
 
-<h2>1.&nbsp;Font&nbsp;weights</h2>
+<p>I remember clearly the faces on peopleâ€™s faces when I announced we&#8217;d be working remotely until the end of April. There was a combination of surprise, disbelief, resignation and even horror (perhaps due to the looming spectre of home-schooling). Just as everyoneâ€™s experience has been different over the past year, so everyone&#8217;s initial reaction was different too.</p>
 
-<p>According to the <a href="https://www.w3.org/TR/2018/WD-css-fonts-4-20180410/">current <abbr class='c2sc'>CSS</abbr> Fonts Level 4</a> specification, this is the basic way to use any webfont (variable or static):</p>
+<p>We didnâ€™t have to make a huge cultural shift in order to work remotely. Weâ€™re a small enough company that we all know each other and whatâ€™s expected of us. Weâ€™d built up enough trust, and working from home was already allowed without question. That said, working from home was an occasional thing: to let in a plumber, deal with some childcare, and frequently – presciently perhaps – to get stuff done. And it was <em>working from home</em> – it wasn&#8217;t <em>remote working</em>, which as weâ€™ve all come to realise is a different beast entirely.</p>
 
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: Gentium;
-  src: url(gentium.woff);
-}</code></pre></figure>
+<p>We managed to adapt to the situation fairly quickly. A culture of autonomy and generally mucking-in helped, as did an assurance that everyoneâ€™s job would be safe for the coming months even if it meant us losing money in the short term (we didnâ€™t). All this meant we could get on with the job of supporting our clients, who were certainly nowhere near close to working remotely when lockdown happened, and needed all the help they could get.</p>
 
-<p>What this rule doesn&#8217;t make obvious is the effect absent property descriptors have. Implicit in this rule are <code>font-weight</code>, <code>font-stretch</code> and <code>font-style</code> descriptors which, even when not specified, are still set. This means the preceding simple rule – at the time of writing – is actually the same as:</p>
+<p>We knew we were doing something right in terms of remote working when one of our staff, who had been on sabbatical in South America when the pandemic struck, managed to make it back to Europe. While everyone else worked from home in or around Brighton, Tom found himself working from Spain initially, and then from London. And no-one really noticed, apart from a surprising change in decor. And thatâ€™s point – you can remote work from anywhere provided you can negotiate timezones.</p>
 
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: Gentium;
-  src: url(gentium.woff);
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: normal;
-}</code></pre></figure>
+<p>The <abbr class='c2sc'>UK</abbr> is now in its third lockdown, but with a successful rollout of the vaccine, a way out and a change is approaching. Once lockdown is lifted, hopefully in a few months, will we become fully remote? I doubt it. Remote-first, whatever that means? Perhaps. We&#8217;ve certainly loosened our <a href="https://clearleft.com/about/jobs">hiring</a> policy – we no longer require people to permanently work from our Brighton studio. This enabled us to hire <a href="https://clearleft.com/about/team/christianne-beck">Christianne</a>, our fantastic new head of events, who is currently based in London. That said Brighton is within commuting distance of London, so itâ€™s certainly near enough to pop down every now and then, which will probably be beneficial.</p>
 
-<p>This is important because <code>font-weight:normal</code> is an alias for <code>font-weight:400</code>, and when you include a <code>font-weight</code> descriptor in an <code>@font-face</code> rule, you are telling the browser that the font corresponds to that weight, and that weight only. By omitting the <code>font-weight</code> descriptor, what you are actually instructing the browser to do is &#8216;clamp&#8217; the font to the default weight of 400. This is the case whether or not your font has a weight axis variation.</p>
+<p>For now our beloved <a href="https://68middle.st">68 Middle Street</a> stays closed, but weâ€™ll be partially reopening in June as a broadcast studio for <a href="https://uxlondon.com">UX Fest</a> and as an early test of Covid precautions and an assessment of everyoneâ€™s appetite for being in relatively close human proximity. Come July, by which time hopefully all Covid restrictions will be lifted, weâ€™ll open more fully.</p>
 
-<p>To make use of the weight axis, and for the <code>font-weight</code> properties to work as you might expect, you need to add a weight range to the <code>font-weight</code> descriptor:</p>
+<p>But how will we be working come July? We don&#8217;t exactly know, but that&#8217;s fine because we can try things and quickly adapt to changing needs. After all, we managed to go from studio-based to fully remote in matter of days.</p>
 
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: Gentium;
-  src: url(gentium.woff);
-  font-weight: 1 999;
-}</code></pre></figure>
+<p>A few things seem certain. We&#8217;ve regularly talked and periodically surveyed staff about how they are coping with remote work, and their attitude to returning to the office. People&#8217;s circumstances and feelings all differ. These are difficult times – at some point weâ€™ve all felt sad, lonely, claustrophobic or tired. But thereâ€™s also been plenty of rays of light, with working from home being liberating, productive and flexible. What we do share is a common inclination to be in the same space as other people, at least for some of the time.</p>
 
-<p>The font weight range allows the variable font to be displayed at any weight from 1 to 999. The same is true of the other property descriptors: <code>font-style</code> is clamped to an upright position – to make use of a slant axis you would need to include a range of angles. For <code>font-stretch</code> you would need a range of absolute widths to make use of a width axis. Ideally you would specify ranges which match the extremes of the axes in the font.</p>
+<p>That may be a general reaction to being cooped up during so many weeks of lockdown after lockdown, but there&#8217;s a keen desire to talk and work face to face, if not permanently. Weâ€™ve all had the time and some budget to get set up for remote working, and weâ€™ve come to appreciate the benefits it can bring. We definitely don&#8217;t want to lose those. But we&#8217;re all human, which means we&#8217;re sociable creatures at heart. Furthermore Clearlefties are – by design – a nice bunch of people. We&#8217;re the kind of people we want to spend time with, so itâ€™s only natural weâ€™d want to come into the office together.</p>
 
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: Gentium;
-  src: url(gentium.woff);
-  font-weight: 1 999;
-  font-style: oblique -90 90;
-  font-stretch: 50% 200%;
-}</code></pre></figure>
+<p>All of which points us towards a hybrid way of working. Part remote, part in the studio, with all of us in one or other mode part of time, but probably at different times and differing amounts. The key to getting this to work will be to ensure that neither mode of working advantages one person over another. We&#8217;ll need to ensure that while working remotely, someone isnâ€™t excluded from decisions or collaboration, and minimise the fear of missing out on informal conversations. We&#8217;ll need to improve our setup to better enable remote people to participate in meetings where multiple attendees happen to be in the studio. Likewise we need to ensure that if you&#8217;re in the studio you can participate fully in remote discussions and activities – right now we have a large open plan studio that can get pretty noisy. And we&#8217;ll need to track and assess this so we can keep making improvements in working practice and environment.</p>
 
-<p>The forthcoming change to the specification is subtle but important. It will change the default value of <code>font-weight</code> from <code>normal</code> to <code>auto</code>, thus enabling the full range of weights available in the variable font, and defaulting to <code>normal</code> for static fonts. The same applies to other property descriptors. This means that – in the future – if you omit the descriptors, the variable fonts will still function across the full range of their axes. Be aware that if you do include a single value descriptor such as <code>font-weight:300</code> a variable font will still be clamped to that value.</p>
+<p>Meanwhile our clients will be asking themselves similar questions. Perhaps some will go back fully into the office; some may go fully remote. But one great thing that has happened is they – and we – now have 12 months hard-earned experience of working remotely. As designers and consultants we wonâ€™t have to travel as much as we used to in order to research and collaborate, which is great for many reasons including productivity, work-life balance and the environment.</p>
 
-<p>The <abbr class='c2sc'>CSS WG</abbr> resolution on this change, and accompanying minutes from the <abbr class='c2sc'>CSS WG</abbr> meeting, is documented in <a href="https://github.com/w3c/csswg-drafts/issues/2485#issuecomment-380477779">this Github issue</a>.</p>
+<p>In light of the ongoing tragedy that is the coronavirus pandemic, it would be trite to trot out an aphorism such as &#8216;never let good crisis go to waste&#8217;. However with the vaccine presenting a light at the end of the tunnel, we have an opportunity to emerge in a better place than 12 months ago. If we get it right, we can take advantage of the collaborative and social spaces in our studio, as well as the peace and convenience of working from home (or indeed a villa in Spain). In doing so we&#8217;ll improve both our working practices and our home life – small victories in the grand scheme of things, but worth grabbing while we can.
+<br></p>
 
-<h2>2. Requiring&nbsp;variable&nbsp;fonts</h2>
-
-<p>Variable fonts are not a new font format, they are OpenType fonts that contain additional tables of data which describe variations possible within the font. This means variable fonts are still <code>.ttf</code> or <code>.otf</code> files, and so can be made into <abbr class='c2sc'>WOFF</abbr> or <abbr class='c2sc'>WOFF2</abbr> formats. The upshot is that the font pointed to in the previous <code>@font-face</code> rule may or may not be a variable font, but it could be important to know either way in order that styles requiring variable fonts are applied, and fallback fonts are provided for browsers which don&#8217;t support font variations.</p>
-
-<p>Currently the way that you could provide a fallback static font is by specifying the variable font through a <code>format()</code> hint like this:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'Gentium';
-  src: url(gentium-var.woff2) format('woff2-variations'),
-       url(gentium-static.woff2) format('woff2');
-}</code></pre></figure>
-
-<p>However <a href="https://www.w3.org/TR/2018/WD-css-fonts-4-20180410/#src-desc">the list</a> of potential format strings is growing fast and could in future contain other kinds of font features, such as colour fonts. With an eye on the future, the CSS Working Group recently resolved to change the syntax of the <code>format()</code> hint separate out the font features from the file type:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'Gentium';
-  src: url(gentium-var.woff2) format('woff2' supports variations),
-       url(gentium-static.woff2) format('woff2');
-}</code></pre></figure>
-
-<p>A problem with this new syntax is that currently it causes the entire <code>src</code> descriptor to be invalid and thus the whole <code>@font-face</code> rule is ignored. To address this the <abbr class='c2sc'>CSS WG</abbr> also resolved a change in the way the <code>src</code> descriptor should be handled: browsers should parse the value of <code>src</code> throwing out invalid parts in the manner of media queries rather than selectors. In other words they should split on the commas and throw out the pieces they don&#8217;t understand, not the whole <code>src</code> descriptor.</p>
-
-<p>Once the new syntax is implemented, you could still provide fallback fonts without breaking older browsers by repeating the <code>src</code> like this:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'Gentium';
-  src: url(gentium-static.woff2) format('woff2'),
-       url(gentium-static.woff) format('woff');
-  src: url(gentium-var.woff2) format('woff2' supports variations);
-}</code></pre></figure>
-
-<p>The <abbr class='c2sc'>CSS WG</abbr> resolution on this change, and accompanying minutes from the <abbr class='c2sc'>CSS WG</abbr> meeting, is documented in <a href="https://github.com/w3c/csswg-drafts/issues/633#issuecomment-380469287">this Github issue</a>.</p>
-
-<p>Variable fonts are a high priority for browser makers at the moment, so these changes should make it into the <a href="https://www.w3.org/TR/css-fonts-4/">CSS Fonts Module Level 4</a> specification (thanks to Apples&#8217;s Myles Maxfield) and major browser implementations over the next few months.</p>
-<p><a href='http://clagnut.com/blog/2391/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/standards/">Web standards</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+<p><em>Originally published on the <a href="https://clearleft.com/posts/one-year-on-and-what-next-for-remote-working">Clearleft blog</a>.</em></p>
+<p><a href='http://clagnut.com/blog/2415/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/industry/">New media industry</category>
+			<category domain="http://clagnut.com/archive/clearleft/">Clearleft</category>
 		</item>
 		<item>
-			<pubDate>Thu, 25 Jan 2018 17:18:51 PST</pubDate>
-			<title>How to use variable fonts in the real world</title>
-			<link>http://clagnut.com/blog/2390/</link>
-			<guid>http://clagnut.com/blog/2390/</guid>
-			<description><![CDATA[<p><ins>This article has been updated to reflect pending clarifications and modifications to the <a href="https://www.w3.org/TR/css-fonts-4/">CSS Fonts Module Level 4</a>.</ins></p>
-
-<p>A variable font is a single font file which behaves like multiple styles. (I wrote more about them <a href="http://clagnut.com/blog/2389/">here</a> in an extract from my Web Typography book). There are plenty of sites out there <a href="https://codepen.io/mandymichael/">demoing the possibilities</a> of variable fonts and the font variation technology within, but for the new <a href="https://2018.ampersandconf.com/">Ampersand conference website</a> I wanted to show variable fonts being using in a real, production context. It might well be the first commercial site ever to do so.</p>
-
-<p>Two months ago browser support for variable fonts was only 7%, but as of this morning <a href="https://caniuse.com/#search=variable%20fonts">support is at over 60%</a>. Safari 11, Chrome 62+, Firefox 57+ and Edge 17+ all support variable fonts (Firefox only on a Mac and if you set <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1302685#c4">the correct flags</a>). This means font variations is a usable technology right now. But not all support is equal, as you&#8217;ll see.</p>
-
-<p>Variable font capable software is already more pervasive than you might think. For example, the latest versions of Photoshop and Illustrator support them, and if you&#8217;re using macOS 10.13+ or iOS 11+ the system font San Francisco uses font variations extensively. That said, the availability of variable fonts for use on the web is extremely limited. At the time of writing there are very few <em>commercial</em> variable webfonts available (<a href="http://cjtype.com/dunbar/">Dunbar</a> and <a href="https://djr.com/fit/">Fit</a> are notable exceptions), but there is a growing number of free and experimental variable webfonts, as showcased in the <a href="https://www.axis-praxis.org">Axis Praxis</a> playground and more recently listed on <a href="http://v-fonts.com">Variable Fonts</a>.</p>
-
-<p>From this limited palette of fonts, we (by which I mean Clearleft designer <a href="https://clearleft.com/team/james-gilyead">James Gilyead</a>) chose <a href="https://github.com/LettError/mutatorSans">Mutator Sans</a> for the display text, and <a href="https://github.com/adobe-fonts/source-sans-pro/releases">Source Sans</a> for the body text in a Saul Bass-inspired design. Both fonts enabled us to make use of their variable weight axis. Fonts chosen now came the tricky, multi-step business of implementing variable fonts into the website. I&#8217;ll take you through how we (by which I mean Clearleft developer <a href="https://clearleft.com/team/mark-perkins">Mark Perkins</a>) did it, using simplified code snippets.</p>
-
-<h2>1. Link to&nbsp;the&nbsp;fonts</h2>
-
-<p>Getting your variable fonts working in a basic fashion is fairly straight forward. At the time of writing Safari and Chrome have the most complete support. If you&#8217;re following along with these steps, you&#8217;ll need one of those browsers to start off with.</p>
-
-<p>We downloaded the Source Sans variable font from its home <a href="https://github.com/adobe-fonts/source-sans-pro/releases">on Github</a> and used <code>@font-face</code> with a format of <code>truetype-variations</code> to link it up to the stylesheet:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'SourceSans';
-  src: url('source-sans-variable.ttf') format('truetype');
-}</code></pre></figure>
-
-<p>We could then set the variable Source Sans font as the main typeface for the page in the usual way:</p>
-
-<figure class="pre"><pre><code class="language-css">html {
-  font-family: 'SourceSans', sans-serif;
-}</code></pre></figure>
-
-<h2>2. Set&nbsp;the&nbsp;weights</h2>
-
-<p>The variable font implementation in <abbr class='c2sc'>CSS</abbr> is designed to use existing properties for certain pre-defined variation axes. We&#8217;re using three weights within the body text: regular, semibold and black. We set the bold fonts using <code>font-weight</code> in the usual way:</p>
-
-<figure class="pre"><pre><code class="language-css">.hero { font-weight: 900; }
-.blurb { font-weight: 600; }</code></pre></figure>
-
-<p>However this doesn&#8217;t work as expected without modifying the <code>@font-face</code> rule. When you include a <code>font-weight</code> descriptor in an <code>@font-face</code> rule, you are telling the browser that the font corresponds to that weight, and that weight only. When you omit the <code>font-weight</code> descriptor, the browser treats the rule as if you set <code>font-weight:400</code>. This is the case whether or not your font is variable with a weight axis – the font will be &#8216;clamped&#8217; to a weight of 400.</p>
-
-<p>To make use of the weight axis, and for the <code>font-weight</code> properties to work as you might expect, we needed to add a <code>font-weight</code> range to the <code>@font-face</code> rule:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'SourceSans';
-  src: url('source-sans-variable.ttf') format('truetype');
-  font-weight: 1 999;
-}</code></pre></figure>
-
-<p>The font weight range allows the variable font to be displayed at any weight from 1 to 999 (you could specify a more constrained range if you wanted). In the near future the <abbr class='c2sc'>CSS</abbr> Fonts Level 4 spec will allow you to omit the range descriptor because the default value will become a new value of <code>auto</code>, thus enabling the full range of weights available in the variable font, and defaulting to <code>normal</code> for static fonts. (The same applies to other descriptors such as <code>font-stretch</code>.)</p>
-
-<p>With variable fonts, your weight doesn&#8217;t have to be limited to intervals of 100. It can be any integer in the range 1-999. For the main heading, set in Mutator Sans, we used subtle differences in weight for each letter to give a more hand-drawn feel to the design:</p>
-
-<figure class="pre"><pre><code class="language-css">b:nth-child(1) { font-weight: 300; }
-b:nth-child(2) { font-weight: 250; }
-b:nth-child(3) { font-weight: 275; }</code></pre></figure>
-
-<h2>3. Subset and create&nbsp;a&nbsp;WOFF2</h2>
-
-<p>The Source Sans variable font is pretty big: the TrueType file is 491Kb. This is mostly because it has a huge character set: nearly 2000 glyphs including Greek, Cyrillic, alternate characters and symbols. Your first step in reducing file size is to create a subset of the font so that it no longer contains characters you won&#8217;t ever need.</p>
-
-<p>We decided to be fairly conservative in what we kept in, so we subsetted to include Basic Latin, Latin-1 Supplement and Latin Extended-A character ranges; a total of around 400 characters covering most European languages. In Unicode terms these are U+0020-007F, U+00A0-00FF and U+0100-017F.</p>
-
-<p>There are plenty of online tools for subsetting fonts, such as <a href="https://www.fontsquirrel.com/tools/webfont-generator">Fontsquirrel</a>. However all tools that I have seen strip out the variation data. This means you&#8217;ll need to turn to a command line approach. We subsetted the font using the open source <code>pyftsubset</code>, a component of <a href="https://github.com/behdad/fonttools">fonttools</a> (see <a href="https://michaeljherold.com/2016/05/04/creating-a-subset-font.html">Michael Herold&#8217;s tutorial</a> for more info). If Node is more your thing, you could instead use <a href="https://www.npmjs.com/package/glyphhanger">Glyphhanger</a>.</p>
-
-<p>Both Glyphhanger and fonttools (if you <a href="https://github.com/google/woff2">install Brotli compression</a>) will output the subsetted file as a <abbr class='c2sc'>WOFF2</abbr>. We don&#8217;t need a regular <abbr class='c2sc'>WOFF</abbr> as well because all browsers which support variable fonts also support <abbr class='c2sc'>WOFF2</abbr>.</p>
-
-<p>Running the subsetting routine and conversion to <abbr class='c2sc'>WOFF2</abbr> gave us a pleasingly tiny 29Kb file. We updated the <code>@font-face</code> rule accordingly:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'SourceSans';
-  src: url('source-sans-variable.woff2') format('woff2');
-}</code></pre></figure>
-
-<p>So that&#8217;s the job done for browsers which support variable fonts. But that&#8217;s barely half the story.</p>
-
-<h2>4. Provide fonts for&nbsp;incapable&nbsp;browsers</h2>
-
-<p>Variable fonts do render on browsers which don&#8217;t support font variations, but you obviously have no control over which weight (or other axis instance) will be used.</p>
-
-<p>To get around this, you need to serve non-variable (single-style) fonts to these browsers. At the time of writing, the <a href="https://www.w3.org/TR/2018/WD-css-fonts-4-20180410/#src-desc">CSS Fonts Module Level 4</a> specifies that variable fonts can be indicated with a specific <code>format()</code> value:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-   font-family: 'SourceSans';
-   src: url('source-sans-variable.woff2') format('woff2-variations');
- }</code></pre></figure>
-
-<p>This enables you to create <code>@font-face</code> rules like this:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'SourceSans';
-  src: url('source-sans-variable.woff2') format('woff2-variations'),
-       url('source-sans-regular.woff2') format('woff2');
-  font-weight: 400; 
-}
-
-@font-face {
-  font-family: 'SourceSans';
-  src: url('source-sans-variable.woff2') format('woff2-variations'),
-       url('source-sans-black.woff2') format('woff2');
-  font-weight: 900; 
-}</code></pre></figure>
-
-<p>The preceding code points to the single-style font files with an <code>@font-face</code> rule including the font&#8217;s weight, as you would normally. You can then repeat a reference to the variable font file in each rule. Browsers which support variable fonts will download the file marked as <code>format('woff2-variations')</code> (once only), and browsers which don&#8217;t will download the single-style font marked as <code>format('woff2')</code>.</p>
-
-<p>But. Only Safari supports <code>format('woff2-variations')</code> (and that syntax is changing) which rather messes things up if we want the other capable browsers to get their variable font. So we resorted to a different, rather more verbose tactic. Firstly we gave the variable font a different name to the single-style typeface, thus separating links to variable fonts from single-style fonts:</p>
-
-<figure class="pre"><pre><code class="language-css">@font-face {
-  font-family: 'SourceSansVariable';
-  src: url('source-sans-variable.woff2') format('woff2');
-  font-weight: 1 999;
-}
-
-@font-face {
-  font-family: 'SourceSans';
-  src: url('source-sans-black.woff2') format('woff2'),
-         url('source-sans-black.woff') format('woff');
-  font-weight: 900; 
-}
-
-@font-face {
-  font-family: 'SourceSans';
-  src: url('source-sans-semibold.woff2') format('woff2'),
-         url('source-sans-semibold.woff') format('woff');
-  font-weight: 600; 
-}</code></pre></figure>
-
-<p>We then needed to write an @supports rule to ensure the right fonts went to the right browsers:</p>
-
-<figure class="pre"><pre><code class="language-css">html {
-  font-family: 'SourceSans' sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: 'SourceSansVariable', sans-serif;
-  }
-}</code></pre></figure>
-
-<p>In the above code, the single-style fonts are specified as standard, however if a browser supports variable fonts (it&#8217;s a reasonable assumption that can be judged by support for <code>font-variation-settings</code>) then it gets the variable font instead.</p>
-
-<p>One final thing. For a belt and braces approach, every time you use variable fonts you should explicitly set the font weight even when the weight you want is <code>400</code> or <code>normal</code>. With a variable font, one browser&#8217;s idea of the default weight may differ slightly from another. In our testing Firefox rendered default text significantly lighter than Safari and Chrome, until we did this:</p>
-
-<figure class="pre"><pre><code class="language-css">html {
-  font-family: 'SourceSans' sans-serif;
-   font-weight: 400;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: 'SourceSansVariable', sans-serif;
-    font-variation-settings: "wght" 400;
-  }
-}</code></pre></figure>
-
-<p>And that&#8217;s it. Do check out how it came together on the <a href="https://2018.ampersandconf.com/">Ampersand website</a>, and don&#8217;t forget Ampersand is a conference dedicated to typography on the web – if that&#8217;s your thing you might want to check it out. There will be plenty of discussion of variable fonts, and much more besides.</p>
-
-</div><!-- /.prose --></section>
-<section><div class='prose'>
-
-</div><!-- /.prose --><figure class="inline">
-<a href="https://2018.ampersandconf.com/"><img src="http://clagnut.com/images/ampersand-conf.png" alt="Ampersand" style="max-width:4.5em"></a>
-</figure><div class='prose'>
-
-<p>To get the full low-down on variable fonts – and a lot more besides – join me and experts from around the world at <strong><a href="https://2018.ampersandconf.com/">Ampersand</a></strong> to get the full picture of what web typography can be today. The day before the conference I&#8217;ll also be running a <strong><a href="https://2018.ampersandconf.com/workshops">responsive web typography workshop</a></strong>.</p>
-<p><a href='http://clagnut.com/blog/2390/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
-		</item>
-		<item>
-			<pubDate>Tue, 21 Feb 2017 19:47:49 PST</pubDate>
-			<title>Getting started with variable fonts</title>
-			<link>http://clagnut.com/blog/2389/</link>
-			<guid>http://clagnut.com/blog/2389/</guid>
-			<description><![CDATA[<p><em>The following is an original draft from my book <a href="http://book.webtypography.net/">Web Typography</a>.</em></p>
-
-</div><!-- /.prose --></section>
-<section><div class='prose'>
-
-<p>In October 2016, version 1.8 of OpenType was <a href="https://medium.com/@tiro/12ba6cd2369">released</a>, and with it an extensive new technology: OpenType Font Variations. More commonly known as <dfn>variable fonts</dfn>, the technology enables a single font file to behave like multiple fonts. This is done by defining variations within the font, which are interpolated along one or more axes. Two of these axes might be width and weight, but the type designer can define many others too.</p>
-
-</div><!-- /.prose --><figure>
-<img src="http://clagnut.com/images/2389/variablefonts.png" alt="6 by 6 matrix styles" style="max-width:19em">
-<figcaption><a href="http://koe.berlin/variablefont/">Gingham</a> variable font with continuous variation along width and weight axes</figcaption>
-</figure><div class='prose'>
-
-<p>The preceding image shows a variable font rendered in 36 different styles, all from one file. If you were to pick four styles and serve them as normal fonts, a variable font file capable of providing the same styles would be significantly smaller than the four separate files, with the added speed advantage of requiring just one call to the server.</p>
-
-<p>The illustration varies width and weight. Those two axes alone mean that, according to the OpenType Font Variations specification, theoretically 1000Ã—1000 (one million) variations are possible within the one file with no extra data. A third axis could increase the possibilities to one billion.</p>
-
-<p>At the time of writing the technology is in its infancy, but it potentially opens up tremendous opportunities for new kinds of responsive typography. The file size savings and fine precision means that many small adjustments could be made to the rendered font, potentially responding dynamically to the reader&#8217;s device and environment, as well to the text.</p>
-
-<p>Within the design space created by the axes of variation in a font, the type designer can define specific positions as <dfn>named instances</dfn>. Each named instance could appear to users of design software as if it were a separate font, for example &#8216;regular&#8217;, &#8216;light condensed&#8217; or &#8216;extra bold extended&#8217;.</p>
-
-<p>In the OpenType specification, five common axes of variation have been pre-defined as four-character tags: weight <code>wght</code>, width <code>wdth</code>, italic <code>ital</code>, slant <code>slnt</code> and optical size <code>opsz</code>. These font variations can be enabled by the <code>font-weight</code>, <code>font-stretch</code>, and <code>font-style</code> properties. <a href="https://drafts.csswg.org/css-fonts-4/">CSS4</a> adds new values for the properties to work with font variations:</p>
-
-<ul>
-<li><code>font-weight</code> takes any integer from 1â€“999 (not limited to multiples of 100 as in <abbr class='c2sc'>CSS3</abbr>).</li>
-<li><code>font-stretch</code> takes a percentage number in a range where 100% is normal, 50% is ultra-condensed and 200% is ultra-expanded.</li>
-<li><code>font-style</code> takes an oblique angle value from <code>oblique -90deg</code> to <code>oblique 90deg</code>.</li>
-<li><code>font-optical-sizing</code> is a new property taking a value of <code>auto</code> or <code>none</code> which turns on optical sizing if it&#8217;s available as an axis in the variable font.</li>
-</ul>
-
-</div><!-- /.prose --><figure>
-<img src="http://clagnut.com/images/2389/variablefonts-opsz.png" alt="6 styles">
-<figcaption>Continuous variation along an optical sizing axis in <a href="https://www.typenetwork.com/brochure/opentype-variable-fonts-moving-right-along/">Amstelvar</a></figcaption>
-</figure><div class='prose'>
-
-<p>Font designers can also define custom axes with their own four-character tags. This enables designers to vary almost any imaginable aspect of a typeface, such as contrast, <span class='nobr'>x-height</span>, serif-shape, grunginess, and even parts of an individual glyphs, such as the length of the tail on a Q. Using a syntax similar to <code>font-feature-settings</code>, custom axes as well as the predefined ones, are available through the low-level <code>font-variation-settings</code> property. For example, this would render text with a variation that is very wide, light weight and optically sized for 48pt:</p>
-
-<figure class="pre"><pre><code class="language-css">h2 {
-    font-variation-settings: "wdth" 600, "wght" 200, "opsz" 48;
-}
-</code></pre></figure>
-
-<p>Visit Laurence Penney&#8217;s <a href="http://Axis-Praxis.org">Axis-Praxis.org</a> to play with variations and design instances of some variable fonts (requires <a href="https://developer.apple.com/safari/technology-preview/">Safari Technology Preview</a>).</p>
-
-<p>As with regular OpenType fonts, variable fonts can be used as web fonts as-is, or preferably wrapped up as a <abbr class='c2sc'>WOFF</abbr>. If you want to use to a variable font as a web font, in your <code>@font-face</code> rule you should set the <code>format</code> to <code>woff-variations</code> or <code>ttf-variations</code>. If you wish to provide regular font fallbacks for browsers which don&#8217;t support variable fonts, you can use multiple font-face rules where necessary, repeating the variable font each time.</p>
-
-<pre>@font-face {
-    font-family: 'Nicefont';
-    src: url('nicefont_var.woff2') format('woff-variations');
-    src: url('nicefont_regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Nicefont';
-    src: url('nicefont_var.woff2') format('woff-variations');
-    src: url('nicefont_black.woff2') format('woff2');
-    font-weight: 800;
-    font-style: normal;
-}</pre>
-
-<p>At the time of writing there is support for <code>font-variation-settings</code> in Webkit Nightlies and <a href="https://developer.apple.com/safari/technology-preview/">Safari Technology Preview</a>, but neither support <code>font-weight</code> or other such properties with variable fonts. Additionally the web font <code>format</code> needs to be <code>woff</code> or <code>ttf</code>.</p>
-
-<p>Variable fonts were jointly developed by Adobe, Apple, Google and Microsoft. This means support in new versions of browsers should arrive across the board as soon as the precise implementations and <abbr class='c2sc'>CSS</abbr> specifications are agreed. Current <a href="http://responsivewebdesign.com/podcast/variable-fonts">estimates</a> have variable fonts being a viable option on the web by early 2018.</p>
-
-</div><!-- /.prose --></section>
-<section><div class='prose'>
-
-</div><!-- /.prose --><figure class="inline">
-<a href="https://2018.ampersandconf.com/"><img src="http://clagnut.com/images/ampersand-conf.png" alt="Ampersand" style="max-width:4.5em"></a>
-</figure><div class='prose'>
-
-<p>To get the full low-down on variable fonts – and a lot more besides – join me and experts from around the world at <strong><a href="https://2018.ampersandconf.com/">Ampersand</a></strong> to get the full picture of what web typography can be today. The day before the conference Iâ€™ll also be running a <strong><a href="https://2018.ampersandconf.com/workshops">responsive web typography workshop</a></strong>.</p>
-<p><a href='http://clagnut.com/blog/2389/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+			<pubDate>Sun, 03 Jan 2021 19:44:35 PST</pubDate>
+			<title>Top Tunes 2020</title>
+			<link>http://clagnut.com/blog/2414/</link>
+			<guid>http://clagnut.com/blog/2414/</guid>
+			<description><![CDATA[<p>Hereâ€™s a compilation of favourite songs from those I bought in the last year (not all were released this year). I certainly purchased a lot, and I&#8217;m pretty pleased with how the playlist panned out. Turns out my absolute favourites were electronic pop from relatively recent years – I&#8217;m particularly enjoying New Order&#8217;s <em>Music Complete</em> from 2015, and I absolutely love RÃ³isÃ­n Murphy&#8217;s <em>Overpowered</em> from 2007 (I bought four of her 12&#8221; singles too). All of which sound fantastic on vinyl. Speaking of which, the quintuple vinyl of Kruder &amp; Dorfmeisterâ€™s classic <em>K&amp;D Sessions</em> compilation is a spectacular listen.</p>
+
+<p>Other favourites include Ian Brown&#8217;s and Steve Mason&#8217;s most recent albums, both from 2019. New this year was a beautiful Erland Cooper offering celebrating more of the Orkney Islands, yet more Four Tet doing electronica in his inimitable way, loud frustration from Idles and a sweary compilation of working class minimalism from Sleaford Mods.</p>
+
+</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2020vinyl.jpg" alt="Photo" /><figcaption>Forty-odd vinyl records spread out on my floor</figcaption></figure><div class='prose'>
+
+<p>Because I keep these playlists roughly to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list. Tim Burgessâ€™s 2012 collaboration with Lambchopâ€™s Kurt Wagner is worthy of note especially as it contains a (lovely) song entitled <em>A Case for Vinyl</em>. Nick Caveâ€™s <em>Idiot Prayer – alone at Alexandria Palace</em> is definitely an album to sum up the year weâ€™ve just had. Some golden oldies include opportunistic re-releases of <abbr class='c2sc'>OMD</abbr>â€™s first album and Ozric Tentaclesâ€™ <em>Strangitude</em> (the one with <em>Sploosh!</em>), both worth having mind you.
+As is Billy Cobhamâ€™s <em>Spectrum</em>, a 1970s jazz-fusion drumfest heavily sampled by Massive Attack. Finally a worthy last minute entry goes to local boy Fatboy Slimâ€™s <em>Back to Mine</em> compilation which is chock full of funky classics, including the original source material for <em>Praise You</em>.</p>
+
+<h3>The Best Songs I Bought in&nbsp;2020,&nbsp;Ever</h3>
+
+<ol>
+<li><cite>Singularity</cite> by New Order from the album <cite>Music Complete</cite></li>
+<li><cite>Movie Star</cite> by RÃ³isÃ­n Murphy from the album <cite>Overpowered</cite></li>
+<li><cite>Silhouettes (I, <abbr class='c2sc'>II</abbr> & <abbr class='c2sc'>III</abbr>)</cite> by Floating Points from the album <cite>Elaenia</cite></li>
+<li><cite>About the Light</cite> by Steve Mason from the album <cite>About The Light</cite></li>
+<li><cite>First World Problems</cite> by Ian Brown from the album <cite>Ripples</cite></li>
+<li><cite>There Is No Year</cite> by Algiers from the album <cite>There Is No Year</cite></li>
+<li><cite>Model Village</cite> by Idles from the album <cite>Ultra Mono</cite></li>
+<li><cite>Chills Me to the Bone</cite> by Tricky from the album <cite>Fall to Pieces</cite></li>
+<li><cite>Peedie Breeks</cite> by Erland Cooper from the album <cite>Hether Blether</cite></li>
+<li><cite>Love Salad</cite> by Four Tet from the album <cite>Sixteen Oceans</cite></li>
+<li><cite>Sweetheart Mercury</cite> by Tim Burgess from the album <cite>I Love The New Sky</cite></li>
+<li><cite>Look At All The Smiling Faces</cite> by Shigeto from the album <cite>Full Circle</cite></li>
+<li><cite>The Birds</cite> by Elbow from the album <cite>Build a Rocket Boys</cite></li>
+<li><cite>Beautiful Face</cite> by The Aliens from the <abbr class='c2sc'>EP</abbr> <cite>Electronville</cite></li>
+<li><cite>Speechless (Drum &#8216;n&#8217; Bass)</cite> by Count Basic from the album <cite>The K&D Sessions</cite></li>
+<li><cite>Jobseeker</cite> by Sleaford Mods the album <cite>All That Glue</cite></li>
+<li><cite>Gammon</cite> by Fujiya & Miyagi from the album <cite>Flashback</cite></li>
+<li><cite>Must I Evolve?</cite> by Jarv Isâ€¦ from the album <cite>Beyond the Pale</cite></li>
+</ol>
+
+<p>You can listen to the <a href="https://open.spotify.com/playlist/7l9ATogoG6rO1fE8B0k2h4?si=jWlhlUukQIKB_Xig_DjXhQ">playlist on Spotify</a>.</p>
+<p><a href='http://clagnut.com/blog/2414/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/music/">Music</category>
 		</item>
 	</channel>
 		</rss>
