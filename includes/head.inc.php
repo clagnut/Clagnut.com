@@ -4,12 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
     
-    <link rel="preload" href="/fonts/Premiera-Book.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="preload" href="/fonts/Ingeborg-Fat.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="/fonts/Literata-var.woff2" as="font" type="font/woff2" crossorigin="">
     
 	<script>
 	    var html = document.getElementsByTagName('html')[0];
-	    html.className = 'js';
+	    html.className += ' js';
+		if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+			var root = document.getElementsByTagName('html')[0];
+			root.className += ' isSafari';
+		}		
 	</script>
     
     <!--css-->
