@@ -7,4 +7,14 @@
 <nav class="colophon">Published in Brighton, UK · <a href="/colophon">Colophon</a></nav>
 </footer>
 
-<script src="/js/prism.js"></script>
+<script defer="defer" src="/js/prism.js"></script>
+<script defer="defer" src="/js/code-block.js"></script>
+<script>
+// frame-busting after the fact
+if (window.location !== window.parent.location) {
+	var links = document.getElementsByTagName('a');
+	for (link of links) {
+		link.setAttribute("target", "_top");
+	}
+}
+</script>
