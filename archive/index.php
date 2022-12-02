@@ -149,7 +149,7 @@ include($dr . "header.inc.php");
 
 <?php
 if (isset($post_postdate)) {
-	echo "<ul class='articles'>\n";
+	echo "<ul class='articles' role='list'>\n";
 	# Print individual post title and descriptions
 	foreach($post_postdate AS $blogpostid => $date) {
 		echo "<li><article>\n";
@@ -194,7 +194,7 @@ if(!$category_filter AND !$themonth) {
 <aside class="categorylist">
 
 	<h2>Categories</h2>
-	<ul>
+	<ul role='list'>
 	<?php
 	# list categories
 	foreach ($categorys AS $id => $cat) {

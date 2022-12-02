@@ -350,7 +350,7 @@ function getLastfm() {
 
 function makeLastfm() {
 	
-	$lastfmMarkup = "<ul>";
+	$lastfmMarkup = "<ul role='list'>";
 
 	$url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=clagnut&api_key=7fea57568921f8c8c3cf7ac6a951e560&limit=8";
 	#echo "<p><a href='$url'>Lastfm API call</a></p>";
