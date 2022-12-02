@@ -31,6 +31,8 @@ RedirectPermanent /rss.php https://feeds.feedburner.com/Clagnut
 RedirectPermanent /rss https://feeds.feedburner.com/Clagnut
 RedirectPermanent /blog/366/) https://clagnut.com/blog/366/
 RedirectPermanent /clagtunes https://clagnut.com/archive/clagtunes/
+RedirectPermanent /styles/ https://clagnut.com/colophon/
+
 
 ErrorDocument 404 /errors/404.php
 ErrorDocument 500 /errors/500.php
