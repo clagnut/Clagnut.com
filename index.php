@@ -23,22 +23,22 @@ gethomecontent();
 
 <!DOCTYPE html>
 <html lang="en-gb">
-
 <head>
 <?php include($dr . "head.inc.php"); ?>
 
 <title>Clagnut by Richard Rutter</title>
 
-<meta name="description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, human-centred design, Brighton, music and occasionally mountain biking. " />
+<meta name="description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, human-centred design, Brighton, music and occasionally cycling. " />
 <meta name="author" content="Richard Rutter" /> 
 
 <!-- Twitter Card -->
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@clagnut" />
-<meta name="twitter:title" content="Clagnut by Richard Rutter" />
-<meta name="twitter:description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, human-centred design, Brighton, music and cycling." />
-<meta name="twitter:image" content="https://ampersand.s3.amazonaws.com/rr-twittercard.jpg" />
+<meta property="og:title" content="Clagnut by Richard Rutter" />
+<meta property="og:description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, human-centred design, Brighton, music and occasionally cycling." />
+<meta property="og:image" content="https://ampersand.s3.amazonaws.com/rr-twittercard.jpg" />
+<meta property="og:image:alt" content="Photo of the author, a faintly smiling middle-aged white man" />
 
 </head>
 
@@ -73,7 +73,7 @@ include($dr . "header.inc.php");
 
 <?php
 if (isset($blogpostids)) {
-	echo "<ul class='articles'>\n";
+	echo "<ul class='articles' role='list'>\n";
 	# Print individual post title and descriptions
 	foreach ($blogpostids AS $key => $blogpostid) {
 		getpost($blogpostid);
@@ -102,7 +102,8 @@ if (isset($blogpostids)) {
 <div class="elsewhere social">
 <h3>Me Elsewhere</h3>
 <ul>
-<li><a href="https://twitter.com/clagnut" class="icon" rel="me"><img src="/i/icon-twitter.svg" alt="twitter"></a> <a href="https://twitter.com/clagnut" rel="me">Twitter</a></li>
+	<li><a href="https://twitter.com/clagnut" class="icon" rel="me"><img src="/i/icon-twitter.svg" alt="twitter"></a> <a href="https://twitter.com/clagnut" rel="me">Twitter</a></li>
+	<li><a href="https://mastodon.social/@Richr" class="icon" rel="me"><img src="/i/icon-mastodon.svg" alt="mastodon"></a> <a href="https://mastodon.social/@Richr" rel="me">Mastodon</a></li>
     <li><a href="https://flickr.com/photos/clagnut" class="icon" rel="me"><img src="/i/icon-flickr.svg" alt="flickr"></a> <a href="https://flickr.com/photos/clagnut" rel="me">Flickr</a></li>
     <li><a href="https://github.com/clagnut" class="icon" rel="me"><img src="/i/icon-github.svg" alt="github"></a> <a href="https://github.com/clagnut" rel="me">Github</a></li>
     <li><a href="https://strava.com/athletes/clagnut" class="icon" rel="me"><img src="/i/icon-strava.svg" alt="strava"></a> <a href="https://strava.com/athletes/clagnut" rel="me">Strava</a></li>

@@ -32,13 +32,19 @@ getpost($blog_id);
 <html lang="en-GB">
 
 <head>
-<?php include($dr . "head.inc.php"); ?>
+<?php 
+include($dr . "head.inc.php");
+
+$post_h1 = $post_title[$blog_id];
+// replace last space in title with non-breaking space. causes more problems than it's worth
+//$post_h1 = preg_replace("/(.*) /", "$1&nbsp;", $post_h1);
+?>
 
     <title><?php echo $post_headtitle[$blog_id] . " | Clagnut by Richard Rutter"; ?></title>
     
     <meta name="description" content="<?php echo $post_description[$blog_id] ?>" />
     <meta name="keywords" content="<?php echo implode(',', $post_tags[$blog_id]) ?>" />
-    <meta name="author" content="Richard Rutter" />  
+    <link rel="canonical" href="https://clagnut.com/blog/<?php echo $blog_id ?>">
     
     <!-- Twitter Card -->
     <?php
@@ -52,7 +58,7 @@ getpost($blog_id);
 			$socialimage_alt = $post_mainimage_alt[$blog_id];
 		} else {
 			$socialimage_url = "https://ampersand.s3.amazonaws.com/rr-twittercard.jpg";
-			$socialimage_alt = "Photo of the author, Richard Rutter";
+			$socialimage_alt = "Photo of the author, a faintly smiling middle-aged white man";
 			$twittercard = "summary";
 		}
 	}
@@ -60,10 +66,13 @@ getpost($blog_id);
 	
     <meta name="twitter:card" content="<?php echo $twittercard ?>" />
     <meta name="twitter:site" content="@clagnut" />
-    <meta name="twitter:title" content="<?php echo $post_headtitle[$blog_id] ?>" />
-    <meta name="twitter:description" content="<?php echo $post_description[$blog_id] ?>" />
-	<meta name="twitter:image" content="<?php echo $socialimage_url ?>" />
-	<meta name="twitter:image:alt" content="<?php echo $socialimage_alt ?>" />
+    <meta property="og:type" content="article"/>
+    <meta property="article:author" content="Richard Rutter"/>
+    <meta property="og:image" content="<?php echo $socialimage_url ?>"/>
+	<meta property="og:image:alt" content="<?php echo $socialimage_alt ?>" />
+    <meta property="og:url" content="https://clagnut.com/blog/<?php echo $blog_id ?>"/>
+    <meta property="og:title" content="<?php echo $post_headtitle[$blog_id] ?>"/>
+    <meta property="og:description" content="<?php echo $post_description[$blog_id] ?>"/>
     
 </head>
 
@@ -78,7 +87,7 @@ include($dr . "header.inc.php");
 
 <header>
 
-<h1><?php echo $post_title[$blog_id] ?></h1>
+<h1><?php echo $post_h1 ?></h1>
 
 <div class="meta">
 <p class="published"><time datetime="<?php echo $post_isodate[$blog_id] ?>"><?php echo $post_postdate[$blog_id] ?></time></p>
@@ -92,6 +101,7 @@ include($dr . "header.inc.php");
 
 <section>
 <div class="prose">
+
 <?php
 /*
 $word = "[A-Za-z0-9_,.;:&#']+";
@@ -158,7 +168,11 @@ if (isset($flickr)) {
 	?>
 </ul>
 		
-<p class="comment"><a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut http://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.svg" alt="" class="icon"> Comment via Twitter</a></p>
+<p class="comment">
+<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut http://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.svg" alt="" class="icon"> Comment via Twitter</a></p>
+<p class="comment">
+<a href="https://mastodon.social/share?text=<?php echo $post_headtitle[$blog_id] ?>&url=http://clagnut.com/blog/<?php echo $blog_id ?>" data-src="<?php echo $post_headtitle[$blog_id] ?>&url=http://clagnut.com/blog/<?php echo $blog_id ?>" class="commentonmastodon"><img src="/i/icon-mastodon" alt="" class="icon"> Comment via Mastodon</a>
+</p>
 	
 </aside>
 
@@ -199,11 +213,39 @@ if (isset($flickr)) {
 
 </article>
 
-
 </main>
 
-
-
 <?php include($dr . "footer.inc.php"); ?>
+<script>
+/* Generate a share link for the user's Mastodon domain */
+function MastodonShare(e){
+
+    // Get the source text
+    src = e.target.getAttribute("data-src");
+
+    // Get the Mastodon domain
+    domain = prompt("Enter your Mastodon domain", "mastodon.social");
+
+    if (domain == "" || domain == null){
+		e.preventDefault();
+		return false;
+    }
+
+    // Build the URL
+    url = "https://" + domain + "/share?text=" + src;
+
+    // Open a window on the share page
+    window.open(url, '_top');
+	e.preventDefault();
+	return false;
+}
+function enableMastodonShare(){
+    var eles = document.getElementsByClassName('commentonmastodon');
+    for (var i=0; i<eles.length; i++){
+        eles[i].addEventListener('click', MastodonShare);
+    }
+}
+enableMastodonShare();
+</script>
 </body>
 </html>

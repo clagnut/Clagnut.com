@@ -1092,7 +1092,7 @@ div.inline-holder, .inline figcaption {
 }
 
 .icon img {
-	height: 0.9em;
+	max-height: 0.9em;
 	max-width: 1em;
 	vertical-align: baseline;
 }
@@ -1245,6 +1245,7 @@ caption {
 
 .comment .icon {
 	width: 1em;
+	vertical-align:baseline;
 }
 
 .relatedposts {
