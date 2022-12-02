@@ -235,10 +235,10 @@ function format($text, $textile="y") {
 		"</figure><div class='prose'>",
 		"<section><div class='prose'>",
 		"</div><!-- /.prose --></section>",
-		"<figure class=\"pre\"><pre><code class=\"language-css\">",
+		"<figure class=\"pre\" data-element=\"code-block\"><div class=\"code-block__header\"><div role=\"alert\"></div></div><pre><code class=\"language-css\">",
 		"</code></pre></figure>",
 		"<code class=\"language-html\">",
-		" – ",
+		" – ",
 		" OS X",
 		"CSS2",
 		"CSS3",
@@ -929,6 +929,18 @@ class SmartyPants {
 		return $tokens;
 	}
 
+}
+
+function get_browser_name($user_agent)
+{
+    if (strpos($user_agent, 'Opera') || strpos($user_agent, 'OPR/')) return 'isOpera';
+    elseif (strpos($user_agent, 'Edge')) return 'isEdge';
+    elseif (strpos($user_agent, 'Chrome')) return 'isChrome';
+    elseif (strpos($user_agent, 'Safari')) return 'isSafari';
+    elseif (strpos($user_agent, 'Firefox')) return 'isFirefox';
+    elseif (strpos($user_agent, 'MSIE') || strpos($user_agent, 'Trident/7')) return 'isIE';
+    
+    return 'isOther';
 }
 
 ?>
