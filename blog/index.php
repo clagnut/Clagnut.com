@@ -216,36 +216,5 @@ if (isset($flickr)) {
 </main>
 
 <?php include($dr . "footer.inc.php"); ?>
-<script>
-/* Generate a share link for the user's Mastodon domain */
-function MastodonShare(e){
-
-    // Get the source text
-    src = e.target.getAttribute("data-src");
-
-    // Get the Mastodon domain
-    domain = prompt("Enter your Mastodon domain", "mastodon.social");
-
-    if (domain == "" || domain == null){
-		e.preventDefault();
-		return false;
-    }
-
-    // Build the URL
-    url = "https://" + domain + "/share?text=" + src;
-
-    // Open a window on the share page
-    window.open(url, '_top');
-	e.preventDefault();
-	return false;
-}
-function enableMastodonShare(){
-    var eles = document.getElementsByClassName('commentonmastodon');
-    for (var i=0; i<eles.length; i++){
-        eles[i].addEventListener('click', MastodonShare);
-    }
-}
-enableMastodonShare();
-</script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 
 <script defer="defer" src="/js/prism.js"></script>
 <script defer="defer" src="/js/code-block.js"></script>
+<script defer="defer" src="/js/global.js"></script>
 <script>
 // frame-busting after the fact
 if (window.location !== window.parent.location) {
