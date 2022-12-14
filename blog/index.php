@@ -162,16 +162,19 @@ if (isset($flickr)) {
 			echo "<li class='machine-tag'><a href='/search?q=" . urlencode($machinetag) . "' rel='tag'>" . htmlentities($machinetag) . "</a></li>\n";
 		}
 	}
-	*/
-	
-	
+	*/	
 	?>
 </ul>
 		
 <p class="comment">
-<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut http://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.svg" alt="" class="icon"> Comment via Twitter</a></p>
+<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut https://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.svg" alt="" class="icon"> Comment via Twitter</a></p>
+
+<?php // build Mastodon link
+$mastodonLink = "text=" . $post_headtitle[$blog_id] . " by @Richr@mastodon.social" . "&url=https://clagnut.com/blog/" . $blog_id;
+?>
+
 <p class="comment">
-<a href="https://mastodon.social/share?text=<?php echo $post_headtitle[$blog_id] ?>&url=http://clagnut.com/blog/<?php echo $blog_id ?>" data-src="<?php echo $post_headtitle[$blog_id] ?>&url=http://clagnut.com/blog/<?php echo $blog_id ?>" class="commentonmastodon"><img src="/i/icon-mastodon" alt="" class="icon"> Comment via Mastodon</a>
+<a href="https://mastodon.social/share?<?php echo $mastodonLink ?>" data-src="<?php echo $mastodonLink ?>" class="commentonmastodon"><img src="/i/icon-mastodon" alt="" class="icon"> Comment via Mastodon</a>
 </p>
 	
 </aside>

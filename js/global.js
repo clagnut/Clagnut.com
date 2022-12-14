@@ -41,7 +41,7 @@ function MastodonShare(e){
 	createCookie("mastdom",domain,365);
 
     // Build the URL
-    var url = "https://" + domain + "/share?text=" + src;
+    var url = "https://" + domain + "/share?" + src;
 
     // Open a window on the share page
     window.open(url, '_top');
