@@ -42,7 +42,7 @@ This is a paragraph directly following a paragraph. There should be a small gap 
 
 ### Code block
 
-Here's a block of code. It should be using [Prism.js](https://prismjs.com/) for syntax highlighting.
+Here's a block of code. It should be using [Prism.js](https://prismjs.com/) for syntax highlighting and rendered in Inconsolata.
 
 	p {
 		hyphens: auto;
@@ -56,7 +56,7 @@ Here's a block of code. It should be using [Prism.js](https://prismjs.com/) for 
 
 The `blockquote` element represents a section that is being quoted from another source. The following is a single paragraph:
 
-> Democracy is a system of government where the citizens exercise power by voting.In a direct democracy, the citizens as a whole form a governing body and vote directly on each issue.
+> Democracy is a system of government where the citizens exercise power by voting. In a direct democracy, the citizens as a whole form a governing body and vote directly on each issue.
 
 Multiple paragraphs:
 
@@ -129,7 +129,7 @@ Figures are usually used to refer to images.
 <figure>
     <img src="/images/400x200.png" alt="Example image"/>
     <figcaption>
-        This is a placeholder image, with supporting caption
+        This is a placeholder image, with supporting caption rendered in Plex Sans
     </figcaption>
 </figure>
 
@@ -153,7 +153,7 @@ Here, a part of a poem is marked up using figure:
     All mimsy were the borogoves,<br/>
     And the mome raths outgrabe.
     <figcaption>
-        <cite>Jabberwocky</cite> (first verse). Lewis Carroll, 1832-98
+        <cite>Jabberwocky</cite> (first verse). Lewis Carroll, 1832–98
     </figcaption>
 </figure>
 
@@ -196,20 +196,20 @@ The `abbr` element is used for any abbreviated text, like <abbr title="Staffords
 
 ### Code
 
-The `code` element is used to represent fragments of computer code as we&#8217;ve seen through this page.
+The `code` element is used to represent fragments of computer code as we&#8217;ve seen through this page. It should be rendered in Inconsolata.
 
 ### Variable
 
-The `var` element is used to denote a <var>variable</var>.
+The `var` element is used to denote a <var>variable</var>.  It should be rendered in Inconsolata.
 
 ### Sample output
 
-The `samp` element is used to represent <samp>sample output</samp> from a program.
+The `samp` element is used to represent <samp>sample output</samp> from a program.  It should be rendered in Inconsolata.
 
 
 ### Keyboard entry
 
-The `kbd` element is used to denote <kbd>user input</kbd>.
+The `kbd` element is used to denote <kbd>user input</kbd>.  It should be rendered in Inconsolata.
 
 
 ### Superscript and subscript text
@@ -228,7 +228,7 @@ The `del` element is used to represent <del>deleted</del> or retracted text. The
 
 ## Tabular data
 
-Tables should be used when displaying tabular data.
+Tables should be used when displaying tabular data. They are rendered in Plex Sans.
 
 <figure class="fig-table">
 <table>
