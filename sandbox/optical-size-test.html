@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Variable font optical sizing test</title>
+<style>
+@font-face {
+	font-family: 'Literata';
+	src: url('/fonts/Literata-var.woff2') format('woff2');
+	font-weight: 1 1000;
+	font-style: normal;
+	font-display: fallback;
+}
+@font-face {
+	font-family: 'Newsreader';
+	src: url('/fonts/newsreader.woff2') format('woff2');
+	font-weight: 1 1000;
+	font-style: normal;
+	font-display: fallback;
+}
+
+body {
+	font-family: "Newsreader", fantasy;
+	font-optical-sizing: auto;
+}
+p {
+	font-size: 18px;
+}
+h1 {
+	font-size: 48px;
+}
+h2 {
+	font-size: 28px;
+}
+</style>
+</head>
+<body>
+<h1>This is heading 1</h1>
+<p>Using variable fonts can be an excellent way to reduce bandwidth and latency as they can highly efficiently combine multiple styles into one font file. However, as with standard professional fonts, they can contain a lot characters you will never use (in my case this would include Greek and Cyrillic, your mileage will vary).</p>
+<h2>This is heading 2</h2>
+<p>Using variable fonts can be an excellent way to reduce bandwidth and latency as they can highly efficiently combine multiple styles into one font file. However, as with standard professional fonts, they can contain a lot characters you will never use (in my case this would include Greek and Cyrillic, your mileage will vary).</p>
+</body>
+</html>
