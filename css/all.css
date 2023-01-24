@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
 }
 
-a {
+a, ins {
 	text-decoration-skip-ink: auto;
 }
 
@@ -210,7 +210,7 @@ article.post {
 a {
 	color: inherit;
 	text-decoration: underline;
-	text-decoration-color: rgba(0,0,0,0.2);
+	text-decoration-color: rgba(0,0,0,0.3);
 	transition-property: border, text-decoration, text-decoration-color, color, opacity;
 	transition-duration: 0.25s;
 	transition-timing-function: ease;
@@ -883,18 +883,6 @@ article p, article li, article table, article dl, article blockquote {
 	-webkit-hyphenate-limit-zone: 8%;
 	-webkit-hyphenate-limit-last: always;
 	
-	-moz-hyphens: auto;
-	-moz-hyphenate-limit-chars: 7 4 3;
-	-moz-hyphenate-limit-lines: 2;	
-	-moz-hyphenate-limit-zone: 8%;
-	-moz-hyphenate-limit-last: always;
-	
-	-ms-hyphens: auto;
-	-ms-hyphenate-limit-chars: 7 4 3;
-	-ms-hyphenate-limit-lines: 2;	
-	-ms-hyphenate-limit-zone: 8%;
-	-ms-hyphenate-limit-last: always;
-	
 	hyphens: auto;
 	hyphenate-limit-chars: 7 4 3;
 	hyphenate-limit-lines: 2;	
@@ -1018,10 +1006,8 @@ strong strong {
 pre, code, var, samp, kbd, .code-block__header button, .code-block__alert {
 	font-family: "inconsolata", "consolas", "andale mono", "droid sans mono", monospace, "Lucida Grande", "Arial Unicode MS";
 	-webkit-hyphens: manual;
-	-moz-hyphens: manual;
-	-ms-hyphens: manual;
 	hyphens: manual;
-	font-weight: 500; /* prefer a slightly bolder look, more like Consolata */
+	font-weight: 500; /* prefer a slightly bolder look, more like Consolas */
 	font-style: normal;
 }
 
@@ -1038,7 +1024,7 @@ p code, p var, p samp, p kbd {
 }
 
 figcaption code, figcaption var, figcaption samp, figcaption kbd {
-	font-stretch: 85%; /* compress to match figcation text */
+	font-stretch: 85%; /* compress to match figcaption text */
 }
 
 del {
@@ -1048,6 +1034,7 @@ del {
 ins {
 	text-decoration: underline;
 	text-decoration-style: dotted;
+	text-decoration-color: rgba(0,0,0,0.3);
 	
 }
 /* @end */
@@ -1156,8 +1143,6 @@ tr {
 
 th {
 	-webkit-hyphens: manual;
-	-moz-hyphens: manual;
-	-ms-hyphens: manual;
 	hyphens: manual;
 	font-weight: 600;
 }
@@ -1250,8 +1235,6 @@ caption {
 	padding-right: 0.25em;
 	display: inline;
 	-webkit-hyphens: manual;
-	-moz-hyphens: manual;
-	-ms-hyphens: manual;
 	hyphens: manual;
 	white-space: nowrap;
 }
@@ -1296,8 +1279,6 @@ ul.articles {
 
 .articles h3 {
 	-webkit-hyphens: manual;
-	-moz-hyphens: manual;
-	-ms-hyphens: manual;
 	hyphens: manual;
 	margin-top: 0;
 }
@@ -1336,8 +1317,6 @@ ul.articles {
 	margin-left:auto;
 	margin-right: auto;
 	-webkit-hyphens: manual;
-	-moz-hyphens: manual;
-	-ms-hyphens: manual;
 	hyphens: manual;
 }
 
@@ -1479,8 +1458,6 @@ pre[class*="language-"] {
 	tab-size: 4;
 
 	-webkit-hyphens: manual;
-	-moz-hyphens: manual;
-	-ms-hyphens: manual;
 	hyphens: manual;
 }
 

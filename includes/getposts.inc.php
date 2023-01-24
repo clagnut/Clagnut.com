@@ -158,7 +158,7 @@ function getpost($blog_id) {
 				$mainimage_alt = format($mainimage_alt_raw);
 				$mainimage_alt = str_replace(array("<p>","</p>"),array("",""),$mainimage_alt);
 				$mainimage = "<figure class=\"fullbleed\"><img src=\"/images/$mainimage_src\" alt=\"$mainimage_alt\" /></figure>";
-				$mainimage_url = "http://clagnut.com/images/$mainimage_src";
+				$mainimage_url = "https://clagnut.com/images/$mainimage_src";
 			} else {
 				$mainimage = "";
 				$mainimage_url = "";
@@ -168,7 +168,7 @@ function getpost($blog_id) {
 			
 			// build social image
 			if($socialimage_src) {
-				$socialimage_src = "http://clagnut.com/images/$socialimage_src";				
+				$socialimage_src = "https://clagnut.com/images/$socialimage_src";				
 				$socialimage_alt = format($socialimage_alt_raw);
 				$socialimage_alt = str_replace(array("<p>","</p>"),array("",""),$socialimage_alt);
 			} else {

@@ -3,7 +3,7 @@
 <title>Testing CSS hyphenation properties</title>
 <style>
 body, h2 {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .tests {
@@ -13,9 +13,10 @@ body, h2 {
 }
 
 .test {
-	font-family:"Georgia", serif;
-	width: 28.7ch;
+	font-family: "Georgia", serif;
+	width: 28.8ch;
 	margin-right: 2em;
+	display: block;
 }
 
 .test p {
@@ -24,11 +25,15 @@ body, h2 {
 
 .test1 {
 	-webkit-hyphens:auto;
+	-ms-hyphens:auto;
+	-moz-hyphens:auto;
 	hyphens:auto;
 }
 
 .test2 {
 	-webkit-hyphens:auto;
+	-ms-hyphens:auto;
+	-moz-hyphens:auto;
 	hyphens:auto;
 	
 	-ms-hyphenate-limit-lines: 2;
@@ -39,6 +44,8 @@ body, h2 {
 
 .test3 {
 	-webkit-hyphens:auto;
+	-ms-hyphens:auto;
+	-moz-hyphens:auto;
 	hyphens:auto;
 	
 	-ms-hyphenate-limit-chars: 6 4 2;
@@ -47,18 +54,26 @@ body, h2 {
 	hyphenate-limit-chars: 6 4 2;
 }
 
-.test4 {
+.test4 { 
 	-webkit-hyphens:auto;
+	-ms-hyphens:auto;
+	-moz-hyphens:auto;
 	hyphens:auto;
 	
 	-webkit-hyphenate-limit-before: 4;
 	-webkit-hyphenate-limit-after: 2;
+	-moz-hyphenate-limit-before: 4;
+	-moz-hyphenate-limit-after: 2;
+	-ms-hyphenate-limit-before: 4;
+	-ms-hyphenate-limit-after: 2;
 	hyphenate-limit-before: 4;
 	hyphenate-limit-after: 2;
 }
 
 .test5 {
 	-webkit-hyphens:auto;
+	-ms-hyphens:auto;
+	-moz-hyphens:auto;
 	hyphens:auto;
 	
 	-webkit-hyphenate-limit-zone: 8%;
@@ -69,6 +84,8 @@ body, h2 {
 
 .test6 {
 	-webkit-hyphens:auto;
+	-ms-hyphens:auto;
+	-moz-hyphens:auto;
 	hyphens:auto;
 	
 	-webkit-hyphenate-limit-last: none;
@@ -82,13 +99,166 @@ body, h2 {
 	hyphenate-limit-last: always;
 }
 
+.supports code {
+	display: none;
+	text-align: left;
+}
+
+.supports code span {
+	white-space: nowrap;
+}
+
+@supports (hyphens:auto) {
+	.supports code.prop-hyphens {
+		display: block;
+	}
+}
+
+@supports (-webkit-hyphens:auto) {
+	.supports code.prop-webkit-hyphens {
+		display: block;
+	}
+}
+
+@supports (-ms-hyphens:auto) {
+	.supports code.prop-ms-hyphens {
+		display: block;
+	}
+}
+
+@supports (-moz-hyphens:auto) {
+	.supports code.prop-moz-hyphens {
+		display: block;
+	}
+}
+
+@supports (hyphenate-limit-lines: 2) {
+	.supports code.prop-hyphenate-limit-lines {
+		display: block;
+	}
+}
+
+@supports (-webkit-hyphenate-limit-lines: 2) {
+	.supports code.prop-webkit-hyphenate-limit-lines {
+		display: block;
+	}
+}
+
+@supports (-ms-hyphenate-limit-lines: 2) {
+	.supports code.prop-ms-hyphenate-limit-lines {
+		display: block;
+	}
+}
+
+@supports (-moz-hyphenate-limit-lines: 2) {
+	.supports code.prop-moz-hyphenate-limit-lines {
+		display: block;
+	}
+}
+
+@supports (hyphenate-limit-chars: 6 4 2) {
+	.supports code.prop-hyphenate-limit-chars {
+		display: block;
+	}
+}
+
+@supports (-webkit-hyphenate-limit-chars: 6 4 2) {
+	.supports code.prop-webkit-hyphenate-limit-chars {
+		display: block;
+	}
+}
+
+@supports (-moz-hyphenate-limit-chars: 6 4 2) {
+	.supports code.prop-moz-hyphenate-limit-chars {
+		display: block;
+	}
+}
+
+@supports (-ms-hyphenate-limit-chars: 6 4 2) {
+	.supports code.prop-ms-hyphenate-limit-chars {
+		display: block;
+	}
+}
+
+@supports (hyphenate-limit-before: 4) {
+	.supports code.prop-hyphenate-limit-before {
+		display: block;
+	}
+}
+
+@supports (-webkit-hyphenate-limit-before: 4) {
+	.supports code.prop-webkit-hyphenate-limit-before {
+		display: block;
+	}
+}
+
+@supports (-ms-hyphenate-limit-before: 4) {
+	.supports code.prop-ms-hyphenate-limit-before {
+		display: block;
+	}
+}
+
+@supports (-moz-hyphenate-limit-before: 4) {
+	.supports code.prop-moz-hyphenate-limit-before {
+		display: block;
+	}
+}
+
+@supports (hyphenate-limit-zone: 8%) {
+	.supports code.prop-hyphenate-limit-zone {
+		display: block;
+	}
+}
+
+@supports (-webkit-hyphenate-limit-zone: 8%) {
+	.supports code.prop-webkit-hyphenate-limit-zone {
+		display: block;
+	}
+}
+
+@supports (-moz-hyphenate-limit-zone: 8%) {
+	.supports code.prop-moz-hyphenate-limit-zone {
+		display: block;
+	}
+}
+
+@supports (-ms-hyphenate-limit-zone: 8%) {
+	.supports code.prop-ms-hyphenate-limit-zone {
+		display: block;
+	}
+}
+
+@supports (hyphenate-limit-last: always) {
+	.supports code.prop-hyphenate-limit-last {
+		display: block;
+	}
+}
+
+@supports (-webkit-hyphenate-limit-last: always) {
+	.supports code.prop-webkit-hyphenate-limit-last {
+		display: block;
+	}
+}
+
+@supports (-moz-hyphenate-limit-last: always) {
+	.supports code.prop-moz-hyphenate-limit-last {
+		display: block;
+	}
+}
+
+@supports (-ms-hyphenate-limit-last: always) {
+	.supports code.prop-ms-hyphenate-limit-last {
+		display: block;
+	}
+}
+
 </style>
 
 </head>
 <body>
 
 <h1>Testing CSS hyphenation properties</h1>
-<p>See <a href="/blog/2228/">accompanying blog post</a> for more details.</p>
+<p>Assessing support for <a href="https://www.w3.org/TR/css-text-4/#hyphenation">CSS Text Module Level 4 hyphenation</a> properties. See <a href="/blog/2395/">accompanying blog post</a> for more details.</p>
 <hr>
 <div class="tests">
 
@@ -99,31 +269,72 @@ body, h2 {
 
 <div class="test">
 <h2>1. hyphens:auto</h2>
+<p class="supports">
+<code class="prop-hyphens">@supports <span>hyphens:auto</span></code>
+<code class="prop-webkit-hyphens">@supports <span>-webkit-hyphens:auto</span></code>
+<code class="prop-moz-hyphens">@supports <span>-moz-hyphens:auto</span></code>
+<code class="prop-ms-hyphens">@supports <span>-ms-hyphens:auto</span></code>
+</p>
 <p class="test1">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
 </div>
 
 <div class="test">
-<h2>2. hyphens:auto, hyphenate-limit-lines</h2>
+<h2>2. hyphenate-limit-lines</h2>
+<p class="supports">
+<code class="prop-hyphenate-limit-lines">@supports <span>hyphenate-limit-lines:2</span></code>
+<code class="prop-webkit-hyphenate-limit-lines">@supports <span>-webkit-hyphenate-limit-lines:2</span></code>
+<code class="prop-ms-hyphenate-limit-lines">@supports <span>-ms-hyphenate-limit-lines:2</span></code>
+<code class="prop-moz-hyphenate-limit-lines">@supports <span>-moz-hyphenate-limit-lines:2</span></code>
+</p>
+
 <p class="test2">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
 </div>
 
 <div class="test">
-<h2>3. hyphens:auto, hyphenate-limit-chars</h2>
+<h2>3. hyphenate-limit-chars</h2>
+<p class="supports">
+<code class="prop-hyphenate-limit-chars">@supports <span>hyphenate-limit-chars:6 4 2</span></code>
+<code class="prop-webkit-hyphenate-limit-chars">@supports <span>-webkit-hyphenate-limit-chars:6 4 2</span></code>
+<code class="prop-ms-hyphenate-limit-chars">@supports <span>-ms-hyphenate-limit-chars:6 4 2</span></code>
+<code class="prop-moz-hyphenate-limit-chars">@supports <span>-moz-hyphenate-limit-chars:6 4 2</span></code>
+</p>
+
 <p class="test3">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
 </div>
 
 <div class="test">
-<h2>4. hyphens:auto,  hyphenate-limit-before/after</h2>
+<h2>4. hyphenate-limit-before/after (legacy)</h2>
+<p class="supports">
+<code class="prop-hyphenate-limit-before">@supports <span>hyphenate-limit-before:4</span> <span>hyphenate-limit-after:2</span></code>
+<code class="prop-webkit-hyphenate-limit-before">@supports <span>-webkit-hyphenate-limit-before:4</span> <span>-webkit-hyphenate-limit-after:2</span></code>
+<code class="prop-ms-hyphenate-limit-before">@supports <span>-webkit-ms-limit-before:4</span> <span>-ms-hyphenate-limit-after:2</span></code>
+<code class="prop-moz-hyphenate-limit-before">@supports <span>-webkit-moz-limit-before:4</span> <span>-moz-hyphenate-limit-after:2</span></code>
+</p>
+
 <p class="test4">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
 </div>
 
 <div class="test">
-<h2>5. hyphens:auto,  hyphenate-limit-zone</h2>
+<h2>5. hyphenate-limit-zone</h2>
+<p class="supports">
+<code class="prop-hyphenate-limit-zone">@supports <span>hyphenate-limit-zone:8%</span></code>
+<code class="prop-webkit-hyphenate-limit-zone">@supports <span>-webkit-hyphenate-limit-zone:8%</span></code>
+<code class="prop-ms-hyphenate-limit-zone">@supports <span>-ms-hyphenate-limit-zone:8%</span></code>
+<code class="prop-moz-hyphenate-limit-zone">@supports <span>-moz-hyphenate-limit-zone:8%</span></code>
+</p>
+
 <p class="test5">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
 </div>
 
 <div class="test">
-<h2>6. hyphens:auto,  hyphenate-limit-last</h2>
+<h2>6. hyphenate-limit-last</h2>
+<p class="supports">
+<code class="prop-hyphenate-limit-last">@supports <span>hyphenate-limit-last:always</span></code>
+<code class="prop-webkit-hyphenate-limit-last">@supports <span>-webkit-hyphenate-limit-last:always</span></code>
+<code class="prop-moz-hyphenate-limit-last">@supports <span>-moz-hyphenate-limit-last:always</span></code>
+<code class="prop-ms-hyphenate-limit-last">@supports <span>-ms-hyphenate-limit-last:always</span></code>
+</p>
+
 <p class="test5">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
 </div>
 		

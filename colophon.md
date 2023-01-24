@@ -40,6 +40,13 @@ All paragraphs are wrapped in `p` tags. Additionally, `p` elements can be wrappe
 
 This is a paragraph directly following a paragraph. There should be a small gap between this and the prior paragraph.
 
+<div class="group-with-aside">
+<p>This is a paragraph. It has an associated note as aside, which should sit to the right of the main text, otherwise it will be inline. This continues to be a paragraph with an associated note.</p>
+<p>This is a second paragraph associated with the same note sitting to the right of the main text, otherwise it will be inline.
+
+<aside><p>This is a note in an aside. On wider screens it will sit to the right of the main text, otherwise it will be inline.</p></aside>
+</div>
+
 ### Code block
 
 Here's a block of code. It should be using [Prism.js](https://prismjs.com/) for syntax highlighting and rendered in Inconsolata.
