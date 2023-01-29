@@ -47,6 +47,8 @@ This is a paragraph directly following a paragraph. There should be a small gap 
 <aside><p>This is a note in an aside. On wider screens it will sit to the right of the main text, otherwise it will be inline.</p></aside>
 </div>
 
+<p>This is a paragraph following the aside. It does not have an aside associated with it.</p>
+
 ### Code block
 
 Here's a block of code. It should be using [Prism.js](https://prismjs.com/) for syntax highlighting and rendered in Inconsolata.
