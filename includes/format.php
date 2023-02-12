@@ -19,7 +19,7 @@ function preformat($text) {
 	$replace = array ("\\\\", "&#8217;mare", "&#8217;flu", "&#8217;Flu", "\nnewsection\n", "-", "\n");
 	$text = str_replace($search, $replace, $text);
 	
-	$reg_patterns = array ("/ (\d+) (px|em|ems|en|ex|rem|dpi|ppi|ch|pt|inch|cm|mm|arcmin|lb|AD|BC|pica|picas|vw|vmin)\b/");
+	$reg_patterns = array ("/ (\d+) (px|em|ems|en|ex|rem|dpi|ppi|ch|pt|inch|cm|mm|arcmin|lb|AD|BC|pica|picas|vw|vmin|kb|kB)\b/");
 	$reg_replace = array (" $1 $2");
 	$text = preg_replace($reg_patterns, $reg_replace, $text);
 
