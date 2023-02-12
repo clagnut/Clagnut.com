@@ -16,19 +16,123 @@
 					<height>31</height>
 				</image>
 		<item>
+			<pubDate>Fri, 10 Feb 2023 10:26:48 PST</pubDate>
+			<title>Font optical sizing bug in Safari 16</title>
+			<link>http://clagnut.com/blog/2423/</link>
+			<guid>http://clagnut.com/blog/2423/</guid>
+			<description><![CDATA[<p>In my <a href="http://clagnut.com/blog/2422">previous post</a> I extolled the virtues of Literata’s font optical sizing, in particular how it worked automatically in the browser. By ‘it’ I mean how the corresponding style was chosen along the optical size axis of the variable font, based on type size.</p>
+
+</div><!-- /.prose --><figure>
+    <img loading='lazy' src="http://clagnut.com/images/2423/literata-optical-axis.png" alt="Four type styles in a line, ranging from low contrast on the left to high contrast on the right."/>
+    <figcaption>
+        Literata’s optical size axis from <7px to >72px. Image ©TypeTogether.
+    </figcaption>
+</figure><div class='prose'>
+
+<p>This behaviour is turned on by default, but if you wanted to turn off the automatic optical sizing, you can use this declaration, the effect being to style text as if it were set at 12px:</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: none;
+</code></pre></figure>
+
+<p>And you can turn it back on with:</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: auto;
+</code></pre></figure>
+
+<p>Automatic selection of optical size styles in a variable font has been supported in browsers since at least 2020. That is until the release of Safari 16 with macOS Ventura. A regression was inadvertently introduced meaning the browser acted as if <code>font-optical-sizing</code> was turned off. <a href="https://bugs.webkit.org/show_bug.cgi?id=247987">The bug</a> was an unintened consequence of improvements being made to <a href="https://developer.apple.com/documentation/coretext">Core Text</a>. Fortunately it’s being actively fixed.</p>
+
+<p>So what to do in the meantime? The answer is to use the low level <code>font-variation-settings</code> property to manually set the optical size. I only want to do this for Safari 16, so firstly I use a bit of user agent sniffing to set a root-level class accordingly:</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">&lt;script&gt;
+var root = document.getElementsByTagName('html')[0];
+if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
+    navigator.userAgent.indexOf('Chrome') == -1 &amp;&amp;
+    navigator.userAgent.indexOf('Version/16') != -1) {
+    root.classList.add("isSafari16");
+}
+&lt;/script&gt;
+</code></pre></figure>
+
+<p>Then I style my headings and body text according to the most appropriate style along the optical size axis:</p>
+
+<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.isSafari16 h1 { font-variation-settings: "opsz" 60; }
+.isSafari16 h2 { font-variation-settings: "opsz" 35; }
+.isSafari16 h3 { font-variation-settings: "opsz" 30; }
+.isSafari16 body { font-variation-settings: "opsz" 25; }
+.isSafari16 footer { font-variation-settings: "opsz" 12; }
+</code></pre></figure>
+
+<p>This works well, but because the styles are being manually applied to selected elements, rather than automatically on a text size basis, some subtle differences are lost with the responsive text sizing I’m applying.</p>
+
+<p>It’ll do for now, and hopefully the situation will be fixed for the release of Safari 17 (if not I’ll have to update the browser sniffing Javascript).</p>
+<p><a href='http://clagnut.com/blog/2423/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Tue, 07 Feb 2023 14:39:11 PST</pubDate>
+			<title>New year, new typeface: switching to variable fonts</title>
+			<link>http://clagnut.com/blog/2422/</link>
+			<guid>http://clagnut.com/blog/2422/</guid>
+			<description><![CDATA[<p>This site used to be set in two primary typefaces. By no coincidence, this was based on the combination I used in the <a href="http://book.webtypography.net/">Web Typography book</a>: <a href="https://typejockeys.com/font/ingeborg">Ingeborg</a> for headings, and <a href="https://web.archive.org/web/20160311141455/http://www.typejockeys.com/fonts/premiera" title="This font is no longer available, so using an archive link">Premiéra</a> for body text, both released by <a href="https://typejockeys.com/">Typejockeys</a>.</p>
+
+<p>Ingeborg’s <em>fat</em> weight provides the distinctive high contrast Didone-style typeface I like to use nice and big. Premiéra, conversely, is a low contrast, robust typeface designed for use at smaller sizes and demanding conditions (such as screens), perfect for the main text.</p>
+
+</div><!-- /.prose --><figure>
+    <img loading='lazy' src="http://clagnut.com/images/2422/ingeborg-premiera.svg" alt=""/>
+    <figcaption>
+        Ingeborg Fat heading, with text set in Premiéra.
+    </figcaption>
+</figure><div class='prose'>
+
+<p>Between Ingeborg and Premiéra, I use multiple styles and weights. I wondered if there were any variable fonts that might achieve performance and perhaps stylistic benefits. Perusing Nick Sherman’s incredibly useful <a href="https://v-fonts.com">Variable Fonts</a> site, I was reminded about <a href="https://www.type-together.com/literata-font">Literata</a>. Literata was <a href="https://www.type-together.com/literata-book">originally designed</a> in 2014 by <a href="https://www.type-together.com/">TypeTogether</a> as static fonts for the Google Play Books reader. In 2020 it received a massive update to make full use of variable font technology.</p>
+
+<p>The original design was excellent. It’s now a really impressive full-blown type family. Weights run from Light (200) to Black (900), but what really grabbed my attention is its optical size axis. It’s one of relatively few variable fonts that does this, and it works superbly. Literata seamlessly runs from a sturdy low contrast Caption size, through to a delicate high contrast Display style, with the original body text and subheading styles sat in between.</p>
+
+</div><!-- /.prose --><figure class="fullbleed">
+    <img loading='lazy' src="http://clagnut.com/images/2422/literata.png" alt="Text samples for display, subhead, text and caption optical sizes, in weights from 200 to 900. Master styles were drawn at 72pt 200, 72pt 400, 72pt 900, 12pt 200, 12pt 400, 12pt 900, 7pt 500, and 7pt 900."/>
+    <figcaption>
+        Literata’s static styles and recommendations for use. Black triangles indicate the drawn master styles. Image ©TypeTogether.
+    </figcaption>
+</figure><div class='prose'>
+
+<p>The result is that, within one typeface and a single font file, I can get the high contrast impact I was achieving with Ingeborg, paired to the lower contrast readability for which I was using Premiéra. The two uses work seamlessly across font sizes in one unified type design. All I need to do is set the size and weight as normal, and the optically sized style is selected automatically.</p>
+
+<p>While Ingeborg and the display weight of Literata bear some resemblance stylistically – they both have the same Didone influence – I will concede that Premiéra’s design differs considerably: its dynamic form and wedge serifs are from a different background to the rational axis and ball terminals of Literata. However they are both designed beautifully to do the same job, and that’s good enough for me.</p>
+
+<h2>Performance</h2>
+
+<p>Before switching to Literata, I was using two weights of Ingeborg (for headings and subheadings) and two weights of Premiéra. This gave the following payload for <abbr class='c2sc'>WOFF2</abbr>s:</p>
+
+<ol>
+<li>Ingeborg Fat – 45 kB</li>
+<li>Ingeborg Heavy – 51 kB</li>
+<li>Premiéra Book – 47 kB</li>
+<li>Premiéra Bold – 53 kB</li>
+</ol>
+
+<p>That makes a total of 196 kB. Now here’s the surprise.  I <a href="http://clagnut.com/blog/2418/">subsetted</a> all fonts to the same generous set of characters, but Literata comes in at 205 Kb. So in terms of file size there’s no saving, although there are 3 fewer requests to the server. In Literata’s defence, it also provides a small-text caption style that I’m not using. But to my mind the way to look at it is that for no extra payload Literata gives a superior result because of that brilliantly executed optical size axis. Headings and subheadings are individually styled according to size, the sturdiness and contrast adjusts to the <a href="https://utopia.fyi">dynamic text sizing</a> for different screen sizes (more on that another time), and the overall feel is harmonious but highly functional with it.</p>
+
+<p>One final thing. Thanks to Google’s OpenFont License (OFL), Literata is free to own and use. Normally a type family like this would cost upwards of £500, with good reason.</p>
+<p><a href='http://clagnut.com/blog/2422/'>Read or add comments</a></p>]]></description>
+			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+		</item>
+		<item>
 			<pubDate>Sun, 18 Sep 2022 15:35:38 PST</pubDate>
 			<title>How to typeset a date range properly</title>
 			<link>http://clagnut.com/blog/2419/</link>
 			<guid>http://clagnut.com/blog/2419/</guid>
 			<description><![CDATA[<p>As I write this we in the <abbr class='c2sc'>UK</abbr> are reaching the culmination of 10 days of mourning following the death of the Queen. Wherever you look – on websites, billboards and shop windows – we are reminded of the longevity of Her Majesty’s life. More precisely we’re presented with a date range: 1926 – 2022.</p>
 
-</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2419/queen.jpg" alt="Photo of the Queen on a bus stop advertising screen" /><figcaption>Messages about the Queen on screens in bus stops and shop windows throughout the city</figcaption></figure><div class='prose'>
+</div><!-- /.prose --><figure><img loading='lazy' src="http://clagnut.com/images/2419/queen.jpg" alt="Photo of the Queen on a bus stop advertising screen" /><figcaption>Messages about the Queen on screens in bus stops and shop windows throughout the city</figcaption></figure><div class='prose'>
 
 <p>A badly typeset date range, usually comprising a hyphen surrounded by two spaces. “What’s wrong with that?,” you might well ask. A lack of attention to detail for a start. There is a long-standing convention for how to properly typeset a date range, or any numerical range for that matter, but it involves going a bit deeper beyond what faces on our standard keyboards (which are still relics from the age typewriters).</p>
 
 <p>Even the <a href="https://www.royal.uk">Royals’ own website</a> makes the same mistake:</p>
 
-</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2419/hyphen.jpg" alt="Screenshot" /><figcaption>Royal.uk uses a spaced hyphen for the date range, made worse by letter-spacing<figcaption></figure><div class='prose'>
+</div><!-- /.prose --><figure><img loading='lazy' src="http://clagnut.com/images/2419/hyphen.jpg" alt="Screenshot" /><figcaption>Royal.uk uses a spaced hyphen for the date range, made worse by letter-spacing<figcaption></figure><div class='prose'>
 
 <p>The preferred way is to use an <em>en-dash</em> instead of a hyphen, and separate it from the numerals with a <em>thin-space</em>, like this:</p>
 
@@ -128,7 +232,7 @@
 
 <p>RÃ³isÃ­n Murphy gets in again, with a banging remix from her producer Crooked Man. Snapped Ankles make a welcome return and there&#8217;s a fab Hot Chip remix of long time favourite Django Django.</p>
 
-</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2021vinyl.jpg" alt="Photo" /><figcaption>Over fifty vinyl records spread out on my floor</figcaption></figure><div class='prose'>
+</div><!-- /.prose --><figure><img loading='lazy' src="http://clagnut.com/images/2021vinyl.jpg" alt="Photo" /><figcaption>Over fifty vinyl records spread out on my floor</figcaption></figure><div class='prose'>
 
 <p>Because I keep these playlists roughly to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list. Black Midi is one, although I find it a little hard work at the moment. Also a classic oldie from Metronomy, some Seventies jazz funk from Ian Carr&#8217;s Nucleus, and a classic album from Love which was largely unknown to me – an omission generously corrected by my good friend Anthony.</p>
 
@@ -159,84 +263,6 @@
 
 <p>You can listen to the playlist on <a href="https://open.spotify.com/playlist/5ayTtvb21f18K0ZwNOXvCZ?si=fe5a6c611f3744be">Spotify</a> or <a href="https://music.apple.com/gb/playlist/2021-the-best-songs-i-bought-in-2021-ever/pl.u-jV8966juYaX5z">Apple Music</a>.</p>
 <p><a href='http://clagnut.com/blog/2416/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
-		</item>
-		<item>
-			<pubDate>Fri, 26 Mar 2021 17:55:27 PST</pubDate>
-			<title>One year on and what next for remote working?</title>
-			<link>http://clagnut.com/blog/2415/</link>
-			<guid>http://clagnut.com/blog/2415/</guid>
-			<description><![CDATA[<p>A year ago this week the <abbr class='c2sc'>UK</abbr> went into its first lockdown. Like most savvy businesses, Clearleft had already closed our studio and started working from home. Also like many businesses, we&#8217;ve yet to reopen our office, but more on that later.</p>
-
-<p>I remember clearly the faces on peopleâ€™s faces when I announced we&#8217;d be working remotely until the end of April. There was a combination of surprise, disbelief, resignation and even horror (perhaps due to the looming spectre of home-schooling). Just as everyoneâ€™s experience has been different over the past year, so everyone&#8217;s initial reaction was different too.</p>
-
-<p>We didnâ€™t have to make a huge cultural shift in order to work remotely. Weâ€™re a small enough company that we all know each other and whatâ€™s expected of us. Weâ€™d built up enough trust, and working from home was already allowed without question. That said, working from home was an occasional thing: to let in a plumber, deal with some childcare, and frequently – presciently perhaps – to get stuff done. And it was <em>working from home</em> – it wasn&#8217;t <em>remote working</em>, which as weâ€™ve all come to realise is a different beast entirely.</p>
-
-<p>We managed to adapt to the situation fairly quickly. A culture of autonomy and generally mucking-in helped, as did an assurance that everyoneâ€™s job would be safe for the coming months even if it meant us losing money in the short term (we didnâ€™t). All this meant we could get on with the job of supporting our clients, who were certainly nowhere near close to working remotely when lockdown happened, and needed all the help they could get.</p>
-
-<p>We knew we were doing something right in terms of remote working when one of our staff, who had been on sabbatical in South America when the pandemic struck, managed to make it back to Europe. While everyone else worked from home in or around Brighton, Tom found himself working from Spain initially, and then from London. And no-one really noticed, apart from a surprising change in decor. And thatâ€™s point – you can remote work from anywhere provided you can negotiate timezones.</p>
-
-<p>The <abbr class='c2sc'>UK</abbr> is now in its third lockdown, but with a successful rollout of the vaccine, a way out and a change is approaching. Once lockdown is lifted, hopefully in a few months, will we become fully remote? I doubt it. Remote-first, whatever that means? Perhaps. We&#8217;ve certainly loosened our <a href="https://clearleft.com/about/jobs">hiring</a> policy – we no longer require people to permanently work from our Brighton studio. This enabled us to hire <a href="https://clearleft.com/about/team/christianne-beck">Christianne</a>, our fantastic new head of events, who is currently based in London. That said Brighton is within commuting distance of London, so itâ€™s certainly near enough to pop down every now and then, which will probably be beneficial.</p>
-
-<p>For now our beloved <a href="https://68middle.st">68 Middle Street</a> stays closed, but weâ€™ll be partially reopening in June as a broadcast studio for <a href="https://uxlondon.com">UX Fest</a> and as an early test of Covid precautions and an assessment of everyoneâ€™s appetite for being in relatively close human proximity. Come July, by which time hopefully all Covid restrictions will be lifted, weâ€™ll open more fully.</p>
-
-<p>But how will we be working come July? We don&#8217;t exactly know, but that&#8217;s fine because we can try things and quickly adapt to changing needs. After all, we managed to go from studio-based to fully remote in matter of days.</p>
-
-<p>A few things seem certain. We&#8217;ve regularly talked and periodically surveyed staff about how they are coping with remote work, and their attitude to returning to the office. People&#8217;s circumstances and feelings all differ. These are difficult times – at some point weâ€™ve all felt sad, lonely, claustrophobic or tired. But thereâ€™s also been plenty of rays of light, with working from home being liberating, productive and flexible. What we do share is a common inclination to be in the same space as other people, at least for some of the time.</p>
-
-<p>That may be a general reaction to being cooped up during so many weeks of lockdown after lockdown, but there&#8217;s a keen desire to talk and work face to face, if not permanently. Weâ€™ve all had the time and some budget to get set up for remote working, and weâ€™ve come to appreciate the benefits it can bring. We definitely don&#8217;t want to lose those. But we&#8217;re all human, which means we&#8217;re sociable creatures at heart. Furthermore Clearlefties are – by design – a nice bunch of people. We&#8217;re the kind of people we want to spend time with, so itâ€™s only natural weâ€™d want to come into the office together.</p>
-
-<p>All of which points us towards a hybrid way of working. Part remote, part in the studio, with all of us in one or other mode part of time, but probably at different times and differing amounts. The key to getting this to work will be to ensure that neither mode of working advantages one person over another. We&#8217;ll need to ensure that while working remotely, someone isnâ€™t excluded from decisions or collaboration, and minimise the fear of missing out on informal conversations. We&#8217;ll need to improve our setup to better enable remote people to participate in meetings where multiple attendees happen to be in the studio. Likewise we need to ensure that if you&#8217;re in the studio you can participate fully in remote discussions and activities – right now we have a large open plan studio that can get pretty noisy. And we&#8217;ll need to track and assess this so we can keep making improvements in working practice and environment.</p>
-
-<p>Meanwhile our clients will be asking themselves similar questions. Perhaps some will go back fully into the office; some may go fully remote. But one great thing that has happened is they – and we – now have 12 months hard-earned experience of working remotely. As designers and consultants we wonâ€™t have to travel as much as we used to in order to research and collaborate, which is great for many reasons including productivity, work-life balance and the environment.</p>
-
-<p>In light of the ongoing tragedy that is the coronavirus pandemic, it would be trite to trot out an aphorism such as &#8216;never let good crisis go to waste&#8217;. However with the vaccine presenting a light at the end of the tunnel, we have an opportunity to emerge in a better place than 12 months ago. If we get it right, we can take advantage of the collaborative and social spaces in our studio, as well as the peace and convenience of working from home (or indeed a villa in Spain). In doing so we&#8217;ll improve both our working practices and our home life – small victories in the grand scheme of things, but worth grabbing while we can.
-<br></p>
-
-<p><em>Originally published on the <a href="https://clearleft.com/posts/one-year-on-and-what-next-for-remote-working">Clearleft blog</a>.</em></p>
-<p><a href='http://clagnut.com/blog/2415/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/industry/">New media industry</category>
-			<category domain="http://clagnut.com/archive/clearleft/">Clearleft</category>
-		</item>
-		<item>
-			<pubDate>Sun, 03 Jan 2021 19:44:35 PST</pubDate>
-			<title>Top Tunes 2020</title>
-			<link>http://clagnut.com/blog/2414/</link>
-			<guid>http://clagnut.com/blog/2414/</guid>
-			<description><![CDATA[<p>Hereâ€™s a compilation of favourite songs from those I bought in the last year (not all were released this year). I certainly purchased a lot, and I&#8217;m pretty pleased with how the playlist panned out. Turns out my absolute favourites were electronic pop from relatively recent years – I&#8217;m particularly enjoying New Order&#8217;s <em>Music Complete</em> from 2015, and I absolutely love RÃ³isÃ­n Murphy&#8217;s <em>Overpowered</em> from 2007 (I bought four of her 12&#8221; singles too). All of which sound fantastic on vinyl. Speaking of which, the quintuple vinyl of Kruder &amp; Dorfmeisterâ€™s classic <em>K&amp;D Sessions</em> compilation is a spectacular listen.</p>
-
-<p>Other favourites include Ian Brown&#8217;s and Steve Mason&#8217;s most recent albums, both from 2019. New this year was a beautiful Erland Cooper offering celebrating more of the Orkney Islands, yet more Four Tet doing electronica in his inimitable way, loud frustration from Idles and a sweary compilation of working class minimalism from Sleaford Mods.</p>
-
-</div><!-- /.prose --><figure><img src="http://clagnut.com/images/2020vinyl.jpg" alt="Photo" /><figcaption>Forty-odd vinyl records spread out on my floor</figcaption></figure><div class='prose'>
-
-<p>Because I keep these playlists roughly to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list. Tim Burgessâ€™s 2012 collaboration with Lambchopâ€™s Kurt Wagner is worthy of note especially as it contains a (lovely) song entitled <em>A Case for Vinyl</em>. Nick Caveâ€™s <em>Idiot Prayer – alone at Alexandria Palace</em> is definitely an album to sum up the year weâ€™ve just had. Some golden oldies include opportunistic re-releases of <abbr class='c2sc'>OMD</abbr>â€™s first album and Ozric Tentaclesâ€™ <em>Strangitude</em> (the one with <em>Sploosh!</em>), both worth having mind you.
-As is Billy Cobhamâ€™s <em>Spectrum</em>, a 1970s jazz-fusion drumfest heavily sampled by Massive Attack. Finally a worthy last minute entry goes to local boy Fatboy Slimâ€™s <em>Back to Mine</em> compilation which is chock full of funky classics, including the original source material for <em>Praise You</em>.</p>
-
-<h3>The Best Songs I Bought in&nbsp;2020,&nbsp;Ever</h3>
-
-<ol>
-<li><cite>Singularity</cite> by New Order from the album <cite>Music Complete</cite></li>
-<li><cite>Movie Star</cite> by RÃ³isÃ­n Murphy from the album <cite>Overpowered</cite></li>
-<li><cite>Silhouettes (I, <abbr class='c2sc'>II</abbr> & <abbr class='c2sc'>III</abbr>)</cite> by Floating Points from the album <cite>Elaenia</cite></li>
-<li><cite>About the Light</cite> by Steve Mason from the album <cite>About The Light</cite></li>
-<li><cite>First World Problems</cite> by Ian Brown from the album <cite>Ripples</cite></li>
-<li><cite>There Is No Year</cite> by Algiers from the album <cite>There Is No Year</cite></li>
-<li><cite>Model Village</cite> by Idles from the album <cite>Ultra Mono</cite></li>
-<li><cite>Chills Me to the Bone</cite> by Tricky from the album <cite>Fall to Pieces</cite></li>
-<li><cite>Peedie Breeks</cite> by Erland Cooper from the album <cite>Hether Blether</cite></li>
-<li><cite>Love Salad</cite> by Four Tet from the album <cite>Sixteen Oceans</cite></li>
-<li><cite>Sweetheart Mercury</cite> by Tim Burgess from the album <cite>I Love The New Sky</cite></li>
-<li><cite>Look At All The Smiling Faces</cite> by Shigeto from the album <cite>Full Circle</cite></li>
-<li><cite>The Birds</cite> by Elbow from the album <cite>Build a Rocket Boys</cite></li>
-<li><cite>Beautiful Face</cite> by The Aliens from the <abbr class='c2sc'>EP</abbr> <cite>Electronville</cite></li>
-<li><cite>Speechless (Drum &#8216;n&#8217; Bass)</cite> by Count Basic from the album <cite>The K&D Sessions</cite></li>
-<li><cite>Jobseeker</cite> by Sleaford Mods the album <cite>All That Glue</cite></li>
-<li><cite>Gammon</cite> by Fujiya & Miyagi from the album <cite>Flashback</cite></li>
-<li><cite>Must I Evolve?</cite> by Jarv Isâ€¦ from the album <cite>Beyond the Pale</cite></li>
-</ol>
-
-<p>You can listen to the <a href="https://open.spotify.com/playlist/7l9ATogoG6rO1fE8B0k2h4?si=jWlhlUukQIKB_Xig_DjXhQ">playlist on Spotify</a>.</p>
-<p><a href='http://clagnut.com/blog/2414/'>Read or add comments</a></p>]]></description>
 			<category domain="http://clagnut.com/archive/music/">Music</category>
 		</item>
 	</channel>

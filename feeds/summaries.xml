@@ -16,6 +16,25 @@
 					<height>31</height>
 				</image>
 		<item>
+			<pubDate>Fri, 10 Feb 2023 10:26:48 PST</pubDate>
+			<title>Font optical sizing bug in Safari 16</title>
+			<link>http://clagnut.com/blog/2423/</link>
+			<guid>http://clagnut.com/blog/2423/</guid>
+			<description><![CDATA[In my previous post I extolled the virtues of Literata’s font optical sizing, in particular how it worked automatically in the browser. That is until the release of Safari 16 with macOS Ventura. Here&#8217;s how to work around the bug. <a href='http://clagnut.com/blog/2423/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Tue, 07 Feb 2023 14:39:11 PST</pubDate>
+			<title>New year, new typeface: switching to variable fonts</title>
+			<link>http://clagnut.com/blog/2422/</link>
+			<guid>http://clagnut.com/blog/2422/</guid>
+			<description><![CDATA[My website used to be set primarily in two very different typefaces: Ingeborg and Premiéra. This is story of how I switched to a fantastic single variable font which provided the same practical and stylistic benefits, only better. <a href='http://clagnut.com/blog/2422/'>Read more</a>.]]></description>
+			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
+			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+		</item>
+		<item>
 			<pubDate>Sun, 18 Sep 2022 15:35:38 PST</pubDate>
 			<title>How to typeset a date range properly</title>
 			<link>http://clagnut.com/blog/2419/</link>
@@ -83,22 +102,6 @@
 			<guid>http://clagnut.com/blog/2411/</guid>
 			<description><![CDATA[Iâ€™ve been back filling my best ofs, so hereâ€™s a compilation of favourite songs I bought in 2017. It was the start of a sequence of excellent music-buying years. <a href='http://clagnut.com/blog/2411/'>Read more</a>.]]></description>
 			<category domain="http://clagnut.com/archive/music/">Music</category>
-		</item>
-		<item>
-			<pubDate>Tue, 07 Jan 2020 21:47:17 PST</pubDate>
-			<title>Top Tunes 2019</title>
-			<link>http://clagnut.com/blog/2410/</link>
-			<guid>http://clagnut.com/blog/2410/</guid>
-			<description><![CDATA[Hereâ€™s a compilation of favourite songs I bought this year, and another damn fine year it was too. <a href='http://clagnut.com/blog/2410/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
-		</item>
-		<item>
-			<pubDate>Wed, 25 Sep 2019 19:34:34 PST</pubDate>
-			<title>JOGLE Day 12 &#8211; Liskeard to Land&#8217;s End</title>
-			<link>http://clagnut.com/blog/2409/</link>
-			<guid>http://clagnut.com/blog/2409/</guid>
-			<description><![CDATA[Day 12, the final day of our ride from John o&#8217;Groats, took us from Liskeard to Land&#8217;s End. We made it. What a trip. <a href='http://clagnut.com/blog/2409/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/biking/">Cycling</category>
 		</item>
 	</channel>
 		</rss>
