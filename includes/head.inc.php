@@ -7,15 +7,14 @@
     <link rel="preload" href="/fonts/Literata-var.woff2" as="font" type="font/woff2" crossorigin="">
     
 	<script>
-	    var html = document.getElementsByTagName('html')[0];
-	    html.className += ' js';
+	    var root = document.getElementsByTagName('html')[0];
+	    root.className += ' js';
 		if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-			var root = document.getElementsByTagName('html')[0];
 			root.className += ' isSafari';
 			if (navigator.userAgent.indexOf('Version/16') != -1) {
 				root.className += ' isSafari16';
 			}
-		}		
+		}
 	</script>
     
     <!--css-->
