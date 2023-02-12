@@ -522,7 +522,7 @@ footer.global, .masthead {
 
 /* Utopia type scaling */
 
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1920,21,1.25,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.067,1920,21,1.125,8,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
   --fluid-min-width: 320;
@@ -542,8 +542,8 @@ footer.global, .masthead {
 }
 
 :root {
-  --f--1-min: 14.22;
-  --f--1-max: 16.80;
+  --f--1-min: 15.00;
+  --f--1-max: 18.67;
   --step--1: calc(
     ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
       var(--fluid-bp)
@@ -556,38 +556,24 @@ footer.global, .masthead {
       var(--fluid-bp)
   );
 
-  --f-1-min: 18.00;
-  --f-1-max: 26.25;
-  --step-1: calc(
-    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
-      var(--fluid-bp)
-  );
-
-  --f-2-min: 20.25;
-  --f-2-max: 32.81;
+  --f-2-min: 18.22;
+  --f-2-max: 26.58;
   --step-2: calc(
     ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
       var(--fluid-bp)
   );
 
-  --f-3-min: 22.78;
-  --f-3-max: 41.02;
-  --step-3: calc(
-    ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
-      var(--fluid-bp)
-  );
-
-  --f-4-min: 25.63;
-  --f-4-max: 51.27;
+  --f-4-min: 20.74;
+  --f-4-max: 33.64;
   --step-4: calc(
     ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
       var(--fluid-bp)
   );
 
-  --f-5-min: 28.83;
-  --f-5-max: 64.09;
-  --step-5: calc(
-    ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+  --f-8-min: 26.88;
+  --f-8-max: 53.88;
+  --step-8: calc(
+    ((var(--f-8-min) / 16) * 1rem) + (var(--f-8-max) - var(--f-8-min)) *
       var(--fluid-bp)
   );
 }
@@ -618,26 +604,26 @@ article.post {
 }
 
 #logo {
-	font-size: var(--step-2);
+	font-size: var(--step-4);
 	line-height: var(--textgrid-h2);
 	margin-top: calc(var(--textgrid-h2) / 2);
 	margin-bottom: calc(var(--textgrid-h2) / 2);
 }
 
 h1 {
-	font-size: calc(var(--step-4) + 1.75vh);
+	font-size: calc(var(--step-8) + 1.75vh);
 	line-height: 1;
 }
 
 h2 {
-	font-size: var(--step-2);
+	font-size: var(--step-4);
 	line-height: var(--textgrid-h2);
 	margin-top: var(--textgrid-h2);
 	margin-bottom: calc(var(--textgrid-h2) / 8);
 }
 
 h3 {
-	font-size: var(--step-1);
+	font-size: var(--step-2);
 	line-height: var(--textgrid-h3);
 	margin-top: var(--textgrid-h3);
 	margin-bottom: calc(var(--textgrid-h3) / 8);
@@ -667,8 +653,8 @@ h4, h5, h6 {
 	font-variation-settings: "opsz" 30;
 }
 
-.isSafari16 blockquote footer {
-	font-variation-settings: "opsz" 15;	
+.isSafari16 blockquote footer, .isSafari16 footer.global {
+	font-variation-settings: "opsz" 12;	
 }
 
 /* @end */
@@ -788,7 +774,7 @@ th, td {
 }
 
 .archive .articles h3 {
-	font-size: var(--step-1);
+	font-size: var(--step-2);
 	line-height: var(--textgrid-h3-tighter);
 }
 
@@ -797,13 +783,9 @@ th, td {
 	line-height: var(--textgrid-body);
 	margin-top: calc(var(--textgrid-body) / 4);
 }
-
 .archive .date {
-	font-size: var(--step-0);
-	line-height: var(--textgrid-body);
 	margin-top: calc(var(--textgrid-body) / 4);
 }
-
 .categorylist {
 	margin-top: var(--textgrid-body);
 	padding-top: calc(var(--textgrid-body) / 2);
@@ -845,7 +827,7 @@ form.search {
 }
 
 .introblock {
-	font-size: var(--step-2);
+	font-size: var(--step-4);
 	line-height: var(--textgrid-h2);
 }
 
@@ -871,7 +853,7 @@ h2.home-latest-posts {
 }
 
 strong.intro {
-	font-size: var(--step-1);
+	font-size: var(--step-2);
 	line-height: var(--textgrid-h3);	
 }
 
