@@ -6,11 +6,7 @@ photos
 mint
 wendyandrichard
 .zip
-*.xml
-
-feeds/fullposts.xml
-
-feeds/fullposts.xml
 *.crt
 clagnut.local.key
 feeds/summaries.xml
+feeds/fullposts.xml
