@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>min-last-line experiments | Clagnut by Richard Rutter</title>
+<style>
+body {
+	font-family: system-ui;
+}
+#text_input {
+	width: 67ch;
+}
+input.chars {
+	width: 5ch;
+}
+textarea, input, #text_container, .prose, code, select, option {
+	font-family: ui-monospace, monospace;
+	font-size: 1rem;
+}
+.prose span {
+	display: block;
+}
+
+form {
+	background: #e7e7e7;
+	padding: 0.5em;
+}
+
+code {
+	background-color: rgba(255,255,255,0.5);
+	padding: 0.25em;
+}
+</style>
+</head>
+<body>
+	
+<h1>min-last-line experiment</h1>
+<p>See <a href="https://github.com/w3c/csswg-drafts/issues/3473#issuecomment-1474837736">CSSWG thread</a> for context and discussion, and <a href="/blog/2425/">blog post</a> for more details. <strong>Please feel free to copy and adapt this</strong>.</p>
+
+<form id="inputform">
+<textarea id="text_input" rows="6">When you realise that ugly typography never effaces itself; you will be able to capture beauty as the wise men capture happiness by aiming at something else. The stunt typographer learns the fickleness of rich men who hate to read. Not for them are long breaths held over serif and kern. Nobody will appreciate half your skill.</textarea>
+<div><label>text box width <input id="linelength_input" value="66" class="chars" type="number" />ch</label></div>
+<div><label>min last line length <input id="minlastlinelength_input" value="15" class="chars" type="number" /></label><select id="minlastlinelength_units"><option value="chars" selected>chars</option><option value="%">%</option></select></div>
+<div><label>max text to drop down <input id="maxchardrop_input" value="10" class="chars" type="number" /></label><select id="maxchardrop_units"><option value="chars" selected>chars</option><option value="%">%</option></select></div>
+
+<p><code>min-last-line: <span id="minlastlinelength_code"></span><span id="minlastlinelengthunits_code"></span> <span id="maxchardrop_code"></span><span id="maxchardropunits_code"></span> </code></p>
+
+</form>
+
+<h2>Original</h2>
+<p id="text_original" class="prose"></p>
+
+<h2>With min last line length applied</h2>
+<p id="text_container" class="prose"></p>
+
+<script>
+//
+//
+// Please don't judge this experiment by my terrible JavaScript!
+//
+//
+
+function minlastline() {
+
+	fullText = document.getElementById('text_input').value;
+	linelength = document.getElementById('linelength_input').value;
+	minlastlinelength = document.getElementById('minlastlinelength_input').value;
+	maxchardrop = document.getElementById('maxchardrop_input').value;
+	minlastlinelengthunits = document.getElementById('minlastlinelength_units').value;
+	maxchardropunits = document.getElementById('maxchardrop_units').value;
+	document.getElementById('minlastlinelength_code').innerText = minlastlinelength;
+	document.getElementById('maxchardrop_code').innerText = maxchardrop;
+	
+	if(minlastlinelengthunits == "%") {
+		document.getElementById('minlastlinelengthunits_code').innerText = "%"
+	} else {
+		document.getElementById('minlastlinelengthunits_code').innerText = ""
+	};	
+	if(maxchardropunits == "%") {
+		document.getElementById('maxchardropunits_code').innerText = "%"
+	} else {
+		document.getElementById('maxchardropunits_code').innerText = ""
+	};
+	
+	originaltextEl = document.getElementById('text_original');
+	originaltextEl.innerText = fullText;
+	linelengthch = linelength + "ch";
+	originaltextEl.style.width = linelengthch;
+	
+	textAr = fullText.split(' '); // split text into an array of words
+	
+	linesAr = new Array();
+	newline = "";
+	
+	for (let word in textAr) { // join words back to together in an array of lines based on inputted max line length
+		newline_length = newline.length;
+		nextword_length = textAr[word].length;
+		if(newline_length + nextword_length + 1 <= linelength) {
+			space = (newline.length<1)?"":" ";
+			newline = newline + space + textAr[word];
+		} else {
+			linesAr.push(newline);
+			newline = textAr[word];
+		}
+	}
+	linesAr.push(newline);
+	
+	
+	// Do final line length control
+	finalline = linesAr[linesAr.length-1];
+	originalpenultimateline =  linesAr[linesAr.length - 2]
+	
+	// determine whether final line is too short
+	if(minlastlinelengthunits == "chars") {
+		if(finalline.length <= minlastlinelength) { finalline_tooshort = true } else { finalline_tooshort = false }
+	} else {
+		if(finalline.length/linelength*100 < minlastlinelength) { finalline_tooshort = true } else { finalline_tooshort = false }
+	}
+		
+	while (finalline_tooshort) { // if the final line is shorter than the minimum
+		
+		penultimateline =  linesAr[linesAr.length - 2]; // get the penultimate line
+		
+		lastspaceIndex = penultimateline.lastIndexOf(" "); // find the last space
+		lastword = penultimateline.slice(lastspaceIndex + 1); // split line to get the final word...
+		remainingwords = penultimateline.slice(0, lastspaceIndex); // ...and the rest of the line
+	
+		// determine whether allowed to bring more words down
+		chardrop_allowed = false;
+		
+		if(maxchardropunits == "chars") {
+			if (originalpenultimateline.length - remainingwords.length - 1 <= maxchardrop) { chardrop_allowed = true }
+		} else {
+			if ((originalpenultimateline.length - remainingwords.length)/linelength*100 <= maxchardrop) { chardrop_allowed = true }
+		}
+	
+		if (chardrop_allowed) {
+	
+			linesAr[linesAr.length-1] = lastword + " " + linesAr[linesAr.length-1];	 // prepend final word from previous line
+			linesAr[linesAr.length-2] = remainingwords; // effectively remove final word from penultimate line
+			finalline = linesAr[linesAr.length-1];
+			
+		} else break;
+		
+		// determine whether final line is too short
+		if(minlastlinelengthunits == "chars") {
+			if(finalline.length <= minlastlinelength) { finalline_tooshort = true } else { finalline_tooshort = false }
+		} else {
+			if(finalline.length/linelength*100 < minlastlinelength) { finalline_tooshort = true } else { finalline_tooshort = false }
+		}
+		
+	}
+
+// populate paragraph with newly laid out text
+
+	textEl = document.getElementById('text_container');
+	displayfulltext = "";
+	
+	for (let line in linesAr) {
+		displayline = "<span>"+linesAr[line]+"</span>";
+		displayfulltext = displayfulltext + displayline; 
+	}
+	
+	textEl.innerHTML = displayfulltext;
+
+}
+
+minlastline();
+
+const form = document.getElementById("inputform");
+
+form.addEventListener(
+  "blur",
+  (event) => {
+    minlastline();
+  },
+  true
+);
+
+linelength_input.addEventListener(
+  "change",
+  (event) => {
+    minlastline();
+  },
+  true
+);
+
+minlastlinelength_input.addEventListener(
+  "change",
+  (event) => {
+    minlastline();
+  },
+  true
+);
+
+maxchardrop_input.addEventListener(
+  "change",
+  (event) => {
+    minlastline();
+  },
+  true
+);
+
+minlastlinelength_units.addEventListener(
+  "change",
+  (event) => {
+    minlastline();
+  },
+  true
+);
+
+maxchardrop_units.addEventListener(
+  "change",
+  (event) => {
+    minlastline();
+  },
+  true
+);
+
+</script>
+</body>
+</html>

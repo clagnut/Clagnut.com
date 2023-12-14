@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Hello <span>Span</span></p>
+<button onclick="myFunction()">Click Me</button>
+<p id="point"></p>
+
+<script>
+var x = document.getElementById("point");
+var elem = document.getElementsByTagName("span")[0];
+
+function myFunction(){
+ var rect = elem.getClientRects()[0];
+ var txt = "";
+ txt += "<br>Width : " +rect.width;
+ txt += "<br>Height : " +rect.height;
+ txt += "<br>From Left : " +rect.left;
+ txt += "<br>From Right : " +rect.right;
+ txt += "<br>From Top : " +rect.top;
+ txt += "<br>From Bottom : " +rect.bottom;
+ x.innerHTML = txt;
+}
+</script>
+</body>
+</html>
