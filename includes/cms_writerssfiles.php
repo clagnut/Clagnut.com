@@ -15,7 +15,7 @@ function compilemetadata($title, $link, $description, $atomfile) {
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
-					<url>http://clagnut.com/images/clagnut_rss.png</url>
+					<url>https://clagnut.com/images/clagnut_rss.png</url>
 					<link>$link</link>
 					<title>$title</title>
 					<width>88</width>
@@ -39,7 +39,7 @@ function writeblogmarkrss() {
 	$fh = @fopen($filename, "w");
 	
 	if($fh) {
-		$contents=compilemetadata("Clagnut blogmarks","http://clagnut.com/blogmarks/","So many sites, so little time. Blogmarks are a living collection of links I haven't managed to write about in the main blog.", "http://clagnut.com/feeds/blogmarks.xml");
+		$contents=compilemetadata("Clagnut blogmarks","https://clagnut.com/blogmarks/","So many sites, so little time. Blogmarks are a living collection of links I haven't managed to write about in the main blog.", "https://clagnut.com/feeds/blogmarks.xml");
 		
 		// pull blogs from database
 		$sql = "SELECT blog_id, title AS link_title, tags, blogs.filename AS link_url, description AS link_comment, via_title, via_url, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') AS pubdate FROM blogs WHERE content_type='blogmark' ORDER by blogdate DESC, tstamp DESC LIMIT 12";
@@ -81,7 +81,7 @@ function writeblogmarkrss() {
 					do {
 						$category = htmlentities($blogmarkcat["category"]);
 						$filename = $blogmarkcat["filename"];
-						$contents .= "			<category domain=\"http://clagnut.com/blogmarks/$filename/\">$category</category>\n";	
+						$contents .= "			<category domain=\"https://clagnut.com/blogmarks/$filename/\">$category</category>\n";	
 					} while ($blogmarkcat = mysqli_fetch_array($result_cats));
 				}
 				// add Technorati categories
@@ -128,7 +128,7 @@ function writefullrss() {
 	$fh = @fopen($filename, "w");
 	
 	if($fh) {
-		$contents=compilemetadata("Clagnut","http://clagnut.com/","A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)", "http://clagnut.com/feeds/fullposts.xml");
+		$contents=compilemetadata("Clagnut","https://clagnut.com/","A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)", "https://clagnut.com/feeds/fullposts.xml");
 		
 		// pull blogs from database
 		$sql = "SELECT blog_id, title, maincontent, maincontent_textile, tags, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') AS pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 5";
@@ -144,15 +144,15 @@ function writefullrss() {
 				$maincontent_textile = $myblog["maincontent_textile"];
 				$maincontent = format($myblog["maincontent"], $maincontent_textile);
 				$search = array ("href=\"/", "src=\"/");
-				$replace = array ("href=\"http://clagnut.com/", "src=\"http://clagnut.com/");
+				$replace = array ("href=\"https://clagnut.com/", "src=\"https://clagnut.com/");
 				$maincontent = str_replace($search, $replace, $maincontent);
 		
 				$contents .= "		<item>\n";
 				$contents .= "			<pubDate>$pubdate</pubDate>\n";
 				$contents .= "			<title>$title</title>\n";
-				$contents .= "			<link>http://clagnut.com/blog/$blog_id/</link>\n";
-				$contents .= "			<guid>http://clagnut.com/blog/$blog_id/</guid>\n";
-				$contents .= "			<description><![CDATA[$maincontent" . "\n<p><a href='http://clagnut.com/blog/".$blog_id."/'>Read or add comments</a></p>" . "]]></description>\n";
+				$contents .= "			<link>https://clagnut.com/blog/$blog_id/</link>\n";
+				$contents .= "			<guid>https://clagnut.com/blog/$blog_id/</guid>\n";
+				$contents .= "			<description><![CDATA[<section><div class='prose'>$maincontent</div></section>" . "\n<p><a href='https://clagnut.com/blog/".$blog_id."/'>Read or add comments</a></p>" . "]]></description>\n";
 				
 				// get categories for this blog
 				$sql_cats = "SELECT category, filename FROM categorys_blogs, categorys WHERE blog_id = $blog_id AND categorys_blogs.category_id = categorys.category_id";
@@ -161,7 +161,7 @@ function writefullrss() {
 					do {
 						$category = htmlentities($blogcat["category"]);
 						$filename = $blogcat["filename"];
-						$contents .= "			<category domain=\"http://clagnut.com/archive/$filename/\">$category</category>\n";	
+						$contents .= "			<category domain=\"https://clagnut.com/archive/$filename/\">$category</category>\n";	
 					} while ($blogcat = mysqli_fetch_array($result_cats));
 				}
 				// add Technorati categories
@@ -208,7 +208,7 @@ function writesummariesrss() {
 	$fh = @fopen($filename, "w");
 	
 	if($fh) {
-		$contents=compilemetadata("Clagnut summaries","http://clagnut.com/","A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 10 posts in summary)", "http://clagnut.com/feeds/summaries.xml");
+		$contents=compilemetadata("Clagnut summaries","https://clagnut.com/","A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 10 posts in summary)", "https://clagnut.com/feeds/summaries.xml");
 		
 		// pull blogs from database
 		$sql = "SELECT blog_id, title, maincontent, maincontent_textile, tags, description, DATE_FORMAT(blogdate, '%a, %d %b %Y %T PST') as pubdate FROM blogs WHERE blogdate < NOW() AND content_type='blog' ORDER BY blogdate DESC LIMIT 10";
@@ -227,13 +227,13 @@ function writesummariesrss() {
 				$title = strip_tags($title);
 				$id = $myblog["blog_id"];
 				$summary = makeDescription($maincontent,$description,$maincontent_textile);
-				$summary = $summary . " <a href='http://clagnut.com/blog/".$blog_id."/'>Read more</a>.";
+				$summary = $summary . " <a href='https://clagnut.com/blog/".$blog_id."/'>Read more</a>.";
 		
 				$contents .= "		<item>\n";
 				$contents .= "			<pubDate>$pubdate</pubDate>\n";
 				$contents .= "			<title>$title</title>\n";
-				$contents .= "			<link>http://clagnut.com/blog/$blog_id/</link>\n";
-				$contents .= "			<guid>http://clagnut.com/blog/$blog_id/</guid>\n";
+				$contents .= "			<link>https://clagnut.com/blog/$blog_id/</link>\n";
+				$contents .= "			<guid>https://clagnut.com/blog/$blog_id/</guid>\n";
 				$contents .= "			<description><![CDATA[$summary]]></description>\n";
 				
 				// get categories for this blog
@@ -243,7 +243,7 @@ function writesummariesrss() {
 					do {
 						$category = htmlentities($blogcat["category"]);
 						$filename = $blogcat["filename"];
-						$contents .= "			<category domain=\"http://clagnut.com/archive/$filename/\">$category</category>\n";	
+						$contents .= "			<category domain=\"https://clagnut.com/archive/$filename/\">$category</category>\n";	
 					} while ($blogcat = mysqli_fetch_array($result_cats));
 				}
 				// add Technorati categories

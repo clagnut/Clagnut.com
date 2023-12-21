@@ -32,9 +32,9 @@ echo "<p>".writeblogmarkrss()."</p>";
 ?>
 
 <ul>
-	<li><a href="/feeds/fullposts.xml">Full posts feed</a> [<a href="http://feedvalidator.org/check.cgi?url=http://clagnut.com/feeds/fullposts.xml">validate</a>]</li>
-	<li><a href="/feeds/summaries.xml">Summaries feed</a> [<a href="http://feedvalidator.org/check.cgi?url=http://clagnut.com/feeds/summaries.xml">validate</a>]</li>
-	<li><a href="/feeds/blogmarks.xml">Blogmarks feed</a> [<a href="http://feedvalidator.org/check.cgi?url=http://clagnut.com/feeds/blogmarks.xml">validate</a>]</li>
+	<li><a href="/feeds/fullposts.xml">Full posts feed</a> [<a href="http://feedvalidator.org/check.cgi?url=https://clagnut.com/feeds/fullposts.xml">validate</a>]</li>
+	<li><a href="/feeds/summaries.xml">Summaries feed</a> [<a href="http://feedvalidator.org/check.cgi?url=https://clagnut.com/feeds/summaries.xml">validate</a>]</li>
+	<li><a href="/feeds/blogmarks.xml">Blogmarks feed</a> [<a href="http://feedvalidator.org/check.cgi?url=https://clagnut.com/feeds/blogmarks.xml">validate</a>]</li>
 </ul>
 
 </div>

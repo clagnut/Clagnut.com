@@ -51,7 +51,7 @@ $description = stripslashes(htmlentities($description));
 ?>
 
 <p><label>title: <input type="text" name="title" value="<?=$title?>" size="80" /></label></p>
-<p><label>url: <input type="text" name="url" value="http://clagnut.com/blog/<?=$id?>/" size="80" /></label></p>
+<p><label>url: <input type="text" name="url" value="https://clagnut.com/blog/<?=$id?>/" size="80" /></label></p>
 <p><label>excerpt: <textarea name="excerpt" rows="2" cols="50"><?=$description?></textarea></label></p>
 <p><label>blog name: <input type="text" name="blog_name" value="Clagnut" /></label></p>
 <p><label>trackback URL: <input type="text" name="ping" value="" size="80" /></label></p>

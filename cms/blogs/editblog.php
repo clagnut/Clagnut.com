@@ -60,7 +60,7 @@ if ($submitAdd && !$submitPreview) {
 
 		if(!strpos($hostname, ".dev")) {
 			# send to delicious
-			$d_url = "url=".urlencode("http://clagnut.com/blog/$id/");
+			$d_url = "url=".urlencode("https://clagnut.com/blog/$id/");
 			$d_description = "description=".urlencode(stripslashes($title));
 			$d_extended = "extended=".urlencode(stripslashes($description));
 			$d_tags = str_replace(" ", "", $tags);
@@ -75,7 +75,7 @@ if ($submitAdd && !$submitPreview) {
 			/*
 			$m_title = "title=".urlencode(stripslashes($title));
 			$m_description = "description=".urlencode(stripslashes($description));
-			$m_url = "url=".urlencode("http://clagnut.com/blog/$id/");
+			$m_url = "url=".urlencode("https://clagnut.com/blog/$id/");
 			$m_tags = "tags=".urlencode(stripslashes($tags));
 			$m_private = "private=true";
 			$m_apikey = "api_key=fdadc627ba5388c1e25e1f13e7f84ee4e13dbf28";

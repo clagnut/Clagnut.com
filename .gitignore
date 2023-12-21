@@ -11,3 +11,4 @@ clagnut.local.key
 feeds/summaries.xml
 feeds/fullposts.xml
 *.gz
+*.xml
