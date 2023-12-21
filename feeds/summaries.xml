@@ -1,16 +1,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 			<channel>
 				<title>Clagnut summaries</title>
-				<link>http://clagnut.com/</link>
-				<atom:link href="http://clagnut.com/feeds/summaries.xml" rel="self" type="application/rss+xml" />
+				<link>https://clagnut.com/</link>
+				<atom:link href="https://clagnut.com/feeds/summaries.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 10 posts in summary)</description>
 				<language>en-gb</language>
 				<copyright>Copyright 2003-2023, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
-					<url>http://clagnut.com/images/clagnut_rss.png</url>
-					<link>http://clagnut.com/</link>
+					<url>https://clagnut.com/images/clagnut_rss.png</url>
+					<link>https://clagnut.com/</link>
 					<title>Clagnut summaries</title>
 					<width>88</width>
 					<height>31</height>
@@ -18,90 +18,90 @@
 		<item>
 			<pubDate>Fri, 10 Feb 2023 10:26:48 PST</pubDate>
 			<title>Font optical sizing bug in Safari 16</title>
-			<link>http://clagnut.com/blog/2423/</link>
-			<guid>http://clagnut.com/blog/2423/</guid>
-			<description><![CDATA[In my previous post I extolled the virtues of Literata’s font optical sizing, in particular how it worked automatically in the browser. That is until the release of Safari 16 with macOS Ventura. Here&#8217;s how to work around the bug. <a href='http://clagnut.com/blog/2423/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+			<link>https://clagnut.com/blog/2423/</link>
+			<guid>https://clagnut.com/blog/2423/</guid>
+			<description><![CDATA[In my previous post I extolled the virtues of Literata’s font optical sizing, in particular how it worked automatically in the browser. That is until the release of Safari 16 with macOS Ventura. Here&#8217;s how to work around the bug. <a href='https://clagnut.com/blog/2423/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
 		</item>
 		<item>
 			<pubDate>Tue, 07 Feb 2023 14:39:11 PST</pubDate>
 			<title>New year, new typeface: switching to variable fonts</title>
-			<link>http://clagnut.com/blog/2422/</link>
-			<guid>http://clagnut.com/blog/2422/</guid>
-			<description><![CDATA[My website used to be set primarily in two very different typefaces: Ingeborg and Premiéra. This is story of how I switched to a fantastic single variable font which provided the same practical and stylistic benefits, only better. <a href='http://clagnut.com/blog/2422/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<link>https://clagnut.com/blog/2422/</link>
+			<guid>https://clagnut.com/blog/2422/</guid>
+			<description><![CDATA[My website used to be set primarily in two very different typefaces: Ingeborg and Premiéra. This is story of how I switched to a fantastic single variable font which provided the same practical and stylistic benefits, only better. <a href='https://clagnut.com/blog/2422/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/site_news/">Clagnut news</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 		</item>
 		<item>
 			<pubDate>Sun, 18 Sep 2022 15:35:38 PST</pubDate>
 			<title>How to typeset a date range properly</title>
-			<link>http://clagnut.com/blog/2419/</link>
-			<guid>http://clagnut.com/blog/2419/</guid>
-			<description><![CDATA[During these 10 days of mourning following the death of the Queen, wherever you look – on websites, billboards and shop windows – we are presented with a badly typeset date range: 1926 – 2022. Here&#8217;s how to do it correctly. <a href='http://clagnut.com/blog/2419/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/markup/">Mark-up techniques</category>
+			<link>https://clagnut.com/blog/2419/</link>
+			<guid>https://clagnut.com/blog/2419/</guid>
+			<description><![CDATA[During these 10 days of mourning following the death of the Queen, wherever you look – on websites, billboards and shop windows – we are presented with a badly typeset date range: 1926 – 2022. Here&#8217;s how to do it correctly. <a href='https://clagnut.com/blog/2419/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/markup/">Mark-up techniques</category>
 		</item>
 		<item>
 			<pubDate>Fri, 06 May 2022 15:30:25 PST</pubDate>
 			<title>How to subset a variable font</title>
-			<link>http://clagnut.com/blog/2418/</link>
-			<guid>http://clagnut.com/blog/2418/</guid>
-			<description><![CDATA[Professional fonts can contain a lot characters you will never use, increasing file size uncessarily. These characters can be removed by subsetting a font. This post explains how to subset fonts from first principles on a Mac using fonttools. <a href='http://clagnut.com/blog/2418/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/tools_software/">Tools &amp; software</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+			<link>https://clagnut.com/blog/2418/</link>
+			<guid>https://clagnut.com/blog/2418/</guid>
+			<description><![CDATA[Professional fonts can contain a lot characters you will never use, increasing file size uncessarily. These characters can be removed by subsetting a font. This post explains how to subset fonts from first principles on a Mac using fonttools. <a href='https://clagnut.com/blog/2418/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/tools_software/">Tools &amp; software</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 		</item>
 		<item>
 			<pubDate>Sun, 30 Jan 2022 19:21:17 PST</pubDate>
 			<title>Top Tunes 2021</title>
-			<link>http://clagnut.com/blog/2416/</link>
-			<guid>http://clagnut.com/blog/2416/</guid>
-			<description><![CDATA[Here&#8217;s a playlist of favourite songs I bought this year. Not quite a record-breaking haul, but a floor full of vinyl none-the-less. A mixture of new, not so new, and old; and some real corkers in amongst them. <a href='http://clagnut.com/blog/2416/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
+			<link>https://clagnut.com/blog/2416/</link>
+			<guid>https://clagnut.com/blog/2416/</guid>
+			<description><![CDATA[Here&#8217;s a playlist of favourite songs I bought this year. Not quite a record-breaking haul, but a floor full of vinyl none-the-less. A mixture of new, not so new, and old; and some real corkers in amongst them. <a href='https://clagnut.com/blog/2416/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/music/">Music</category>
 		</item>
 		<item>
 			<pubDate>Fri, 26 Mar 2021 17:55:27 PST</pubDate>
 			<title>One year on and what next for remote working?</title>
-			<link>http://clagnut.com/blog/2415/</link>
-			<guid>http://clagnut.com/blog/2415/</guid>
-			<description><![CDATA[Since the UK locked down 52 weeks ago, Clearleft folks have been working fully remotely. As the vaccine works its magic, in a few months time weâ€™ll be able to move back into our studio. What happens then? <a href='http://clagnut.com/blog/2415/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/industry/">New media industry</category>
-			<category domain="http://clagnut.com/archive/clearleft/">Clearleft</category>
+			<link>https://clagnut.com/blog/2415/</link>
+			<guid>https://clagnut.com/blog/2415/</guid>
+			<description><![CDATA[Since the UK locked down 52 weeks ago, Clearleft folks have been working fully remotely. As the vaccine works its magic, in a few months time weâ€™ll be able to move back into our studio. What happens then? <a href='https://clagnut.com/blog/2415/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/industry/">New media industry</category>
+			<category domain="https://clagnut.com/archive/clearleft/">Clearleft</category>
 		</item>
 		<item>
 			<pubDate>Sun, 03 Jan 2021 19:44:35 PST</pubDate>
 			<title>Top Tunes 2020</title>
-			<link>http://clagnut.com/blog/2414/</link>
-			<guid>http://clagnut.com/blog/2414/</guid>
-			<description><![CDATA[Here&#8217;s a playlist of favourite songs I bought this year. Not quite a record-breaking haul, but a floor full of vinyl none-the-less. A mixture of new, not so new, and old; and some real corkers in amongst them. <a href='http://clagnut.com/blog/2414/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
+			<link>https://clagnut.com/blog/2414/</link>
+			<guid>https://clagnut.com/blog/2414/</guid>
+			<description><![CDATA[Here&#8217;s a playlist of favourite songs I bought this year. Not quite a record-breaking haul, but a floor full of vinyl none-the-less. A mixture of new, not so new, and old; and some real corkers in amongst them. <a href='https://clagnut.com/blog/2414/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/music/">Music</category>
 		</item>
 		<item>
 			<pubDate>Fri, 16 Oct 2020 14:55:15 PST</pubDate>
 			<title>Shining a light on Neon</title>
-			<link>http://clagnut.com/blog/2413/</link>
-			<guid>http://clagnut.com/blog/2413/</guid>
-			<description><![CDATA[Design by Clearleft on behalf of EngineeringUK, Neon breaks down stereotypes about engineering careers through inspirational case studies and experiences. A cause close to my heart, as a former engineer. <a href='http://clagnut.com/blog/2413/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/design_thinking/">Design thinking</category>
-			<category domain="http://clagnut.com/archive/clearleft/">Clearleft</category>
-			<category domain="http://clagnut.com/archive/inspiration/">Inspiration</category>
+			<link>https://clagnut.com/blog/2413/</link>
+			<guid>https://clagnut.com/blog/2413/</guid>
+			<description><![CDATA[Design by Clearleft on behalf of EngineeringUK, Neon breaks down stereotypes about engineering careers through inspirational case studies and experiences. A cause close to my heart, as a former engineer. <a href='https://clagnut.com/blog/2413/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/design_thinking/">Design thinking</category>
+			<category domain="https://clagnut.com/archive/clearleft/">Clearleft</category>
+			<category domain="https://clagnut.com/archive/inspiration/">Inspiration</category>
 		</item>
 		<item>
 			<pubDate>Fri, 11 Sep 2020 10:53:55 PST</pubDate>
 			<title>The best compostable Nespresso capsules</title>
-			<link>http://clagnut.com/blog/2412/</link>
-			<guid>http://clagnut.com/blog/2412/</guid>
-			<description><![CDATA[Searching for a rich, bold, chocolatey Nespresso coffee, ethically sourced, and home-compostable pods, I tried 17 different coffees from 5 different brands until finally I came across two which hit the mark. <a href='http://clagnut.com/blog/2412/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/food_drink/">Food &amp; drink</category>
+			<link>https://clagnut.com/blog/2412/</link>
+			<guid>https://clagnut.com/blog/2412/</guid>
+			<description><![CDATA[Searching for a rich, bold, chocolatey Nespresso coffee, ethically sourced, and home-compostable pods, I tried 17 different coffees from 5 different brands until finally I came across two which hit the mark. <a href='https://clagnut.com/blog/2412/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/food_drink/">Food &amp; drink</category>
 		</item>
 		<item>
 			<pubDate>Tue, 12 May 2020 23:03:34 PST</pubDate>
 			<title>Top Tunes 2017</title>
-			<link>http://clagnut.com/blog/2411/</link>
-			<guid>http://clagnut.com/blog/2411/</guid>
-			<description><![CDATA[Iâ€™ve been back filling my best ofs, so hereâ€™s a compilation of favourite songs I bought in 2017. It was the start of a sequence of excellent music-buying years. <a href='http://clagnut.com/blog/2411/'>Read more</a>.]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
+			<link>https://clagnut.com/blog/2411/</link>
+			<guid>https://clagnut.com/blog/2411/</guid>
+			<description><![CDATA[Iâ€™ve been back filling my best ofs, so hereâ€™s a compilation of favourite songs I bought in 2017. It was the start of a sequence of excellent music-buying years. <a href='https://clagnut.com/blog/2411/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/music/">Music</category>
 		</item>
 	</channel>
 		</rss>

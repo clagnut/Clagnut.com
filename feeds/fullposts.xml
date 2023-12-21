@@ -1,16 +1,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 			<channel>
 				<title>Clagnut</title>
-				<link>http://clagnut.com/</link>
-				<atom:link href="http://clagnut.com/feeds/fullposts.xml" rel="self" type="application/rss+xml" />
+				<link>https://clagnut.com/</link>
+				<atom:link href="https://clagnut.com/feeds/fullposts.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)</description>
 				<language>en-gb</language>
 				<copyright>Copyright 2003-2023, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
-					<url>http://clagnut.com/images/clagnut_rss.png</url>
-					<link>http://clagnut.com/</link>
+					<url>https://clagnut.com/images/clagnut_rss.png</url>
+					<link>https://clagnut.com/</link>
 					<title>Clagnut</title>
 					<width>88</width>
 					<height>31</height>
@@ -18,12 +18,14 @@
 		<item>
 			<pubDate>Fri, 10 Feb 2023 10:26:48 PST</pubDate>
 			<title>Font optical sizing bug in Safari 16</title>
-			<link>http://clagnut.com/blog/2423/</link>
-			<guid>http://clagnut.com/blog/2423/</guid>
-			<description><![CDATA[<p>In my <a href="http://clagnut.com/blog/2422">previous post</a> I extolled the virtues of Literata’s font optical sizing, in particular how it worked automatically in the browser. By ‘it’ I mean how the corresponding style was chosen along the optical size axis of the variable font, based on type size.</p>
+			<link>https://clagnut.com/blog/2423/</link>
+			<guid>https://clagnut.com/blog/2423/</guid>
+			<description><![CDATA[<section><div class='prose'><p><ins><strong>Update</strong>: as of Safari 16.4, this bug <a href="https://github.com/WebKit/WebKit/pull/10126">has been fixed</a>. I&#8217;ve updated the code snippet to reflect this. Thanks to the efforts of Myles and team for turning this around so quickly.</ins></p>
+
+<p>In my <a href="https://clagnut.com/blog/2422">previous post</a> I extolled the virtues of Literata’s font optical sizing, in particular how it worked automatically in the browser. By ‘it’ I mean how the corresponding style was chosen along the optical size axis of the variable font, based on type size.</p>
 
 </div><!-- /.prose --><figure>
-    <img loading='lazy' src="http://clagnut.com/images/2423/literata-optical-axis.png" alt="Four type styles in a line, ranging from low contrast on the left to high contrast on the right."/>
+    <img loading='lazy' src="https://clagnut.com/images/2423/literata-optical-axis.png" alt="Four type styles in a line, ranging from low contrast on the left to high contrast on the right."/>
     <figcaption>
         Literata’s optical size axis from <7px to >72px. Image ©TypeTogether.
     </figcaption>
@@ -41,13 +43,15 @@
 
 <p>Automatic selection of optical size styles in a variable font has been supported in browsers since at least 2020. That is until the release of Safari 16 with macOS Ventura. A regression was inadvertently introduced meaning the browser acted as if <code>font-optical-sizing</code> was turned off. <a href="https://bugs.webkit.org/show_bug.cgi?id=247987">The bug</a> was an unintened consequence of improvements being made to <a href="https://developer.apple.com/documentation/coretext">Core Text</a>. Fortunately it’s being actively fixed.</p>
 
-<p>So what to do in the meantime? The answer is to use the low level <code>font-variation-settings</code> property to manually set the optical size. I only want to do this for Safari 16, so firstly I use a bit of user agent sniffing to set a root-level class accordingly:</p>
+<p>So what to do in the meantime? The answer is to use the low level <code>font-variation-settings</code> property to manually set the optical size. I only want to do this for Safari 16.1, 16.2 and 16.3, so firstly I use a bit of clunky user agent sniffing to set a root-level class accordingly:</p>
 
 <figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">&lt;script&gt;
 var root = document.getElementsByTagName('html')[0];
 if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
     navigator.userAgent.indexOf('Chrome') == -1 &amp;&amp;
-    navigator.userAgent.indexOf('Version/16') != -1) {
+    ( (navigator.userAgent.indexOf('Version/16.1') != -1) ||
+      (navigator.userAgent.indexOf('Version/16.2') != -1) ||
+      (navigator.userAgent.indexOf('Version/16.3') != -1) )  {
     root.classList.add("isSafari16");
 }
 &lt;/script&gt;
@@ -64,23 +68,23 @@ if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
 
 <p>This works well, but because the styles are being manually applied to selected elements, rather than automatically on a text size basis, some subtle differences are lost with the responsive text sizing I’m applying.</p>
 
-<p>It’ll do for now, and hopefully the situation will be fixed for the release of Safari 17 (if not I’ll have to update the browser sniffing Javascript).</p>
-<p><a href='http://clagnut.com/blog/2423/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/browsers/">Browsers</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/css_techniques/">CSS techniques</category>
+<p>It’ll do for now, and hopefully the situation will be fixed for the release of Safari 17. <ins><strong>Update</strong>: It was fixed by version 16.4!</ins></p></div></section>
+<p><a href='https://clagnut.com/blog/2423/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
 		</item>
 		<item>
 			<pubDate>Tue, 07 Feb 2023 14:39:11 PST</pubDate>
 			<title>New year, new typeface: switching to variable fonts</title>
-			<link>http://clagnut.com/blog/2422/</link>
-			<guid>http://clagnut.com/blog/2422/</guid>
-			<description><![CDATA[<p>This site used to be set in two primary typefaces. By no coincidence, this was based on the combination I used in the <a href="http://book.webtypography.net/">Web Typography book</a>: <a href="https://typejockeys.com/font/ingeborg">Ingeborg</a> for headings, and <a href="https://web.archive.org/web/20160311141455/http://www.typejockeys.com/fonts/premiera" title="This font is no longer available, so using an archive link">Premiéra</a> for body text, both released by <a href="https://typejockeys.com/">Typejockeys</a>.</p>
+			<link>https://clagnut.com/blog/2422/</link>
+			<guid>https://clagnut.com/blog/2422/</guid>
+			<description><![CDATA[<section><div class='prose'><p>This site used to be set in two primary typefaces. By no coincidence, this was based on the combination I used in the <a href="http://book.webtypography.net/">Web Typography book</a>: <a href="https://typejockeys.com/font/ingeborg">Ingeborg</a> for headings, and <a href="https://web.archive.org/web/20160311141455/http://www.typejockeys.com/fonts/premiera" title="This font is no longer available, so using an archive link">Premiéra</a> for body text, both released by <a href="https://typejockeys.com/">Typejockeys</a>.</p>
 
 <p>Ingeborg’s <em>fat</em> weight provides the distinctive high contrast Didone-style typeface I like to use nice and big. Premiéra, conversely, is a low contrast, robust typeface designed for use at smaller sizes and demanding conditions (such as screens), perfect for the main text.</p>
 
 </div><!-- /.prose --><figure>
-    <img loading='lazy' src="http://clagnut.com/images/2422/ingeborg-premiera.svg" alt=""/>
+    <img loading='lazy' src="https://clagnut.com/images/2422/ingeborg-premiera.svg" alt=""/>
     <figcaption>
         Ingeborg Fat heading, with text set in Premiéra.
     </figcaption>
@@ -91,7 +95,7 @@ if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
 <p>The original design was excellent. It’s now a really impressive full-blown type family. Weights run from Light (200) to Black (900), but what really grabbed my attention is its optical size axis. It’s one of relatively few variable fonts that does this, and it works superbly. Literata seamlessly runs from a sturdy low contrast Caption size, through to a delicate high contrast Display style, with the original body text and subheading styles sat in between.</p>
 
 </div><!-- /.prose --><figure class="fullbleed">
-    <img loading='lazy' src="http://clagnut.com/images/2422/literata.png" alt="Text samples for display, subhead, text and caption optical sizes, in weights from 200 to 900. Master styles were drawn at 72pt 200, 72pt 400, 72pt 900, 12pt 200, 12pt 400, 12pt 900, 7pt 500, and 7pt 900."/>
+    <img loading='lazy' src="https://clagnut.com/images/2422/literata.png" alt="Text samples for display, subhead, text and caption optical sizes, in weights from 200 to 900. Master styles were drawn at 72pt 200, 72pt 400, 72pt 900, 12pt 200, 12pt 400, 12pt 900, 7pt 500, and 7pt 900."/>
     <figcaption>
         Literata’s static styles and recommendations for use. Black triangles indicate the drawn master styles. Image ©TypeTogether.
     </figcaption>
@@ -112,27 +116,27 @@ if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
 <li>Premiéra Bold – 53 kB</li>
 </ol>
 
-<p>That makes a total of 196 kB. Now here’s the surprise.  I <a href="http://clagnut.com/blog/2418/">subsetted</a> all fonts to the same generous set of characters, but Literata comes in at 205 Kb. So in terms of file size there’s no saving, although there are 3 fewer requests to the server. In Literata’s defence, it also provides a small-text caption style that I’m not using. But to my mind the way to look at it is that for no extra payload Literata gives a superior result because of that brilliantly executed optical size axis. Headings and subheadings are individually styled according to size, the sturdiness and contrast adjusts to the <a href="https://utopia.fyi">dynamic text sizing</a> for different screen sizes (more on that another time), and the overall feel is harmonious but highly functional with it.</p>
+<p>That makes a total of 196 kB. Now here’s the surprise.  I <a href="https://clagnut.com/blog/2418/">subsetted</a> all fonts to the same generous set of characters, but Literata comes in at 205 Kb. So in terms of file size there’s no saving, although there are 3 fewer requests to the server. In Literata’s defence, it also provides a small-text caption style that I’m not using. But to my mind the way to look at it is that for no extra payload Literata gives a superior result because of that brilliantly executed optical size axis. Headings and subheadings are individually styled according to size, the sturdiness and contrast adjusts to the <a href="https://utopia.fyi">dynamic text sizing</a> for different screen sizes (more on that another time), and the overall feel is harmonious but highly functional with it.</p>
 
-<p>One final thing. Thanks to Google’s OpenFont License (OFL), Literata is free to own and use. Normally a type family like this would cost upwards of £500, with good reason.</p>
-<p><a href='http://clagnut.com/blog/2422/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/site_news/">Clagnut news</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+<p>One final thing. Thanks to Google’s OpenFont License (OFL), Literata is free to own and use. Normally a type family like this would cost upwards of £500, with good reason.</p></div></section>
+<p><a href='https://clagnut.com/blog/2422/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/site_news/">Clagnut news</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 		</item>
 		<item>
 			<pubDate>Sun, 18 Sep 2022 15:35:38 PST</pubDate>
 			<title>How to typeset a date range properly</title>
-			<link>http://clagnut.com/blog/2419/</link>
-			<guid>http://clagnut.com/blog/2419/</guid>
-			<description><![CDATA[<p>As I write this we in the <abbr class='c2sc'>UK</abbr> are reaching the culmination of 10 days of mourning following the death of the Queen. Wherever you look – on websites, billboards and shop windows – we are reminded of the longevity of Her Majesty’s life. More precisely we’re presented with a date range: 1926 – 2022.</p>
+			<link>https://clagnut.com/blog/2419/</link>
+			<guid>https://clagnut.com/blog/2419/</guid>
+			<description><![CDATA[<section><div class='prose'><p>As I write this we in the <abbr class='c2sc'>UK</abbr> are reaching the culmination of 10 days of mourning following the death of the Queen. Wherever you look – on websites, billboards and shop windows – we are reminded of the longevity of Her Majesty’s life. More precisely we’re presented with a date range: 1926 – 2022.</p>
 
-</div><!-- /.prose --><figure><img loading='lazy' src="http://clagnut.com/images/2419/queen.jpg" alt="Photo of the Queen on a bus stop advertising screen" /><figcaption>Messages about the Queen on screens in bus stops and shop windows throughout the city</figcaption></figure><div class='prose'>
+</div><!-- /.prose --><figure><img loading='lazy' src="https://clagnut.com/images/2419/queen.jpg" alt="Photo of the Queen on a bus stop advertising screen" /><figcaption>Messages about the Queen on screens in bus stops and shop windows throughout the city</figcaption></figure><div class='prose'>
 
 <p>A badly typeset date range, usually comprising a hyphen surrounded by two spaces. “What’s wrong with that?,” you might well ask. A lack of attention to detail for a start. There is a long-standing convention for how to properly typeset a date range, or any numerical range for that matter, but it involves going a bit deeper beyond what faces on our standard keyboards (which are still relics from the age typewriters).</p>
 
 <p>Even the <a href="https://www.royal.uk">Royals’ own website</a> makes the same mistake:</p>
 
-</div><!-- /.prose --><figure><img loading='lazy' src="http://clagnut.com/images/2419/hyphen.jpg" alt="Screenshot" /><figcaption>Royal.uk uses a spaced hyphen for the date range, made worse by letter-spacing<figcaption></figure><div class='prose'>
+</div><!-- /.prose --><figure><img loading='lazy' src="https://clagnut.com/images/2419/hyphen.jpg" alt="Screenshot" /><figcaption>Royal.uk uses a spaced hyphen for the date range, made worse by letter-spacing<figcaption></figure><div class='prose'>
 
 <p>The preferred way is to use an <em>en-dash</em> instead of a hyphen, and separate it from the numerals with a <em>thin-space</em>, like this:</p>
 
@@ -146,17 +150,17 @@ if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
 
 <p>Any typographically configured <abbr class='c2sc'>CMS</abbr> should automatically convert your number-space-hyphen-space-number combination for you, swapping in thin spaces and en-dash. If you need to manually insert the desired characters, the easiest way for you right now is to cut and paste straight out of this page – they are standard Unicode glyphs.</p>
 
-<p>I also use a handy Unicode character finder for these purposes. There’s a few around, but my favourite is <a href="https://glyphfinder.com">Glyphfinder</a> for MacOS. (The Glyphfinder website was down for me at the time of writing, but you can get the <a href="https://ueberdosis.gumroad.com/l/ZaEQz">download from Gumroad</a> for the price of a pint).</p>
-<p><a href='http://clagnut.com/blog/2419/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
-			<category domain="http://clagnut.com/archive/markup/">Mark-up techniques</category>
+<p>I also use a handy Unicode character finder for these purposes. There’s a few around, but my favourite is <a href="https://glyphfinder.com">Glyphfinder</a> for MacOS. (The Glyphfinder website was down for me at the time of writing, but you can get the <a href="https://ueberdosis.gumroad.com/l/ZaEQz">download from Gumroad</a> for the price of a pint).</p></div></section>
+<p><a href='https://clagnut.com/blog/2419/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/markup/">Mark-up techniques</category>
 		</item>
 		<item>
 			<pubDate>Fri, 06 May 2022 15:30:25 PST</pubDate>
 			<title>How to subset a variable font</title>
-			<link>http://clagnut.com/blog/2418/</link>
-			<guid>http://clagnut.com/blog/2418/</guid>
-			<description><![CDATA[<p>Using variable fonts can be an excellent way to reduce bandwidth and latency as they can highly efficiently combine multiple styles into one font file. However, as with standard professional fonts, they can contain a lot characters you will never use (in my case this would include Greek and Cyrillic – your mileage will vary). These un-needed characters can be removed from the font to reduce file-size, a process called subsetting.</p>
+			<link>https://clagnut.com/blog/2418/</link>
+			<guid>https://clagnut.com/blog/2418/</guid>
+			<description><![CDATA[<section><div class='prose'><p>Using variable fonts can be an excellent way to reduce bandwidth and latency as they can highly efficiently combine multiple styles into one font file. However, as with standard professional fonts, they can contain a lot characters you will never use (in my case this would include Greek and Cyrillic – your mileage will vary). These un-needed characters can be removed from the font to reduce file-size, a process called subsetting.</p>
 
 <p>This post is primarily an aide-memoire explaining how to subset fonts from first principles on a Mac (macOS Monterey 12.3.1 at time of writing). I&#8217;ll be using <a href="https://github.com/fonttools/fonttools">fonttools</a>, an open source font manipulation library written in Python, to subset a font and create a <abbr class='c2sc'>WOFF2</abbr> font file for use on the Web.</p>
 
@@ -218,21 +222,21 @@ if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
 
 <p>The <code>layout-features</code> option specifies which OpenType layout features to include, such as kerning, ligatures, numerals and alternate characters. In this example I&#8217;m using <code>layout-features='*'</code> to include all the features available. Instead, you can also add selected features to the default set. For example <code>layout-features+=onum,pnum,ss01</code> will keep the default set of features and add <code>onum</code>, <code>pnum</code> and <code>ss01</code> (old-style and proportional numerals, and styleset 1). The default features include <code>calt</code>, <code>clig</code>, <code>kern</code> and <code>liga</code> among others. See the <a href="https://fonttools.readthedocs.io/en/latest/subset/index.html?highlight=layout-features#glyph-set-expansion">fonttools Documentation</a> for more info on <code>layout-features</code>.</p>
 
-<p>Applying that subsetting routine to LiterataTT reduced the original font file from 913Kb to 207Kb. The latter is still a fairly large file, but I was conservative in my subsetting (as in keeping in plenty of European characters and OpenType features) and, as a variable font, this file will cover all situations from light to black weights and low to high contrast optical sizing.</p>
-<p><a href='http://clagnut.com/blog/2418/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/tools_software/">Tools &amp; software</category>
-			<category domain="http://clagnut.com/archive/typography/">Typography</category>
+<p>Applying that subsetting routine to LiterataTT reduced the original font file from 913Kb to 207Kb. The latter is still a fairly large file, but I was conservative in my subsetting (as in keeping in plenty of European characters and OpenType features) and, as a variable font, this file will cover all situations from light to black weights and low to high contrast optical sizing.</p></div></section>
+<p><a href='https://clagnut.com/blog/2418/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/tools_software/">Tools &amp; software</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 		</item>
 		<item>
 			<pubDate>Sun, 30 Jan 2022 19:21:17 PST</pubDate>
 			<title>Top Tunes 2021</title>
-			<link>http://clagnut.com/blog/2416/</link>
-			<guid>http://clagnut.com/blog/2416/</guid>
-			<description><![CDATA[<p>I&#8217;ve just about squeezed this out while it&#8217;s still January – my annual compilation of favourite songs from those I bought in the last year (not all were released this year). As a deviation from the electronic pop favourites of last year, I&#8217;ve gone a bit post-punk, or whatever the kids are calling it nowadays: Squid; Black Country, New Road; and a cracking new album from Mogwai. But my absolute favourite is Darkside (both albums) and Nicolas Jaar from 2013.</p>
+			<link>https://clagnut.com/blog/2416/</link>
+			<guid>https://clagnut.com/blog/2416/</guid>
+			<description><![CDATA[<section><div class='prose'><p>I&#8217;ve just about squeezed this out while it&#8217;s still January – my annual compilation of favourite songs from those I bought in the last year (not all were released this year). As a deviation from the electronic pop favourites of last year, I&#8217;ve gone a bit post-punk, or whatever the kids are calling it nowadays: Squid; Black Country, New Road; and a cracking new album from Mogwai. But my absolute favourite is Darkside (both albums) and Nicolas Jaar from 2013.</p>
 
 <p>RÃ³isÃ­n Murphy gets in again, with a banging remix from her producer Crooked Man. Snapped Ankles make a welcome return and there&#8217;s a fab Hot Chip remix of long time favourite Django Django.</p>
 
-</div><!-- /.prose --><figure><img loading='lazy' src="http://clagnut.com/images/2021vinyl.jpg" alt="Photo" /><figcaption>Over fifty vinyl records spread out on my floor</figcaption></figure><div class='prose'>
+</div><!-- /.prose --><figure><img loading='lazy' src="https://clagnut.com/images/2021vinyl.jpg" alt="Photo" /><figcaption>Over fifty vinyl records spread out on my floor</figcaption></figure><div class='prose'>
 
 <p>Because I keep these playlists roughly to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list. Black Midi is one, although I find it a little hard work at the moment. Also a classic oldie from Metronomy, some Seventies jazz funk from Ian Carr&#8217;s Nucleus, and a classic album from Love which was largely unknown to me – an omission generously corrected by my good friend Anthony.</p>
 
@@ -261,9 +265,9 @@ if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
 <li><cite>Glowing in the Dark (Hot Chip remix)</cite> by Django Django from the <abbr class='c2sc'>A23</abbr> <cite>Glowing in the Dark – the Remixes</cite></li>
 </ol>
 
-<p>You can listen to the playlist on <a href="https://open.spotify.com/playlist/5ayTtvb21f18K0ZwNOXvCZ?si=fe5a6c611f3744be">Spotify</a> or <a href="https://music.apple.com/gb/playlist/2021-the-best-songs-i-bought-in-2021-ever/pl.u-jV8966juYaX5z">Apple Music</a>.</p>
-<p><a href='http://clagnut.com/blog/2416/'>Read or add comments</a></p>]]></description>
-			<category domain="http://clagnut.com/archive/music/">Music</category>
+<p>You can listen to the playlist on <a href="https://open.spotify.com/playlist/5ayTtvb21f18K0ZwNOXvCZ?si=fe5a6c611f3744be">Spotify</a> or <a href="https://music.apple.com/gb/playlist/2021-the-best-songs-i-bought-in-2021-ever/pl.u-jV8966juYaX5z">Apple Music</a>.</p></div></section>
+<p><a href='https://clagnut.com/blog/2416/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/music/">Music</category>
 		</item>
 	</channel>
 		</rss>
