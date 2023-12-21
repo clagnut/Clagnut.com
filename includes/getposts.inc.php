@@ -232,7 +232,7 @@ function getpost($blog_id) {
 			$result = mysqli_query($db, $sql);
 			
 			if ($myblog = mysqli_fetch_array($result)) {
-				$related_posts = "<ul class='articles'>";
+				$related_posts = "<ul class='articles switcher'>";
 				do {
 				
 					$rp_id = $myblog["blog_id"];
@@ -248,7 +248,7 @@ function getpost($blog_id) {
 						$post_decription_tmp = str_replace(array("<p>","</p>"),array("",""),$post_decription_tmp);
 						$post_description[$rp_id] = $post_decription_tmp;
 					}
-					$related_posts .= "<li><article>
+					$related_posts .= "<li><article class='stack'>
 					<h3><a href='/blog/$rp_id'>$post_headtitle[$rp_id]</a></h3>
 					<p class='summary'>$post_description[$rp_id]</p>
 					<p class='date'><time datetime='$post_isodate[$rp_id]'>$rp_postdate</time></p>
@@ -272,7 +272,7 @@ function getpost($blog_id) {
 				FROM mint_visit
 				WHERE resource
 				IN (
-				'http://clagnut.com/blog/$blog_id', 'http://clagnut.com/blog/?id=$blog_id', 'http://clagnut.com/blog/$blog_id/', 'http://clagnut.com/blog/?id=$blog_id/'
+				'https://clagnut.com/blog/$blog_id', 'https://clagnut.com/blog/?id=$blog_id', 'https://clagnut.com/blog/$blog_id/', 'https://clagnut.com/blog/?id=$blog_id/'
 				)
 				AND referer != ''
 				AND referer NOT LIKE '%clagnut.com%'

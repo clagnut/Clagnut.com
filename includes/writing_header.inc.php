@@ -25,7 +25,7 @@ if (!isset($meta_title)) {
     <meta name="twitter:site" content="@clagnut" />
     <meta name="twitter:title" content="<?php echo strip_tags($meta_title) ?>" />
     <meta name="twitter:description" content="<?php echo $meta_description ?>" />
-    <meta name="twitter:image" content="https://ampersand.s3.amazonaws.com/rr-twittercard.jpg" />
+    <meta name="twitter:image" content="https://clagnut.com/i/rrutter.jpg" />
     
 </head>
 
@@ -34,14 +34,15 @@ if (!isset($meta_title)) {
 include($dr . "header.inc.php");
 ?>
 
-<main class="post">
+<main>
+<div class="page">
+<article>
 
-<article class="post">
-
-<header class="nometa">
+<header>
 
 <h1><?php echo $title ?></h1>
 
-<div class="meta">
+<div class="center">
+<div class="meta"> </div>
 </div>
 </header>

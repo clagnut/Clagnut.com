@@ -133,9 +133,8 @@ if ($myblog = mysqli_fetch_array($result)) {
 include($dr . "header.inc.php");
 ?>
 
-<main class="archive">
-
-<article class="post">
+<main>
+<div class="page">
 
 <header>
 
@@ -143,13 +142,13 @@ include($dr . "header.inc.php");
 
 </header>
 
+<div class="archive with-sidebar">
 
-<section>
-<div class="listing">
+<div class="not-sidebar stack">
 
 <?php
 if (isset($post_postdate)) {
-	echo "<ul class='articles' role='list'>\n";
+	echo "<ul class='articles stack' role='list'>\n";
 	# Print individual post title and descriptions
 	foreach($post_postdate AS $blogpostid => $date) {
 		echo "<li><article>\n";
@@ -177,21 +176,21 @@ if (isset($post_postdate)) {
 
 if(!$category_filter AND !$themonth) {
 
-	echo "<nav class='pagination'>";
-	if ($next>2) {
-		echo "<h5 class='newer'><a href='/archive/$prev'>Newer posts</a></h5>";
-	} else echo "<div></div>";
+	echo "<nav class='pagination sidebyside equal'>";
 	if (isset($post_postdate) && count($post_postdate) >= $postsperpage) {
-		echo "<h5 class='older'><a href='/archive/$next'>Older posts</a></h5>";
-	} else echo "<div></div>";
+		echo "<div class='older'><h5><a href='/archive/$next'>Older posts</a></h5></div>";
+	};
+	if ($next>2) {
+		echo "<div class='newer'><h5><a href='/archive/$prev'>Newer posts</a></h5></div>";
+	};
 	echo "</nav>";
 
 }
 ?> 
 
-</div>	
+</div>
 
-<aside class="categorylist">
+<aside class="sidebar stack">
 
 	<h2>Categories</h2>
 	<ul role='list'>
@@ -208,8 +207,7 @@ if(!$category_filter AND !$themonth) {
 	</ul>
 
 </aside>
-
-</section>
+</div>
 
 </main>
 

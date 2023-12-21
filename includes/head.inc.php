@@ -11,7 +11,7 @@
 	    root.className += ' js';
 		if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
 			root.className += ' isSafari';
-			if (navigator.userAgent.indexOf('Version/16') != -1) {
+			if ( (navigator.userAgent.indexOf('Version/16.1') != -1) || (navigator.userAgent.indexOf('Version/16.2') != -1) || (navigator.userAgent.indexOf('Version/16.3') != -1) ) {
 				root.className += ' isSafari16';
 			}
 		}

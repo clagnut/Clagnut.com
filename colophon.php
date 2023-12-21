@@ -11,8 +11,7 @@ include_once($dr . "writing_header.inc.php");
 
 ?>
 
-<section class="h-card">
-<div class="prose">
+<section class="h-card stack center">
 
 <?php
 $filename = "colophon.md";
@@ -33,7 +32,6 @@ if ($handle) {
 
 ?>
 
-</div>
 </section>
 
 <?php

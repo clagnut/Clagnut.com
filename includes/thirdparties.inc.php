@@ -350,7 +350,7 @@ function getLastfm() {
 
 function makeLastfm() {
 	
-	$lastfmMarkup = "<ul role='list'>";
+	$lastfmMarkup = "<ul role='list' class='lastfm'>";
 
 	$url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=clagnut&api_key=7fea57568921f8c8c3cf7ac6a951e560&limit=8";
 	#echo "<p><a href='$url'>Lastfm API call</a></p>";
@@ -370,13 +370,14 @@ function makeLastfm() {
 				if (!$track_image) {$track_image = "/i/cd.png";}
 				
 				$lastfmMarkup .= "<li><a href=\"$track_url\">";
-				$lastfmMarkup .= "<img src=\"$track_image\" alt=\"" . htmlentities($track_album) . "\" class=\"album_cover\" />";
+				$lastfmMarkup .= "<img src=\"$track_image\" alt=\"" . htmlentities($track_album) . "\" />";
 				$lastfmMarkup .= "<cite>" . htmlentities($track_name) . "</cite></a> by " . htmlentities($track_artist);
 				$lastfmMarkup .= "</li>\n";
 			}
 		} else {		
 			$lastfmMarkup = "<li>All's quiet right now.</li>\n";
-		}	
+		}
+		$lastfmMarkup .= "</ul>\n";	
 		
 		$lastfmMarkup = SmartyPants::defaultTransform($lastfmMarkup);
 			

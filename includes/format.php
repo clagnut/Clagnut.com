@@ -211,13 +211,11 @@ function format($text, $textile="y") {
 	}
 		
 	$search = array (
-		"<figure",
-		"</figure>",
 		"<section>",
-		"</section>",
 		"<pre><code>",
 		"</code></pre>",
 		"<code class=\"language-css\">// html\n",
+		"<code class=\"language-css\">// javascript\n",
 		" - ",
 		" OS X",
 		"CSS 2",
@@ -229,15 +227,14 @@ function format($text, $textile="y") {
 		" × ",
 		"imgholder ",
 		"URLs",
+		"group-with-aside"
 		);
 	$replace = array (
-		"</div><!-- /.prose --><figure",
-		"</figure><div class='prose'>",
-		"<section><div class='prose'>",
-		"</div><!-- /.prose --></section>",
-		"<figure class=\"pre\" data-element=\"code-block\"><div class=\"code-block__header\"><div role=\"alert\"></div></div><pre><code class=\"language-css\">",
-		"</code></pre></figure>",
+		"<section class='stack center'>",
+		"<figure class=\"pre\"><div data-element=\"code-block\"><div class=\"code-block__header\"><div role=\"alert\"></div></div><pre><code class=\"language-css\">",
+		"</code></pre></div></figure>",
 		"<code class=\"language-html\">",
+		"<code class=\"language-javascript\">",
 		" – ",
 		" OS X",
 		"CSS2",
@@ -248,7 +245,9 @@ function format($text, $textile="y") {
 		"HTML&nbsp;5",
 		"&nbsp;×&nbsp;",
 		"",
-		"<abbr class=\"c2sc\">URL</abbr>s",		);
+		"<abbr class=\"c2sc\">URL</abbr>s",
+		"group-with-aside stack"
+		);
 	$text = str_replace($search, $replace, $text);
 	
 	$search = array (

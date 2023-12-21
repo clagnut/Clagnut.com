@@ -36,8 +36,6 @@ getpost($blog_id);
 include($dr . "head.inc.php");
 
 $post_h1 = $post_title[$blog_id];
-// replace last space in title with non-breaking space. causes more problems than it's worth
-//$post_h1 = preg_replace("/(.*) /", "$1&nbsp;", $post_h1);
 ?>
 
     <title><?php echo $post_headtitle[$blog_id] . " | Clagnut by Richard Rutter"; ?></title>
@@ -57,7 +55,7 @@ $post_h1 = $post_title[$blog_id];
 			$socialimage_url = $post_mainimage_url[$blog_id];
 			$socialimage_alt = $post_mainimage_alt[$blog_id];
 		} else {
-			$socialimage_url = "https://ampersand.s3.amazonaws.com/rr-twittercard.jpg";
+			$socialimage_url = "https://clagnut.com/i/rrutter.jpg";
 			$socialimage_alt = "Photo of the author, a faintly smiling middle-aged white man";
 			$twittercard = "summary";
 		}
@@ -82,26 +80,26 @@ include($dr . "header.inc.php");
 ?>
 
 <main>
-
-<article class="post">
+<div class="page">
+<article>
 
 <header>
 
 <h1><?php echo $post_h1 ?></h1>
 
-<div class="meta">
+<div class="center">
+<div class="meta sidebyside">
 <p class="published"><time datetime="<?php echo $post_isodate[$blog_id] ?>"><?php echo $post_postdate[$blog_id] ?></time></p>
-<ul class="categories">
+<ul class="categories" role="list">
 <?php echo trim($post_categories[$blog_id]) ?>
 </ul>
 
 </div>
+</div>
 </header>
 
 
-<section>
-<div class="prose">
-
+<section class="stack center">
 <?php
 /*
 $word = "[A-Za-z0-9_,.;:&#']+";
@@ -125,7 +123,6 @@ $maincontent = $post_maincontent[$blog_id];
 echo stripslashes($post_mainimage[$blog_id]);
 echo stripslashes($maincontent);
 ?>
-</div> <!-- /.prose -->
 </section>
 
 
@@ -140,9 +137,8 @@ if (isset($flickr)) {
 
 
 
-<aside class="tags">	
-<span class="hash">#</span>
-<ul>
+<aside class="meta center stack">	
+<ul role="list" class="categories tags">
 	<?php
 	$numtags = count($post_tags[$blog_id]);
 	$tagcounter = 0;
@@ -167,14 +163,16 @@ if (isset($flickr)) {
 </ul>
 		
 <p class="comment">
-<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut https://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.svg" alt="" class="icon"> Comment via Twitter</a></p>
+<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut https://clagnut.com/blog/<?php echo $blog_id ?>" class="icon"><img src="/i/icon-twitter.svg" alt="Twitter"></a>
+<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut https://clagnut.com/blog/<?php echo $blog_id ?>">Comment via Twitter</a></p>
 
 <?php // build Mastodon link
 $mastodonLink = "text=" . $post_headtitle[$blog_id] . " by @Richr@mastodon.social" . "&url=https://clagnut.com/blog/" . $blog_id;
 ?>
 
 <p class="comment">
-<a href="https://mastodon.social/share?<?php echo $mastodonLink ?>" data-src="<?php echo $mastodonLink ?>" class="commentonmastodon"><img src="/i/icon-mastodon" alt="" class="icon"> Comment via Mastodon</a>
+<a href="https://mastodon.social/share?<?php echo $mastodonLink ?>" data-src="<?php echo $mastodonLink ?>" class="commentonmastodon icon"><img src="/i/icon-mastodon" alt="Mastodon"></a>
+<a href="https://mastodon.social/share?<?php echo $mastodonLink ?>" data-src="<?php echo $mastodonLink ?>" class="commentonmastodon">Comment via Mastodon</a>
 </p>
 	
 </aside>
@@ -193,28 +191,29 @@ $mastodonLink = "text=" . $post_headtitle[$blog_id] . " by @Richr@mastodon.socia
 <aside class="next-prev">
 
 
-<ul class="articles">
+<ul class="articles sidebyside equal">
 
 <?php if ($post_older[$blog_id]) { ?>
-<li><h5 class="older">Previous</h5>
+<li class="older"><h5>Previous</h5>
 <article>
 <h3><a href="/blog/<?php echo $post_older[$blog_id] ?>/" rel="prev" title="Older post"><?php echo $post_oldertitle[$blog_id] ?></a></h3>
 <p class="date"><time datetime="<?php echo $post_olderunixdate[$blog_id] ?>"><?php echo $post_olderblogdate[$blog_id] ?></time></p>
 </article></li>
-<?php } else echo "<li></li>"; ?>
+<?php } ?>
 
 <?php if ($post_recent[$blog_id]) { ?>
-<li><h5 class="newer">Next</h5>
+<li class="newer"><h5>Next</h5>
 <article>
 <h3><a href="/blog/<?php echo $post_recent[$blog_id] ?>/" rel="next" title="Newer post"><?php echo $post_recenttitle[$blog_id] ?></a></h3>
 <p class="date"><time datetime="<?php echo $post_recentunixdate[$blog_id] ?>"><?php echo $post_recentblogdate[$blog_id] ?></time></p>
 </article></li>
-<?php } else echo "<li></li>"; ?>
+<?php } ?>
 </ul>
 
 </aside>
 
 </article>
+</div>
 
 </main>
 

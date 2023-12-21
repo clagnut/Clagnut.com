@@ -154,7 +154,9 @@ This is a full bleed image using `class='fullbleed'` to make maximum use of the 
 
 <figure class="inline"><img src="/images/200x300.png" alt="Example image"/><figcaption>This is an `inline` figure</figcaption></figure>
 
-Here, a part of a poem is marked up using figure:
+The inline figure should be inside the text column on narrow screens (no wider than 50%). On wider screens it should be set outside the text column, off to the right.
+
+#### Here, a part of a poem is marked up using figure:
 
 <figure>
     &#8216;Twas brillig, and the slithy toves<br/>
@@ -222,7 +224,7 @@ The `kbd` element is used to denote <kbd>user input</kbd>.  It should be rendere
 
 
 ### Superscript and subscript text
-The `sup` element represents a superscript and the sub element represents a `sub`. Example:
+The `sup` element represents a superscript and the `sub` element represents a subscript. Example:
 The coordinate of the i<sup>th</sup> point is (x<sub>i</sub>, y<sub>i</sub>). For example, the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>).
 f(x, n) = log<sub>4</sub>x<sup>n</sup>
 
@@ -321,3 +323,5 @@ And this is a wide table to making maximum use of screen estate.
 <caption>Font Rendering on Macs</caption>
 <thead><tr><th rowspan="2">Browser</th><th colspan="5">Font Format</th></tr><tr><th>TrueType Mac</th><th>TrueType <abbr>PC</abbr></th><th>PostScript</th><th>OpenType PostScript</th><th>OpenType TrueType</th></tr></thead><tbody><tr><th>Camino&nbsp;1.2</th><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td></tr><tr><th>Safari 2</th><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td><td class="yes">good</td></tr><tr><th>Firefox 2</th><td class="yes">good</td><td class="partial">correct italic &amp; bold fonts displayed; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td><td class="no">not rendered</td><td class="partial">italic &amp; bold fonts synthesised; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td><td class="partial">italic &amp; bold fonts synthesised; miscalculation of space required for italic, bold &amp; underlined fonts resulting in overlappping text</td></tr><tr><th>Opera 9</th><td class="yes">good</td><td class="partial">good, but italic font is synthetically obliqued</td><td class="no">not rendered</td><td class="partial">bold font not rendered; italic synthesised</td><td class="partial">bold font not rendered; italic synthesised</td></tr></tbody></table>
 </figure>
+
+And this is some text to wrap it all up, mostly to make sure that there is a sensible margin between this and the table above.

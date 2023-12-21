@@ -107,9 +107,8 @@ if (isset($q)) {$q = stripslashes($q);}
 include($dr . "header.inc.php");
 ?>
 
-<main class="archive">
-
-<article class="post">
+<main>
+<div class="page">
 
 <header>
 
@@ -121,16 +120,21 @@ if ($q) {
 }
 ?></h1>
 
+<div class="center">
 <form action="/search/" method="get" class="search">
-<input type="search" name="q" value="<?php echo $q ?>" size="25" autofocus />
-<input type="submit" value="Search" />
+<input type="text" name="q" value="<?php echo $q ?>" placeholder="type something" autofocus /><input type="submit" value="Search" />
 </form>
+</div>
 
 </header>
 
+<?php
+if ($q) {
+?>
 
-<section>
-<div class="listing">
+<div class="archive with-sidebar">
+
+<div class="not-sidebar stack">
 
 <?php		
 	
@@ -144,7 +148,7 @@ if (!isset($errorcode) AND $num_results > 0) {
 	// Print search results
 	mysqli_data_seek($fulltext_results,0);
 	if ($myblog = mysqli_fetch_array($fulltext_results)) {
-		echo "<ul class='articles' role='list'>\n";
+		echo "<ul class='articles stack' role='list'>\n";
 		do {
 			$content_type = $myblog["content_type"];
 			$blog_id = $myblog["blog_id"];
@@ -192,9 +196,9 @@ if (!isset($errorcode) AND $num_results < 1) {
 }
 ?>
 
-</div>	
+</div>
 
-<aside class="categorylist">
+<aside class="sidebar stack">
 
 <?php
 // Print matching categories
@@ -220,7 +224,12 @@ if (!isset($errorcode) OR $errorcode == 3 AND ($category_count > 0)) {
 
 </aside>
 
-</section>
+<?php
+}
+?>
+
+
+</div>
 
 </main>
 

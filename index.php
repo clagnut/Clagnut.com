@@ -37,7 +37,7 @@ gethomecontent();
 <meta name="twitter:site" content="@clagnut" />
 <meta property="og:title" content="Clagnut by Richard Rutter" />
 <meta property="og:description" content="The online home and blog of Richard Rutter, cofounder of Clearleft and Fontdeck. Here he writes about web typography, human-centred design, Brighton, music and occasionally cycling." />
-<meta property="og:image" content="https://ampersand.s3.amazonaws.com/rr-twittercard.jpg" />
+<meta property="og:image" content="https://clagnut.com/i/rrutter.jpg" />
 <meta property="og:image:alt" content="Photo of the author, a faintly smiling middle-aged white man" />
 
 </head>
@@ -47,33 +47,40 @@ gethomecontent();
 include($dr . "header.inc.php");
 ?>
 
-<main class="home archive">
+<main class="home">
 
-<article class="post">
+<div class="page">
 
 <header>
 
-<div class="hgroup">
-<h2>An enthusiasm by</h2>
-<h1>Richard Rutter</h1>
+<div class="stack center">
+
+<h1>
+<span>An enthusiasm by</span>
+Richard Rutter
+</h1>
+
+<div class="stack intro">
+<p><strong>Hello. I’m Richard, a designer, <a href="http://book.webtypography.net/">author</a> and <a href="/speaking">speaker</a> living by the sea in Brighton, UK. I’m co-founder of <a href="https://clearleft.com/">Clearleft</a>, a digital design consultancy.</strong></p>
+
+<p>I love all things to do with human-centred design, typography, music and cycling. I occasionally write about them here.</p>
 </div>
 
-<div class="introblock">
-<p><strong>Hello. I’m Richard, a designer, <a href="http://book.webtypography.net/">author</a> and <a href="/speaking">speaker</a> living by the sea in Brighton, UK. I’m co-founder of <a href="https://clearleft.com/">Clearleft</a>, a digital design consultancy.</strong></p>
-<p>I love all things to do with human-centred design, typography, music and cycling. I occasionally write about them here.</p>
 </div>
 
 </header>
 
 
-<section>
-<div class="listing">
 
-<h2 class="home-latest-posts">Latest Posts</h2>
+<div class="archive with-sidebar">
+
+<div class="not-sidebar stack">
+
+<h2>Latest Posts</h2>
 
 <?php
 if (isset($blogpostids)) {
-	echo "<ul class='articles' role='list'>\n";
+	echo "<ul class='articles stack' role='list'>\n";
 	# Print individual post title and descriptions
 	foreach ($blogpostids AS $key => $blogpostid) {
 		getpost($blogpostid);
@@ -93,15 +100,14 @@ if (isset($blogpostids)) {
 }
 ?> 
 
-<nav class="pagination"><div></div><h5 class="older"><a href="/archive/">All posts</a></h5></nav>
+<nav class="pagination sidebyside equal"><div class="newer"><h5><a href="/archive/">All posts</a></h5></div></nav>
 
 </div>	
 
-<aside class="categorylist">
+<aside class="sidebar stack">
 
-<div class="elsewhere social">
 <h3>Me Elsewhere</h3>
-<ul>
+<ul role="list">
 	<li><a href="https://twitter.com/clagnut" class="icon" rel="me"><img src="/i/icon-twitter.svg" alt="twitter"></a> <a href="https://twitter.com/clagnut" rel="me">Twitter</a></li>
 	<li><a href="https://mastodon.social/@Richr" class="icon" rel="me"><img src="/i/icon-mastodon.svg" alt="mastodon"></a> <a href="https://mastodon.social/@Richr" rel="me">Mastodon</a></li>
     <li><a href="https://flickr.com/photos/clagnut" class="icon" rel="me"><img src="/i/icon-flickr.svg" alt="flickr"></a> <a href="https://flickr.com/photos/clagnut" rel="me">Flickr</a></li>
@@ -109,9 +115,7 @@ if (isset($blogpostids)) {
     <li><a href="https://strava.com/athletes/clagnut" class="icon" rel="me"><img src="/i/icon-strava.svg" alt="strava"></a> <a href="https://strava.com/athletes/clagnut" rel="me">Strava</a></li>
 	<li><a href="https://linkedin.com/in/richardrutter" class="icon" rel="me"><img src="/i/icon-linkedin.svg" alt="linkedin"></a> <a href="https://linkedin.com/in/richardrutter" rel="me">LinkedIn</a></li>
 </ul>
-</div>
 
-<div class="elsewhere lastfm">
 <h3>Latest listening</h3>
 
 <?php
@@ -122,15 +126,13 @@ if (isset($lastfm)) {
 ?>
 
 <ul>
-    <li><a href="http://last.fm/user/clagnut" class="icon" rel="me"><img src="/i/icon-lastfm.svg" alt="lastfm"></a> <a href="http://last.fm/user/clagnut" rel="me">Last.fm</a></li>
+    <li><a href="http://last.fm/user/clagnut" class="icon" rel="me"><img src="/i/icon-lastfm.svg" alt="last fm"></a> <a href="http://last.fm/user/clagnut" rel="me">Last.fm</a></li>
 </ul>
 </div>
 
 </aside>
 
-</section>
-
-</article>
+</div>
 
 </main>
 
