@@ -14,7 +14,7 @@ Please feel free to get in touch or [download my vCard](http://h2vx.com/vcf/clag
 
 <div class="contactcard">
 
-<p>Drop an email to <a class="email" href="mailto:&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;">&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;</a>, toot <a href="https://mastodon.social/@Richr">@mastodon.social@Richr</a> or tweet <a href="http://twitter.com/clagnut">@clagnut</a>.</p>
+<p>Drop an email to <a class="email" href="mailto:&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;">&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;</a>, toot <a href="https://mastodon.social/@Richr">@Richr@mastodon.social</a> or tweet <a href="http://twitter.com/clagnut">@clagnut</a>.</p>
 
 </div>
 
