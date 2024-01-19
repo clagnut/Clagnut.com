@@ -32,7 +32,7 @@ Please feel free to get in touch or [download my vCard](http://h2vx.com/vcf/clag
 
 - [Service Design Fringe Festival](https://www.sd-ldf.com/2018-programme/) · _November_, London, UK
 - [Generate Conference](https://www.generateconf.com/) · _September_, London, UK
-- [CSS Day](https://cssday.nl/2018) · _June_, Amsterdam, Netherlands
+- [CSS Day](https://cssday.nl/2018/speakers#richard-rutter) · _June_, Amsterdam, Netherlands
 
 ### 2017
 
