@@ -5,7 +5,7 @@
 				<atom:link href="https://clagnut.com/feeds/fullposts.xml" rel="self" type="application/rss+xml" />
 				<description>A blog by Richard Rutter. Root through a heap of web design and development stuff and a few other tasty morsels. (latest 5 posts in full)</description>
 				<language>en-gb</language>
-				<copyright>Copyright 2003-2023, Richard Rutter</copyright>
+				<copyright>Copyright 2003-2024, Richard Rutter</copyright>
 				<webMaster>rich@clagnut.com (Richard Rutter)</webMaster>
 				<managingEditor>rich@clagnut.com (Richard Rutter)</managingEditor>
 				<image>
@@ -16,36 +16,293 @@
 					<height>31</height>
 				</image>
 		<item>
-			<pubDate>Fri, 10 Feb 2023 10:26:48 PST</pubDate>
+			<pubDate>Fri, 01 Mar 2024 20:00:36 PST</pubDate>
+			<title>Retrofitting fluid typography</title>
+			<link>https://clagnut.com/blog/2428/</link>
+			<guid>https://clagnut.com/blog/2428/</guid>
+			<description><![CDATA[<section><div class='prose'><p>Back in December 2023, <a href="https://www.creativeboom.com/">Creative Boom</a> launched a refreshed identity and a <a href="https://www.creativeboom.com/news/a-new-creative-boom-launches/">redesigned website</a>. It’s a terrific magazine and the redesign does a great job of bringing impactful imagery to the fore, with restrained typography supporting the writing really effectively.</p>
+
+<p>Like any modern website, it is responsive and so adapts well to different screen sizes. However it does so using five breakpoints, resulting in six different designs, all of which are fixed width except the smallest.</p>
+
+<figure class="fullbleed"><img loading='lazy' src="https://clagnut.com/images/2428/cb-breakpoints.png" alt="A row of 6 screenshots showing the Creative Boom website as it looks at each breakpoint" /></figure>
+
+<div class="group-with-aside stack">
+<p>I thought this was a missed opportunity, so as part of my forthcoming <a href="https://patternsday.com/">Patterns Day</a> talk I decided to rebuild the article page using <a href="https://utopia.fyi/">Utopian</a> fluid typography: one adaptive design with no media queries, less compromise across viewports, and far less design and development debt.</p>
+
+<aside><p>If you’re quick you can <a href="https://ti.to/clearleft/patternsday2024/discount/JOINRICHARD">use the code <kbd style="text-transform:uppercase">joinrichard</kbd></a> to get a 10% discount.</p></aside></div>
+
+<p>Fluid typography means thinking in terms of type scales and flexible spacing across your defined design space. This means deciding upon the size of the smallest screen and the largest screen (viewport) that you want to concern yourself with. These form the boundaries of your design space. Thereafter you’re just designing at the extremes – design for the smallest screen and the largest viewport, and let maths fill in the gap. This is <a href="https://adactio.com/journal/18982">declarative design</a> in action, rather than the more <em>imperative</em> approach that Creative Boom has taken.</p>
+
+<p>There’s much more detail about this on the <a href="https://utopia.fyi/blog">Utopia blog</a>, but for now I’ll take you through my process of converting Creative Boom to fluid typography. The general approach is:</p>
+
+<ol>
+<li>Define a type scale and set the spacing for a small screen (<code>@min</code>).</li>
+<li>Define a type scale and set the spacing for a large viewport (<code>@min</code>).</li>
+<li>Tell the browser to interpolate between the two scales and spacing systems, based on the current viewport width (the Utopia calculator tools do this for you).</li>
+</ol>
+
+<h2>Type&nbsp;scales</h2>
+
+<p>My first job was to define the body text size for my two extreme viewport sizes. Creative Boom’s biggest media query happens at 1536px so I used that as my <code>@max</code> screen size. At this viewport the text is 20px (assuming no change to the default browser text size).</p>
+
+<p>At Clearleft our design spaces tend to start with a minimum screen size of 320px, so I used that as my <code>@min</code>. Creative Boom uses 20px for its body text regardless of viewport size – I think this impairs the reading experience on a small screen, so I chose a more appropriate 17px.</p>
+
+<p>I could now plug these numbers into Utopia’s type calculator and start playing around to identify the two type scales that work best for <code>@min</code> and <code>@max</code> viewports. In order to determine each type scale I needed to look at the main heading sizes used by Creative Boom: the biggest size of <code>h1</code> is 60px, the smallest is 40px. Through a quick bit of experimentation I found that setting a type scale increment of 1.2 for my <code>@min</code> viewport, and 1.25 for the <code>@max</code> viewport size gave me type sizes of 42px and 61px respectively at step 5, which are close enough – remember the typography is fluid, so by definition it’s never going to match a fixed design exactly.</p>
+
+<figure><img loading='lazy' src="https://clagnut.com/images/2428/utopia-typetool.png" alt="Screenshot of Utopia's type tool" /><figcaption>Utopia&#8217;s type tool calculates the text sizes for you, and also generates the necessary <abbr class='c2sc'>CSS</abbr></figcaption></figure>
+
+<p>Choosing <code>step 5</code> on the type scale to represent <code>h1</code> headings left plenty of smaller steps in the scale to apply to subheadings and other significant text sizes. The type scales also provided sensible smaller text sizes for <code>step -1</code> and <code>step -2</code> which I could use for ancillary text elements such as tags and meta data.</p>
+
+<p>Once I’d pasted in Utopia’s generated <abbr class='c2sc'>CSS</abbr> to make the fluid type scales work, I was able to use the following simple <abbr class='c2sc'>CSS</abbr> to set type sizes:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h1    { font-size: var(-step-5); }
+h2    { font-size: var(-step-1); }
+body  { font-size: var(-step-0); }
+.nav  { font-size: var(-step-1); }
+.tags { font-size: var(-step-2); }
+</code></pre></div></figure>
+
+<p>Here&#8217;s where they were applied:</p>
+
+<figure><img loading='lazy' src="https://clagnut.com/images/2428/cb-typesteps.png" alt="Screenshot: type steps start with 5 on the <abbr class='c2sc'>H1</abbr>, go through to 0 on the paragraphs and -2 on the tags" /><figcaption>Type steps applied to all text elements of the design</figcaption></figure>
+
+<p>I also used a type step token to constrain the overall page width for very large viewports. This was in order to keep the line-length comfortable and the layout in line with the Creative Boom design. I went for 77ems based on the body size (this width also accommodates the sidebar):</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.masthead, .article-header, .article-body {
+    max-width: calc(var(-step-0) * 77);
+}
+</code></pre></div></figure>
+
+<h2>Fluid&nbsp;spacing</h2>
+
+<p>With the type scales defined and applied, I could now turn my attention to the spacing. The <a href="https://utopia.fyi/space/calculator?c=320,17,1.2,1536,20,1.25,5,2,&amp;s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&amp;g=s,l,xl,12">Utopia spacing tool</a> sets up simple t-shirt sizes for spacing, giving you tokens related to multiples of your body text size. In other words, as the body text varies with viewport size, so do the spacing tokens. Following a simple reset, I first set about spacing the typography, going down the ‘page’. Using the Creative Boom design as a guide, I just had to ask myself “on a scale of <abbr class='c2sc'>XS</abbr> to <abbr class='c2sc'>XL</abbr>, how big is that space?”. That gave me declarations like these:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h1 { margin-block-start:var(-space-m); }
+h2 { margin-block:var(-space-s); }
+h3 { margin-block-end: var(-space-m); }
+h4 { margin-block: var(-space-xs); }
+p { margin-block-end: var(-space-s); }
+figure {    margin-block: var(-space-xl); }
+.byline {   margin-block-end: var(-space-xs); }
+date { margin-block-end: var(-space-xs);    }
+</code></pre></div></figure>
+
+<p>Which were applied wherever space was required in the vertical plane:</p>
+
+<figure><img loading='lazy' src="https://clagnut.com/images/2428/cb-fluid-spacing-v.png" alt="Screenshot" /><figcaption>Space tokens applied in the vertical plane</figcaption></figure>
+
+<p>Fluid spacing in the vertical plane is relatively straight forward as  scrolling means there is not so much of a limitation to a small viewport. Laying things out and spacing them apart in the horizontal place is a different ballgame. By definition small screens have very little width to play with, whereas large viewports have lots. Defining a fluid spacing scheme that works across both extremes is therefore more challenging.</p>
+
+<p>Fortunately Utopia again comes to the rescue with its space value pairs. These enable you to specify much more dramatic space variance between different viewport sizes. One of the most obvious uses is the padding between the article and the viewport edge. At the <code>@min</code> viewport, I’ve set it to <code><abbr class='c2sc'>XS</abbr></code> – just enough to provide breathing room to the viewport boundary. For the <code>@max</code> I was able to set a suitably generous <code>2XL</code> amount of spacing. I made these decisions through quick experimentation using variations of a single spacing token:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.masthead, .article-header, .article-body {
+    padding-inline: var(-space-xs-2xl);
+}
+</code></pre></div></figure>
+
+<p>Another bit of spacing of note is the gutter between the article text and the <em>Editor’s Picks</em> sidebar. I used flexbox to provide media-query-free responsive layout (see <a href="https://every-layout.dev/layouts/sidebar/">Every Layout</a>) so I was able to simply set the <code>gap</code> property. Again in keeping with the design, I’m increasing the spacing significantly for wider viewports:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.article-body {
+  display: flex;
+  gap: var(-space-s-xl);
+} 
+</code></pre></div></figure>
+
+<p>To ensure a fully flexible design, I’ve used Utopian spacing tokens almost everywhere a space is required:</p>
+
+<figure><img loading='lazy' src="https://clagnut.com/images/2428/cb-fluid-spacing-h.png" alt="Screenshot, indicating an <abbr class='c2sc'>XS</abbr> to 2XL space value pair padding the page" /><figcaption>Space value pairs applied in the horizontal plane</figcaption></figure>
+
+<h2>The&nbsp;final&nbsp;result</h2>
+
+<p>And here’s the final result in all its fluid glory:</p>
+
+<figure class="fullbleed"><video controls poster="/images/2428/cb-fluid.png"><source src="https://clagnut.com/images/2428/cb-fluid.webm" type="video/webm" /><source src="https://clagnut.com/images/2428/cb-fluid.mp4" type="video/mp4" /></video><figcaption>The rebuilt Creative Boom article page fluidly resizing from 320px to 1600px</figcaption></figure>
+
+<p>Feel free to <a href="https://cb-fluid.netlify.app">play with the rebuild</a>, although please remember this is just a prototype, so some aspects are missing and the underlying code is far from production ready.</p>
+
+<p>In my experience it’s easier to design using <a href="https://utopia.fyi/blog/designing-with-fluid-type-scales">Utopian principles</a> first rather retrospectively. And although I rebuilt this page from scratch, it shows you can retrospectively apply fluid typography to a design, although it’s definitely easier to think in those terms from the start.</p></div></section>
+<p><a href='https://clagnut.com/blog/2428/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Sun, 15 Oct 2023 15:50:05 PST</pubDate>
+			<title>Pagination widows, or, Why I&#226;&#8364;&#8482;m embarrassed about my ebook</title>
+			<link>https://clagnut.com/blog/2426/</link>
+			<guid>https://clagnut.com/blog/2426/</guid>
+			<description><![CDATA[<section><div class='prose'><p>The physical copies of <a href="https://book.webtypography.net">my book on Web Typography</a> sold out quickly. I self-published, and print runs are expensive when youâ€™re funding them yourself, so numbers were limited. However it was always my plan to publish an ebook at the same time, and that has out-sold the hard copy by an order of magnitude.</p>
+
+<p>I set myself some pretty stiff criteria for the ebook – it needed to replicate the design of print edition as far as possible, adapting to the medium when required. To this day Iâ€™m proud of the result. I completely hand-coded the <a href="https://www.w3.org/TR/epub-33/">ePub</a> (meaning itâ€™s mostly <abbr class='c2sc'>HTML</abbr> and <abbr class='c2sc'>CSS</abbr> under the hood), and I believe the effort paid off. If youâ€™ll forgive the rather un-British boasting, I still think itâ€™s one of the more advanced ebooks out there: with embedded fonts, <abbr class='c2sc'>SVG</abbr> images, alt text, bold typographic heirarchy, Javascript-driven syntax highlighting and what I hope is a nuanced, highly readable overall design. Not bad for an ebook anyway, although Iâ€™ll grant you the bar is not set high (notable exceptions include <a href="https://abookapart.com">A Book Apart</a> publications).</p>
+
+<p>All hubris aside, I am still frequently embarrassed by how the ebook renders, particularly in Apple Books. Like a well structured webpage, my book uses a lot of headings and subheadings – I wrote it to be referenced as much as to be read, so this helps the scanability of the text. However Apple Books, and other WebKit, Gecko, or old Blink-powered ebook readers will happily do this to headings:</p>
+
+<figure class="fullbleed"><img loading='lazy' src="https://clagnut.com/images/2426/ebook-widows.png" alt="Screen shot of Apple Books rendering an ePub" /></figure>
+
+<p>Notice the orphaned heading â€œLean on six centuries of typesettingÂ experienceâ€ with its following paragraph out of sight on the next page. This is a typographic no-no, and has been for – um – six centuries. Far better for the reader to have the heading attached to its paragraph on the next page, even if that means leaving some redundant whitespace in its place.</p>
+
+<p>Since 1997(!) and the early drafts of <a href="https://www.w3.org/TR/WD-CSS2-971104/page.html#h-12.2">CSS2</a>, there has been an easy way to tell browsers not insert a page break directly after, or in the middle of, a heading:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h2 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+</code></pre></div></figure>
+
+<div class="group-with-aside stack">  
+<p>Nowadays the modern way to do that is defined in the <a href="https://drafts.csswg.org/css-break/#breaking-controls">CSS Fragmentation Module Level 3</a> even more simply as:</p>
+    
+<aside><p>The more generic <code>break-</code> properties apply to both multi-column layout and paged media.</p></aside></div>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h2 {
+    break-after: avoid;
+    break-inside: avoid;
+}
+</code></pre></div></figure>
+
+<p>However 26 years later, <code>break-after:avoid</code> is still not supported by either Safari or Firefox, and was only <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=223068#c54">introduced to Chrome 108</a> in December 2022. Iâ€™ve put together a <a href="https://codepen.io/clagnut/pen/MWZRBaM">test for support of <code>break-after</code> and <code>break-inside</code></a> in multi-column layout. Have a play with it in Chrome – try removing <code>break-inside:avoid</code> and then <code>break-after:avoid</code> from the <code>h2</code> rule in the <abbr class='c2sc'>CSS</abbr> and you should see how the subheadings end up at the bottom of a column, or worse still, split over two columns.</p>
+
+<p>Browser support for <abbr class='c2sc'>CSS</abbr> properties tends to follow demand from web developers. Unlike in 1997 – or indeed 2017 – there is now an annual Interop arrangement between browser rendering engine makers in which they agree a common list of priorities for <abbr class='c2sc'>CSS</abbr> and other web technologies. Interop 2024 has just closed for new proposals. Unfortunately I didnâ€™t manage to submit a request in time for breaking controls to be universally implemented. Thankfully Scott Kellum of <a href="https://typetura.com">Typetura</a> did put in a <a href="https://github.com/orgs/web-platform-tests/projects/3/views/1?pane=issue&amp;itemId=40510069">proposal for advanced multi-column layouts</a> to be improved, and this included support for <code>break-</code> properties. Sadly thereâ€™s little to no clamour for it from other developers – the blog post youâ€™re reading probably doubles the published demand, and thatâ€™s just for within columns.</p>
+
+<p>Paged media is very much a forgotten aspect, and itâ€™s probably true that web pages are rarely printed in the grand scheme of things, however ebooks are definitely a popular form of paged media and deserve attention. Iâ€™d certainly like to read ebooks without failed typographic fundamentals.</p></div></section>
+<p><a href='https://clagnut.com/blog/2426/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+			<category domain="https://clagnut.com/archive/apple/">Apple</category>
+		</item>
+		<item>
+			<pubDate>Mon, 20 Mar 2023 17:04:09 PST</pubDate>
+			<title>Preventing too-short final lines of text blocks</title>
+			<link>https://clagnut.com/blog/2425/</link>
+			<guid>https://clagnut.com/blog/2425/</guid>
+			<description><![CDATA[<section><div class='prose'><p>At the end of my previous post heralding <a href="https://clagnut.com/blog/2424/">an end to typographic widows on the web</a> I wrote that <q>Iâ€™d settle for direct control over widows and orphans in text blocks</q>. It turns out not to be quite as a simple as one might think. Over the years, thereâ€™s been <a href="https://lists.w3.org/Archives/Public/www-style/2015Jan/0012.html">multiple</a> <a href="https://github.com/w3c/csswg-drafts/issues/2396">discussions</a> on the topic within the CSS Working Group (CSSWG). Following my post, I talked at length with other designers at Clearleft – in particular James Gilyead of <a href="https://utopia.fyi">Utopia.fyi</a> fame – and it was surprisingly difficult to come to a definitive conclusion, particularly around the exceptions.</p>
+
+<p>Put simply, one doesn&#8217;t want a solitary word (a widow) on the final line of a block. But the tricky thing to answer is: what&#8217;s the effect of bringing down a word from the previous line in order to address that? If you were fixing this manually there might be a ripple effect back up the paragraph until the best overall text shape is achieved. I doubt that&#8217;s something a browser could afford to do, given the (understandable) reluctance to implement any justification routines beyond the crudest greedy method.</p>
+
+<p>Bit by bit, the <abbr class='c2sc'>CSSWG</abbr> seems to have been converging on a potential solution. In the current draft of the <abbr class='c2sc'>CSS</abbr> Text Module Level 4, there is mention of <a href="https://drafts.csswg.org/css-text-4/#last-line-limits">Last Line Minimum Length</a>, which raises an Issue as follows:</p>
+
+<blockquote>
+  <p>Issue is about requiring a minimum length for lines. Common measures seem to be: at least as long as the text-indent; at least X characters; percentage-based. [â€¦] People have requested word-based limits, but since this is really dependent on the length of the word, character-based is better.</p>
+</blockquote>
+
+<p><a href="https://github.com/AmeliaBR">Amelia Bellamy-Royds</a> took the Last Line Minimum Length idea and <a href="https://github.com/w3c/csswg-drafts/issues/3473#issuecomment-560136177">proposed a solution</a> with a new <code>min-last-line</code> property. Her proposed property would specify a minimum length for the final line, and a minimum length for the penultimate line once youâ€™d dropped a word or more down to address the short final line.</p>
+
+<p>This seemed like a pretty smart approach. Inspired by Ameliaâ€™s idea and my conversation with James, the proposal Iâ€™ve come to is conceptually similar to the <a href="https://drafts.csswg.org/css-text-4/#hyphenate-char-limits">hyphenate-char-limits</a> property. Set a minimum character length for the final line along with a maximum number of characters to bring down from the previous line:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">min-last-line: 12 6
+</code></pre></div></figure>
+
+<p>Where <code>12</code> is the minimum line length in characters, and <code>6</code> is the maximum number of characters that can be brought down from the previous line to make that so. If the 6 is omitted, it would assumed to be equal to the 12.</p>
+
+<p>It might be useful to some people for the same approach to be expressed as percentages of box width instead:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">min-last-line: 20% 10%
+</code></pre></div></figure>
+
+<p>Where 20% is the minimum length of the final line in terms of percentage of box width, and 10% is the maximum length that can be removed from the previous line.</p>
+
+<p>Thereâ€™s no reason I can think of why these values couldnâ€™t be mixed:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">min-last-line: 20% 8
+</code></pre></div></figure>
+
+<p>Meaning the last line shouldnâ€™t be shorter than <code>20%</code> of the block width, but you shouldnâ€™t bring down more than <code>8</code> characters to achieve that.</p>
+
+<p><strong>I&#8217;ve put together a very rough-and-ready <a href="https://clagnut.com/sandbox/min-last-line.html">proof of concept here</a>.</strong></p>
+
+<p>The idea is to have something to test out the concept of a minimum final line length and maximum amount of text that can be brought down from the line above to address that. Please feel free to have a play, copy, adapt and generally improve. Your comments are very welcome, preferably in the <a href="https://github.com/w3c/csswg-drafts/issues/3473">CSSWG issue thread</a>.</p></div></section>
+<p><a href='https://clagnut.com/blog/2425/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/standards/">Web standards</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Tue, 07 Mar 2023 09:58:18 PST</pubDate>
+			<title>An end to typographic widows on the web</title>
+			<link>https://clagnut.com/blog/2424/</link>
+			<guid>https://clagnut.com/blog/2424/</guid>
+			<description><![CDATA[<section><div class='prose'><p>Currently shipping in <a href="https://www.google.com/intl/en_uk/chrome/canary/">Chrome Canary</a>, and thus soon to be in Blink-based browsers including Edge, is a relatively new <abbr class='c2sc'>CSS</abbr> declaration which promises to virtually end typographic widows.</p>
+
+<p>The <code>text-wrap:balance</code> declaration in <a href="https://www.w3.org/TR/css-text-4/#text-wrap">CSS Text Module Level 4</a> says that line breaks should be chosen to balance out the line lengths in a block of text. How exactly that is done is â€˜UA-definedâ€™, in other words itâ€™s determined by the rendering engine rather than any specific rules or guidelines set in the <abbr class='c2sc'>CSS</abbr> specifications. This is how todayâ€™s version of Chrome Canary balances out one of the longer headings in this blog:</p>
+
+<figure>
+    <img loading='lazy' src="https://clagnut.com/images/2424/textwrap-wrap.png" alt="A screenshot showing a long heading with the final word dropped to the sewcond line as a widow" style="box-shadow: 0 0.5rem 1rem hsl(0 0% 0% / 20%)" />
+    <figcaption>
+        Default text wrapping
+    </figcaption>
+</figure>
+
+<figure>
+    <img loading='lazy' src="https://clagnut.com/images/2424/textwrap-balance.png" alt="A screenshot showing the same long heading with the text split evenly over two lines" style="box-shadow: 0 0.5rem 1rem hsl(0 0% 0% / 20%)" />
+    <figcaption>
+        â€˜Balancedâ€™ text wrapping
+    </figcaption>
+</figure>
+
+<p>What this <strong>is not</strong> is control over widows and orphans. My previous examples show how the text balancing algorithm in Chrome Canary does indeed prevent a widow (the single word dropped down), and thatâ€™s a highly likely outcome. But you have to remember that the balancing job shortens the lines, so this isnâ€™t an approach you would take to prevent widows at the end of paragraphs. In fact Canary limits balancing to 4 lines (the spec itself recommends 10 or fewer). The <abbr class='c2sc'>CSS</abbr> spec itself makes the application clear:</p>
+
+<blockquote>
+  <p>the balance value is intended for titles and captions, where equal length lines of text tend to be preferred</p>
+</blockquote>
+
+<p>With that in mind, this is the rule Iâ€™ve applied to this blog, and Iâ€™d say could end up in most peopleâ€™s default reset:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h1, h2, h3, h4, h5, h6, caption, figcaption {
+    text-wrap:balance;
+}
+</code></pre></div></figure>
+
+<p>Balancing left-aligned headings is not always preferable. I would love to have a value for <code>text-wrap</code> whose sole purpose is to prevent widows, without any other formatting involved. One could borrow from the <code>widows</code> property of the <a href="https://www.w3.org/TR/css-break-3/#widows-orphans">Fragmentation Module</a>:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">text-wrap: 2 widows  /* maybe one day */
+</code></pre></div></figure>
+
+<p>Where <code>2</code> in this case specifies the minimum number of words allowed on the final line of a text block. There would have to be slightly more  to it than this, in particular a single word should be allowed if the final two words together would be too long to fit inside the text block.</p>
+
+</section>
+<section class='stack center'>
+
+<p>Another value in the specification is <code>text-wrap:pretty</code>. If itâ€™s ever implemented, this might – as an outcome – reduce widows and orphans in running text. For decades there have been sophisticated algorithms for wrapping text across multiple lines. For performance purposes, browsers use the most basic approach, the so-called first-fit/greedy algorithm, which takes one line at a time, wrapping if itâ€™s too long, and moving on to the next. In typographersâ€™ eyes this gives sub-optimal results, and is one of the reasons text justification is so awful on the web.</p>
+
+<p>Better algorithms, such as <a href="https://github.com/bramstein/typeset/">Knuth-Plass</a>, take into account entire paragraphs and achieve a more nuanced approach to text wrapping by reducing and increasing spacing between words. The spec says that <q>as optimal results often take more time, <code>pretty</code> is offered as an opt-in to take more time for better results. The <code>pretty</code> value is intended for body text, where the last line is expected to be a bit shorter than the average line. [â€¦ The browser] should bias for better layout over speed, and is expected to consider multiple lines, when making break decisions.</q></p>
+
+<p>Algorithms such as Knuth-Plass wonâ€™t necessarily eliminate widows and orphans, but might go some way to doing so. The reluctance to using such approaches is understandable, however, as they can be extremely demanding: the processing requirements increase quadratically with the paragraph length. That said, a value such as <code>pretty</code> gives the option to choose different text wrapping procedures depending on conditions (resident processing power, length of text, etc). One day perhaps. Meanwhile Iâ€™d settle for direct control over widows and orphans in text blocks.</p></div></section>
+<p><a href='https://clagnut.com/blog/2424/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
+			<pubDate>Fri, 10 Feb 2023 10:35:48 PST</pubDate>
 			<title>Font optical sizing bug in Safari 16</title>
 			<link>https://clagnut.com/blog/2423/</link>
 			<guid>https://clagnut.com/blog/2423/</guid>
 			<description><![CDATA[<section><div class='prose'><p><ins><strong>Update</strong>: as of Safari 16.4, this bug <a href="https://github.com/WebKit/WebKit/pull/10126">has been fixed</a>. I&#8217;ve updated the code snippet to reflect this. Thanks to the efforts of Myles and team for turning this around so quickly.</ins></p>
 
-<p>In my <a href="https://clagnut.com/blog/2422">previous post</a> I extolled the virtues of Literata’s font optical sizing, in particular how it worked automatically in the browser. By ‘it’ I mean how the corresponding style was chosen along the optical size axis of the variable font, based on type size.</p>
+<p>In my <a href="https://clagnut.com/blog/2422">previous post</a> I extolled the virtues of Literataâ€™s font optical sizing, in particular how it worked automatically in the browser. By â€˜itâ€™ I mean how the corresponding style was chosen along the optical size axis of the variable font, based on type size.</p>
 
-</div><!-- /.prose --><figure>
+<figure>
     <img loading='lazy' src="https://clagnut.com/images/2423/literata-optical-axis.png" alt="Four type styles in a line, ranging from low contrast on the left to high contrast on the right."/>
     <figcaption>
-        Literata’s optical size axis from <7px to >72px. Image ©TypeTogether.
+        Literataâ€™s optical size axis from <7px to >72px. Image Â©TypeTogether.
     </figcaption>
-</figure><div class='prose'>
+</figure>
 
 <p>This behaviour is turned on by default, but if you wanted to turn off the automatic optical sizing, you can use this declaration, the effect being to style text as if it were set at 12px:</p>
 
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: none;
-</code></pre></figure>
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: none;
+</code></pre></div></figure>
 
 <p>And you can turn it back on with:</p>
 
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: auto;
-</code></pre></figure>
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: auto;
+</code></pre></div></figure>
 
-<p>Automatic selection of optical size styles in a variable font has been supported in browsers since at least 2020. That is until the release of Safari 16 with macOS Ventura. A regression was inadvertently introduced meaning the browser acted as if <code>font-optical-sizing</code> was turned off. <a href="https://bugs.webkit.org/show_bug.cgi?id=247987">The bug</a> was an unintened consequence of improvements being made to <a href="https://developer.apple.com/documentation/coretext">Core Text</a>. Fortunately it’s being actively fixed.</p>
+<p>Automatic selection of optical size styles in a variable font has been supported in browsers since at least 2020. That is until the release of Safari 16 with macOS Ventura. A regression was inadvertently introduced meaning the browser acted as if <code>font-optical-sizing</code> was turned off. <a href="https://bugs.webkit.org/show_bug.cgi?id=247987">The bug</a> was an unintened consequence of improvements being made to <a href="https://developer.apple.com/documentation/coretext">Core Text</a>. Fortunately itâ€™s being actively fixed.</p>
 
 <p>So what to do in the meantime? The answer is to use the low level <code>font-variation-settings</code> property to manually set the optical size. I only want to do this for Safari 16.1, 16.2 and 16.3, so firstly I use a bit of clunky user agent sniffing to set a root-level class accordingly:</p>
 
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">&lt;script&gt;
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-html">&lt;script&gt;
 var root = document.getElementsByTagName('html')[0];
 if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
     navigator.userAgent.indexOf('Chrome') == -1 &amp;&amp;
@@ -55,219 +312,24 @@ if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
     root.classList.add("isSafari16");
 }
 &lt;/script&gt;
-</code></pre></figure>
+</code></pre></div></figure>
 
 <p>Then I style my headings and body text according to the most appropriate style along the optical size axis:</p>
 
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.isSafari16 h1 { font-variation-settings: "opsz" 60; }
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.isSafari16 h1 { font-variation-settings: "opsz" 60; }
 .isSafari16 h2 { font-variation-settings: "opsz" 35; }
 .isSafari16 h3 { font-variation-settings: "opsz" 30; }
 .isSafari16 body { font-variation-settings: "opsz" 25; }
 .isSafari16 footer { font-variation-settings: "opsz" 12; }
-</code></pre></figure>
+</code></pre></div></figure>
 
-<p>This works well, but because the styles are being manually applied to selected elements, rather than automatically on a text size basis, some subtle differences are lost with the responsive text sizing I’m applying.</p>
+<p>This works well, but because the styles are being manually applied to selected elements, rather than automatically on a text size basis, some subtle differences are lost with the responsive text sizing Iâ€™m applying.</p>
 
-<p>It’ll do for now, and hopefully the situation will be fixed for the release of Safari 17. <ins><strong>Update</strong>: It was fixed by version 16.4!</ins></p></div></section>
+<p>Itâ€™ll do for now, and hopefully the situation will be fixed for the release of Safari 17. <ins><strong>Update</strong>: It was fixed by version 16.4!</ins></p></div></section>
 <p><a href='https://clagnut.com/blog/2423/'>Read or add comments</a></p>]]></description>
 			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
-		</item>
-		<item>
-			<pubDate>Tue, 07 Feb 2023 14:39:11 PST</pubDate>
-			<title>New year, new typeface: switching to variable fonts</title>
-			<link>https://clagnut.com/blog/2422/</link>
-			<guid>https://clagnut.com/blog/2422/</guid>
-			<description><![CDATA[<section><div class='prose'><p>This site used to be set in two primary typefaces. By no coincidence, this was based on the combination I used in the <a href="http://book.webtypography.net/">Web Typography book</a>: <a href="https://typejockeys.com/font/ingeborg">Ingeborg</a> for headings, and <a href="https://web.archive.org/web/20160311141455/http://www.typejockeys.com/fonts/premiera" title="This font is no longer available, so using an archive link">Premiéra</a> for body text, both released by <a href="https://typejockeys.com/">Typejockeys</a>.</p>
-
-<p>Ingeborg’s <em>fat</em> weight provides the distinctive high contrast Didone-style typeface I like to use nice and big. Premiéra, conversely, is a low contrast, robust typeface designed for use at smaller sizes and demanding conditions (such as screens), perfect for the main text.</p>
-
-</div><!-- /.prose --><figure>
-    <img loading='lazy' src="https://clagnut.com/images/2422/ingeborg-premiera.svg" alt=""/>
-    <figcaption>
-        Ingeborg Fat heading, with text set in Premiéra.
-    </figcaption>
-</figure><div class='prose'>
-
-<p>Between Ingeborg and Premiéra, I use multiple styles and weights. I wondered if there were any variable fonts that might achieve performance and perhaps stylistic benefits. Perusing Nick Sherman’s incredibly useful <a href="https://v-fonts.com">Variable Fonts</a> site, I was reminded about <a href="https://www.type-together.com/literata-font">Literata</a>. Literata was <a href="https://www.type-together.com/literata-book">originally designed</a> in 2014 by <a href="https://www.type-together.com/">TypeTogether</a> as static fonts for the Google Play Books reader. In 2020 it received a massive update to make full use of variable font technology.</p>
-
-<p>The original design was excellent. It’s now a really impressive full-blown type family. Weights run from Light (200) to Black (900), but what really grabbed my attention is its optical size axis. It’s one of relatively few variable fonts that does this, and it works superbly. Literata seamlessly runs from a sturdy low contrast Caption size, through to a delicate high contrast Display style, with the original body text and subheading styles sat in between.</p>
-
-</div><!-- /.prose --><figure class="fullbleed">
-    <img loading='lazy' src="https://clagnut.com/images/2422/literata.png" alt="Text samples for display, subhead, text and caption optical sizes, in weights from 200 to 900. Master styles were drawn at 72pt 200, 72pt 400, 72pt 900, 12pt 200, 12pt 400, 12pt 900, 7pt 500, and 7pt 900."/>
-    <figcaption>
-        Literata’s static styles and recommendations for use. Black triangles indicate the drawn master styles. Image ©TypeTogether.
-    </figcaption>
-</figure><div class='prose'>
-
-<p>The result is that, within one typeface and a single font file, I can get the high contrast impact I was achieving with Ingeborg, paired to the lower contrast readability for which I was using Premiéra. The two uses work seamlessly across font sizes in one unified type design. All I need to do is set the size and weight as normal, and the optically sized style is selected automatically.</p>
-
-<p>While Ingeborg and the display weight of Literata bear some resemblance stylistically – they both have the same Didone influence – I will concede that Premiéra’s design differs considerably: its dynamic form and wedge serifs are from a different background to the rational axis and ball terminals of Literata. However they are both designed beautifully to do the same job, and that’s good enough for me.</p>
-
-<h2>Performance</h2>
-
-<p>Before switching to Literata, I was using two weights of Ingeborg (for headings and subheadings) and two weights of Premiéra. This gave the following payload for <abbr class='c2sc'>WOFF2</abbr>s:</p>
-
-<ol>
-<li>Ingeborg Fat – 45 kB</li>
-<li>Ingeborg Heavy – 51 kB</li>
-<li>Premiéra Book – 47 kB</li>
-<li>Premiéra Bold – 53 kB</li>
-</ol>
-
-<p>That makes a total of 196 kB. Now here’s the surprise.  I <a href="https://clagnut.com/blog/2418/">subsetted</a> all fonts to the same generous set of characters, but Literata comes in at 205 Kb. So in terms of file size there’s no saving, although there are 3 fewer requests to the server. In Literata’s defence, it also provides a small-text caption style that I’m not using. But to my mind the way to look at it is that for no extra payload Literata gives a superior result because of that brilliantly executed optical size axis. Headings and subheadings are individually styled according to size, the sturdiness and contrast adjusts to the <a href="https://utopia.fyi">dynamic text sizing</a> for different screen sizes (more on that another time), and the overall feel is harmonious but highly functional with it.</p>
-
-<p>One final thing. Thanks to Google’s OpenFont License (OFL), Literata is free to own and use. Normally a type family like this would cost upwards of £500, with good reason.</p></div></section>
-<p><a href='https://clagnut.com/blog/2422/'>Read or add comments</a></p>]]></description>
-			<category domain="https://clagnut.com/archive/site_news/">Clagnut news</category>
-			<category domain="https://clagnut.com/archive/typography/">Typography</category>
-		</item>
-		<item>
-			<pubDate>Sun, 18 Sep 2022 15:35:38 PST</pubDate>
-			<title>How to typeset a date range properly</title>
-			<link>https://clagnut.com/blog/2419/</link>
-			<guid>https://clagnut.com/blog/2419/</guid>
-			<description><![CDATA[<section><div class='prose'><p>As I write this we in the <abbr class='c2sc'>UK</abbr> are reaching the culmination of 10 days of mourning following the death of the Queen. Wherever you look – on websites, billboards and shop windows – we are reminded of the longevity of Her Majesty’s life. More precisely we’re presented with a date range: 1926 – 2022.</p>
-
-</div><!-- /.prose --><figure><img loading='lazy' src="https://clagnut.com/images/2419/queen.jpg" alt="Photo of the Queen on a bus stop advertising screen" /><figcaption>Messages about the Queen on screens in bus stops and shop windows throughout the city</figcaption></figure><div class='prose'>
-
-<p>A badly typeset date range, usually comprising a hyphen surrounded by two spaces. “What’s wrong with that?,” you might well ask. A lack of attention to detail for a start. There is a long-standing convention for how to properly typeset a date range, or any numerical range for that matter, but it involves going a bit deeper beyond what faces on our standard keyboards (which are still relics from the age typewriters).</p>
-
-<p>Even the <a href="https://www.royal.uk">Royals’ own website</a> makes the same mistake:</p>
-
-</div><!-- /.prose --><figure><img loading='lazy' src="https://clagnut.com/images/2419/hyphen.jpg" alt="Screenshot" /><figcaption>Royal.uk uses a spaced hyphen for the date range, made worse by letter-spacing<figcaption></figure><div class='prose'>
-
-<p>The preferred way is to use an <em>en-dash</em> instead of a hyphen, and separate it from the numerals with a <em>thin-space</em>, like this:</p>
-
-<p><span style="font-size:1.5em">1926 – 2022</span></p>
-
-<p>Compare with the poorly typeset:</p>
-
-<p><span style="font-size:1.5em">1926&#32;&#45;&#32;2022</span></p>
-
-<p>The point here is that the date range is a self-contained element, an individual thought if you like, not two loosely connected items. Using a tightly spaced dash joins the numerals together into a single element.</p>
-
-<p>Any typographically configured <abbr class='c2sc'>CMS</abbr> should automatically convert your number-space-hyphen-space-number combination for you, swapping in thin spaces and en-dash. If you need to manually insert the desired characters, the easiest way for you right now is to cut and paste straight out of this page – they are standard Unicode glyphs.</p>
-
-<p>I also use a handy Unicode character finder for these purposes. There’s a few around, but my favourite is <a href="https://glyphfinder.com">Glyphfinder</a> for MacOS. (The Glyphfinder website was down for me at the time of writing, but you can get the <a href="https://ueberdosis.gumroad.com/l/ZaEQz">download from Gumroad</a> for the price of a pint).</p></div></section>
-<p><a href='https://clagnut.com/blog/2419/'>Read or add comments</a></p>]]></description>
-			<category domain="https://clagnut.com/archive/typography/">Typography</category>
-			<category domain="https://clagnut.com/archive/markup/">Mark-up techniques</category>
-		</item>
-		<item>
-			<pubDate>Fri, 06 May 2022 15:30:25 PST</pubDate>
-			<title>How to subset a variable font</title>
-			<link>https://clagnut.com/blog/2418/</link>
-			<guid>https://clagnut.com/blog/2418/</guid>
-			<description><![CDATA[<section><div class='prose'><p>Using variable fonts can be an excellent way to reduce bandwidth and latency as they can highly efficiently combine multiple styles into one font file. However, as with standard professional fonts, they can contain a lot characters you will never use (in my case this would include Greek and Cyrillic – your mileage will vary). These un-needed characters can be removed from the font to reduce file-size, a process called subsetting.</p>
-
-<p>This post is primarily an aide-memoire explaining how to subset fonts from first principles on a Mac (macOS Monterey 12.3.1 at time of writing). I&#8217;ll be using <a href="https://github.com/fonttools/fonttools">fonttools</a>, an open source font manipulation library written in Python, to subset a font and create a <abbr class='c2sc'>WOFF2</abbr> font file for use on the Web.</p>
-
-<h3>1.&nbsp;Install&nbsp;Python</h3>
-
-<p>macOS no longer comes bundled with Python, so firstly download and install <a href="https://www.python.org/downloads/macos/">the latest version of Python 3</a> following the instructions in the macOS installer.</p>
-
-<h3>2.&nbsp;Install&nbsp;fonttools</h3>
-
-<p>Once Python 3 has installed successfully, open Terminal and install fonttools using pip (which is shipped with Python):</p>
-
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">python3 -m pip install fonttools
-</code></pre></figure>
-
-<h3>3.&nbsp;Install&nbsp;Brotli</h3>
-
-<p>Next install Brotli compression, which is required to output a <abbr class='c2sc'>WOFF2</abbr>.</p>
-
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">python3 -m pip install brotli
-</code></pre></figure>
-
-<h3>4. Move to where the font&nbsp;file&nbsp;is</h3>
-
-<p>Change the Terminal directory to the folder containing the font file you want to convert, eg.</p>
-
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">cd /Users/rich/
-</code></pre></figure>
-
-<h3>5.&nbsp;Run&nbsp;fonttools</h3>
-
-<p>Finally run the fonttools subsetting routine using the desired options. For example:</p>
-
-<figure class="pre" data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">pyftsubset LiterataTT.ttf 
-    -unicodes="U+0020-007F, U+00A0-00FF, U+0100-017F, U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2200-22FF, U+FB00-FB4F" 
-    -layout-features='*' 
-    -flavor="woff2" 
-    -output-file="LiterataTT.woff2"
-</code></pre></figure>
-
-<p>In this case I am subsetting <a href="https://www.type-together.com/literata-font"><code>LiterataTT.ttf</code></a> and outputting as <code>LiterataTT.woff2</code> into the same directory.</p>
-
-<p>The <code>unicodes</code> option specifies which characters to include in the subset, by way of <a href="https://jrgraphix.net/r/Unicode/">Unicode character ranges</a>. It doesn&#8217;t matter if the font doesn&#8217;t have all the Unicode ranges available in the list, or all the characters within a specified range – these just get ignored. In this case I am including the following Unicode ranges:</p>
-
-</div><!-- /.prose --><figure class="fig-table">
-<table>
-<tbody>
-<tr><td>U+0020-007F</td><td><a href="https://jrgraphix.net/r/Unicode/0020-007F">Basic Latin</a></td></tr>
-<tr><td>U+00A0-00FF</td><td><a href="https://jrgraphix.net/r/Unicode/00A0-00FF">Latin-1 Supplement</a></td></tr>
-<tr><td>U+0100-017F</td><td><a href="https://jrgraphix.net/r/Unicode/0100-017F">Latin Extended-A</a></td></tr>
-<tr><td>U+2000-206F</td><td><a href="https://jrgraphix.net/r/Unicode/2000-206F">General Punctuation</a></td></tr>
-<tr><td>U+2070-209F</td><td><a href="https://jrgraphix.net/r/Unicode/2070-209F">Superscripts and Subscripts</a></td></tr>
-<tr><td>U+20A0-20CF</td><td><a href="https://jrgraphix.net/r/Unicode/20A0-20CF">Currency Symbols</a></td></tr>
-<tr><td>U+2100-214F</td><td><a href="https://jrgraphix.net/r/Unicode/2100-214F">Letterlike Symbols</a></td></tr>
-<tr><td>U+2200-22FF</td><td><a href="https://jrgraphix.net/r/Unicode/2200-22FF">Mathematical Operators</a></td></tr>
-<tr><td>U+FB00-FB4F</td><td><a href="https://jrgraphix.net/r/Unicode/FB00-FB4F">Alphabetic Presentation Forms</a></td></tr>
-</tbody>
-</table>
-</figure><div class='prose'>
-
-<p>The <code>layout-features</code> option specifies which OpenType layout features to include, such as kerning, ligatures, numerals and alternate characters. In this example I&#8217;m using <code>layout-features='*'</code> to include all the features available. Instead, you can also add selected features to the default set. For example <code>layout-features+=onum,pnum,ss01</code> will keep the default set of features and add <code>onum</code>, <code>pnum</code> and <code>ss01</code> (old-style and proportional numerals, and styleset 1). The default features include <code>calt</code>, <code>clig</code>, <code>kern</code> and <code>liga</code> among others. See the <a href="https://fonttools.readthedocs.io/en/latest/subset/index.html?highlight=layout-features#glyph-set-expansion">fonttools Documentation</a> for more info on <code>layout-features</code>.</p>
-
-<p>Applying that subsetting routine to LiterataTT reduced the original font file from 913Kb to 207Kb. The latter is still a fairly large file, but I was conservative in my subsetting (as in keeping in plenty of European characters and OpenType features) and, as a variable font, this file will cover all situations from light to black weights and low to high contrast optical sizing.</p></div></section>
-<p><a href='https://clagnut.com/blog/2418/'>Read or add comments</a></p>]]></description>
-			<category domain="https://clagnut.com/archive/tools_software/">Tools &amp; software</category>
-			<category domain="https://clagnut.com/archive/typography/">Typography</category>
-		</item>
-		<item>
-			<pubDate>Sun, 30 Jan 2022 19:21:17 PST</pubDate>
-			<title>Top Tunes 2021</title>
-			<link>https://clagnut.com/blog/2416/</link>
-			<guid>https://clagnut.com/blog/2416/</guid>
-			<description><![CDATA[<section><div class='prose'><p>I&#8217;ve just about squeezed this out while it&#8217;s still January – my annual compilation of favourite songs from those I bought in the last year (not all were released this year). As a deviation from the electronic pop favourites of last year, I&#8217;ve gone a bit post-punk, or whatever the kids are calling it nowadays: Squid; Black Country, New Road; and a cracking new album from Mogwai. But my absolute favourite is Darkside (both albums) and Nicolas Jaar from 2013.</p>
-
-<p>RÃ³isÃ­n Murphy gets in again, with a banging remix from her producer Crooked Man. Snapped Ankles make a welcome return and there&#8217;s a fab Hot Chip remix of long time favourite Django Django.</p>
-
-</div><!-- /.prose --><figure><img loading='lazy' src="https://clagnut.com/images/2021vinyl.jpg" alt="Photo" /><figcaption>Over fifty vinyl records spread out on my floor</figcaption></figure><div class='prose'>
-
-<p>Because I keep these playlists roughly to the length of a <abbr class='c2sc'>CD</abbr>, there are some notable omissions from this list. Black Midi is one, although I find it a little hard work at the moment. Also a classic oldie from Metronomy, some Seventies jazz funk from Ian Carr&#8217;s Nucleus, and a classic album from Love which was largely unknown to me – an omission generously corrected by my good friend Anthony.</p>
-
-<h3>The Best Songs I Bought in&nbsp;2021,&nbsp;Ever</h3>
-
-<ol>
-<li><cite>Pearl in the Palm</cite> by W. H. Lung from the album <cite>Vanities</cite></li>
-<li><cite>Teeth</cite> by Working Men&#8217;s Club from the album <cite>Working Men&#8217;s Club</cite></li>
-<li><cite>Black Widow Spider</cite> by Parquet Courts from the album <cite>Sympathy For Life</cite></li>
-<li><cite>G.S.K.</cite> by Squid from the album <cite>Bright Green Field</cite></li>
-<li><cite>The Limit</cite> by Darkside from the album <cite>Spiral</cite></li>
-<li><cite>Der Rhythmus der Maschinen</cite> by Public Service Broadcasting from the album <cite>Bright Magic</cite></li>
-<li><cite>Push/Pull</cite> by bdrmm from the album <cite>Bedroom</cite></li>
-<li><cite>Ritchie Sacramento</cite> by Mogwai from the album <cite>As The Love Continues</cite></li>
-<li><cite>Hardcore Jealousy</cite> by RÃ³isÃ­n Murphy from the album <cite>Crooked Machine</cite></li>
-<li><cite>The Revolution Of Super Visions</cite> by Jane Weaver from the album <cite>Flock</cite></li>
-<li><cite>Athens, France</cite> by Black Country, New Road from the album <cite>For The First Time</cite></li>
-<li><cite>Festival</cite> by Tom Misch & Yussef Dayes from the album <cite>What Kinda Music</cite></li>
-<li><cite>Too Many Kids Finding Rain In the Dust</cite> by Nicolas Jaar from the album <cite>Space Is Only Noise</cite></li>
-<li><cite>You&#8217;ll Have to Scream Louder</cite> by Tindersticks from the album <cite>Distractions</cite></li>
-<li><cite>All I Ever Need</cite> by Caribou from the album <cite>Our Love</cite></li>
-<li><cite>Illumina</cite> by Lamb from the album <cite>The Secret Of Letting Go</cite></li>
-<li><cite>Emergence in Nature</cite> by Hannah Peel from the album <cite>Fir Wave</cite></li>
-<li><cite>Shared Particles</cite> by <abbr class='c2sc'>AK</abbr>/DK from the album <cite>Shared Particles</cite></li>
-<li><cite>Rhythm Is Our Business</cite> by Snapped Ankles from the album <cite>Forest Of Your Problems</cite></li>
-<li><cite>Glowing in the Dark (Hot Chip remix)</cite> by Django Django from the <abbr class='c2sc'>A23</abbr> <cite>Glowing in the Dark – the Remixes</cite></li>
-</ol>
-
-<p>You can listen to the playlist on <a href="https://open.spotify.com/playlist/5ayTtvb21f18K0ZwNOXvCZ?si=fe5a6c611f3744be">Spotify</a> or <a href="https://music.apple.com/gb/playlist/2021-the-best-songs-i-bought-in-2021-ever/pl.u-jV8966juYaX5z">Apple Music</a>.</p></div></section>
-<p><a href='https://clagnut.com/blog/2416/'>Read or add comments</a></p>]]></description>
-			<category domain="https://clagnut.com/archive/music/">Music</category>
 		</item>
 	</channel>
 		</rss>
