@@ -212,7 +212,10 @@ h5, h6 {
 	font-variant-numeric: oldstyle-nums;
 }
 
-h1 .c2sc, h2 .c2sc, h3 .c2sc, h4 .c2sc, th .c2sc { /* no smallcaps in headings */	
+h1 .c2sc, h2 .c2sc, h3 .c2sc, h4 .c2sc, th .c2sc,
+figcaption .c2sc, caption .c2sc,
+aside .c2sc,
+kbd .c2sc, code .c2sc { /* no smallcaps in headings, captions, asides, monospace */	
 	font-variant-caps: normal;
 }
 
@@ -786,7 +789,7 @@ figcaption, caption {
 }
 
 figcaption code, figcaption var, figcaption samp, figcaption kbd {
-	font-stretch: 85%; /* compress to match figcaption text */
+	font-stretch: 85%; /* compress to match caption text */
 }
 
 .inline {
