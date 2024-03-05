@@ -15,8 +15,8 @@ function preformat($text) {
 	if (preg_match("/^<p>/",$text)){
 		$text = str_replace("\n", "", $text);
 	}
-	$search = array ("\\", "'mare", "'flu", "'Flu", "---", "--", "<br />");
-	$replace = array ("\\\\", "&#8217;mare", "&#8217;flu", "&#8217;Flu", "\nnewsection\n", "-", "\n");
+	$search = array ("\\", "'mare", "'flu", "'Flu", "---", "<br />");
+	$replace = array ("\\\\", "&#8217;mare", "&#8217;flu", "&#8217;Flu", "\nnewsection\n", "\n");
 	$text = str_replace($search, $replace, $text);
 	
 	$reg_patterns = array ("/ (\d+) (px|em|ems|en|ex|rem|dpi|ppi|ch|pt|inch|cm|mm|arcmin|lb|AD|BC|pica|picas|vw|vmin|kb|kB)\b/");
@@ -411,7 +411,7 @@ class SmartyPants {
 	const  ATTR_STUPEFY                = -1;
 
 	# The default preset: ATTR_EM_DASH
-	const  ATTR_DEFAULT  =  SmartyPants::ATTR_EM_DASH;
+	const  ATTR_DEFAULT  =  SmartyPants::ATTR_DO_NOTHING;
 
 
 	### Standard Function Interface ###
