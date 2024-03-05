@@ -12,3 +12,5 @@ feeds/summaries.xml
 feeds/fullposts.xml
 *.gz
 *.xml
+/feeds
+feeds/summaries.xml

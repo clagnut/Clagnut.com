@@ -23,13 +23,14 @@
 			<description><![CDATA[As part of my forthcoming Patterns Day talk I decided to rebuild the newly redesigned Creative Boom article page using Utopian fluid typography to replace its multitude of breakpoints. This is the story of why and how. <a href='https://clagnut.com/blog/2428/'>Read more</a>.]]></description>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+			<category domain="https://clagnut.com/archive/conferences/">Conferences</category>
 		</item>
 		<item>
 			<pubDate>Sun, 15 Oct 2023 15:50:05 PST</pubDate>
 			<title>Pagination widows, or, Why I&#226;&#8364;&#8482;m embarrassed about my ebook</title>
 			<link>https://clagnut.com/blog/2426/</link>
 			<guid>https://clagnut.com/blog/2426/</guid>
-			<description><![CDATA[The handling of widowed headings across pages in Apple Books is of particular concern. Since 1997, CSS has had properties to handle this, and yet browsers including Safari and Firefox still don&#8217;t support them – why not? <a href='https://clagnut.com/blog/2426/'>Read more</a>.]]></description>
+			<description><![CDATA[The handling of widowed headings across pages in Apple Books is of particular concern. Since 1997, CSS has had properties to handle this, and yet browsers including Safari and Firefox still don't support them – why not? <a href='https://clagnut.com/blog/2426/'>Read more</a>.]]></description>
 			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
@@ -60,7 +61,7 @@
 			<title>Font optical sizing bug in Safari 16</title>
 			<link>https://clagnut.com/blog/2423/</link>
 			<guid>https://clagnut.com/blog/2423/</guid>
-			<description><![CDATA[In my previous post I extolled the virtues of Literataâ€™s font optical sizing, in particular how it worked automatically in the browser. That is until the release of Safari 16 with macOS Ventura. Here&#8217;s how to work around the bug. <a href='https://clagnut.com/blog/2423/'>Read more</a>.]]></description>
+			<description><![CDATA[In my previous post I extolled the virtues of Literataâ€™s font optical sizing, in particular how it worked automatically in the browser. That is until the release of Safari 16 with macOS Ventura. Here's how to work around the bug. <a href='https://clagnut.com/blog/2423/'>Read more</a>.]]></description>
 			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
@@ -98,7 +99,7 @@
 			<title>How to typeset a date range properly</title>
 			<link>https://clagnut.com/blog/2419/</link>
 			<guid>https://clagnut.com/blog/2419/</guid>
-			<description><![CDATA[During these 10 days of mourning following the death of the Queen, wherever you look – on websites, billboards and shop windows – we are presented with a badly typeset date range: 1926 – 2022. Here&#8217;s how to do it correctly. <a href='https://clagnut.com/blog/2419/'>Read more</a>.]]></description>
+			<description><![CDATA[During these 10 days of mourning following the death of the Queen, wherever you look – on websites, billboards and shop windows – we are presented with a badly typeset date range: 1926 – 2022. Here's how to do it correctly. <a href='https://clagnut.com/blog/2419/'>Read more</a>.]]></description>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/markup/">Mark-up techniques</category>
 		</item>

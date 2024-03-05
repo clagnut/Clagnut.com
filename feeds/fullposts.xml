@@ -29,7 +29,7 @@
 <div class="group-with-aside stack">
 <p>I thought this was a missed opportunity, so as part of my forthcoming <a href="https://patternsday.com/">Patterns Day</a> talk I decided to rebuild the article page using <a href="https://utopia.fyi/">Utopian</a> fluid typography: one adaptive design with no media queries, less compromise across viewports, and far less design and development debt.</p>
 
-<aside><p>If you’re quick you can <a href="https://ti.to/clearleft/patternsday2024/discount/JOINRICHARD">use the code <kbd style="text-transform:uppercase">joinrichard</kbd></a> to get a 10% discount.</p></aside></div>
+<aside><p>If you’re quick you can <a href="https://ti.to/clearleft/patternsday2024/discount/JOINRICHARD">use the code <abbr class='c2sc'>JOINRICHARD</abbr></a> to get a 10% discount.</p></aside></div>
 
 <p>Fluid typography means thinking in terms of type scales and flexible spacing across your defined design space. This means deciding upon the size of the smallest screen and the largest screen (viewport) that you want to concern yourself with. These form the boundaries of your design space. Thereafter you’re just designing at the extremes – design for the smallest screen and the largest viewport, and let maths fill in the gap. This is <a href="https://adactio.com/journal/18982">declarative design</a> in action, rather than the more <em>imperative</em> approach that Creative Boom has taken.</p>
 
@@ -37,7 +37,7 @@
 
 <ol>
 <li>Define a type scale and set the spacing for a small screen (<code>@min</code>).</li>
-<li>Define a type scale and set the spacing for a large viewport (<code>@min</code>).</li>
+<li>Define a type scale and set the spacing for a large viewport (<code>@max</code>).</li>
 <li>Tell the browser to interpolate between the two scales and spacing systems, based on the current viewport width (the Utopia calculator tools do this for you).</li>
 </ol>
 
@@ -49,27 +49,27 @@
 
 <p>I could now plug these numbers into Utopia’s type calculator and start playing around to identify the two type scales that work best for <code>@min</code> and <code>@max</code> viewports. In order to determine each type scale I needed to look at the main heading sizes used by Creative Boom: the biggest size of <code>h1</code> is 60px, the smallest is 40px. Through a quick bit of experimentation I found that setting a type scale increment of 1.2 for my <code>@min</code> viewport, and 1.25 for the <code>@max</code> viewport size gave me type sizes of 42px and 61px respectively at step 5, which are close enough – remember the typography is fluid, so by definition it’s never going to match a fixed design exactly.</p>
 
-<figure><img loading='lazy' src="https://clagnut.com/images/2428/utopia-typetool.png" alt="Screenshot of Utopia's type tool" /><figcaption>Utopia&#8217;s type tool calculates the text sizes for you, and also generates the necessary <abbr class='c2sc'>CSS</abbr></figcaption></figure>
+<figure><img loading='lazy' src="https://clagnut.com/images/2428/utopia-typetool.png" alt="Screenshot of Utopia's type tool" /><figcaption>Utopia's type tool calculates the text sizes for you, and also generates the necessary <abbr class='c2sc'>CSS</abbr></figcaption></figure>
 
 <p>Choosing <code>step 5</code> on the type scale to represent <code>h1</code> headings left plenty of smaller steps in the scale to apply to subheadings and other significant text sizes. The type scales also provided sensible smaller text sizes for <code>step -1</code> and <code>step -2</code> which I could use for ancillary text elements such as tags and meta data.</p>
 
 <p>Once I’d pasted in Utopia’s generated <abbr class='c2sc'>CSS</abbr> to make the fluid type scales work, I was able to use the following simple <abbr class='c2sc'>CSS</abbr> to set type sizes:</p>
 
-<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h1    { font-size: var(-step-5); }
-h2    { font-size: var(-step-1); }
-body  { font-size: var(-step-0); }
-.nav  { font-size: var(-step-1); }
-.tags { font-size: var(-step-2); }
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h1    { font-size: var(--step-5); }
+h2    { font-size: var(--step-1); }
+body  { font-size: var(--step-0); }
+.nav  { font-size: var(--step--1); }
+.tags { font-size: var(--step--2); }
 </code></pre></div></figure>
 
-<p>Here&#8217;s where they were applied:</p>
+<p>Here's where they were applied:</p>
 
 <figure><img loading='lazy' src="https://clagnut.com/images/2428/cb-typesteps.png" alt="Screenshot: type steps start with 5 on the <abbr class='c2sc'>H1</abbr>, go through to 0 on the paragraphs and -2 on the tags" /><figcaption>Type steps applied to all text elements of the design</figcaption></figure>
 
 <p>I also used a type step token to constrain the overall page width for very large viewports. This was in order to keep the line-length comfortable and the layout in line with the Creative Boom design. I went for 77ems based on the body size (this width also accommodates the sidebar):</p>
 
 <figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.masthead, .article-header, .article-body {
-    max-width: calc(var(-step-0) * 77);
+    max-width: calc(var(--step-0) * 77);
 }
 </code></pre></div></figure>
 
@@ -77,14 +77,14 @@ body  { font-size: var(-step-0); }
 
 <p>With the type scales defined and applied, I could now turn my attention to the spacing. The <a href="https://utopia.fyi/space/calculator?c=320,17,1.2,1536,20,1.25,5,2,&amp;s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&amp;g=s,l,xl,12">Utopia spacing tool</a> sets up simple t-shirt sizes for spacing, giving you tokens related to multiples of your body text size. In other words, as the body text varies with viewport size, so do the spacing tokens. Following a simple reset, I first set about spacing the typography, going down the ‘page’. Using the Creative Boom design as a guide, I just had to ask myself “on a scale of <abbr class='c2sc'>XS</abbr> to <abbr class='c2sc'>XL</abbr>, how big is that space?”. That gave me declarations like these:</p>
 
-<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h1 { margin-block-start:var(-space-m); }
-h2 { margin-block:var(-space-s); }
-h3 { margin-block-end: var(-space-m); }
-h4 { margin-block: var(-space-xs); }
-p { margin-block-end: var(-space-s); }
-figure {    margin-block: var(-space-xl); }
-.byline {   margin-block-end: var(-space-xs); }
-date { margin-block-end: var(-space-xs);    }
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">h1      { margin-block-start:var(--space-m); }
+h2      { margin-block:var(--space-s); }
+h3      { margin-block-end: var(--space-m); }
+h4      { margin-block: var(--space-xs); }
+p       { margin-block-end: var(--space-s); }
+figure  { margin-block: var(--space-xl); }
+.byline { margin-block-end: var(--space-xs); }
+date    { margin-block-end: var(--space-xs); }
 </code></pre></div></figure>
 
 <p>Which were applied wherever space was required in the vertical plane:</p>
@@ -96,7 +96,7 @@ date { margin-block-end: var(-space-xs);    }
 <p>Fortunately Utopia again comes to the rescue with its space value pairs. These enable you to specify much more dramatic space variance between different viewport sizes. One of the most obvious uses is the padding between the article and the viewport edge. At the <code>@min</code> viewport, I’ve set it to <code><abbr class='c2sc'>XS</abbr></code> – just enough to provide breathing room to the viewport boundary. For the <code>@max</code> I was able to set a suitably generous <code>2XL</code> amount of spacing. I made these decisions through quick experimentation using variations of a single spacing token:</p>
 
 <figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.masthead, .article-header, .article-body {
-    padding-inline: var(-space-xs-2xl);
+  padding-inline: var(--space-xs-2xl);
 }
 </code></pre></div></figure>
 
@@ -104,11 +104,11 @@ date { margin-block-end: var(-space-xs);    }
 
 <figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.article-body {
   display: flex;
-  gap: var(-space-s-xl);
+  gap: var(--space-s-xl);
 } 
 </code></pre></div></figure>
 
-<p>To ensure a fully flexible design, I’ve used Utopian spacing tokens almost everywhere a space is required:</p>
+<p>To ensure a fully flexible design, I’ve used Utopian spacing tokens almost everywhere a space is required in the horizontal plane:</p>
 
 <figure><img loading='lazy' src="https://clagnut.com/images/2428/cb-fluid-spacing-h.png" alt="Screenshot, indicating an <abbr class='c2sc'>XS</abbr> to 2XL space value pair padding the page" /><figcaption>Space value pairs applied in the horizontal plane</figcaption></figure>
 
@@ -118,12 +118,13 @@ date { margin-block-end: var(-space-xs);    }
 
 <figure class="fullbleed"><video controls poster="/images/2428/cb-fluid.png"><source src="https://clagnut.com/images/2428/cb-fluid.webm" type="video/webm" /><source src="https://clagnut.com/images/2428/cb-fluid.mp4" type="video/mp4" /></video><figcaption>The rebuilt Creative Boom article page fluidly resizing from 320px to 1600px</figcaption></figure>
 
-<p>Feel free to <a href="https://cb-fluid.netlify.app">play with the rebuild</a>, although please remember this is just a prototype, so some aspects are missing and the underlying code is far from production ready.</p>
+<p>Feel free to <a href="https://cb-fluid.netlify.app">play with the rebuild</a>, although please remember this is just a prototype, so some aspects are missing and the underlying <abbr class='c2sc'>HTML</abbr> in particular is far from production ready.</p>
 
-<p>In my experience it’s easier to design using <a href="https://utopia.fyi/blog/designing-with-fluid-type-scales">Utopian principles</a> first rather retrospectively. And although I rebuilt this page from scratch, it shows you can retrospectively apply fluid typography to a design, although it’s definitely easier to think in those terms from the start.</p></div></section>
+<p>In my experience it’s easier to design using <a href="https://utopia.fyi/blog/designing-with-fluid-type-scales">Utopian principles</a> first rather than retrospectively. That said, although I rebuilt this page from scratch, it does show you can retrospectively apply fluid typography to a design, although it’s definitely better to think in those terms from the start.</p></div></section>
 <p><a href='https://clagnut.com/blog/2428/'>Read or add comments</a></p>]]></description>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+			<category domain="https://clagnut.com/archive/conferences/">Conferences</category>
 		</item>
 		<item>
 			<pubDate>Sun, 15 Oct 2023 15:50:05 PST</pubDate>
@@ -177,7 +178,7 @@ date { margin-block-end: var(-space-xs);    }
 			<guid>https://clagnut.com/blog/2425/</guid>
 			<description><![CDATA[<section><div class='prose'><p>At the end of my previous post heralding <a href="https://clagnut.com/blog/2424/">an end to typographic widows on the web</a> I wrote that <q>Iâ€™d settle for direct control over widows and orphans in text blocks</q>. It turns out not to be quite as a simple as one might think. Over the years, thereâ€™s been <a href="https://lists.w3.org/Archives/Public/www-style/2015Jan/0012.html">multiple</a> <a href="https://github.com/w3c/csswg-drafts/issues/2396">discussions</a> on the topic within the CSS Working Group (CSSWG). Following my post, I talked at length with other designers at Clearleft – in particular James Gilyead of <a href="https://utopia.fyi">Utopia.fyi</a> fame – and it was surprisingly difficult to come to a definitive conclusion, particularly around the exceptions.</p>
 
-<p>Put simply, one doesn&#8217;t want a solitary word (a widow) on the final line of a block. But the tricky thing to answer is: what&#8217;s the effect of bringing down a word from the previous line in order to address that? If you were fixing this manually there might be a ripple effect back up the paragraph until the best overall text shape is achieved. I doubt that&#8217;s something a browser could afford to do, given the (understandable) reluctance to implement any justification routines beyond the crudest greedy method.</p>
+<p>Put simply, one doesn't want a solitary word (a widow) on the final line of a block. But the tricky thing to answer is: what's the effect of bringing down a word from the previous line in order to address that? If you were fixing this manually there might be a ripple effect back up the paragraph until the best overall text shape is achieved. I doubt that's something a browser could afford to do, given the (understandable) reluctance to implement any justification routines beyond the crudest greedy method.</p>
 
 <p>Bit by bit, the <abbr class='c2sc'>CSSWG</abbr> seems to have been converging on a potential solution. In the current draft of the <abbr class='c2sc'>CSS</abbr> Text Module Level 4, there is mention of <a href="https://drafts.csswg.org/css-text-4/#last-line-limits">Last Line Minimum Length</a>, which raises an Issue as follows:</p>
 
@@ -208,7 +209,7 @@ date { margin-block-end: var(-space-xs);    }
 
 <p>Meaning the last line shouldnâ€™t be shorter than <code>20%</code> of the block width, but you shouldnâ€™t bring down more than <code>8</code> characters to achieve that.</p>
 
-<p><strong>I&#8217;ve put together a very rough-and-ready <a href="https://clagnut.com/sandbox/min-last-line.html">proof of concept here</a>.</strong></p>
+<p><strong>I've put together a very rough-and-ready <a href="https://clagnut.com/sandbox/min-last-line.html">proof of concept here</a>.</strong></p>
 
 <p>The idea is to have something to test out the concept of a minimum final line length and maximum amount of text that can be brought down from the line above to address that. Please feel free to have a play, copy, adapt and generally improve. Your comments are very welcome, preferably in the <a href="https://github.com/w3c/csswg-drafts/issues/3473">CSSWG issue thread</a>.</p></div></section>
 <p><a href='https://clagnut.com/blog/2425/'>Read or add comments</a></p>]]></description>
@@ -277,7 +278,7 @@ date { margin-block-end: var(-space-xs);    }
 			<title>Font optical sizing bug in Safari 16</title>
 			<link>https://clagnut.com/blog/2423/</link>
 			<guid>https://clagnut.com/blog/2423/</guid>
-			<description><![CDATA[<section><div class='prose'><p><ins><strong>Update</strong>: as of Safari 16.4, this bug <a href="https://github.com/WebKit/WebKit/pull/10126">has been fixed</a>. I&#8217;ve updated the code snippet to reflect this. Thanks to the efforts of Myles and team for turning this around so quickly.</ins></p>
+			<description><![CDATA[<section><div class='prose'><p><ins><strong>Update</strong>: as of Safari 16.4, this bug <a href="https://github.com/WebKit/WebKit/pull/10126">has been fixed</a>. I've updated the code snippet to reflect this. Thanks to the efforts of Myles and team for turning this around so quickly.</ins></p>
 
 <p>In my <a href="https://clagnut.com/blog/2422">previous post</a> I extolled the virtues of Literataâ€™s font optical sizing, in particular how it worked automatically in the browser. By â€˜itâ€™ I mean how the corresponding style was chosen along the optical size axis of the variable font, based on type size.</p>
 
