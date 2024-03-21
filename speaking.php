@@ -14,10 +14,6 @@ include_once($dr . "writing_header.inc.php");
 
 <section class="h-card stack center vcard">
 
-<p><strong class="intro">Hi, I’m <a class="url uid" rel="me" href="https://clagnut.com"><span class="fn">Richard Rutter</span></a>. I speak at conferences and events all over the world on a range of topics around digital design.</strong></p>
-<p>I’m particularly passionate about service design, developing design teams, and web typography (which I’ve been evangelising since 2005).
-<p>If you’re interested in having me speak at your event please <strong><a href="#contact">get in touch</a></strong>. I’m equally happy talking at grassroots meet-ups as I am at global conferences.</p>
-
 <?php
 $filename = "speaking.md";
 $handle = @fopen($filename, "r");
