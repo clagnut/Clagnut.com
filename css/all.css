@@ -666,7 +666,7 @@ input {
 [type="text"] {
 	background: inherit;
 	inline-size: 20em;
-	border: 0;
+	border-color: transparent;
 	border-bottom: 3px solid var(--colour-spine-bg);
 	padding: var(--textgrid-body-flow);
 }
@@ -675,7 +675,7 @@ input {
 	font-weight: 600;
 	color: var(--colour-spine);
 	background: var(--colour-headfoot-bg);
-	border: 0;
+	border-color: transparent;
 	border-bottom: 3px solid var(--colour-spine-bg);
 }
 
