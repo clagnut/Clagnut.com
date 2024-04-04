@@ -99,6 +99,11 @@ body, h2 {
 	hyphenate-limit-last: always;
 }
 
+.test7 {
+	hyphens: auto;
+	text-wrap: pretty;
+}
+
 .supports code {
 	display: none;
 	text-align: left;
@@ -252,6 +257,12 @@ body, h2 {
 	}
 }
 
+@supports (text-wrap: pretty) {
+	.supports code.prop-pretty {
+		display: block;
+	}
+}
+
 </style>
 
 </head>
@@ -336,6 +347,16 @@ body, h2 {
 </p>
 
 <p class="test5">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
+</div>
+
+<div class="test">
+<h2>Bonus. text-wrap:pretty with hyphens:auto</h2>
+<p class="supports">
+<code class="prop-hyphens">@supports <span>hyphens:auto</span></code>
+<code class="prop-pretty">@supports <span>text-wrap:pretty</span></code>
+</p>
+
+<p class="test7">Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. Overbearing hippopotamuses swimming languidly. Precocious octopuses constructing dodecahedrons. Disastrous rhinoceroses exacerbating situations. Enormous elephants perambulating amiably. Mississippi alligators organising confrontations. </p>
 </div>
 		
 </div>
