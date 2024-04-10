@@ -121,9 +121,11 @@ if ($q) {
 ?></h1>
 
 <div class="center">
+<search>
 <form action="/search/" method="get" class="search">
 <input type="text" name="q" value="<?php echo $q ?>" placeholder="type something" autofocus /><input type="submit" value="Search" />
 </form>
+</search>
 </div>
 
 </header>
