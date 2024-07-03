@@ -16,6 +16,15 @@
 					<height>31</height>
 				</image>
 		<item>
+			<pubDate>Fri, 14 Jun 2024 08:47:36 PST</pubDate>
+			<title>Use of ch unit considered harmful</title>
+			<link>https://clagnut.com/blog/2429/</link>
+			<guid>https://clagnut.com/blog/2429/</guid>
+			<description><![CDATA[When did we start using the ch unit to specify the maximum length for a line of text in CSS? To do so makes assumptions that don't necessarily hold up, and there are more appropriate units to use. Also: was it my fault? <a href='https://clagnut.com/blog/2429/'>Read more</a>.]]></description>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
 			<pubDate>Fri, 01 Mar 2024 20:00:36 PST</pubDate>
 			<title>Retrofitting fluid typography</title>
 			<link>https://clagnut.com/blog/2428/</link>
@@ -102,15 +111,6 @@
 			<description><![CDATA[During these 10 days of mourning following the death of the Queen, wherever you look – on websites, billboards and shop windows – we are presented with a badly typeset date range: 1926 – 2022. Here's how to do it correctly. <a href='https://clagnut.com/blog/2419/'>Read more</a>.]]></description>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/markup/">Mark-up techniques</category>
-		</item>
-		<item>
-			<pubDate>Mon, 02 May 2022 20:55:19 PST</pubDate>
-			<title>How to subset a variable font</title>
-			<link>https://clagnut.com/blog/2418/</link>
-			<guid>https://clagnut.com/blog/2418/</guid>
-			<description><![CDATA[Professional fonts can contain a lot characters you will never use, increasing file size uncessarily. These characters can be removed by subsetting a font. This post explains how to subset fonts from first principles on a Mac using fonttools. <a href='https://clagnut.com/blog/2418/'>Read more</a>.]]></description>
-			<category domain="https://clagnut.com/archive/tools_software/">Tools &amp; software</category>
-			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 		</item>
 	</channel>
 		</rss>

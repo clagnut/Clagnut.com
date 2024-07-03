@@ -66,6 +66,7 @@ $post_h1 = $post_title[$blog_id];
     <meta name="twitter:site" content="@clagnut" />
     <meta property="og:type" content="article"/>
     <meta property="article:author" content="Richard Rutter"/>
+	<meta name="fediverse:creator" content="@Richr@mastodon.social" />
     <meta property="og:image" content="<?php echo $socialimage_url ?>"/>
 	<meta property="og:image:alt" content="<?php echo $socialimage_alt ?>" />
     <meta property="og:url" content="https://clagnut.com/blog/<?php echo $blog_id ?>"/>
@@ -161,19 +162,21 @@ if (isset($flickr)) {
 	*/	
 	?>
 </ul>
-		
-<p class="comment">
-<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut https://clagnut.com/blog/<?php echo $blog_id ?>" class="icon"><img src="/i/icon-twitter.svg" alt="Twitter"></a>
-<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut https://clagnut.com/blog/<?php echo $blog_id ?>">Comment via Twitter</a></p>
+
+<ul>
+<li class="comment icon">
+<a href="https://twitter.com/intent/tweet?text=<?php echo $post_headtitle[$blog_id] ?> by @clagnut https://clagnut.com/blog/<?php echo $blog_id ?>"><img src="/i/icon-twitter.svg" alt="Twitter"> Comment via Twitter</a>
+</li>
 
 <?php // build Mastodon link
 $mastodonLink = "text=" . $post_headtitle[$blog_id] . " by @Richr@mastodon.social" . "&url=https://clagnut.com/blog/" . $blog_id;
 ?>
 
-<p class="comment">
-<a href="https://mastodon.social/share?<?php echo $mastodonLink ?>" data-src="<?php echo $mastodonLink ?>" class="commentonmastodon icon"><img src="/i/icon-mastodon" alt="Mastodon"></a>
-<a href="https://mastodon.social/share?<?php echo $mastodonLink ?>" data-src="<?php echo $mastodonLink ?>" class="commentonmastodon">Comment via Mastodon</a>
-</p>
+<li class="comment icon">
+<a href="https://mastodon.social/share?<?php echo $mastodonLink ?>" data-src="<?php echo $mastodonLink ?>"><img src="/i/icon-mastodon" alt="Mastodon"> Comment via Mastodon</a>
+</li>
+
+</ul>
 	
 </aside>
 

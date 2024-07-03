@@ -16,6 +16,61 @@
 					<height>31</height>
 				</image>
 		<item>
+			<pubDate>Fri, 14 Jun 2024 08:47:36 PST</pubDate>
+			<title>Use of ch unit considered harmful</title>
+			<link>https://clagnut.com/blog/2429/</link>
+			<guid>https://clagnut.com/blog/2429/</guid>
+			<description><![CDATA[<section><div class='prose'><p>When did we start using the ch unit to specify the maximum length for a line of text? Many <a href="https://every-layout.dev/rudiments/axioms/#global-defaults">places</a> you look nowadays you'll see a variation on:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.prose {
+  max-inline-size: 60ch;
+}
+</code></pre></div></figure>
+
+<p>Is it because of a direct reading of <a href="https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style">Bringhurst</a> and people (<a href="http://webtypography.net/2.1.2">like me</a>) who’ve quoted him:</p>
+
+<blockquote>
+  <p>Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed text face in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. For multiple column work, a better average is 40 to 50 characters.</p>
+</blockquote>
+
+<p>I get it: there’s all that talk of ‘characters’. But that’s not what Bringhurst means literally. I’ll come back to that shortly.</p>
+
+<p>Firstly let’s remind ourselves about the <abbr class='c2sc'>CSS</abbr> <code>ch</code> unit. While <code>ch</code> sounds like it should equate to a number of characters or a character width, that’s not strictly the case. The <code>ch</code> unit <a href="https://www.w3.org/TR/css-values-3/#ch">specifically</a> refers to the width of the zero ‘0’ character within the selected font, or <code>0.5em</code> if no ‘0’ is present. So unless you have a line made up entirely of zeroes, or are using a monospaced font, a width of <code>66ch</code> will probably not give you a line containing 66 characters. What’s more, the rendered width of that line will vary with the font design, sometimes significantly.</p>
+
+<figure>
+    <img loading='lazy' src='/images/2432/1-ems-ch.svg' alt='Screenshot of two paragraphs, one wider than the other.' style='background-color:#fff; width:100%; max-width:30rem; padding:0.5rem' />
+<figcaption>Two text blocks are set to 34 ch wide, but the use of a condensed font (top) and an expanded font (bottom) makes the rendered width narrower and wider respectively.</figcaption>
+</figure>
+
+<p>The important part of Bringhurst’s guideline is not the ’66-characters’ but the ‘satisfactory length’. This is about readability, and readability is affected by the length of a line more so than the number of characters in it.</p>
+
+<blockquote class='quoted'><p>A consistent finding is that <strong>long line lengths</strong> on screen are least preferred or judged as <strong>least easy</strong> to read [my emphasis]</p><footer>— <a href="https://legible-typography.com/en/6-overview-of-research-typography#line-length">Legibility</a> by <cite> Mary C. Dyson </cite></footer></blockquote>
+
+<p>With that in mind, restricting your line length using <code>rem</code> would be a far more appropriate unit to use:</p>
+
+<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.prose {
+  max-inline-size: 30rem;
+}
+</code></pre></div></figure>
+
+<p>This would give you a line length accessibly tied to text size, but independent of font design.</p>
+
+<h2>But is using ch&nbsp;harmful?</h2>
+
+<p>Bringhurst’s guideline includes this little caveat: <q>a page set in a serifed text face in a text size.</q> This enables him to equate the number of characters in a line with its length. So if you are using a fairly standard typeface for your text then you’ll probably be fine. However that ‘standard typeface’ assumption is implicit anytime you use <code>ch</code> to set the width of a column of text. Using <code>rem</code> removes that assumption and gives you what you are probably really after – a consistent, predictable limit on line length.</p>
+
+<p>It didn’t surprise me to find that <a href="https://meyerweb.com/eric/">Eric Meyer</a> had <a href="https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/">written about this</a> six years ago. I’ll leave you with an important observation from his post:</p>
+
+<blockquote>
+  <p>If you’re working with multiple typefaces, say one for headlines and another for body copy, be careful about setting <code>ch</code> measures and thinking they’ll be equivalent between the two fonts.  The odds are very, very high they won’t be.</p>
+</blockquote>
+
+<p><strong>So is using ch harmful?</strong> At the risk of saying <em>it depends</em>, it might not be harmful, but it could be, and there is a far more reliable and appropriate unit to use by way of the <code>rem</code>.</p></div></section>
+<p><a href='https://clagnut.com/blog/2429/'>Read or add comments</a></p>]]></description>
+			<category domain="https://clagnut.com/archive/typography/">Typography</category>
+			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
+		</item>
+		<item>
 			<pubDate>Fri, 01 Mar 2024 20:00:36 PST</pubDate>
 			<title>Retrofitting fluid typography</title>
 			<link>https://clagnut.com/blog/2428/</link>
@@ -269,65 +324,6 @@ date    { margin-block-end: var(--space-xs); }
 
 <p>Algorithms such as Knuth-Plass wonâ€™t necessarily eliminate widows and orphans, but might go some way to doing so. The reluctance to using such approaches is understandable, however, as they can be extremely demanding: the processing requirements increase quadratically with the paragraph length. That said, a value such as <code>pretty</code> gives the option to choose different text wrapping procedures depending on conditions (resident processing power, length of text, etc). One day perhaps. Meanwhile Iâ€™d settle for direct control over widows and orphans in text blocks.</p></div></section>
 <p><a href='https://clagnut.com/blog/2424/'>Read or add comments</a></p>]]></description>
-			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
-			<category domain="https://clagnut.com/archive/typography/">Typography</category>
-			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
-		</item>
-		<item>
-			<pubDate>Fri, 10 Feb 2023 10:35:48 PST</pubDate>
-			<title>Font optical sizing bug in Safari 16</title>
-			<link>https://clagnut.com/blog/2423/</link>
-			<guid>https://clagnut.com/blog/2423/</guid>
-			<description><![CDATA[<section><div class='prose'><p><ins><strong>Update</strong>: as of Safari 16.4, this bug <a href="https://github.com/WebKit/WebKit/pull/10126">has been fixed</a>. I've updated the code snippet to reflect this. Thanks to the efforts of Myles and team for turning this around so quickly.</ins></p>
-
-<p>In my <a href="https://clagnut.com/blog/2422">previous post</a> I extolled the virtues of Literataâ€™s font optical sizing, in particular how it worked automatically in the browser. By â€˜itâ€™ I mean how the corresponding style was chosen along the optical size axis of the variable font, based on type size.</p>
-
-<figure>
-    <img loading='lazy' src="https://clagnut.com/images/2423/literata-optical-axis.png" alt="Four type styles in a line, ranging from low contrast on the left to high contrast on the right."/>
-    <figcaption>
-        Literataâ€™s optical size axis from <7px to >72px. Image Â©TypeTogether.
-    </figcaption>
-</figure>
-
-<p>This behaviour is turned on by default, but if you wanted to turn off the automatic optical sizing, you can use this declaration, the effect being to style text as if it were set at 12px:</p>
-
-<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: none;
-</code></pre></div></figure>
-
-<p>And you can turn it back on with:</p>
-
-<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">font-optical-sizing: auto;
-</code></pre></div></figure>
-
-<p>Automatic selection of optical size styles in a variable font has been supported in browsers since at least 2020. That is until the release of Safari 16 with macOS Ventura. A regression was inadvertently introduced meaning the browser acted as if <code>font-optical-sizing</code> was turned off. <a href="https://bugs.webkit.org/show_bug.cgi?id=247987">The bug</a> was an unintened consequence of improvements being made to <a href="https://developer.apple.com/documentation/coretext">Core Text</a>. Fortunately itâ€™s being actively fixed.</p>
-
-<p>So what to do in the meantime? The answer is to use the low level <code>font-variation-settings</code> property to manually set the optical size. I only want to do this for Safari 16.1, 16.2 and 16.3, so firstly I use a bit of clunky user agent sniffing to set a root-level class accordingly:</p>
-
-<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-html">&lt;script&gt;
-var root = document.getElementsByTagName('html')[0];
-if (navigator.userAgent.indexOf('Safari') != -1 &amp;&amp;
-    navigator.userAgent.indexOf('Chrome') == -1 &amp;&amp;
-    ( (navigator.userAgent.indexOf('Version/16.1') != -1) ||
-      (navigator.userAgent.indexOf('Version/16.2') != -1) ||
-      (navigator.userAgent.indexOf('Version/16.3') != -1) )  {
-    root.classList.add("isSafari16");
-}
-&lt;/script&gt;
-</code></pre></div></figure>
-
-<p>Then I style my headings and body text according to the most appropriate style along the optical size axis:</p>
-
-<figure class="pre"><div data-element="code-block"><div class="code-block__header"><div role="alert"></div></div><pre><code class="language-css">.isSafari16 h1 { font-variation-settings: "opsz" 60; }
-.isSafari16 h2 { font-variation-settings: "opsz" 35; }
-.isSafari16 h3 { font-variation-settings: "opsz" 30; }
-.isSafari16 body { font-variation-settings: "opsz" 25; }
-.isSafari16 footer { font-variation-settings: "opsz" 12; }
-</code></pre></div></figure>
-
-<p>This works well, but because the styles are being manually applied to selected elements, rather than automatically on a text size basis, some subtle differences are lost with the responsive text sizing Iâ€™m applying.</p>
-
-<p>Itâ€™ll do for now, and hopefully the situation will be fixed for the release of Safari 17. <ins><strong>Update</strong>: It was fixed by version 16.4!</ins></p></div></section>
-<p><a href='https://clagnut.com/blog/2423/'>Read or add comments</a></p>]]></description>
 			<category domain="https://clagnut.com/archive/browsers/">Browsers</category>
 			<category domain="https://clagnut.com/archive/typography/">Typography</category>
 			<category domain="https://clagnut.com/archive/css_techniques/">CSS techniques</category>
