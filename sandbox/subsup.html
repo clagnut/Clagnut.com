@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+@font-face {
+	font-family: "Literata";
+	src: url("/fonts/Literata-var.woff2") format('woff2') tech(variations),
+		 url('/fonts/Literata-var.woff2') format('woff2-variations');
+	font-weight: 1 1000;
+	font-style: normal;
+	font-display: block;
+}
+
+
+@font-face {
+	font-family: 'Inconsolata';
+	src:	url('/fonts/Inconsolata.woff2') format('woff2') tech(variations),
+			url('/fonts/Inconsolata.woff2') format('woff2-variations');
+	font-weight: 1 1000;
+	font-stretch: 50% 200%;
+	font-style: normal;
+	font-display: fallback;
+	size-adjust:110%;
+}
+
+body {
+	font-family: "Literata", ui-serif, serif;
+}
+
+code {
+	font-family: "Inconsolata", ui-monospace, monospace;
+	font-stretch: 90%;
+}
+
+h1 {
+	text-align:center;
+}
+
+section {
+	max-width: 40rem;
+	margin-inline:auto;
+}
+
+.example {
+	font-size: 3em;
+}
+
+.example > * {
+	margin-block:0;
+}
+
+figure {
+	margin-inline:0;
+}
+
+@supports ( font-variant-position:sub ) {
+	sub {
+		vertical-align: baseline;
+		font-size: 100%;
+		line-height: inherit;
+		font-variant-position: sub;
+	}
+}
+
+@supports ( font-variant-position: super ) {
+	sup {
+		vertical-align: baseline;
+		font-size: 100%;
+		line-height: inherit;
+		font-variant-position: super;
+	}
+}
+
+</style>
+</head>
+<body>
+<h1>Testing support for <code>font-variant-position</code></h1>
+<section>
+<p>Super and subscript characters available in the webfont are <sup>0123456789()</sup>. These should be used unless other characters are present within the <code>sub</code> element, in which case the entire string should be synthesized. As per <a href="https://www.w3.org/TR/css-fonts-4/#font-variant-position-prop">the CSS Fonts Module Level 4 spec</a>:</p>
+
+<blockquote cite="https://www.w3.org/TR/css-fonts-4/#font-variant-position-prop">
+<p>Because of the semantic nature of subscripts and superscripts, when the value [of <code>font-variant-position</code>] is either sub or super for a given contiguous run of text, if a variant glyph is not available for all the characters in the run, simulated glyphs should be synthesized for all characters using reduced forms of the glyphs that would be used without this feature applied. </p>
+</blockquote>
+
+<h2>As it renders in this browser</h2>
+
+<div class="example">
+<p>2a<sup>2</sup> a<sup>2a</sup> a<sup>(2)</sup> a<sup>(2a)</sup> a<sup>[2]</sup></p>
+</div>
+
+<h2>What it should look like</h2>
+<figure>
+<img src="superscripts-correct.png" alt="Various superscript examples showing how '2' on its own is rendered using the proper superscript character, but '2a' is all synthesized." style="width:23.9375rem">
+<figcaption>(screenshot from Firefox 129b/Mac)</figcaption>
+</figure>
+
+</section>
+</body>
+</html>
