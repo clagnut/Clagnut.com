@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
+<title>Testing support for font-variant-position</title>
 <style>
 @font-face {
 	font-family: "Literata";
@@ -94,6 +95,8 @@ figure {
 <img src="superscripts-correct.png" alt="Various superscript examples showing how '2' on its own is rendered using the proper superscript character, but '2a' is all synthesized." style="width:23.9375rem">
 <figcaption>(screenshot from Firefox 129b/Mac)</figcaption>
 </figure>
+
+<p>This is logged as a bug in <a href="https://issues.chromium.org/issues/352218916">Blink</a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=151471">Webkit</a>.
 
 </section>
 </body>
