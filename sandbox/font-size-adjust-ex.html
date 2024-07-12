@@ -6,11 +6,13 @@
 <title>Aspect ratio calculator for font-size-adjust</title>
 
 <style>
+
 body {
-	font-family: "Seravek", "Calibri", "PT Sans", "Roboto", sans-serif;
+	font-family: ui-sans-serif, sans-serif;
+	line-height:1.5;
 }
 code {
-	font-family: inconsolata, consolas, "andale mono", "droid sans mono", menlo, monospace;	
+	font-family: ui-monospace, monospace;	
 }
 .prose {
 	max-width: 50%;
@@ -27,6 +29,9 @@ form {
 input, select {
 	font-size: 100%;
 	font-family: inherit;
+}
+.label-control {
+	margin-block-end:0.5em;
 }
 .submit {
 	font-size: 1.25rem;
@@ -68,6 +73,8 @@ input, select {
 <section class="prose">
 <h1>Aspect value calculator</h1>
 
+<p><strong>This only works in Chrome now, as other browsers won't render local fonts due to fingerprinting concerns.</strong></p>
+
 <p>The <code>font-size-adjust</code> CSS3 property allows you to specify the <em>aspect value</em> for a font. Browsers that support this property will adjust the x-height of a fallback font to match that of your desired font. By using this property you can ensure that font metrics are more consistent throughout a font-stack.</p>
 <p>This tool calculates the <strong>aspect value</strong> for any font installed on your machine. Use this value as your <code>font-size-adjust</code> number.</p>
 
@@ -79,21 +86,23 @@ input, select {
 <fieldset>
 <legend>Font</legend>
 <div class="label-control">
-<label>font-family</label>
+<label>font-family
 <input type="text" id="fontFamily" size="20" value="Verdana" onchange="getFSA()">
+</label>
 </div>
 
 <div class="label-control">
-<label>font-style</label>
+<label>font-style
 <select id="fontStyle" onchange="getFSA()">
 	<option value="normal" selected="selected">normal</option>
 	<option value="italic">italic</option>
 	<option value="oblique">oblique</option>
 </select>
+</label>
 </div>
 
 <div class="label-control">
-<label>font-weight</label>
+<label>font-weight
 <select id="fontWeight" onchange="getFSA()">
 	<option value="normal" selected="selected">normal</option>
 	<option value="bold">bold</option>
@@ -107,7 +116,16 @@ input, select {
 	<option value="800">800</option>
 	<option value="900">900</option>
 </select>
+</label>
 </div>
+
+<div class="label-control">
+<label>optical size
+<input type="number" id="opsz" size="5" value="" onchange="getFSA()">
+</label>
+</div>
+
+
 </fieldset>
 
 <p class="submit"><input type="submit" value="Calculate aspect value"> » <input type="text" id="fsa" style="width:3em"></p>
@@ -136,18 +154,26 @@ function updateFont() {
     var fontFamilyInput = document.getElementById("fontFamily").value;
 	var fontWeightInput = document.getElementById("fontWeight").value;
 	var fontStyleInput = document.getElementById("fontStyle").value;
+	var opszInput = document.getElementById("opsz").value;
+	if (opszInput == "") {
+		opszValue = '';
+	} else {
+		opszValue = '"opsz" ' + opszInput;
+	}
 	var newfontFamily = fontFamilyInput + ", 'Comic Sans MS'";
 	document.getElementById("x").style.fontFamily = newfontFamily;
 	document.getElementById("x").style.fontWeight = fontWeightInput;
 	document.getElementById("x").style.fontStyle = fontStyleInput;
+	document.getElementById("x").style.fontVariationSettings = opszValue;
 	document.getElementById("fsa").value = "";
 	
 	document.getElementById("input").style.fontFamily = newfontFamily;
 	document.getElementById("input").style.fontWeight = fontWeightInput;
 	document.getElementById("input").style.fontStyle = fontStyleInput;
+	document.getElementById("input").style.fontVariationSettings = opszValue;
 	if (fontWeightInput == "normal") {fontWeightInput = "";}
 	if (fontStyleInput == "normal") {fontStyleInput = "";}
-	var input = fontFamilyInput + " " + fontWeightInput + " " + fontStyleInput;
+	var input = fontFamilyInput + " " + fontWeightInput + " " + fontStyleInput + " " + opszValue;
 	document.getElementById("input").innerHTML = input;
 }
 
@@ -160,8 +186,7 @@ function getFSA(setFocus) {
     document.getElementById("fsa").value = "";
     
     var aspectratio = compare.offsetHeight / original.offsetHeight;
-    console.log(original.offsetHeight);
-    document.getElementById("fsa").value = Math.round(aspectratio*1000)/1000;;
+    document.getElementById("fsa").value = Math.round(aspectratio*1000)/1000;
     
     if (setFocus == true) {
         document.getElementById("fsa").select();
