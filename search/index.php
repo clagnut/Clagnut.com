@@ -114,16 +114,16 @@ include($dr . "header.inc.php");
 
 <h1><?php
 if ($q) {
-	echo "Search for ‘".$q."’";
+	echo "<label for='q'>Search</label> for ‘".$q."’";
 } else {
-	echo "Search the blog";
+	echo "<label for='q'>Search</label> the blog";
 }
 ?></h1>
 
 <div class="center">
 <search>
 <form action="/search/" method="get" class="search">
-<input type="text" name="q" value="<?php echo $q ?>" placeholder="type something" autofocus /><input type="submit" value="Search" />
+<input type="text" name="q" id="q" value="<?php echo $q ?>" placeholder="type something" autofocus /><input type="submit" value="Search" />
 </form>
 </search>
 </div>
