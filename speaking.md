@@ -1,12 +1,17 @@
 <strong class="intro">Hi, I’m <a class="url uid" rel="me" href="https://clagnut.com"><span class="fn">Richard Rutter</span></a>. I talk about digital design at conferences and events all over the world.</strong>
 
-I’m particularly passionate about both service design and web typography (which I’ve been evangelising since 2005).
+I’m particularly passionate about service design and web typography (which I’ve been evangelising since 2005).
 
 If you’re interested in having me speak at your event **[please get in touch](#contact)**. I’m equally happy at grassroots meet-ups as I am at global conferences.
 
+## Upcoming appearances
+
+- [State of the Browser](https://2024.stateofthebrowser.com/speaker/richard-rutter/) · _September 2024_, London, UK 🇬🇧
+- [c’t &lt;webdev&gt;](https://ctwebdev.de/sessions24/fluid-typography-and-its-role-in-design-systems/) · _November 2024_, Cologne, Germany 🇩🇪
+
 ## About me
 
-I'm a designer living in <span class="adr"><span class="locality">Brighton</span>, <span class="country-name c2sc">UK</span></span>. In 2005, I co-founded <a href="https://clearleft.com/">Clearleft</a>, now one of the world’s leading digital design consultancies. Clearleft has given the me the opportunity to work with some of the world’s most iconic organisations, including Virgin Atlantic, the United Nations, University College London <abbr class="c2sc">(UCL)</abbr>, Penguin Random House, J.P. Morgan, Natural History Museum, the BBC, and the Wellcome Trust.
+I'm a designer living in <span class="adr"><span class="locality">Brighton</span>, <span class="country-name c2sc">UK</span></span>. In 2005, I co-founded <a href="https://clearleft.com/">Clearleft</a>, now one of the world’s leading digital design consultancies. Clearleft has given the me the opportunity to work with some of the world’s most iconic organisations, including the Natural History Museum, Virgin Atlantic, the United Nations, University College London <abbr class="c2sc">(UCL)</abbr>, Penguin Random House, J.P. Morgan, the BBC, and the Wellcome Trust.
 
 I love to combine my fascination for typography with my belief in the Web as a force for good. As a self-appointed web typography evangelist, I am chief organiser of Clearleft’s [Ampersand](https://ampersandconf.com/) web typography conferences. I also cofounded Fontdeck, a pioneering web font service. A few years ago I realised a dream and published my book [Web Typography](https://book.webtypography.net/) to much acclaim.
 
@@ -14,11 +19,15 @@ A few years ago I was named as one of [Wired UK’s top 100](https://www.wired.c
 
 _When not at work, I can be found enjoying life with my family in Brighton, scouring local record shops for vinyl, or riding bicycles up and down hills._
 
+### No AI content
+
+Unless stated, the contents of this website has been written without the use of generative artificial intelligence <abbr class="c2sc">(GAI)</abbr> or any large language models <abbr class="c2sc">(LLM)</abbr>. I do not give consent for any content on this website to be used to train LLMs.
+
 ## Contact {#contact}
 
 <div class="contactcard">
 
-<p>Drop an email to <a class="email" href="mailto:&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;">&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;</a>, toot <a href="https://mastodon.social/@Richr">@richr@mastodon.social</a> or tweet <a href="https://twitter.com/clagnut">@clagnut</a> (if you must).</p>
+<p>Drop an email to <a class="email" href="mailto:&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;">&#114;&#105;&#99;&#104;&#64;&#99;&#108;&#101;&#97;&#114;&#108;&#101;&#102;&#116;&#46;&#99;&#111;&#109;</a> or toot <a href="https://mastodon.social/@Richr">@richr@mastodon.social</a>.</p>
 
 </div>
 
@@ -26,7 +35,7 @@ _When not at work, I can be found enjoying life with my family in Brighton, scou
 
 ### 2024
 
-- [Patterns Day](https://leadingdesign.com/conferences/new-york-2022/speakers/rich-rutter/#collaborative-frameworks-for-your-design-teams-personal-developmen) · _March_, Brighton, UK 🇬🇧
+- [Patterns Day](https://patternsday.com/#speakers) · _March_, Brighton, UK 🇬🇧
 
 ### 2022
 
