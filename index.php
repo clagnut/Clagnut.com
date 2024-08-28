@@ -108,12 +108,12 @@ if (isset($blogpostids)) {
 
 <h3>Me Elsewhere</h3>
 <ul role="list">
-	<li><a href="https://twitter.com/clagnut" class="icon" rel="me"><img src="/i/icon-twitter.svg" alt="twitter"></a> <a href="https://twitter.com/clagnut" rel="me">Twitter</a></li>
-	<li><a href="https://mastodon.social/@Richr" class="icon" rel="me"><img src="/i/icon-mastodon.svg" alt="mastodon"></a> <a href="https://mastodon.social/@Richr" rel="me">Mastodon</a></li>
-    <li><a href="https://flickr.com/photos/clagnut" class="icon" rel="me"><img src="/i/icon-flickr.svg" alt="flickr"></a> <a href="https://flickr.com/photos/clagnut" rel="me">Flickr</a></li>
-    <li><a href="https://github.com/clagnut" class="icon" rel="me"><img src="/i/icon-github.svg" alt="github"></a> <a href="https://github.com/clagnut" rel="me">Github</a></li>
-    <li><a href="https://strava.com/athletes/clagnut" class="icon" rel="me"><img src="/i/icon-strava.svg" alt="strava"></a> <a href="https://strava.com/athletes/clagnut" rel="me">Strava</a></li>
-	<li><a href="https://linkedin.com/in/richardrutter" class="icon" rel="me"><img src="/i/icon-linkedin.svg" alt="linkedin"></a> <a href="https://linkedin.com/in/richardrutter" rel="me">LinkedIn</a></li>
+	<li class="icon"><a href="https://twitter.com/clagnut" rel="me"><img src="/i/icon-twitter.svg" alt="twitter">Twitter</a></li>
+	<li class="icon"><a href="https://mastodon.social/@Richr" rel="me"><img src="/i/icon-mastodon.svg" alt="mastodon">Mastodon</a></li>
+    <li class="icon"><a href="https://flickr.com/photos/clagnut" rel="me"><img src="/i/icon-flickr.svg" alt="flickr">Flickr</a></li>
+    <li class="icon"><a href="https://github.com/clagnut" rel="me"><img src="/i/icon-github.svg" alt="github">Github</a></li>
+    <li class="icon"><a href="https://strava.com/athletes/clagnut" rel="me"><img src="/i/icon-strava.svg" alt="strava">Strava</a></li>
+	<li class="icon"><a href="https://linkedin.com/in/richardrutter" rel="me"><img src="/i/icon-linkedin.svg" alt="linkedin">LinkedIn</a></li>
 </ul>
 
 <h3>Latest listening</h3>
@@ -126,7 +126,7 @@ if (isset($lastfm)) {
 ?>
 
 <ul>
-    <li><a href="http://last.fm/user/clagnut" class="icon" rel="me"><img src="/i/icon-lastfm.svg" alt="last fm"></a> <a href="http://last.fm/user/clagnut" rel="me">Last.fm</a></li>
+	<li class="icon"><a href="http://last.fm/user/clagnut" rel="me"><img src="/i/icon-lastfm.svg" alt="last fm">Last.fm</a></li>
 </ul>
 </div>
 
