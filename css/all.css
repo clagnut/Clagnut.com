@@ -451,6 +451,7 @@ h1 {
 	margin-block-end: max(1.5em, 7vh);
 	padding-inline-start: max(5%, var(--textgrid-body-flow));
 	padding-inline-end: max(5%, var(--textgrid-body-flow));
+	font-variant-ligatures: discretionary-ligatures;
 }
 
 h1 span {
@@ -525,7 +526,7 @@ blockquote.quoted {
     content: close-quote;
 }
 .quoted p:first-of-type::before {
-    margin-inline-start: -0.83ch;
+    margin-inline-start: -0.87ch;
 }
 .quoted p {
     hanging-punctuation: first last;
@@ -686,7 +687,7 @@ input {
 	font-stretch: 85%;
 	color: var(--colour-note);
 	font-size: var(--step--1);
-	line-height: var(--textgrid-sm);
+	line-height: var(--textgrid-sm-looser);
 	border-bottom: 1px solid var(--colour-line-light);
 	padding-bottom: 0.333333em;
 	margin-block-end: var(--textgrid-body);
@@ -845,21 +846,21 @@ aside.meta {
 	text-indent: 1.2em hanging;
 }
 
-.comment + .comment {
-	margin-block-start:0;
+.icon {
+	--iconsize: 1.5cap;
 }
 
-.icon {
-	display: inline-block;
-	width: 1em;
-	text-align: center;
-	margin-inline-end: 0.25em;
+.icon a, a.icon {
+	display: grid;
+	grid-template-columns: var(--iconsize, 1em) 1fr;
+	align-items: center;
+	gap:0.5em
 }
 
 .icon img, .icon svg {
-	max-height: 0.9em;
-	max-width: 1em;
-	vertical-align: baseline;
+    max-height: var(--iconsize, 1em);
+    max-width: var(--iconsize, 1em);
+	justify-self:center;
 }
 
 .comment a {
@@ -1035,8 +1036,11 @@ header.global, footer.global {
 
 .masthead nav {
 	font-size: var(--step--1);
-	line-height: var(--textgrid-sm);	
+	line-height: var(--textgrid-sm-looser);	
 	margin-block-start: 0.25em;
+	display: flex;
+	gap:0.25em;
+	align-items: center;
 }
 
 header.global a {
@@ -1049,6 +1053,10 @@ header.global a {
 header.global a:hover, header.global a:active, header.global a:focus {
 	opacity: 1;
 	text-decoration-color: var(--colour-headfoot);
+}
+
+.searchlink.icon {
+	gap:0.25em;
 }
 
 #logo {
@@ -1068,11 +1076,6 @@ header.global a:hover, header.global a:active, header.global a:focus {
 #logo a:hover, #logo a:focus {	
 	text-shadow: 0px 0px 0.1em rgba(255, 255, 255, 0.5);
 	opacity: 1;
-}
-
-.searchlink svg {
-	width: 1em;
-	height: 1em;
 }
 
 @media all and (max-width: 22em) {
@@ -1104,11 +1107,17 @@ footer.global a:hover, footer.global a:active, footer.global a:focus {
 }
 
 footer .icons {
+	display: flex;
 	min-width: 4em;
 }
 
 footer .icon {
 	margin-inline: 0.25em;
+}
+
+footer .icon img {
+	height: var(--iconsize, 1em);
+	max-width: none;
 }
 
 /* @end */
